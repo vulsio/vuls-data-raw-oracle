@@ -1,0 +1,158 @@
+{
+  "id": "oval:com.oracle.elsa:def:20142023",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2014-2023:  glibc security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2014-2023",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2014-2023.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-7817",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2014-7817.html"
+      }
+    ],
+    "description": "\n[2.17-55.0.4.el7_0.3]\n- Remove strstr and strcasestr implementations using sse4.2 instructions.\n- Upstream commits 584b18eb4df61ccd447db2dfe8c8a7901f8c8598 and\n  1818483b15d22016b0eae41d37ee91cc87b37510 backported. (Jose E. Marchesi)\n\n[2.17-55.3]\n- Fix wordexp() to honour WRDE_NOCMD (CVE-2014-7817, #1170118)\n\n[2.17-55.2]\n- ftell: seek to end only when there are unflushed bytes (#1170187).\n\n[2.17-55.1]\n- Remove gconv transliteration loadable modules support (CVE-2014-5119,\n  - _nl_find_locale: Improve handling of crafted locale names (CVE-2014-0475,\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2014 Oracle, Inc.",
+      "issued": {
+        "date": "2014-12-18"
+      },
+      "cve": [
+        {
+          "text": "CVE-2014-7817",
+          "href": "https://linux.oracle.com/cve/CVE-2014-7817.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023003",
+                    "comment": "glibc is earlier than 0:2.17-55.0.4.el7_0.3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023004",
+                    "comment": "glibc is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023005",
+                    "comment": "glibc-common is earlier than 0:2.17-55.0.4.el7_0.3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023006",
+                    "comment": "glibc-common is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023007",
+                    "comment": "glibc-devel is earlier than 0:2.17-55.0.4.el7_0.3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023008",
+                    "comment": "glibc-devel is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023009",
+                    "comment": "glibc-headers is earlier than 0:2.17-55.0.4.el7_0.3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023010",
+                    "comment": "glibc-headers is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023011",
+                    "comment": "glibc-static is earlier than 0:2.17-55.0.4.el7_0.3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023012",
+                    "comment": "glibc-static is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023013",
+                    "comment": "glibc-utils is earlier than 0:2.17-55.0.4.el7_0.3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023014",
+                    "comment": "glibc-utils is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023015",
+                    "comment": "nscd is earlier than 0:2.17-55.0.4.el7_0.3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20142023016",
+                    "comment": "nscd is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20142023002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20142023001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

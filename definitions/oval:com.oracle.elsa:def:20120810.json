@@ -1,0 +1,149 @@
+{
+  "id": "oval:com.oracle.elsa:def:20120810",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2012-0810:  busybox security and bug fix update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2012-0810",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2012-0810.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2006-1168",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2006-1168.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2716",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2011-2716.html"
+      }
+    ],
+    "description": "\n[1:1.15.1-15]\n- Fix btrfs support to findfs and related applets\n- Resolves: #751927\n\n[1:1.15.1-14]\n- Resolves: #790335 'busybox various flaws'\n  Added a fix for SEGV on empty command in hush\n\n[1:1.15.1-13]\n- Resolves: #790335 'busybox various flaws' including:\n  'buffer underflow in decompression'\n  'udhcpc insufficient checking of DHCP options'\n\n[1:1.15.1-12]\n- Backport 'set -o pipefail' support\n- Resolves: #782018\n- Add btrfs support to findfs and related applets\n- Resolves: #751927\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2012 Oracle, Inc.",
+      "issued": {
+        "date": "2012-06-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2006-1168",
+          "href": "https://linux.oracle.com/cve/CVE-2006-1168.html"
+        },
+        {
+          "text": "CVE-2011-2716",
+          "href": "https://linux.oracle.com/cve/CVE-2011-2716.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810003",
+                        "comment": "busybox is earlier than 1:1.15.1-15.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810004",
+                        "comment": "busybox is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810005",
+                        "comment": "busybox-petitboot is earlier than 1:1.15.1-15.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810006",
+                        "comment": "busybox-petitboot is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20120810002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810003",
+                        "comment": "busybox is earlier than 1:1.15.1-15.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810004",
+                        "comment": "busybox is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810005",
+                        "comment": "busybox-petitboot is earlier than 1:1.15.1-15.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120810006",
+                        "comment": "busybox-petitboot is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20120810007",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20120810001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

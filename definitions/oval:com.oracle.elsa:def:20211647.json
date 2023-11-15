@@ -1,0 +1,769 @@
+{
+  "id": "oval:com.oracle.elsa:def:20211647",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-1647:  samba security, bug fix, and enhancement update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-1647",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-1647.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-1472",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-1472.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14318",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-14318.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14323",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-14323.html"
+      }
+    ],
+    "description": "\nopenchange\n[2.3-27.0.1]\n- Use ldconfig_scriptlets\n\n[2.3-27]\n- Rebuild for newer samba\n\nsamba\n[4.13.3-3]\n- resolves: #1924615 - Fix a memcache bug when cache is full\n- resolves: #1924571 - Ensure that libwbclient has been updated before\n                       restarting services\n\n[4.13.3-2]\n- resolves: #1909647 - Fix winbind in trust scenarios with connection issues\n\n[4.13.3-1]\n- related: #1878109 - Rebase Samba to version 4.13.3\n\n[4.13.2-5]\n- resolves: #1904174 - Fix ldap timeout with 'net ads join'\n\n[4.13.2-4]\n- resolves: #1902198 - Document weak crypto output of testparm\n\n[4.13.2-3]\n- resolves: #1899113 - Fix following dfs links with smb clients\n\n[4.13.2-2]\n- related: #1869702 - Fix spoolss crash\n- resolves: #1896736 - Fix name lookups of FreeIPA users\n- resolves: #1899113 - Fix DFS links\n\n[4.13.2-1]\n- resolves: #1878109 - Rebase Samba to version 4.13.2\n- resolves: #1872833 - Add samba-winexe subpackage\n- resolves: #1891688 - Fix CVE-2020-14323\n- resolves: #1892633 - Fix CVE-2020-14318\n- resolves: #1892639 - Fix CVE-2020-14383\n- resolves: #1879835 - Fix CVE-2020-1472\n- resolves: #1888990 - Update smb.conf manpages to describe how to apply\n                       config changes.\n- resolves: #1869702 - Fix %U substitution for 'valid users' option\n- resolves: #1818038 - Improve FIPS compliance\n\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-05-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-1472",
+          "href": "https://linux.oracle.com/cve/CVE-2020-1472.html"
+        },
+        {
+          "text": "CVE-2020-14318",
+          "href": "https://linux.oracle.com/cve/CVE-2020-14318.html"
+        },
+        {
+          "text": "CVE-2020-14323",
+          "href": "https://linux.oracle.com/cve/CVE-2020-14323.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647003",
+                        "comment": "ctdb is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647004",
+                        "comment": "ctdb is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647005",
+                        "comment": "ctdb-tests is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647006",
+                        "comment": "ctdb-tests is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647007",
+                        "comment": "libsmbclient is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647008",
+                        "comment": "libsmbclient is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647009",
+                        "comment": "libsmbclient-devel is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647010",
+                        "comment": "libsmbclient-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647011",
+                        "comment": "libwbclient is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647012",
+                        "comment": "libwbclient is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647013",
+                        "comment": "libwbclient-devel is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647014",
+                        "comment": "libwbclient-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647015",
+                        "comment": "openchange is earlier than 0:2.3-27.0.1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647016",
+                        "comment": "openchange is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647017",
+                        "comment": "python3-samba is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647018",
+                        "comment": "python3-samba is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647019",
+                        "comment": "python3-samba-test is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647020",
+                        "comment": "python3-samba-test is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647021",
+                        "comment": "samba is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647022",
+                        "comment": "samba is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647023",
+                        "comment": "samba-client is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647024",
+                        "comment": "samba-client is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647025",
+                        "comment": "samba-client-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647026",
+                        "comment": "samba-client-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647027",
+                        "comment": "samba-common is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647028",
+                        "comment": "samba-common is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647029",
+                        "comment": "samba-common-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647030",
+                        "comment": "samba-common-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647031",
+                        "comment": "samba-common-tools is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647032",
+                        "comment": "samba-common-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647033",
+                        "comment": "samba-devel is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647034",
+                        "comment": "samba-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647035",
+                        "comment": "samba-krb5-printing is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647036",
+                        "comment": "samba-krb5-printing is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647037",
+                        "comment": "samba-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647038",
+                        "comment": "samba-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647039",
+                        "comment": "samba-pidl is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647040",
+                        "comment": "samba-pidl is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647041",
+                        "comment": "samba-test is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647042",
+                        "comment": "samba-test is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647043",
+                        "comment": "samba-test-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647044",
+                        "comment": "samba-test-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647045",
+                        "comment": "samba-winbind is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647046",
+                        "comment": "samba-winbind is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647047",
+                        "comment": "samba-winbind-clients is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647048",
+                        "comment": "samba-winbind-clients is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647049",
+                        "comment": "samba-winbind-krb5-locator is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647050",
+                        "comment": "samba-winbind-krb5-locator is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647051",
+                        "comment": "samba-winbind-modules is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647052",
+                        "comment": "samba-winbind-modules is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20211647002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647003",
+                        "comment": "ctdb is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647004",
+                        "comment": "ctdb is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647005",
+                        "comment": "ctdb-tests is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647006",
+                        "comment": "ctdb-tests is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647007",
+                        "comment": "libsmbclient is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647008",
+                        "comment": "libsmbclient is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647009",
+                        "comment": "libsmbclient-devel is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647010",
+                        "comment": "libsmbclient-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647011",
+                        "comment": "libwbclient is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647012",
+                        "comment": "libwbclient is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647013",
+                        "comment": "libwbclient-devel is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647014",
+                        "comment": "libwbclient-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647015",
+                        "comment": "openchange is earlier than 0:2.3-27.0.1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647016",
+                        "comment": "openchange is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647017",
+                        "comment": "python3-samba is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647018",
+                        "comment": "python3-samba is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647019",
+                        "comment": "python3-samba-test is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647020",
+                        "comment": "python3-samba-test is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647021",
+                        "comment": "samba is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647022",
+                        "comment": "samba is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647023",
+                        "comment": "samba-client is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647024",
+                        "comment": "samba-client is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647025",
+                        "comment": "samba-client-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647026",
+                        "comment": "samba-client-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647027",
+                        "comment": "samba-common is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647028",
+                        "comment": "samba-common is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647029",
+                        "comment": "samba-common-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647030",
+                        "comment": "samba-common-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647031",
+                        "comment": "samba-common-tools is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647032",
+                        "comment": "samba-common-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647033",
+                        "comment": "samba-devel is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647034",
+                        "comment": "samba-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647035",
+                        "comment": "samba-krb5-printing is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647036",
+                        "comment": "samba-krb5-printing is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647037",
+                        "comment": "samba-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647038",
+                        "comment": "samba-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647039",
+                        "comment": "samba-pidl is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647040",
+                        "comment": "samba-pidl is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647041",
+                        "comment": "samba-test is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647042",
+                        "comment": "samba-test is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647043",
+                        "comment": "samba-test-libs is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647044",
+                        "comment": "samba-test-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647045",
+                        "comment": "samba-winbind is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647046",
+                        "comment": "samba-winbind is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647047",
+                        "comment": "samba-winbind-clients is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647048",
+                        "comment": "samba-winbind-clients is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647049",
+                        "comment": "samba-winbind-krb5-locator is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647050",
+                        "comment": "samba-winbind-krb5-locator is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647051",
+                        "comment": "samba-winbind-modules is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647052",
+                        "comment": "samba-winbind-modules is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647054",
+                        "comment": "samba-winexe is earlier than 0:4.13.3-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211647055",
+                        "comment": "samba-winexe is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20211647053",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20211647001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

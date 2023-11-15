@@ -1,0 +1,192 @@
+{
+  "id": "oval:com.oracle.elsa:def:20214408",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-4408:  libsolv security and bug fix update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-4408",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-4408.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3200",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-3200.html"
+      }
+    ],
+    "description": "\n[0.7.19-1]\n- Update to 0.7.19\n- repo_add_conda: add flag to skip v2 packages\n- fix rare segfault in resolve_jobrules() that could happen if new rules are learnt\n- fix error handling in solv_xfopen_fd()\n- fix memory leaks\n\n[0.7.17-2]\n- Fix rpm dependency\n\n[0.7.17-1]\n- Update to 0.7.17\n- selected bug fixes:\n  * repo_write: fix handling of nested flexarray\n  * improve choicerule generation a bit more to cover more cases\n  * harden testcase parser against repos being added too late\n  * support python-3.10\n  * check /var/lib/rpm macro in rpmdb code\n- new features:\n  * handle default/visible/langonly attributes in comps parser\n  * support multiple collections in updateinfo parser\n  * add '-D' option in rpmdb2solv to set the dbpath\n\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-11-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-3200",
+          "href": "https://linux.oracle.com/cve/CVE-2021-3200.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408003",
+                        "comment": "libsolv-devel is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408004",
+                        "comment": "libsolv-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408005",
+                        "comment": "libsolv-tools is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408006",
+                        "comment": "libsolv-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408007",
+                        "comment": "libsolv is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408008",
+                        "comment": "libsolv is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408009",
+                        "comment": "python3-solv is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408010",
+                        "comment": "python3-solv is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20214408002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408003",
+                        "comment": "libsolv-devel is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408004",
+                        "comment": "libsolv-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408005",
+                        "comment": "libsolv-tools is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408006",
+                        "comment": "libsolv-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408007",
+                        "comment": "libsolv is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408008",
+                        "comment": "libsolv is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408009",
+                        "comment": "python3-solv is earlier than 0:0.7.19-1.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214408010",
+                        "comment": "python3-solv is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20214408011",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20214408001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "id": "oval:com.oracle.elsa:def:20213145",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-3145:  .NET Core 2.1 security and bugfix update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-3145",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-3145.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-34485",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-34485.html"
+      }
+    ],
+    "description": "\n[2.1.525-1]\n- Update to .NET SDK 2.1.525 and Runtime 2.1.29\n- Resolves: RHBZ#1988581\n\n[2.1.524-1]\n- Update to .NET SDK 2.1.524 and Runtime 2.1.28\n- Resolves: RHBZ#1953766\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-08-12"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-34485",
+          "href": "https://linux.oracle.com/cve/CVE-2021-34485.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145003",
+                    "comment": "dotnet-host-fxr-2.1 is earlier than 0:2.1.29-1.el8_4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145004",
+                    "comment": "dotnet-host-fxr-2.1 is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145005",
+                    "comment": "dotnet-runtime-2.1 is earlier than 0:2.1.29-1.el8_4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145006",
+                    "comment": "dotnet-runtime-2.1 is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145007",
+                    "comment": "dotnet-sdk-2.1 is earlier than 0:2.1.525-1.el8_4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145008",
+                    "comment": "dotnet-sdk-2.1 is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145009",
+                    "comment": "dotnet-sdk-2.1.5xx is earlier than 0:2.1.525-1.el8_4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20213145010",
+                    "comment": "dotnet-sdk-2.1.5xx is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20213145002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20213145001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

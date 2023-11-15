@@ -1,0 +1,140 @@
+{
+  "id": "oval:com.oracle.elsa:def:20170654",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2017-0654:  coreutils security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2017-0654",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-0654.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-2616",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-2616.html"
+      }
+    ],
+    "description": "\n[8.4-46.0.1]\n- clean up empty file if cp is failed [Orabug 15973168]\n\n[8.4-46]\n- pure rebuild to bring back support for acl_extended_file_nofollow() on x86_64\n\n[8.4-45]\n- su: deny killing other processes with root privileges (CVE-2017-2616)\n\n[8.4-44]\n- fix the functionality of 'sort -h -k ...' in multi-byte locales (#1357979)\n- use correct path to grep(1) in colorls.sh (#1376892)\n- make colorls.sh compatible with ksh (#1321643)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2017 Oracle, Inc.",
+      "issued": {
+        "date": "2017-03-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2017-2616",
+          "href": "https://linux.oracle.com/cve/CVE-2017-2616.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654003",
+                        "comment": "coreutils is earlier than 0:8.4-46.0.1.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654004",
+                        "comment": "coreutils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654005",
+                        "comment": "coreutils-libs is earlier than 0:8.4-46.0.1.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654006",
+                        "comment": "coreutils-libs is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20170654002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654003",
+                        "comment": "coreutils is earlier than 0:8.4-46.0.1.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654004",
+                        "comment": "coreutils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654005",
+                        "comment": "coreutils-libs is earlier than 0:8.4-46.0.1.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170654006",
+                        "comment": "coreutils-libs is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20170654007",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20170654001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

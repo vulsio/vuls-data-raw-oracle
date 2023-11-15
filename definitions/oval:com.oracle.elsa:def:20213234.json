@@ -1,0 +1,75 @@
+{
+  "id": "oval:com.oracle.elsa:def:20213234",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-3234:  compat-exiv2-023 security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-3234",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-3234.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-31291",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-31291.html"
+      }
+    ],
+    "description": "\n[0.23-3]\n- Fix heap-based buffer overflow vulnerability in jp2image.cpp\n  Resolves: bz#1990393\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-08-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-31291",
+          "href": "https://linux.oracle.com/cve/CVE-2021-31291.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20213234003",
+                "comment": "compat-exiv2-023 is earlier than 0:0.23-2.el7_9"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20213234004",
+                "comment": "compat-exiv2-023 is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20213234002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20213234001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

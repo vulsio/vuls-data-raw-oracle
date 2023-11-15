@@ -1,0 +1,128 @@
+{
+  "id": "oval:com.oracle.elsa:def:20173368",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2017-3368:  qemu-kvm security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2017-3368",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-3368.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14167",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-14167.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-15289",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-15289.html"
+      }
+    ],
+    "description": "\n[1.5.3-141.el7_4.4]\n- kvm-multiboot-validate-multiboot-header-address-values.patch [bz#1501120]\n- Resolves: bz#1501120\n  (CVE-2017-14167 qemu-kvm: Qemu: i386: multiboot OOB access while loading kernel image [rhel-7.4.z])\n\n[1.5.3-141.el7_4.3]\n- kvm-bswap.h-Remove-cpu_to_32wu.patch [bz#1501294]\n- kvm-hw-use-ld_p-st_p-instead-of-ld_raw-st_raw.patch [bz#1501294]\n- kvm-vga-Start-cutting-out-non-32bpp-conversion-support.patch [bz#1501294]\n- kvm-vga-Remove-remainder-of-old-conversion-cruft.patch [bz#1501294]\n- kvm-vga-Separate-LE-and-BE-conversion-functions.patch [bz#1501294]\n- kvm-vga-Rename-vga_template.h-to-vga-helpers.h.patch [bz#1501294]\n- kvm-vga-stop-passing-pointers-to-vga_draw_line-functions.patch [bz#1501294]\n- kvm-vga-drop-line_offset-variable.patch [bz#1501294]\n- kvm-vga-Add-mechanism-to-force-the-use-of-a-shadow-surfa.patch [bz#1501294]\n- kvm-vga-handle-cirrus-vbe-mode-wraparounds.patch [bz#1501294]\n- kvm-cirrus-fix-oob-access-in-mode4and5-write-functions.patch [bz#1501294]\n- Resolves: bz#1501294\n  (CVE-2017-15289 qemu-kvm: Qemu: cirrus: OOB access issue in  mode4and5 write functions [rhel-7.4.z])\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2017 Oracle, Inc.",
+      "issued": {
+        "date": "2017-11-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2017-14167",
+          "href": "https://linux.oracle.com/cve/CVE-2017-14167.html"
+        },
+        {
+          "text": "CVE-2017-15289",
+          "href": "https://linux.oracle.com/cve/CVE-2017-15289.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368003",
+                    "comment": "qemu-img is earlier than 10:1.5.3-141.el7_4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368004",
+                    "comment": "qemu-img is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368005",
+                    "comment": "qemu-kvm is earlier than 10:1.5.3-141.el7_4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368006",
+                    "comment": "qemu-kvm is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368007",
+                    "comment": "qemu-kvm-common is earlier than 10:1.5.3-141.el7_4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368008",
+                    "comment": "qemu-kvm-common is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368009",
+                    "comment": "qemu-kvm-tools is earlier than 10:1.5.3-141.el7_4.4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20173368010",
+                    "comment": "qemu-kvm-tools is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20173368002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20173368001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

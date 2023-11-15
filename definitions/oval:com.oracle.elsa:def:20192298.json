@@ -1,0 +1,228 @@
+{
+  "id": "oval:com.oracle.elsa:def:20192298",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-2298:  libarchive security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-2298",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-2298.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-14503",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-14503.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000877",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-1000877.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-1000878",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-1000878.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-1000019",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-1000019.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-1000020",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-1000020.html"
+      }
+    ],
+    "description": "\n[3.1.2-12]\n- fixed use after free in RAR decoder (#1700749)\n- fixed double free in RAR decoder (#1700748)\n\n[3.1.2-11]\n- fix out-of-bounds read within lha_read_data_none() (CVE-2017-14503)\n- fix crash on crafted 7zip archives (CVE-2019-1000019)\n- fix infinite loop in ISO9660 (CVE-2019-1000020)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-08-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2017-14503",
+          "href": "https://linux.oracle.com/cve/CVE-2017-14503.html"
+        },
+        {
+          "text": "CVE-2018-1000877",
+          "href": "https://linux.oracle.com/cve/CVE-2018-1000877.html"
+        },
+        {
+          "text": "CVE-2018-1000878",
+          "href": "https://linux.oracle.com/cve/CVE-2018-1000878.html"
+        },
+        {
+          "text": "CVE-2019-1000019",
+          "href": "https://linux.oracle.com/cve/CVE-2019-1000019.html"
+        },
+        {
+          "text": "CVE-2019-1000020",
+          "href": "https://linux.oracle.com/cve/CVE-2019-1000020.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298003",
+                        "comment": "bsdcpio is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298004",
+                        "comment": "bsdcpio is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298005",
+                        "comment": "bsdtar is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298006",
+                        "comment": "bsdtar is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298007",
+                        "comment": "libarchive is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298008",
+                        "comment": "libarchive is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298009",
+                        "comment": "libarchive-devel is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298010",
+                        "comment": "libarchive-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20192298002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298003",
+                        "comment": "bsdcpio is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298004",
+                        "comment": "bsdcpio is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298005",
+                        "comment": "bsdtar is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298006",
+                        "comment": "bsdtar is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298007",
+                        "comment": "libarchive is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298008",
+                        "comment": "libarchive is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298009",
+                        "comment": "libarchive-devel is earlier than 0:3.1.2-12.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192298010",
+                        "comment": "libarchive-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20192298011",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20192298001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

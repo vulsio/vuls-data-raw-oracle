@@ -1,0 +1,75 @@
+{
+  "id": "oval:com.oracle.elsa:def:20219370",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-9370:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-9370",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-9370.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-33909",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-33909.html"
+      }
+    ],
+    "description": "\n[4.14.35-2047.505.4.3.el7]\n- seq_file: disallow extremely large seq buffer allocations (Eric Sandeen)\n  [Orabug: 33142065]  {CVE-2021-33909}\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-07-22"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-33909",
+          "href": "https://linux.oracle.com/cve/CVE-2021-33909.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20219370003",
+                "comment": "kernel-uek-container is earlier than 0:4.14.35-2047.505.4.3.el7"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20219370004",
+                "comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20219370002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20219370001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

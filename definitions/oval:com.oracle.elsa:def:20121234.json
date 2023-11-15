@@ -1,0 +1,119 @@
+{
+  "id": "oval:com.oracle.elsa:def:20121234",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2012-1234:  qemu-kvm security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2012-1234",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2012-1234.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3515",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2012-3515.html"
+      }
+    ],
+    "description": "\n[0.12.1.2-2.295.el6_3.2]\n- kvm-console-bounds-check-whenever-changing-the-cursor-du.patch [bz#851257\n- Resolves: bz#851257\n  (EMBARGOED CVE-2012-3515 qemu/kvm: VT100 emulation vulnerability [rhel-6.3.z])\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2012 Oracle, Inc.",
+      "issued": {
+        "date": "2012-09-05"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-3515",
+          "href": "https://linux.oracle.com/cve/CVE-2012-3515.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234003",
+                    "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.295.el6_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234004",
+                    "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234005",
+                    "comment": "qemu-img is earlier than 2:0.12.1.2-2.295.el6_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234006",
+                    "comment": "qemu-img is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234007",
+                    "comment": "qemu-kvm is earlier than 2:0.12.1.2-2.295.el6_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234008",
+                    "comment": "qemu-kvm is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234009",
+                    "comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.295.el6_3.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121234010",
+                    "comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20121234002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20121234001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

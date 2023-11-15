@@ -1,0 +1,197 @@
+{
+  "id": "oval:com.oracle.elsa:def:20203623",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2020-3623:  squid:4 security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2020-3623",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-3623.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-15810",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-15810.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-15811",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-15811.html"
+      }
+    ],
+    "description": "\nlibecap\nsquid\n[7:4.4-8.2]\n- Resolves: #1872345 - CVE-2020-15811 squid:4/squid: HTTP Request Splitting\n  could result in cache poisoning\n- Resolves: #1872330 - CVE-2020-15810 squid:4/squid: HTTP Request Smuggling\n  could result in cache poisoning\n\n[7:4.4-8.1]\n- Resolves: #1828368 - CVE-2019-12519 squid: improper check for new member in\n  ESIExpression::Evaluate allows for stack buffer overflow\n- Resolves: #1828367 - CVE-2020-11945 squid: improper access restriction upon\n  Digest Authentication nonce replay could lead to remote code execution\n- Resolves: #1829402 - CVE-2019-12525 squid:4/squid: parsing of header\n  Proxy-Authentication leads to memory corruption\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2020 Oracle, Inc.",
+      "issued": {
+        "date": "2020-09-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-15810",
+          "href": "https://linux.oracle.com/cve/CVE-2020-15810.html"
+        },
+        {
+          "text": "CVE-2020-15811",
+          "href": "https://linux.oracle.com/cve/CVE-2020-15811.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "OR",
+                    "criterias": [
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623004",
+                            "comment": "libecap is earlier than 0:1.0.1-2.module+el8.1.0+5405+03b963f4"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623005",
+                            "comment": "libecap is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623006",
+                            "comment": "libecap-devel is earlier than 0:1.0.1-2.module+el8.1.0+5405+03b963f4"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623007",
+                            "comment": "libecap-devel is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623008",
+                            "comment": "squid is earlier than 7:4.4-8.module+el8.2.0+7778+aff7482f.2"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623009",
+                            "comment": "squid is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20203623003",
+                    "comment": "Module squid:4 is enabled"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20203623002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "OR",
+                    "criterias": [
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623004",
+                            "comment": "libecap is earlier than 0:1.0.1-2.module+el8.1.0+5405+03b963f4"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623005",
+                            "comment": "libecap is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623006",
+                            "comment": "libecap-devel is earlier than 0:1.0.1-2.module+el8.1.0+5405+03b963f4"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623007",
+                            "comment": "libecap-devel is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623008",
+                            "comment": "squid is earlier than 7:4.4-8.module+el8.2.0+7778+aff7482f.2"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20203623009",
+                            "comment": "squid is signed with the Oracle Linux 8 key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20203623003",
+                    "comment": "Module squid:4 is enabled"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20203623010",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20203623001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

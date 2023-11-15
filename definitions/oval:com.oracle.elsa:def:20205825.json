@@ -1,0 +1,145 @@
+{
+  "id": "oval:com.oracle.elsa:def:20205825",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2020-5825:  kubernetes kubeadm-ha-setup kubernetes-cni kubernetes-cni-plugins security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2020-5825",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-5825.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-16845",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-16845.html"
+      }
+    ],
+    "description": "\nkubernetes\n[1.12.10-1.0.15]\n- Address CVE-2020-16845\n\nkubeadm-ha-setup\n[0.0.2-1.0.73]\n- Fix update to coredns image tag\n\n[0.0.2-1.0.72]\n- Address CVE-2020-16845\n\nkubernetes-cni\n[0.7.1-1.0.3]\n- Pin min version of cni-plugins\n\nkubernetes-cni-plugins\n[0.8.6-1.0.3]\n- Address CVE-2020-16845\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2020 Oracle, Inc.",
+      "issued": {
+        "date": "2020-08-24"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-16845",
+          "href": "https://linux.oracle.com/cve/CVE-2020-16845.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825003",
+                    "comment": "kubeadm is earlier than 0:1.12.10-1.0.15.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825004",
+                    "comment": "kubeadm is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825005",
+                    "comment": "kubeadm-ha-setup is earlier than 0:0.0.2-1.0.73.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825006",
+                    "comment": "kubeadm-ha-setup is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825007",
+                    "comment": "kubectl is earlier than 0:1.12.10-1.0.15.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825008",
+                    "comment": "kubectl is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825009",
+                    "comment": "kubelet is earlier than 0:1.12.10-1.0.15.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825010",
+                    "comment": "kubelet is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825011",
+                    "comment": "kubernetes-cni is earlier than 0:0.7.1-1.0.3.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825012",
+                    "comment": "kubernetes-cni is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825013",
+                    "comment": "kubernetes-cni-plugins is earlier than 0:0.8.6-1.0.3.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20205825014",
+                    "comment": "kubernetes-cni-plugins is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20205825002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20205825001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

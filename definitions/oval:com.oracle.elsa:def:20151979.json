@@ -1,0 +1,75 @@
+{
+  "id": "oval:com.oracle.elsa:def:20151979",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2015-1979:  libreswan security and enhancement update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2015-1979",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2015-1979.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3240",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2015-3240.html"
+      }
+    ],
+    "description": "\n[3.15-5.0.1]\n- add libreswan-oracle.patch to detect Oracle Linux distro\n\n[3.15-5]\n- Resolves: rhbz#1273719 libreswan FIPS test mistakenly looks for non-existent file hashes\n\n[3.15-4]\n- Resolves: rhbz#1268775 libreswan should support strictcrlpolicy alias\n- Resolves: rhbz#1268776 Pluto crashes after stop when I use floating ip address\n- Resolves: rhbz#1268773 Pluto crashes on INITIATOR site during 'service ipsec stop'\n- Resolves: rhbz#1208022 libreswan ignores module blacklist rules\n- Resolves: rhbz#1270673 ipsec does not work properly on loopback\n\n[3.15-2]\n- Resolves: rhbz#1259208 CVE-2015-3240\n- Merge rhel6 and rhel7 spec into one\n- Be lenient for racoon padding behaviour\n- Fix seedev option to /dev/random\n- Some IKEv1 PAM methods always gave 'Permission denied'\n- Parser workarounds for differences in gcc/flex/bison on rhel6/rhel7\n- Parser fix to allow specifying time without unit (openswan compat)\n- Fix Labeled IPsec on rekeyed IPsec SA's\n- Workaround for wrong padding by racoon2\n- Disable NSS HW GCM to workaround rhel6 xen builers bug\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2015 Oracle, Inc.",
+      "issued": {
+        "date": "2015-11-03"
+      },
+      "cve": [
+        {
+          "text": "CVE-2015-3240",
+          "href": "https://linux.oracle.com/cve/CVE-2015-3240.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20151979003",
+                "comment": "libreswan is earlier than 0:3.15-5.0.1.el7_1"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20151979004",
+                "comment": "libreswan is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20151979002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20151979001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

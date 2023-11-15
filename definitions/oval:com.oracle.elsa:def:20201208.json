@@ -1,0 +1,119 @@
+{
+  "id": "oval:com.oracle.elsa:def:20201208",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2020-1208:  qemu-kvm security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2020-1208",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-1208.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8608",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-8608.html"
+      }
+    ],
+    "description": "\n[1.5.3-173.el7_8.1]\n- kvm-util-add-slirp_fmt-helpers.patch [bz#1798970]\n- kvm-tcp_emu-fix-unsafe-snprintf-usages.patch [bz#1798970]\n- Resolves: bz#1798970\n  (CVE-2020-8608 qemu-kvm: QEMU: Slirp: potential OOB access due to unsafe snprintf() usages [rhel-7.8.z])\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2020 Oracle, Inc.",
+      "issued": {
+        "date": "2020-04-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-8608",
+          "href": "https://linux.oracle.com/cve/CVE-2020-8608.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208003",
+                    "comment": "qemu-img is earlier than 10:1.5.3-173.el7_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208004",
+                    "comment": "qemu-img is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208005",
+                    "comment": "qemu-kvm is earlier than 10:1.5.3-173.el7_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208006",
+                    "comment": "qemu-kvm is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208007",
+                    "comment": "qemu-kvm-common is earlier than 10:1.5.3-173.el7_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208008",
+                    "comment": "qemu-kvm-common is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208009",
+                    "comment": "qemu-kvm-tools is earlier than 10:1.5.3-173.el7_8.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201208010",
+                    "comment": "qemu-kvm-tools is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20201208002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20201208001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

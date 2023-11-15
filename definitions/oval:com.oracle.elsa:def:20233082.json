@@ -1,0 +1,149 @@
+{
+  "id": "oval:com.oracle.elsa:def:20233082",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2023-3082:  pcs security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2023-3082",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-3082.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-27539",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-27539.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-27530",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-27530.html"
+      }
+    ],
+    "description": "\n[0.10.15-4.0.1.el8_8.1]\n- Replace HAM-logo.png with a generic one\n\n[0.10.15-4.el8_8.1]\n- Fix displaying differences between configuration checkpoints in pcs config checkpoint diff command\n- Fix pcs stonith update-scsi-devices command which was broken since Pacemaker-2.1.5-rc1\n- Updated bundled rubygem rack\n- Resolves: rhbz#2180700 rhbz#2180706 rhbz#2180713 rhbz#2180974\n\n[0.10.15-4]\n- Fixed enabling/disabling sbd when cluster is not running\n- Added BuildRequires: pam - needed for tier0 tests during build\n- Resolves: rhbz#2166243\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2023 Oracle, Inc.",
+      "issued": {
+        "date": "2023-05-29"
+      },
+      "cve": [
+        {
+          "text": "CVE-2023-27539",
+          "href": "https://linux.oracle.com/cve/CVE-2023-27539.html"
+        },
+        {
+          "text": "CVE-2023-27530",
+          "href": "https://linux.oracle.com/cve/CVE-2023-27530.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082003",
+                        "comment": "pcs is earlier than 0:0.10.15-4.0.1.el8_8.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082004",
+                        "comment": "pcs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082005",
+                        "comment": "pcs-snmp is earlier than 0:0.10.15-4.0.1.el8_8.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082006",
+                        "comment": "pcs-snmp is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20233082002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082003",
+                        "comment": "pcs is earlier than 0:0.10.15-4.0.1.el8_8.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082004",
+                        "comment": "pcs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082005",
+                        "comment": "pcs-snmp is earlier than 0:0.10.15-4.0.1.el8_8.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20233082006",
+                        "comment": "pcs-snmp is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20233082007",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20233082001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

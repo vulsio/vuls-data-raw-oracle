@@ -1,0 +1,115 @@
+{
+  "id": "oval:com.oracle.elsa:def:20110919",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2011-0919:  qemu-kvm security and bug fix update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2011-0919",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2011-0919.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2212",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2011-2212.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-2512",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2011-2512.html"
+      }
+    ],
+    "description": "\n\n[qemu-kvm-0.12.1.2-2.160.el6_1.2]\n- kvm-virtio-guard-against-negative-vq-notifies.patch [bz#717403]\n- Resolves: bz#717403\n  (qemu-kvm: OOB memory access caused by negative vq notifies [rhel-6.1.z])\n\n[qemu-kvm-0.12.1.2-2.160.el6_1]\n- kvm-Fix-phys-memory-client-pass-guest-physical-address-n.patch [bz#701771]\n- kvm-virtio-prevent-indirect-descriptor-buffer-overflow.patch [bz#713592]\n- Resolves: bz#701771\n  (Fix phys memory client for vhost)\n- Resolves: bz#713592\n  (EMBARGOED CVE-2011-2212 virtqueue: too-large indirect descriptor buffer overflow [rhel-6.1.z])\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2011 Oracle, Inc.",
+      "issued": {
+        "date": "2011-07-05"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-2212",
+          "href": "https://linux.oracle.com/cve/CVE-2011-2212.html"
+        },
+        {
+          "text": "CVE-2011-2512",
+          "href": "https://linux.oracle.com/cve/CVE-2011-2512.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20110919003",
+                    "comment": "qemu-img is earlier than 2:0.12.1.2-2.160.el6_1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20110919004",
+                    "comment": "qemu-img is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20110919005",
+                    "comment": "qemu-kvm is earlier than 2:0.12.1.2-2.160.el6_1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20110919006",
+                    "comment": "qemu-kvm is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20110919007",
+                    "comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.160.el6_1.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20110919008",
+                    "comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20110919002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20110919001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "oval:com.oracle.elsa:def:20162819",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2016-2819:  memcached security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2016-2819",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2016-2819.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8704",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-8704.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8705",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-8705.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8706",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-8706.html"
+      }
+    ],
+    "description": "\n[0:1.4.15-10.el7_3.1]\n- fix vulnerabilities allowing remote code execution (CVE-2016-8704,\n  CVE-2016-8705, CVE-2016-8706)\n\n[0:1.4.15-10]\n- fix binding to IPv6 address (#1298603)\n- enable SASL support (#1263696)\n- don't allow authentication with bad SASL credentials (CVE-2013-7239)\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2016 Oracle, Inc.",
+      "issued": {
+        "date": "2016-11-23"
+      },
+      "cve": [
+        {
+          "text": "CVE-2016-8704",
+          "href": "https://linux.oracle.com/cve/CVE-2016-8704.html"
+        },
+        {
+          "text": "CVE-2016-8705",
+          "href": "https://linux.oracle.com/cve/CVE-2016-8705.html"
+        },
+        {
+          "text": "CVE-2016-8706",
+          "href": "https://linux.oracle.com/cve/CVE-2016-8706.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819003",
+                        "comment": "memcached is earlier than 0:1.4.15-10.el7_3.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819004",
+                        "comment": "memcached is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819005",
+                        "comment": "memcached-devel is earlier than 0:1.4.15-10.el7_3.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819006",
+                        "comment": "memcached-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20162819002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819003",
+                        "comment": "memcached is earlier than 0:1.4.15-10.el7_3.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819004",
+                        "comment": "memcached is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819005",
+                        "comment": "memcached-devel is earlier than 0:1.4.15-10.el7_3.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20162819006",
+                        "comment": "memcached-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20162819007",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20162819001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

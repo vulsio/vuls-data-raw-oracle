@@ -1,0 +1,115 @@
+{
+  "id": "oval:com.oracle.elsa:def:202325545",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2023-25545:  olcne security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2023-25545",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-25545.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-2728",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-2728.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-2727",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-2727.html"
+      }
+    ],
+    "description": "\n[1.6.2-1]\n- CVE-2023-2727, CVE-2023-2728 Kubernetes upgraded to 1.25.11\n- Add all modules to registry-image-helper\n- update yq to 4.x\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2023 Oracle, Inc.",
+      "issued": {
+        "date": "2023-07-03"
+      },
+      "cve": [
+        {
+          "text": "CVE-2023-2728",
+          "href": "https://linux.oracle.com/cve/CVE-2023-2728.html"
+        },
+        {
+          "text": "CVE-2023-2727",
+          "href": "https://linux.oracle.com/cve/CVE-2023-2727.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202325545003",
+                    "comment": "olcne-extra-modules is earlier than 0:1.6.2-1.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202325545004",
+                    "comment": "olcne-extra-modules is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202325545005",
+                    "comment": "olcne-kubevirt-chart is earlier than 0:1.6.2-1.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202325545006",
+                    "comment": "olcne-kubevirt-chart is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202325545007",
+                    "comment": "olcne-rook-chart is earlier than 0:1.6.2-1.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202325545008",
+                    "comment": "olcne-rook-chart is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:202325545002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:202325545001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

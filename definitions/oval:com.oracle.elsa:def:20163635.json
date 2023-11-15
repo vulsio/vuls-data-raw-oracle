@@ -1,0 +1,282 @@
+{
+  "id": "oval:com.oracle.elsa:def:20163635",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2016-3635:  Unbreakable Enterprise kernel security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6",
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2016-3635",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2016-3635.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1583",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-1583.html"
+      }
+    ],
+    "description": "\nkernel-uek\n[4.1.12-61.1.17]\n- sched: panic on corrupted stack end (Jann Horn)  [Orabug: 24971921]  {CVE-2016-1583}\n- ecryptfs: forbid opening files without mmap handler (Jann Horn)  [Orabug: 24971921]  {CVE-2016-1583}\n- proc: prevent stacking filesystems on top (Jann Horn)  [Orabug: 24971921]  {CVE-2016-1583}\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2016 Oracle, Inc.",
+      "issued": {
+        "date": "2016-11-03"
+      },
+      "cve": [
+        {
+          "text": "CVE-2016-1583",
+          "href": "https://linux.oracle.com/cve/CVE-2016-1583.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635003",
+                        "comment": "dtrace-modules-4.1.12-61.1.17.el6uek is earlier than 0:0.5.3-2.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635004",
+                        "comment": "dtrace-modules-4.1.12-61.1.17.el6uek is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635005",
+                        "comment": "kernel-uek is earlier than 0:4.1.12-61.1.17.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635006",
+                        "comment": "kernel-uek is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635007",
+                        "comment": "kernel-uek-debug is earlier than 0:4.1.12-61.1.17.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635008",
+                        "comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635009",
+                        "comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-61.1.17.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635010",
+                        "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635011",
+                        "comment": "kernel-uek-devel is earlier than 0:4.1.12-61.1.17.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635012",
+                        "comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635013",
+                        "comment": "kernel-uek-doc is earlier than 0:4.1.12-61.1.17.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635014",
+                        "comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635015",
+                        "comment": "kernel-uek-firmware is earlier than 0:4.1.12-61.1.17.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635016",
+                        "comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20163635002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20163635001",
+            "comment": "Oracle Linux 6 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635019",
+                        "comment": "dtrace-modules-4.1.12-61.1.17.el7uek is earlier than 0:0.5.3-2.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635020",
+                        "comment": "dtrace-modules-4.1.12-61.1.17.el7uek is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635021",
+                        "comment": "kernel-uek is earlier than 0:4.1.12-61.1.17.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635022",
+                        "comment": "kernel-uek is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635023",
+                        "comment": "kernel-uek-debug is earlier than 0:4.1.12-61.1.17.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635024",
+                        "comment": "kernel-uek-debug is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635025",
+                        "comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-61.1.17.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635026",
+                        "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635027",
+                        "comment": "kernel-uek-devel is earlier than 0:4.1.12-61.1.17.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635028",
+                        "comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635029",
+                        "comment": "kernel-uek-doc is earlier than 0:4.1.12-61.1.17.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635030",
+                        "comment": "kernel-uek-doc is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635031",
+                        "comment": "kernel-uek-firmware is earlier than 0:4.1.12-61.1.17.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20163635032",
+                        "comment": "kernel-uek-firmware is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20163635018",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20163635017",
+            "comment": "Oracle Linux 7 is installed"
+          }
+        ]
+      }
+    ]
+  }
+}

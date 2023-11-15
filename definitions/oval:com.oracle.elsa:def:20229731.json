@@ -1,0 +1,75 @@
+{
+  "id": "oval:com.oracle.elsa:def:20229731",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-9731:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-9731",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-9731.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21385",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-21385.html"
+      }
+    ],
+    "description": "\n[4.14.35-2047.516.2.1]\n- rds: copy_from_user only once per rds_sendmsg system call (Hans Westgaard Ry)\n  [Orabug: 33981856]  {CVE-2022-21385}\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-08-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2022-21385",
+          "href": "https://linux.oracle.com/cve/CVE-2022-21385.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20229731003",
+                "comment": "kernel-uek-container is earlier than 0:4.14.35-2047.516.2.1.el7"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20229731004",
+                "comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20229731002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20229731001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

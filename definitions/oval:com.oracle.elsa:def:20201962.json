@@ -1,0 +1,104 @@
+{
+  "id": "oval:com.oracle.elsa:def:20201962",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2020-1962:  python-twisted-web security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2020-1962",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-1962.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-10108",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-10108.html"
+      }
+    ],
+    "description": "\n[8.2.0-7]\n- Fix CVE-2020-10108 HTTP request smuggling when presented with two Content-Length headers\nResolves: rhbz#1813439\n- Remove useless macros definitions\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2020 Oracle, Inc.",
+      "issued": {
+        "date": "2020-04-29"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-10108",
+          "href": "https://linux.oracle.com/cve/CVE-2020-10108.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201962003",
+                    "comment": "python-twisted-web is earlier than 0:8.2.0-6.el6_10"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201962004",
+                    "comment": "python-twisted-web is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20201962002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201962003",
+                    "comment": "python-twisted-web is earlier than 0:8.2.0-6.el6_10"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20201962004",
+                    "comment": "python-twisted-web is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20201962005",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20201962001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

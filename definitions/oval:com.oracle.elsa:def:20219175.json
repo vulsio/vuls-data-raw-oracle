@@ -1,0 +1,102 @@
+{
+  "id": "oval:com.oracle.elsa:def:20219175",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-9175:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-9175",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-9175.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-28038",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-28038.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-27363",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-27363.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-27364",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-27364.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-27365",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-27365.html"
+      }
+    ],
+    "description": "\n[4.14.35-2047.502.4.el7]\n- Revert 'rds: ib: Remove two ib_modify_qp() calls' (Sharath Srinivasan)  [Orabug: 32715567]\n- uek-rpm: Update SecureBoot Digicert 2021 certificates (Somasundaram Krishnasamy)  [Orabug: 32532514]\n\n[4.14.35-2047.502.3.el7]\n- video: hyperv_fb: Fix the mmap() regression for v5.4.y and older (Dexuan Cui)  [Orabug: 32620797]\n- video: hyperv_fb: Fix the cache type when mapping the VRAM (Dexuan Cui)  [Orabug: 32620797]\n- RDMA/core: Fix corrupted SL on passive side (Hakon Bugge)  [Orabug: 32644356]\n\n[4.14.35-2047.502.2.el7]\n- EDAC: skx_common: downgrade message importance on missing PCI device (Aristeu Rozanski)  [Orabug: 32651294]\n- Xen/gnttab: handle p2m update errors on a per-slot basis (Jan Beulich)  [Orabug: 32651477]  {CVE-2021-28038}\n- KVM: kvmclock: Fix vCPUs > 64 can't be online/hotpluged (Wanpeng Li)  [Orabug: 32633928]\n- xen/netback: avoid race in xenvif_rx_ring_slots_available() (Juergen Gross)  [Orabug: 32640132]\n\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-04-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-28038",
+          "href": "https://linux.oracle.com/cve/CVE-2021-28038.html"
+        },
+        {
+          "text": "CVE-2021-27363",
+          "href": "https://linux.oracle.com/cve/CVE-2021-27363.html"
+        },
+        {
+          "text": "CVE-2021-27364",
+          "href": "https://linux.oracle.com/cve/CVE-2021-27364.html"
+        },
+        {
+          "text": "CVE-2021-27365",
+          "href": "https://linux.oracle.com/cve/CVE-2021-27365.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20219175003",
+                "comment": "kernel-uek-container is earlier than 0:4.14.35-2047.502.4.el7"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20219175004",
+                "comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20219175002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20219175001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

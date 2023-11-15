@@ -1,0 +1,358 @@
+{
+  "id": "oval:com.oracle.elsa:def:20172029",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2017-2029:  openssh security, bug fix, and enhancement update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2017-2029",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-2029.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10009",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-10009.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6515",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-6515.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10011",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-10011.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-10012",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-10012.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-6210",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-6210.html"
+      }
+    ],
+    "description": "\n[7.4p1-11 + 0.10.3-1]\n- Compiler warnings (#1341754)\n\n[7.4p1-10 + 0.10.3-1]\n- Add missing messages in FIPS mode (#1341754)\n\n[7.4p1-9 + 0.10.3-1]\n- Allow harmless syscalls for s390 crypto modules (#1451809)\n\n[7.4p1-8 + 0.10.3-1]\n- Fix multilib issue in documentation (#1450361)\n\n[7.4p1-6 + 0.10.3-1]\n- ControlPath too long should not be a fatal error (#1447561)\n\n[7.4p1-5 + 0.10.3-1]\n- Fix the default key exchange proposal in FIPS mode (#1438414)\n- Remove another wrong coverity chunk to unbreak gsskex (#1438414)\n\n[7.4p1-4 + 0.10.3-1]\n- Update seccomp filter to work on ppc64le (#1443916)\n\n[7.4p1-3 + 0.10.3-1]\n- Do not completely disable SHA-1 key exchange methods in FIPS (#1324493)\n- Remove wrong coverity patches\n\n[7.4p1-2 + 0.10.3-1]\n- Fix coverity scan results\n- Adjust FIPS algorithms list (#1420910)\n- Revert problematic feature for chroot(#1418062)\n- Fix CBC weakness in released OpenSSH 7.5\n\n[7.4p1-1 + 0.10.3-1]\n- Rebase to openssh 7.4 and pam_ssh_agent_auth 0.10.3 (#1341754)\n- detach -cavs subpackage\n- enable seccomp filter for sandboxed child\n\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2017 Oracle, Inc.",
+      "issued": {
+        "date": "2017-08-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2016-10009",
+          "href": "https://linux.oracle.com/cve/CVE-2016-10009.html"
+        },
+        {
+          "text": "CVE-2016-6515",
+          "href": "https://linux.oracle.com/cve/CVE-2016-6515.html"
+        },
+        {
+          "text": "CVE-2016-10011",
+          "href": "https://linux.oracle.com/cve/CVE-2016-10011.html"
+        },
+        {
+          "text": "CVE-2016-10012",
+          "href": "https://linux.oracle.com/cve/CVE-2016-10012.html"
+        },
+        {
+          "text": "CVE-2016-6210",
+          "href": "https://linux.oracle.com/cve/CVE-2016-6210.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029003",
+                        "comment": "openssh is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029004",
+                        "comment": "openssh is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029005",
+                        "comment": "openssh-askpass is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029006",
+                        "comment": "openssh-askpass is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029007",
+                        "comment": "openssh-cavs is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029008",
+                        "comment": "openssh-cavs is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029009",
+                        "comment": "openssh-clients is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029010",
+                        "comment": "openssh-clients is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029011",
+                        "comment": "openssh-keycat is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029012",
+                        "comment": "openssh-keycat is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029013",
+                        "comment": "openssh-ldap is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029014",
+                        "comment": "openssh-ldap is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029015",
+                        "comment": "openssh-server is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029016",
+                        "comment": "openssh-server is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029017",
+                        "comment": "openssh-server-sysvinit is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029018",
+                        "comment": "openssh-server-sysvinit is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029019",
+                        "comment": "pam_ssh_agent_auth is earlier than 0:0.10.3-1.11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029020",
+                        "comment": "pam_ssh_agent_auth is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20172029002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029003",
+                        "comment": "openssh is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029004",
+                        "comment": "openssh is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029005",
+                        "comment": "openssh-askpass is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029006",
+                        "comment": "openssh-askpass is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029007",
+                        "comment": "openssh-cavs is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029008",
+                        "comment": "openssh-cavs is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029009",
+                        "comment": "openssh-clients is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029010",
+                        "comment": "openssh-clients is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029011",
+                        "comment": "openssh-keycat is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029012",
+                        "comment": "openssh-keycat is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029013",
+                        "comment": "openssh-ldap is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029014",
+                        "comment": "openssh-ldap is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029015",
+                        "comment": "openssh-server is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029016",
+                        "comment": "openssh-server is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029017",
+                        "comment": "openssh-server-sysvinit is earlier than 0:7.4p1-11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029018",
+                        "comment": "openssh-server-sysvinit is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029019",
+                        "comment": "pam_ssh_agent_auth is earlier than 0:0.10.3-1.11.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20172029020",
+                        "comment": "pam_ssh_agent_auth is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20172029021",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20172029001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

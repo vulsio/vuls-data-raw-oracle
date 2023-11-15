@@ -1,0 +1,95 @@
+{
+  "id": "oval:com.oracle.elsa:def:20194718",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-4718:  kubernetes security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-4718",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-4718.html"
+      }
+    ],
+    "description": "\n[1.11.3-2.7.2]\n- [OLCNE-494] [CVE-2019-11244] fix CVE-2019-11244: 'kubectl --http-cache=<world-accessible dir>'\n- creates world-writeable cached schema files\n\n[1.11.3.2.6.2]\n- [OLCNE-384] [CVE-2019-11243] rest.AnonymousClientConfig() does not remove the serviceaccount credentials from config created by rest.InClusterConfig()\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-07-29"
+      }
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194718003",
+                    "comment": "kubeadm is earlier than 0:1.11.3-2.7.2.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194718004",
+                    "comment": "kubeadm is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194718005",
+                    "comment": "kubectl is earlier than 0:1.11.3-2.7.2.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194718006",
+                    "comment": "kubectl is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194718007",
+                    "comment": "kubelet is earlier than 0:1.11.3-2.7.2.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194718008",
+                    "comment": "kubelet is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20194718002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20194718001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

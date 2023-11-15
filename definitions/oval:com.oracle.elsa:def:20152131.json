@@ -1,0 +1,132 @@
+{
+  "id": "oval:com.oracle.elsa:def:20152131",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2015-2131:  openldap security, bug fix, and enhancement update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2015-2131",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2015-2131.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3276",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2015-3276.html"
+      }
+    ],
+    "description": "\n[2.4.40-8]\n- NSS does not support string ordering (#1231522)\n- implement and correct order of parsing attributes (#1231522)\n- add multi_mask and multi_strength to correctly handle sets of attributes (#1231522)\n- add new cipher suites and correct AES-GCM attributes (#1245279)\n- correct DEFAULT ciphers handling to exclude eNULL cipher suites (#1245279)\n\n[2.4.40-7]\n- Merge two MozNSS cipher suite definition patches into one. (#1245279)\n- Use what NSS considers default for DEFAULT cipher string. (#1245279)\n- Remove unnecesary defaults from ciphers' definitions (#1245279)\n\n[2.4.40-6]\n- fix: OpenLDAP shared library destructor triggers memory leaks in NSPR (#1249977)\n\n[2.4.40-5]\n- enhancement: support TLS 1.1 and later (#1231522,#1160467)\n- fix: openldap ciphersuite parsing code handles masks incorrectly (#1231522)\n- fix the patch in commit da1b5c (fix: OpenLDAP crash in NSS shutdown handling) (#1231228)\n\n[2.4.40-4]\n- fix: rpm -V complains (#1230263) -- make the previous fix do what was intended\n\n[2.4.40-3]\n- fix: rpm -V complains (#1230263)\n\n[2.4.40-2]\n- fix: missing frontend database indexing (#1226600)\n\n[2.4.40-1]\n- new upstream release (#1147982)\n- fix: PIE and RELRO check (#1092562)\n- fix: slaptest doesn't convert perlModuleConfig lines (#1184585)\n- fix: OpenLDAP crash in NSS shutdown handling (#1158005)\n- fix: slapd.service may fail to start if binding to NIC ip (#1198781)\n- fix: deadlock during SSL_ForceHandshake when getting connection to replica (#1125152)\n- improve check_password (#1174723, #1196243)\n- provide an unversioned symlink to check_password.so.1.1 (#1174634)\n- add findutils to requires (#1209229)\n\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2015 Oracle, Inc.",
+      "issued": {
+        "date": "2015-11-23"
+      },
+      "cve": [
+        {
+          "text": "CVE-2015-3276",
+          "href": "https://linux.oracle.com/cve/CVE-2015-3276.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131003",
+                    "comment": "openldap is earlier than 0:2.4.40-8.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131004",
+                    "comment": "openldap is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131005",
+                    "comment": "openldap-clients is earlier than 0:2.4.40-8.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131006",
+                    "comment": "openldap-clients is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131007",
+                    "comment": "openldap-devel is earlier than 0:2.4.40-8.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131008",
+                    "comment": "openldap-devel is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131009",
+                    "comment": "openldap-servers is earlier than 0:2.4.40-8.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131010",
+                    "comment": "openldap-servers is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131011",
+                    "comment": "openldap-servers-sql is earlier than 0:2.4.40-8.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152131012",
+                    "comment": "openldap-servers-sql is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20152131002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20152131001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

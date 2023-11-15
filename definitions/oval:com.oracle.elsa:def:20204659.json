@@ -1,0 +1,158 @@
+{
+  "id": "oval:com.oracle.elsa:def:20204659",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2020-4659:  gd security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2020-4659",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-4659.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-6978",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-6978.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-14553",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-14553.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-6977",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-6977.html"
+      }
+    ],
+    "description": "\n* Fri Mar 27 2020 fjanus@redhat.com - 2.2.5-7\n- Fix CVE-2018-14553 - Potential Null pointer dereference in gdImageClone\n  Resolves: RHBZ#1811788\n- Fixed heap based buffer overflow in gd_color_match.c:gdImageColorMatch() in libgd as used in imagecolormatch()\n  Resolves: RHBZ#1678104 (CVE-2019-6977)\n- Fixed potential double-free in gdImage*Ptr()\n  Resolves: RHBZ#1679002 (CVE-2019-6978)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2020 Oracle, Inc.",
+      "issued": {
+        "date": "2020-11-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2019-6978",
+          "href": "https://linux.oracle.com/cve/CVE-2019-6978.html"
+        },
+        {
+          "text": "CVE-2018-14553",
+          "href": "https://linux.oracle.com/cve/CVE-2018-14553.html"
+        },
+        {
+          "text": "CVE-2019-6977",
+          "href": "https://linux.oracle.com/cve/CVE-2019-6977.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659003",
+                        "comment": "gd is earlier than 0:2.2.5-7.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659004",
+                        "comment": "gd is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659005",
+                        "comment": "gd-devel is earlier than 0:2.2.5-7.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659006",
+                        "comment": "gd-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20204659002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659003",
+                        "comment": "gd is earlier than 0:2.2.5-7.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659004",
+                        "comment": "gd is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659005",
+                        "comment": "gd-devel is earlier than 0:2.2.5-7.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20204659006",
+                        "comment": "gd-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20204659007",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20204659001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

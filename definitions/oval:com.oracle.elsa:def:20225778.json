@@ -1,0 +1,122 @@
+{
+  "id": "oval:com.oracle.elsa:def:20225778",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-5778:  thunderbird security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 9"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-5778",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-5778.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-2505",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-2505.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-36318",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-36318.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-36319",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-36319.html"
+      }
+    ],
+    "description": "\n[91.12.0-1.0.1]\n- Replaced thunderbird-redhat-default-prefs.js with thunderbird-oracle-default-prefs.js\n- Reference oracle-indexhtml within Requires [Orabug: 33802044]\n\n[91.12.0-1]\n- Update to 91.12.0 build1\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-08-02"
+      },
+      "cve": [
+        {
+          "text": "CVE-2022-2505",
+          "href": "https://linux.oracle.com/cve/CVE-2022-2505.html"
+        },
+        {
+          "text": "CVE-2022-36318",
+          "href": "https://linux.oracle.com/cve/CVE-2022-36318.html"
+        },
+        {
+          "text": "CVE-2022-36319",
+          "href": "https://linux.oracle.com/cve/CVE-2022-36319.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20225778003",
+                    "comment": "thunderbird is earlier than 0:91.12.0-1.0.1.el9_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20225778004",
+                    "comment": "thunderbird is signed with the Oracle Linux 9 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20225778002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20225778003",
+                    "comment": "thunderbird is earlier than 0:91.12.0-1.0.1.el9_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20225778004",
+                    "comment": "thunderbird is signed with the Oracle Linux 9 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20225778005",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20225778001",
+        "comment": "Oracle Linux 9 is installed"
+      }
+    ]
+  }
+}

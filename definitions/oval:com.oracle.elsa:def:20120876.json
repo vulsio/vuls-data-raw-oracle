@@ -1,0 +1,244 @@
+{
+  "id": "oval:com.oracle.elsa:def:20120876",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2012-0876:  net-snmp security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2012-0876",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2012-0876.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2141",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2012-2141.html"
+      }
+    ],
+    "description": "\n[1:5.5-41]\n- moved /var/lib/net-snmp fro net-snmp to net-snmp-libs package\n  (#822480)\n\n[1:5.5-40]\n- fixed CVE-2012-2141 (#820100)\n\n[1:5.5-39]\n- fixed proxying of out-of-tree GETNEXT requests (#799291)\n\n[1:5.5-38]\n- fixed snmpd crashing with many AgentX subagent (#749227)\n- fixed SNMPv2-MIB::sysObjectID value when sysObjectID config file\n  option with long OID was used (#786931)\n- fixed value of BRIDGE-MIB::dot1dBasePortIfIndex.1 (#740172)\n- fixed parsing of proxy snmpd.conf option not to enable\n  verbose logging by default (#746903)\n- added new realStorageUnits config file option to support\n  disks > 16 TB in hrStorageTable (#741789)\n- added vxfs, reiserfs and ocfs2 filesystem support to hrStorageTable\n  (#746903)\n- fixed snmpd sigsegv when embedded perl script registers one handler\n  twice (#748907)\n- fixed setting of SNMP-TARGET-MIB::snmpTargetAddrRowStatus via\n  SNMP-SET request on 64-bit platforms (#754275)\n- fixed crash when /var/lib/net-snmp/mib_indexes/ files have wrong\n  SELinux context (#754971)\n- fixed memory leak when agentx subagent disconnects in the middle\n  of request processing (#736580)\n- fixed slow (re-)loads of TCP-MIB::tcpConnectionTable (#789909)\n- removed 'error finding row index in _ifXTable_container_row_restore'\n  error message (#788954)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2012 Oracle, Inc.",
+      "issued": {
+        "date": "2012-06-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-2141",
+          "href": "https://linux.oracle.com/cve/CVE-2012-2141.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876003",
+                        "comment": "net-snmp is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876004",
+                        "comment": "net-snmp is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876005",
+                        "comment": "net-snmp-devel is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876006",
+                        "comment": "net-snmp-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876007",
+                        "comment": "net-snmp-libs is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876008",
+                        "comment": "net-snmp-libs is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876009",
+                        "comment": "net-snmp-perl is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876010",
+                        "comment": "net-snmp-perl is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876011",
+                        "comment": "net-snmp-python is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876012",
+                        "comment": "net-snmp-python is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876013",
+                        "comment": "net-snmp-utils is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876014",
+                        "comment": "net-snmp-utils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20120876002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876003",
+                        "comment": "net-snmp is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876004",
+                        "comment": "net-snmp is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876005",
+                        "comment": "net-snmp-devel is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876006",
+                        "comment": "net-snmp-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876007",
+                        "comment": "net-snmp-libs is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876008",
+                        "comment": "net-snmp-libs is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876009",
+                        "comment": "net-snmp-perl is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876010",
+                        "comment": "net-snmp-perl is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876011",
+                        "comment": "net-snmp-python is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876012",
+                        "comment": "net-snmp-python is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876013",
+                        "comment": "net-snmp-utils is earlier than 1:5.5-41.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20120876014",
+                        "comment": "net-snmp-utils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20120876015",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20120876001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

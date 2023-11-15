@@ -1,0 +1,102 @@
+{
+  "id": "oval:com.oracle.elsa:def:20143092",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2014-3092:  bash security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2014-3092",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2014-3092.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-6277",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2014-6277.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-6278",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2014-6278.html"
+      }
+    ],
+    "description": "\n[4.2.45-5.4.0.1]\n- Fix segfaults from CVE-2014-6277 and CVE-2014-6278 completely. [orabug 19905256]\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2014 Oracle, Inc.",
+      "issued": {
+        "date": "2014-11-20"
+      },
+      "cve": [
+        {
+          "text": "CVE-2014-6277",
+          "href": "https://linux.oracle.com/cve/CVE-2014-6277.html"
+        },
+        {
+          "text": "CVE-2014-6278",
+          "href": "https://linux.oracle.com/cve/CVE-2014-6278.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20143092003",
+                    "comment": "bash is earlier than 0:4.2.45-5.el7_0.4.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20143092004",
+                    "comment": "bash is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20143092005",
+                    "comment": "bash-doc is earlier than 0:4.2.45-5.el7_0.4.0.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20143092006",
+                    "comment": "bash-doc is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20143092002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20143092001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

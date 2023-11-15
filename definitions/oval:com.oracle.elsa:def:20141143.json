@@ -1,0 +1,702 @@
+{
+  "id": "oval:com.oracle.elsa:def:20141143",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2014-1143:  kernel security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2014-1143",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2014-1143.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-3917",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2014-3917.html"
+      }
+    ],
+    "description": "\nkernel\n[2.6.18-371.12.1]\n- [audit] auditsc: audit_krule mask accesses need bounds checking (Denys Vlasenko) [1102702 1102703] {CVE-2014-3917}\n- [mm] writeback: Fix hang when low on memory due to NFS traffic (Larry Woodman) [1125246 1080194]\n- [net] tg3: Fix Read DMA workaround for 5719 A0 (Ivan Vecera) [1121017 924590]\n- [fs] jbd: don't wake kjournald unnecessarily (Denys Vlasenko) [1116027 1081785]\n- [fs] jbd: don't wait (forever) for stale tid caused by wraparound (Denys Vlasenko) [1116027 1081785]\n- [fs] ext4: fix waiting and sending of barrier in ext4_sync_file() (Denys Vlasenko) [1116027 1081785]\n- [fs] jbd2: Add function jbd2_trans_will_send_data_barrier() (Denys Vlasenko) [1116027 1081785]\n- [fs] jbd2: fix sending of data flush on journal commit (Denys Vlasenko) [1116027 1081785]\n- [fs] ext4, jbd2: Add barriers for file systems with ext journals (Denys Vlasenko) [1116027 1081785]\n- [fs] jbd: fix fsync() tid wraparound bug (Denys Vlasenko) [1116027 1081785]\n- [fs] ext4: fix fdatasync() for files with only i_size changes (Eric Sandeen) [1117665 1102768]\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2014 Oracle, Inc.",
+      "issued": {
+        "date": "2014-09-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2014-3917",
+          "href": "https://linux.oracle.com/cve/CVE-2014-3917.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143003",
+                        "comment": "kernel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143004",
+                        "comment": "kernel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143005",
+                        "comment": "kernel-debug is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143006",
+                        "comment": "kernel-debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143007",
+                        "comment": "kernel-debug-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143008",
+                        "comment": "kernel-debug-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143009",
+                        "comment": "kernel-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143010",
+                        "comment": "kernel-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143011",
+                        "comment": "kernel-doc is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143012",
+                        "comment": "kernel-doc is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143013",
+                        "comment": "kernel-headers is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143014",
+                        "comment": "kernel-headers is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143015",
+                        "comment": "kernel-xen is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143016",
+                        "comment": "kernel-xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143017",
+                        "comment": "kernel-xen-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143018",
+                        "comment": "kernel-xen-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143019",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5 is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143020",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5 is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143021",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5debug is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143022",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143023",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5xen is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143024",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143025",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5 is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143026",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5 is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143027",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5debug is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143028",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143029",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5xen is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143030",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20141143002",
+                "comment": "Oracle Linux arch is ia64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143003",
+                        "comment": "kernel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143004",
+                        "comment": "kernel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143005",
+                        "comment": "kernel-debug is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143006",
+                        "comment": "kernel-debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143007",
+                        "comment": "kernel-debug-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143008",
+                        "comment": "kernel-debug-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143009",
+                        "comment": "kernel-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143010",
+                        "comment": "kernel-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143011",
+                        "comment": "kernel-doc is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143012",
+                        "comment": "kernel-doc is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143013",
+                        "comment": "kernel-headers is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143014",
+                        "comment": "kernel-headers is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143015",
+                        "comment": "kernel-xen is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143016",
+                        "comment": "kernel-xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143017",
+                        "comment": "kernel-xen-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143018",
+                        "comment": "kernel-xen-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143019",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5 is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143020",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5 is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143021",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5debug is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143022",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143023",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5xen is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143024",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143025",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5 is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143026",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5 is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143027",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5debug is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143028",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143029",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5xen is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143030",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20141143031",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143003",
+                        "comment": "kernel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143004",
+                        "comment": "kernel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143033",
+                        "comment": "kernel-PAE is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143034",
+                        "comment": "kernel-PAE is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143035",
+                        "comment": "kernel-PAE-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143036",
+                        "comment": "kernel-PAE-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143005",
+                        "comment": "kernel-debug is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143006",
+                        "comment": "kernel-debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143007",
+                        "comment": "kernel-debug-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143008",
+                        "comment": "kernel-debug-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143009",
+                        "comment": "kernel-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143010",
+                        "comment": "kernel-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143011",
+                        "comment": "kernel-doc is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143012",
+                        "comment": "kernel-doc is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143013",
+                        "comment": "kernel-headers is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143014",
+                        "comment": "kernel-headers is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143015",
+                        "comment": "kernel-xen is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143016",
+                        "comment": "kernel-xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143017",
+                        "comment": "kernel-xen-devel is earlier than 0:2.6.18-371.12.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143018",
+                        "comment": "kernel-xen-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143019",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5 is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143020",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5 is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143037",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5PAE is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143038",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5PAE is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143021",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5debug is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143022",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143023",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5xen is earlier than 0:1.4.10-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143024",
+                        "comment": "ocfs2-2.6.18-371.12.1.el5xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143025",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5 is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143026",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5 is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143039",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5PAE is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143040",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5PAE is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143027",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5debug is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143028",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5debug is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143029",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5xen is earlier than 0:2.0.5-1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20141143030",
+                        "comment": "oracleasm-2.6.18-371.12.1.el5xen is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20141143032",
+                "comment": "Oracle Linux arch is i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20141143001",
+        "comment": "Oracle Linux 5 is installed"
+      }
+    ]
+  }
+}

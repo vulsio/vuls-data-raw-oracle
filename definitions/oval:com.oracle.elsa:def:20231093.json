@@ -1,0 +1,104 @@
+{
+  "id": "oval:com.oracle.elsa:def:20231093",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2023-1093:  pesign security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2023-1093",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-1093.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-3560",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-3560.html"
+      }
+    ],
+    "description": "\n[0.109-11.0.1]\n- RPM macro fix (Petr Benes)\n- updates for Oracle Linux test certificate (Alexey Petrenko)\n- update Oracle Linux certificates (Alexey Petrenko)\n\n[0.109-11]\n- Backport newer, deprecated pesign-authorize\n- Resolves: CVE-2022-3560\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2023 Oracle, Inc.",
+      "issued": {
+        "date": "2023-03-08"
+      },
+      "cve": [
+        {
+          "text": "CVE-2022-3560",
+          "href": "https://linux.oracle.com/cve/CVE-2022-3560.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20231093003",
+                    "comment": "pesign is earlier than 0:0.109-11.el7_9"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20231093004",
+                    "comment": "pesign is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20231093002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20231093003",
+                    "comment": "pesign is earlier than 0:0.109-11.el7_9"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20231093004",
+                    "comment": "pesign is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20231093005",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20231093001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

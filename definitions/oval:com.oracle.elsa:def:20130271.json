@@ -1,0 +1,764 @@
+{
+  "id": "oval:com.oracle.elsa:def:20130271",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2013-0271:  firefox security update (CRITICAL)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5",
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2013-0271",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2013-0271.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0775",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2013-0775.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0776",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2013-0776.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0780",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2013-0780.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0782",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2013-0782.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2013-0783",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2013-0783.html"
+      }
+    ],
+    "description": "\nfirefox\n[17.0.3-1.0.1]\n- Add firefox-oracle-default-prefs.js and remove the corresponding Red Hat ones\n\n[17.0.3-1]\n- Update to 17.0.3 ESR\n\n[17.0.2-4]\n- Added NM preferences\n\n[17.0.2-3]\n- Update to 17.0.2 ESR\n\n[17.0.1-2]\n- Update to 17.0.1 ESR\n\n[17.0-1]\n- Update to 17.0 ESR\n\n[17.0-0.2.b4]\n- Update to 17 Beta 4\n\n[17.0-0.1.beta1]\n- Update to 17 Beta 1\n\n\nlibproxy\n[0.3.0-4]\n- Rebuild against newer gecko\n\nxulrunner\n[17.0.3-1.0.2]\n- Increase release number and rebuild.\n\n[17.0.3-1.0.1]\n- Replaced xulrunner-redhat-default-prefs.js with xulrunner-oracle-default-prefs.js\n- Removed XULRUNNER_VERSION from SOURCE21\n\n[17.0.3-1]\n- Update to 17.0.3 ESR\n\n[17.0.2-5]\n- Fixed NetworkManager preferences\n- Added fix for NM regression (mozbz#791626)\n\n[17.0.2-2]\n- Added fix for rhbz#816234 - NFS fix\n\n[17.0.2-1]\n- Update to 17.0.2 ESR\n\n[17.0.1-3]\n- Update to 17.0.1 ESR\n\n[17.0-1]\n- Update to 17.0 ESR\n\n[17.0-0.6.b5]\n- Update to 17 Beta 5\n- Updated fix for rhbz#872752 - embeded crash\n\n[17.0-0.5.b4]\n- Added fix for rhbz#872752 - embeded crash\n\n[17.0-0.4.b4]\n- Update to 17 Beta 4\n\n[17.0-0.3.b3]\n- Update to 17 Beta 3\n- Updated ppc(64) patch (mozbz#746112)\n\n[17.0-0.2.b2]\n- Built with system nspr/nss\n\n[17.0-0.1.b2]\n- Update to 17 Beta 2\n\n[17.0-0.1.b1]\n- Update to 17 Beta 1\n\nyelp\n[2.28.1-17]\n- Rebuild against gecko 17.0.2\n\n[2.28.1-15]\n- Build fixes for gecko 17\n",
+    "advisory": {
+      "severity": "CRITICAL",
+      "rights": "Copyright 2013 Oracle, Inc.",
+      "issued": {
+        "date": "2013-02-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2013-0775",
+          "href": "https://linux.oracle.com/cve/CVE-2013-0775.html"
+        },
+        {
+          "text": "CVE-2013-0776",
+          "href": "https://linux.oracle.com/cve/CVE-2013-0776.html"
+        },
+        {
+          "text": "CVE-2013-0780",
+          "href": "https://linux.oracle.com/cve/CVE-2013-0780.html"
+        },
+        {
+          "text": "CVE-2013-0782",
+          "href": "https://linux.oracle.com/cve/CVE-2013-0782.html"
+        },
+        {
+          "text": "CVE-2013-0783",
+          "href": "https://linux.oracle.com/cve/CVE-2013-0783.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "OR",
+                    "criterias": [
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271003",
+                            "comment": "devhelp is earlier than 0:0.12-23.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271004",
+                            "comment": "devhelp is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271005",
+                            "comment": "devhelp-devel is earlier than 0:0.12-23.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271006",
+                            "comment": "devhelp-devel is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271007",
+                            "comment": "firefox is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271008",
+                            "comment": "firefox is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271009",
+                            "comment": "xulrunner is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271010",
+                            "comment": "xulrunner is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271011",
+                            "comment": "xulrunner-devel is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271012",
+                            "comment": "xulrunner-devel is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271013",
+                            "comment": "yelp is earlier than 0:2.16.0-30.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271014",
+                            "comment": "yelp is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20130271002",
+                    "comment": "Oracle Linux arch is ia64"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "OR",
+                    "criterias": [
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271003",
+                            "comment": "devhelp is earlier than 0:0.12-23.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271004",
+                            "comment": "devhelp is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271005",
+                            "comment": "devhelp-devel is earlier than 0:0.12-23.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271006",
+                            "comment": "devhelp-devel is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271007",
+                            "comment": "firefox is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271008",
+                            "comment": "firefox is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271009",
+                            "comment": "xulrunner is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271010",
+                            "comment": "xulrunner is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271011",
+                            "comment": "xulrunner-devel is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271012",
+                            "comment": "xulrunner-devel is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271013",
+                            "comment": "yelp is earlier than 0:2.16.0-30.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271014",
+                            "comment": "yelp is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20130271015",
+                    "comment": "Oracle Linux arch is x86_64"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "OR",
+                    "criterias": [
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271003",
+                            "comment": "devhelp is earlier than 0:0.12-23.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271004",
+                            "comment": "devhelp is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271005",
+                            "comment": "devhelp-devel is earlier than 0:0.12-23.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271006",
+                            "comment": "devhelp-devel is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271007",
+                            "comment": "firefox is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271008",
+                            "comment": "firefox is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271009",
+                            "comment": "xulrunner is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271010",
+                            "comment": "xulrunner is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271011",
+                            "comment": "xulrunner-devel is earlier than 0:17.0.3-1.0.1.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271012",
+                            "comment": "xulrunner-devel is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271013",
+                            "comment": "yelp is earlier than 0:2.16.0-30.el5_9"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271014",
+                            "comment": "yelp is signed with the Oracle Linux 5 key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20130271016",
+                    "comment": "Oracle Linux arch is i386"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20130271001",
+            "comment": "Oracle Linux 5 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "OR",
+                    "criterias": [
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271019",
+                            "comment": "firefox is earlier than 0:17.0.3-1.0.1.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271020",
+                            "comment": "firefox is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271021",
+                            "comment": "libproxy is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271022",
+                            "comment": "libproxy is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271023",
+                            "comment": "libproxy-bin is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271024",
+                            "comment": "libproxy-bin is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271025",
+                            "comment": "libproxy-devel is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271026",
+                            "comment": "libproxy-devel is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271027",
+                            "comment": "libproxy-gnome is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271028",
+                            "comment": "libproxy-gnome is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271029",
+                            "comment": "libproxy-kde is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271030",
+                            "comment": "libproxy-kde is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271031",
+                            "comment": "libproxy-mozjs is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271032",
+                            "comment": "libproxy-mozjs is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271033",
+                            "comment": "libproxy-python is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271034",
+                            "comment": "libproxy-python is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271035",
+                            "comment": "libproxy-webkit is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271036",
+                            "comment": "libproxy-webkit is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271037",
+                            "comment": "xulrunner is earlier than 0:17.0.3-1.0.2.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271038",
+                            "comment": "xulrunner is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271039",
+                            "comment": "xulrunner-devel is earlier than 0:17.0.3-1.0.2.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271040",
+                            "comment": "xulrunner-devel is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271041",
+                            "comment": "yelp is earlier than 0:2.28.1-17.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271042",
+                            "comment": "yelp is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20130271018",
+                    "comment": "Oracle Linux arch is x86_64"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "OR",
+                    "criterias": [
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271019",
+                            "comment": "firefox is earlier than 0:17.0.3-1.0.1.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271020",
+                            "comment": "firefox is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271021",
+                            "comment": "libproxy is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271022",
+                            "comment": "libproxy is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271023",
+                            "comment": "libproxy-bin is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271024",
+                            "comment": "libproxy-bin is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271025",
+                            "comment": "libproxy-devel is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271026",
+                            "comment": "libproxy-devel is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271027",
+                            "comment": "libproxy-gnome is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271028",
+                            "comment": "libproxy-gnome is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271029",
+                            "comment": "libproxy-kde is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271030",
+                            "comment": "libproxy-kde is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271031",
+                            "comment": "libproxy-mozjs is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271032",
+                            "comment": "libproxy-mozjs is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271033",
+                            "comment": "libproxy-python is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271034",
+                            "comment": "libproxy-python is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271035",
+                            "comment": "libproxy-webkit is earlier than 0:0.3.0-4.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271036",
+                            "comment": "libproxy-webkit is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271037",
+                            "comment": "xulrunner is earlier than 0:17.0.3-1.0.2.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271038",
+                            "comment": "xulrunner is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271039",
+                            "comment": "xulrunner-devel is earlier than 0:17.0.3-1.0.2.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271040",
+                            "comment": "xulrunner-devel is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "criterions": [
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271041",
+                            "comment": "yelp is earlier than 0:2.28.1-17.el6_3"
+                          },
+                          {
+                            "test_ref": "oval:com.oracle.elsa:tst:20130271042",
+                            "comment": "yelp is signed with the Oracle Linux 6 key"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20130271043",
+                    "comment": "Oracle Linux arch is i686"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130271041",
+                        "comment": "yelp is earlier than 0:2.28.1-17.el6_3"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130271042",
+                        "comment": "yelp is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ],
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20130271044",
+                    "comment": "Oracle Linux arch is sparc64"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20130271017",
+            "comment": "Oracle Linux 6 is installed"
+          }
+        ]
+      }
+    ]
+  }
+}

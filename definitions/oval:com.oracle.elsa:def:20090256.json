@@ -1,0 +1,350 @@
+{
+  "id": "oval:com.oracle.elsa:def:20090256",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2009-0256:  firefox security update (CRITICAL)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2009-0256",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2009-0256.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0352",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2009-0352.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0353",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2009-0353.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0354",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2009-0354.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0355",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2009-0355.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0356",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2009-0356.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0357",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2009-0357.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2009-0358",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2009-0358.html"
+      }
+    ],
+    "description": "\nfirefox:\n\n[3.0.6-1.0.1.el5]\n- Update firstrun and homepage URLs\n- Added firefox-oracle-default-prefs.js/firefox-oracle-default-bookmarks.html\n  and removed the corresponding  Red Hat ones\n- Added patch oracle-firefox-branding.patch\n\n[3.0.6-1]\n- Update to Firefox 3.0.6\n- Fixed #447390 (wrong size of icons)\n\nnss:\n\n[3.12.2.0-4]\n- exclude binary db files from change detection\n\n[3.12.2.0-3]\n- Update to NSS_3_12_2_WITH_CKBI_1_73_RTM\n- Add dependency to pkgconfig to devel package (bug456849)\n\nxulrunner:\n\n[1.9.0.6-1.0.1.el5]\n- Added xulrunner-oracle-default-prefs.js and removed\n  xulrunner-redhat-default-prefs.js\n\n[1.9.0.6-1]\n- Update to 1.9.0.6\n",
+    "advisory": {
+      "severity": "CRITICAL",
+      "rights": "Copyright 2009 Oracle, Inc.",
+      "issued": {
+        "date": "2009-02-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2009-0352",
+          "href": "https://linux.oracle.com/cve/CVE-2009-0352.html"
+        },
+        {
+          "text": "CVE-2009-0353",
+          "href": "https://linux.oracle.com/cve/CVE-2009-0353.html"
+        },
+        {
+          "text": "CVE-2009-0354",
+          "href": "https://linux.oracle.com/cve/CVE-2009-0354.html"
+        },
+        {
+          "text": "CVE-2009-0355",
+          "href": "https://linux.oracle.com/cve/CVE-2009-0355.html"
+        },
+        {
+          "text": "CVE-2009-0356",
+          "href": "https://linux.oracle.com/cve/CVE-2009-0356.html"
+        },
+        {
+          "text": "CVE-2009-0357",
+          "href": "https://linux.oracle.com/cve/CVE-2009-0357.html"
+        },
+        {
+          "text": "CVE-2009-0358",
+          "href": "https://linux.oracle.com/cve/CVE-2009-0358.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256003",
+                        "comment": "firefox is earlier than 0:3.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256004",
+                        "comment": "firefox is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256005",
+                        "comment": "nss is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256006",
+                        "comment": "nss is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256007",
+                        "comment": "nss-devel is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256008",
+                        "comment": "nss-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256009",
+                        "comment": "nss-pkcs11-devel is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256010",
+                        "comment": "nss-pkcs11-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256011",
+                        "comment": "nss-tools is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256012",
+                        "comment": "nss-tools is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256013",
+                        "comment": "xulrunner is earlier than 0:1.9.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256014",
+                        "comment": "xulrunner is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256015",
+                        "comment": "xulrunner-devel is earlier than 0:1.9.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256016",
+                        "comment": "xulrunner-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256017",
+                        "comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256018",
+                        "comment": "xulrunner-devel-unstable is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20090256002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256003",
+                        "comment": "firefox is earlier than 0:3.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256004",
+                        "comment": "firefox is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256005",
+                        "comment": "nss is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256006",
+                        "comment": "nss is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256007",
+                        "comment": "nss-devel is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256008",
+                        "comment": "nss-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256009",
+                        "comment": "nss-pkcs11-devel is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256010",
+                        "comment": "nss-pkcs11-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256011",
+                        "comment": "nss-tools is earlier than 0:3.12.2.0-4.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256012",
+                        "comment": "nss-tools is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256013",
+                        "comment": "xulrunner is earlier than 0:1.9.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256014",
+                        "comment": "xulrunner is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256015",
+                        "comment": "xulrunner-devel is earlier than 0:1.9.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256016",
+                        "comment": "xulrunner-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256017",
+                        "comment": "xulrunner-devel-unstable is earlier than 0:1.9.0.6-1.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20090256018",
+                        "comment": "xulrunner-devel-unstable is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20090256019",
+                "comment": "Oracle Linux arch is i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20090256001",
+        "comment": "Oracle Linux 5 is installed"
+      }
+    ]
+  }
+}

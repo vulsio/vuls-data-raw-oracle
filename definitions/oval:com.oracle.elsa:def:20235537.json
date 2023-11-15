@@ -1,0 +1,149 @@
+{
+  "id": "oval:com.oracle.elsa:def:20235537",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2023-5537:  libvpx security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2023-5537",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-5537.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-5217",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-5217.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-44488",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-44488.html"
+      }
+    ],
+    "description": "\n[1.7.0-10]\n- Heap buffer overflow in vp8 encoding in libvpx (CVE-2023-5217)\n  Resolves: rhbz#2241191\n- crash related to VP9 encoding in libvpx (CVE-2023-44488)\n  Resolves: rhbz#2241806\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2023 Oracle, Inc.",
+      "issued": {
+        "date": "2023-10-10"
+      },
+      "cve": [
+        {
+          "text": "CVE-2023-5217",
+          "href": "https://linux.oracle.com/cve/CVE-2023-5217.html"
+        },
+        {
+          "text": "CVE-2023-44488",
+          "href": "https://linux.oracle.com/cve/CVE-2023-44488.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537003",
+                        "comment": "libvpx is earlier than 0:1.7.0-10.el8_8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537004",
+                        "comment": "libvpx is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537005",
+                        "comment": "libvpx-devel is earlier than 0:1.7.0-10.el8_8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537006",
+                        "comment": "libvpx-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20235537002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537003",
+                        "comment": "libvpx is earlier than 0:1.7.0-10.el8_8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537004",
+                        "comment": "libvpx is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537005",
+                        "comment": "libvpx-devel is earlier than 0:1.7.0-10.el8_8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20235537006",
+                        "comment": "libvpx-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20235537007",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20235537001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

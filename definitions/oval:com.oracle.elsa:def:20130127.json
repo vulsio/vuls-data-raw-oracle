@@ -1,0 +1,221 @@
+{
+  "id": "oval:com.oracle.elsa:def:20130127",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2013-0127:  libvirt security and bug fix update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2013-0127",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2013-0127.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-2693",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2012-2693.html"
+      }
+    ],
+    "description": "\n[0.8.2-29.0.1.el5]\n- Replaced docs/et.png in tarball\n- remove virshtest from test cases to fix failure in mock build root\n\n[libvirt-0.8.2-29.el5]\n- Coverity pointed out an use after free in the fix for 816601 (rhbz#772848)\n\n[libvirt-0.8.2-28.el5]\n- qemu: Rollback on used USB devices (rhbz#816601)\n- qemu: Don't delete USB device on failed qemuPrepareHostdevUSBDevices (rhbz#816601)\n\n[libvirt-0.8.2-27.el5]\n- qemu: Delete USB devices used by domain on stop (rhbz#816601)\n\n[libvirt-0.8.2-26.el5]\n- Fix off-by-1 in virFileAbsPath. (rhbz#680289)\n- Fix autostart flag when loading running domains (rhbz#675319)\n- node_device: Avoid null dereference on error (rhbz#772848)\n- util: Avoid null deref on qcowXGetBackingStore (rhbz#772848)\n- docs: Improve virsh domxml-*-native command docs (rhbz#783001)\n- Clarify the purpose of domxml-from-native (rhbz#783001)\n- qemu: Add return value check (rhbz#772821)\n- storage: Avoid mishandling backing store > 2GB (rhbz#772821)\n- util: Avoid PATH_MAX-sized array (rhbz#816601)\n- qemu: Keep list of USB devices attached to domains (rhbz#816601)\n- qemu: Don't leak temporary list of USB devices (rhbz#816601)\n- usb: Create functions to search usb device accurately (rhbz#816601)\n- qemu: Call usb search function for hostdev initialization and hotplug (rhbz#816601)\n- usb: Fix crash when failing to attach a second usb device (rhbz#816601)\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2013 Oracle, Inc.",
+      "issued": {
+        "date": "2013-01-11"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-2693",
+          "href": "https://linux.oracle.com/cve/CVE-2012-2693.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127003",
+                        "comment": "libvirt is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127004",
+                        "comment": "libvirt is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127005",
+                        "comment": "libvirt-devel is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127006",
+                        "comment": "libvirt-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127007",
+                        "comment": "libvirt-python is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127008",
+                        "comment": "libvirt-python is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20130127002",
+                "comment": "Oracle Linux arch is ia64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127003",
+                        "comment": "libvirt is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127004",
+                        "comment": "libvirt is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127005",
+                        "comment": "libvirt-devel is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127006",
+                        "comment": "libvirt-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127007",
+                        "comment": "libvirt-python is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127008",
+                        "comment": "libvirt-python is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20130127009",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127003",
+                        "comment": "libvirt is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127004",
+                        "comment": "libvirt is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127005",
+                        "comment": "libvirt-devel is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127006",
+                        "comment": "libvirt-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127007",
+                        "comment": "libvirt-python is earlier than 0:0.8.2-29.0.1.el5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130127008",
+                        "comment": "libvirt-python is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20130127010",
+                "comment": "Oracle Linux arch is i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20130127001",
+        "comment": "Oracle Linux 5 is installed"
+      }
+    ]
+  }
+}

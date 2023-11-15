@@ -1,0 +1,93 @@
+{
+  "id": "oval:com.oracle.elsa:def:20229602",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-9602:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-9602",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-9602.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-21505",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-21505.html"
+      }
+    ],
+    "description": "\n[5.15.0-0.30.20.1]\n- lockdown: Fix kexec lockdown bypass with ima policy (Eric Snowberg)  [Orabug:\n  34386636]  {CVE-2022-21505}\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-07-19"
+      },
+      "cve": [
+        {
+          "text": "CVE-2022-21505",
+          "href": "https://linux.oracle.com/cve/CVE-2022-21505.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20229602003",
+                    "comment": "kernel-uek-container is earlier than 0:5.15.0-0.30.20.1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20229602004",
+                    "comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20229602005",
+                    "comment": "kernel-uek-container-debug is earlier than 0:5.15.0-0.30.20.1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20229602006",
+                    "comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20229602002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20229602001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

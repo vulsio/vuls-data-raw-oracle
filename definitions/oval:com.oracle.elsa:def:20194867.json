@@ -1,0 +1,93 @@
+{
+  "id": "oval:com.oracle.elsa:def:20194867",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-4867:  microcode_ctl security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-4867",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-4867.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12207",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12207.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-11135",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11135.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-11139",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11139.html"
+      }
+    ],
+    "description": "\n[2:2.1-53.3.0.4]\n- set early_microcode='no' in virtualized guests to avoid early load bugs [Orabug: 30618736]\n\n[2:2.1-53.3.0.1]\n- do not late load prior to 3.10.0\n- ensure late loading fixes are present on 4.1.12-* and 4.14.35-*\n- enable early loading on 06-4f-01\n- update 06-55-04 to 0x2000065\n- update 06-55-07 to 0x500002c\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-12-04"
+      },
+      "cve": [
+        {
+          "text": "CVE-2018-12207",
+          "href": "https://linux.oracle.com/cve/CVE-2018-12207.html"
+        },
+        {
+          "text": "CVE-2019-11135",
+          "href": "https://linux.oracle.com/cve/CVE-2019-11135.html"
+        },
+        {
+          "text": "CVE-2019-11139",
+          "href": "https://linux.oracle.com/cve/CVE-2019-11139.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20194867003",
+                "comment": "microcode_ctl is earlier than 2:2.1-53.3.0.4.el7_7"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20194867004",
+                "comment": "microcode_ctl is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20194867002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20194867001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

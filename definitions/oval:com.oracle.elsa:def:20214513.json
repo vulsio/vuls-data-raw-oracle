@@ -1,0 +1,193 @@
+{
+  "id": "oval:com.oracle.elsa:def:20214513",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-4513:  libsepol security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-4513",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-4513.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-36084",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-36084.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-36086",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-36086.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-36087",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-36087.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-36085",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-36085.html"
+      }
+    ],
+    "description": "\n[2.9-3]\n- cil: Fix out-of-bound read of file context pattern ending with '\\'\n- cil: Destroy classperms list when resetting classpermission (#1983517)\n- cil: Destroy classperm list when resetting map perms (#1983521)\n- cil: cil_reset_classperms_set() should not reset classpermission (#1983525)\n- cil: Set class field to NULL when resetting struct cil_classperms\n- cil: More strict verification of constraint leaf expressions\n- cil: Exit with an error if declaration name is a reserved word\n- cil: Allow permission expressions when using map classes\n- cil: Reorder checks for invalid rules when building AST\n- cil: Cleanup build AST helper functions\n- cil: Create new first child helper function for building AST\n- cil: Remove unused field from struct cil_args_resolve\n- cil: Destroy disabled optional blocks after pass is complete\n- cil: Check if name is a macro parameter first\n- cil: fix NULL pointer dereference in __cil_insert_name\n- cil: Report disabling an optional block only at high verbose levels\n- cil: Use AST to track blocks and optionals when resolving\n- cil: Reorder checks for invalid rules when resolving AST\n- cil: Sync checks for invalid rules in booleanifs\n- cil: Check for statements not allowed in optional blocks (#1983530)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-11-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-36084",
+          "href": "https://linux.oracle.com/cve/CVE-2021-36084.html"
+        },
+        {
+          "text": "CVE-2021-36086",
+          "href": "https://linux.oracle.com/cve/CVE-2021-36086.html"
+        },
+        {
+          "text": "CVE-2021-36087",
+          "href": "https://linux.oracle.com/cve/CVE-2021-36087.html"
+        },
+        {
+          "text": "CVE-2021-36085",
+          "href": "https://linux.oracle.com/cve/CVE-2021-36085.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513003",
+                        "comment": "libsepol-static is earlier than 0:2.9-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513004",
+                        "comment": "libsepol-static is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513005",
+                        "comment": "libsepol is earlier than 0:2.9-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513006",
+                        "comment": "libsepol is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513007",
+                        "comment": "libsepol-devel is earlier than 0:2.9-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513008",
+                        "comment": "libsepol-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20214513002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513003",
+                        "comment": "libsepol-static is earlier than 0:2.9-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513004",
+                        "comment": "libsepol-static is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513005",
+                        "comment": "libsepol is earlier than 0:2.9-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513006",
+                        "comment": "libsepol is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513007",
+                        "comment": "libsepol-devel is earlier than 0:2.9-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214513008",
+                        "comment": "libsepol-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20214513009",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20214513001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "id": "oval:com.oracle.elsa:def:20210611",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-0611:  xterm security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-0611",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-0611.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-27135",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-27135.html"
+      }
+    ],
+    "description": "\n[331-1.2]\n- Fix issue found by covcan\n- Related: rhbz#1927567\n\n[331-1.1]\n- Backport security fix for CVE-2021-27135\n- Resolves: rhbz#1927567\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-02-18"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-27135",
+          "href": "https://linux.oracle.com/cve/CVE-2021-27135.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611003",
+                        "comment": "xterm is earlier than 0:331-1.el8_3.2"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611004",
+                        "comment": "xterm is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611005",
+                        "comment": "xterm-resize is earlier than 0:331-1.el8_3.2"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611006",
+                        "comment": "xterm-resize is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20210611002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611003",
+                        "comment": "xterm is earlier than 0:331-1.el8_3.2"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611004",
+                        "comment": "xterm is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611005",
+                        "comment": "xterm-resize is earlier than 0:331-1.el8_3.2"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20210611006",
+                        "comment": "xterm-resize is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20210611007",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20210611001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

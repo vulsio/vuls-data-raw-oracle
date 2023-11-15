@@ -1,0 +1,152 @@
+{
+  "id": "oval:com.oracle.elsa:def:20219372",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-9372:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7",
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-9372",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-9372.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-33909",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-33909.html"
+      }
+    ],
+    "description": "\n[5.4.17-2102.203.6.el7]\n- seq_file: disallow extremely large seq buffer allocations (Eric Sandeen)\n  [Orabug: 33135632]  {CVE-2021-33909}\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-07-22"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-33909",
+          "href": "https://linux.oracle.com/cve/CVE-2021-33909.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372003",
+                        "comment": "kernel-uek-container is earlier than 0:5.4.17-2102.203.6.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372004",
+                        "comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372005",
+                        "comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2102.203.6.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372006",
+                        "comment": "kernel-uek-container-debug is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20219372002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20219372001",
+            "comment": "Oracle Linux 7 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372009",
+                        "comment": "kernel-uek-container is earlier than 0:5.4.17-2102.203.6.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372010",
+                        "comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372011",
+                        "comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2102.203.6.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20219372012",
+                        "comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20219372008",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20219372007",
+            "comment": "Oracle Linux 8 is installed"
+          }
+        ]
+      }
+    ]
+  }
+}

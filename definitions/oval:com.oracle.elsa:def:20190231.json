@@ -1,0 +1,140 @@
+{
+  "id": "oval:com.oracle.elsa:def:20190231",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-0231:  spice security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-0231",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-0231.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-3813",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-3813.html"
+      }
+    ],
+    "description": "\n[0.14.0-6.0.2.1]\n- Add ARM support\n\n[0.14.0-6.1]\n- Fix off-by-one error during guest-to-host memory address conversion\n  Resolves: CVE-2019-3813\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-02-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2019-3813",
+          "href": "https://linux.oracle.com/cve/CVE-2019-3813.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231003",
+                        "comment": "spice-server is earlier than 0:0.14.0-6.0.2.el7_6.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231004",
+                        "comment": "spice-server is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231005",
+                        "comment": "spice-server-devel is earlier than 0:0.14.0-6.0.2.el7_6.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231006",
+                        "comment": "spice-server-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20190231002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231008",
+                        "comment": "spice-server is earlier than 0:0.14.0-6.el7_6.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231009",
+                        "comment": "spice-server is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231010",
+                        "comment": "spice-server-devel is earlier than 0:0.14.0-6.el7_6.1"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20190231011",
+                        "comment": "spice-server-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20190231007",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20190231001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "id": "oval:com.oracle.elsa:def:20130277",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2013-0277:  dnsmasq security, bug fix and enhancement update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2013-0277",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2013-0277.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3411",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2012-3411.html"
+      }
+    ],
+    "description": "\n[2.48-13]\n- Fix the DHCP RELEASE problem when two or more dnsmasq instances are running (rhbz#887156)\n\n[2.48-12]\n- Fixing initscript restart stop functions (rhbz#850944)\n\n[2.48-11]\n- Revert previous changes because of many problems with --bind-dynamic option backport.\n- Dropping dnsmasq-2.48-add-bind-dynamic-option.patch\n- Set SO_BINDTODEVICE socket option when using --bind-interfaces (rhbz#884957)\n\n[2.48-10]\n- Fixed dnsmasq-2.48-add-bind-dynamic-option.patch\n - the option --bind-dynamic was not set correctly when used\n\n[2.48-9]\n- Added cc flag -fno-strict-aliasing to solve Testsuite regressions\n\n[2.48-8]\n- Fix CVE-2012-3411 (rhbz#882251)\n\n[2.48-7]\n- Fix lease-change script (rhbz#815819)\n- Check tftp-root exists and is accessible at startup (rhbz#824214)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2013 Oracle, Inc.",
+      "issued": {
+        "date": "2013-02-22"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-3411",
+          "href": "https://linux.oracle.com/cve/CVE-2012-3411.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277003",
+                        "comment": "dnsmasq is earlier than 0:2.48-13.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277004",
+                        "comment": "dnsmasq is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277005",
+                        "comment": "dnsmasq-utils is earlier than 0:2.48-13.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277006",
+                        "comment": "dnsmasq-utils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20130277002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277003",
+                        "comment": "dnsmasq is earlier than 0:2.48-13.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277004",
+                        "comment": "dnsmasq is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277005",
+                        "comment": "dnsmasq-utils is earlier than 0:2.48-13.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20130277006",
+                        "comment": "dnsmasq-utils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20130277007",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20130277001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

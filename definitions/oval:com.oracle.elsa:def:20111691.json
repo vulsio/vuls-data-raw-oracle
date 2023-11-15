@@ -1,0 +1,253 @@
+{
+  "id": "oval:com.oracle.elsa:def:20111691",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2011-1691:  util-linux-ng security, bug fix, and enhancement update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2011-1691",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2011-1691.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1675",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2011-1675.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2011-1677",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2011-1677.html"
+      }
+    ],
+    "description": "\n[2.17.2-12.4]\n- fix CVE-2011-1675 - mount fails to anticipate RLIMIT_FSIZE\n- fix CVE-2011-1677 - umount may fail to remove /etc/mtab~ lock file\n\n[2.17.2-12.3]\n- fix fatal typos in patch for #723546\n\n[2.17.2-12.2]\n- rename /etc/hushlogin to /etc/hushlogins (#696731)\n\n[2.17.2-12.1]\n- fix #723546 - Defects revealed by Coverity scan\n- fix #723352 - cfdisk cannot read default installer partitioning\n- fix #712158 - uid/gid overflow in ipcs\n- fix #696959 - wipefs(8) reject partitioned devices\n- fix #694648 - document blank line at head of fstab\n- fix #684203 - umount fails on inconsistent fstab\n- fix #679831 --lines does not work\n- fix #679741 - canonicalize swap device\n- fix #692119 - include fstrim tool\n- fix #675999 - blkid crashes on a server with more than 128 storage devices\n- fix #696731 - display failed login attempts\n- fix #726092 - Pass host name from agetty to login\n- fix #716995 - Remove Deprecation Statement in /etc/udev/rules.d/60-raw.rules\n- fix #712808 - uuidd should depend on chkconfig\n- fix #723638 - Backport upstream extensions for lsblk (RHEL6.2)\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2011 Oracle, Inc.",
+      "issued": {
+        "date": "2011-12-14"
+      },
+      "cve": [
+        {
+          "text": "CVE-2011-1675",
+          "href": "https://linux.oracle.com/cve/CVE-2011-1675.html"
+        },
+        {
+          "text": "CVE-2011-1677",
+          "href": "https://linux.oracle.com/cve/CVE-2011-1677.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691003",
+                        "comment": "libblkid is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691004",
+                        "comment": "libblkid is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691005",
+                        "comment": "libblkid-devel is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691006",
+                        "comment": "libblkid-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691007",
+                        "comment": "libuuid is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691008",
+                        "comment": "libuuid is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691009",
+                        "comment": "libuuid-devel is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691010",
+                        "comment": "libuuid-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691011",
+                        "comment": "util-linux-ng is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691012",
+                        "comment": "util-linux-ng is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691013",
+                        "comment": "uuidd is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691014",
+                        "comment": "uuidd is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20111691002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691003",
+                        "comment": "libblkid is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691004",
+                        "comment": "libblkid is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691005",
+                        "comment": "libblkid-devel is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691006",
+                        "comment": "libblkid-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691007",
+                        "comment": "libuuid is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691008",
+                        "comment": "libuuid is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691009",
+                        "comment": "libuuid-devel is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691010",
+                        "comment": "libuuid-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691011",
+                        "comment": "util-linux-ng is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691012",
+                        "comment": "util-linux-ng is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691013",
+                        "comment": "uuidd is earlier than 0:2.17.2-12.4.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20111691014",
+                        "comment": "uuidd is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20111691015",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20111691001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

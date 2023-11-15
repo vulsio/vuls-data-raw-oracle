@@ -1,0 +1,156 @@
+{
+  "id": "oval:com.oracle.elsa:def:20229263",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-9263:  libgcrypt security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-9263",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-9263.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-33560",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-33560.html"
+      }
+    ],
+    "description": "\n[1.8.5-6_fips]\n- Add API to provide hash calculation in RSA/DSA/ECDSA signature\n  operations [Orabug: 33081130]\n- Change Epoch from 1 to 10\n\n[1.8.5-6]\n- Fix for CVE-2021-33560 (#1971421)\n- Enable HW optimizations in FIPS (#1976137)\n- Performance enchancements for ChaCha20 and Poly1305 (#1855231)\n\n[1.8.5-5]\n- Performance enchancements for AES-GCM, CRC32 and SHA2 (#1855231)\n\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-04-06"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-33560",
+          "href": "https://linux.oracle.com/cve/CVE-2021-33560.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263003",
+                        "comment": "libgcrypt is earlier than 10:1.8.5-6.el8_fips"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263004",
+                        "comment": "libgcrypt is signed with the Oracle Linux 8 key"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263005",
+                        "comment": "libgcrypt is fips patched"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263006",
+                        "comment": "libgcrypt-devel is earlier than 10:1.8.5-6.el8_fips"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263007",
+                        "comment": "libgcrypt-devel is signed with the Oracle Linux 8 key"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263008",
+                        "comment": "libgcrypt-devel is fips patched"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20229263002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263003",
+                        "comment": "libgcrypt is earlier than 10:1.8.5-6.el8_fips"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263004",
+                        "comment": "libgcrypt is signed with the Oracle Linux 8 key"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263005",
+                        "comment": "libgcrypt is fips patched"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263006",
+                        "comment": "libgcrypt-devel is earlier than 10:1.8.5-6.el8_fips"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263007",
+                        "comment": "libgcrypt-devel is signed with the Oracle Linux 8 key"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20229263008",
+                        "comment": "libgcrypt-devel is fips patched"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20229263009",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20229263001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

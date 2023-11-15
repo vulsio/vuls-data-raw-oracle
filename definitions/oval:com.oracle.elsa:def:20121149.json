@@ -1,0 +1,128 @@
+{
+  "id": "oval:com.oracle.elsa:def:20121149",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2012-1149:  sudo security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2012-1149",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2012-1149.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2012-3440",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2012-3440.html"
+      }
+    ],
+    "description": "\n[1.7.2p1-14.2]\n- added a workaround for a race condition in handling child processes \n  Resolves: rhbz#844978\n\n[1.7.2p1-14.1]\n- dont remove the sudoers: line from nsswitch.conf on update\n- use safe temporary file for nsswitch.conf\n- call restorecon after modifying nsswitch.conf\n- fixed command escaping\n- patch: Use SIG_SETMASK when resetting signal mask instead of SIG_UNBLOCK\n  Resolves: rhbz#842759\n  Resolves: rhbz#844420\n  Resolves: rhbz#844419\n  Resolves: rhbz#844418\n  Resolves: rhbz#844443\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2012 Oracle, Inc.",
+      "issued": {
+        "date": "2012-08-07"
+      },
+      "cve": [
+        {
+          "text": "CVE-2012-3440",
+          "href": "https://linux.oracle.com/cve/CVE-2012-3440.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121149003",
+                    "comment": "sudo is earlier than 0:1.7.2p1-14.el5_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121149004",
+                    "comment": "sudo is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20121149002",
+                "comment": "Oracle Linux arch is ia64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121149003",
+                    "comment": "sudo is earlier than 0:1.7.2p1-14.el5_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121149004",
+                    "comment": "sudo is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20121149005",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121149003",
+                    "comment": "sudo is earlier than 0:1.7.2p1-14.el5_8.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20121149004",
+                    "comment": "sudo is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20121149006",
+                "comment": "Oracle Linux arch is i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20121149001",
+        "comment": "Oracle Linux 5 is installed"
+      }
+    ]
+  }
+}

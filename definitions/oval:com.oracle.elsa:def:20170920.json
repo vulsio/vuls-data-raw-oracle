@@ -1,0 +1,119 @@
+{
+  "id": "oval:com.oracle.elsa:def:20170920",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2017-0920:  389-ds-base security and bug fix update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2017-0920",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-0920.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-2668",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-2668.html"
+      }
+    ],
+    "description": "\n[1.3.5.10-20]\n- Bump version to 1.3.5.10-20\n- Resolves: bug 1437005 - CVE-2017-2668 389-ds-base: Remote crash via crafted LDAP messages\n\n[1.3.5.10-19]\n- Release 1.3.5.10-19\n- Resolves: bug 1429495 - ns-slapd dies under heavy load\n- Resolves: bug 1429498 - A filtered nsrole that specifies an empty nsrole in its nsRoleFilter will result in a segfault\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2017 Oracle, Inc.",
+      "issued": {
+        "date": "2017-04-12"
+      },
+      "cve": [
+        {
+          "text": "CVE-2017-2668",
+          "href": "https://linux.oracle.com/cve/CVE-2017-2668.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920003",
+                    "comment": "389-ds-base is earlier than 0:1.3.5.10-20.el7_3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920004",
+                    "comment": "389-ds-base is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920005",
+                    "comment": "389-ds-base-devel is earlier than 0:1.3.5.10-20.el7_3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920006",
+                    "comment": "389-ds-base-devel is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920007",
+                    "comment": "389-ds-base-libs is earlier than 0:1.3.5.10-20.el7_3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920008",
+                    "comment": "389-ds-base-libs is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920009",
+                    "comment": "389-ds-base-snmp is earlier than 0:1.3.5.10-20.el7_3"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20170920010",
+                    "comment": "389-ds-base-snmp is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20170920002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20170920001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

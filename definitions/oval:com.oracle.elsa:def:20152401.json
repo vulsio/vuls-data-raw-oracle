@@ -1,0 +1,119 @@
+{
+  "id": "oval:com.oracle.elsa:def:20152401",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2015-2401:  grub2 security, bug fix, and enhancement update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2015-2401",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2015-2401.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-5281",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2015-5281.html"
+      }
+    ],
+    "description": "\n[2.02-0.29.0.1]\n- Fix comparison in patch for 18504756\n- Remove symlink to grub environment file during uninstall on EFI platforms\n  [bug 19231481]\n- update Oracle Linux certificates (Alexey Petrenko)\n- Put 'with' in menuentry instead of 'using' [bug 18504756]\n- Use different titles for UEK and RHCK kernels [bug 18504756]\n\n[2.02-0.29]\n- Fix DHCP6 timeouts due to failed network stack once more.\n  Resolves: rhbz#1267139\n\n[2.02-0.28]\n- Once again, rebuild for the right build target.\n  Resolves: CVE-2015-5281\n\n[2.02-0.27]\n- Remove multiboot and multiboot2 modules from the .efi builds; they\n  should never have been there.\n  Resolves: CVE-2015-5281\n\n[2.02-0.26]\n- Be more aggressive about trying to make sure we use the configured SNP\n  device in UEFI.\n  Resolves: rhbz#1257475\n\n[2.02-0.25]\n- Force file sync to disk on ppc64le machines.\n  Resolves: rhbz#1212114\n\n[2.02-0.24]\n- Undo 0.23 and fix it a different way.\n  Resolves: rhbz#1124074\n\n[2.02-0.23]\n- Reverse kernel sort order so they're displayed correctly.\n  Resolves: rhbz#1124074\n\n[2.02-0.22]\n- Make upgrades work reasonably well with grub2-setpassword .\n  Related: rhbz#985962\n\n[2.02-0.21]\n- Add a simpler grub2 password config tool\n  Related: rhbz#985962\n- Some more coverity nits.\n\n[2.02-0.20]\n- Deal with some coverity nits.\n  Related: rhbz#1215839\n  Related: rhbz#1124074\n\n[2.02-0.19]\n- Rebuild for Aarch64\n- Deal with some coverity nits.\n  Related: rhbz#1215839\n  Related: rhbz#1124074\n\n[2.02-0.18]\n- Update for an rpmdiff problem with one of the man pages.\n  Related: rhbz#1124074\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2015 Oracle, Inc.",
+      "issued": {
+        "date": "2015-11-23"
+      },
+      "cve": [
+        {
+          "text": "CVE-2015-5281",
+          "href": "https://linux.oracle.com/cve/CVE-2015-5281.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401003",
+                    "comment": "grub2 is earlier than 1:2.02-0.29.0.1.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401004",
+                    "comment": "grub2 is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401005",
+                    "comment": "grub2-efi is earlier than 1:2.02-0.29.0.1.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401006",
+                    "comment": "grub2-efi is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401007",
+                    "comment": "grub2-efi-modules is earlier than 1:2.02-0.29.0.1.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401008",
+                    "comment": "grub2-efi-modules is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401009",
+                    "comment": "grub2-tools is earlier than 1:2.02-0.29.0.1.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20152401010",
+                    "comment": "grub2-tools is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20152401002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20152401001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

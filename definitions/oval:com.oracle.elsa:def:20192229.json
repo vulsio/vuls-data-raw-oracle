@@ -1,0 +1,348 @@
+{
+  "id": "oval:com.oracle.elsa:def:20192229",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-2229:  spice-gtk security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-2229",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-2229.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-10893",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-10893.html"
+      }
+    ],
+    "description": "\nlibgovirt\n[0.3.4-2]\n- Parse XML nodes automatically\n  Related: rhbz#1427467\n- Set detailed error message for async call\n  Related: rhbz#1427467\n\nspice-gtk\n[0.35-4]\n- Fix bad channel-reset on usbredir\n  Resolves: rhbz#1625550\n\n[0.35-3]\n- Fix insufficient encoding checks for LZ\n  Resolves: rhbz#1598652\n\nspice-vdagent\n[0.14.0-18]\n- Fix clipboard logs on requests for targets on grab from client\n  Resolves: rhbz#1594876\n- Make some clipboard logs debug instead of error\n  Resolves: rhbz#1686008\n\n[0.14.0-17]\n- Fix 'Dependency failed for Activation socket' message\n  Resolves: rhbz#1545212\n- Fix socket leak\n  Resolves: rhbz#1650596\n\nvirt-viewer\n[5.0.15]\n- Fix check for ovirt functions\n  Related: rhbz#1427467\n\n[5.0-14]\n- Listen to SpiceSession::disconnected\n  Resolves: rhbz#1505809\n\n[5.0.13]\n- Bypass errors from oVirt foreign menu queries\n  Related: rhbz#1428401\n\n[5.0-12]\n- Centralize recent dialog\n  Resolves: rhbz#1508274\n- Always add guest name as comment\n  Resolves: rhbz#1623756\n- Mark PrintScreen as translatable\n  Resolves: rhbz#1510411\n- Remove symlink to spice-xpi-client-remote-viewer on update (it was dropped)\n  Resolves: rhbz#1658325\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-08-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2018-10893",
+          "href": "https://linux.oracle.com/cve/CVE-2018-10893.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229003",
+                        "comment": "libgovirt is earlier than 0:0.3.4-3.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229004",
+                        "comment": "libgovirt is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229005",
+                        "comment": "libgovirt-devel is earlier than 0:0.3.4-3.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229006",
+                        "comment": "libgovirt-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229007",
+                        "comment": "spice-glib is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229008",
+                        "comment": "spice-glib is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229009",
+                        "comment": "spice-glib-devel is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229010",
+                        "comment": "spice-glib-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229011",
+                        "comment": "spice-gtk-tools is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229012",
+                        "comment": "spice-gtk-tools is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229013",
+                        "comment": "spice-gtk3 is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229014",
+                        "comment": "spice-gtk3 is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229015",
+                        "comment": "spice-gtk3-devel is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229016",
+                        "comment": "spice-gtk3-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229017",
+                        "comment": "spice-gtk3-vala is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229018",
+                        "comment": "spice-gtk3-vala is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229019",
+                        "comment": "spice-vdagent is earlier than 0:0.14.0-18.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229020",
+                        "comment": "spice-vdagent is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229021",
+                        "comment": "virt-viewer is earlier than 0:5.0-15.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229022",
+                        "comment": "virt-viewer is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20192229002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229003",
+                        "comment": "libgovirt is earlier than 0:0.3.4-3.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229004",
+                        "comment": "libgovirt is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229005",
+                        "comment": "libgovirt-devel is earlier than 0:0.3.4-3.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229006",
+                        "comment": "libgovirt-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229007",
+                        "comment": "spice-glib is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229008",
+                        "comment": "spice-glib is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229009",
+                        "comment": "spice-glib-devel is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229010",
+                        "comment": "spice-glib-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229011",
+                        "comment": "spice-gtk-tools is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229012",
+                        "comment": "spice-gtk-tools is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229013",
+                        "comment": "spice-gtk3 is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229014",
+                        "comment": "spice-gtk3 is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229015",
+                        "comment": "spice-gtk3-devel is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229016",
+                        "comment": "spice-gtk3-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229017",
+                        "comment": "spice-gtk3-vala is earlier than 0:0.35-4.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229018",
+                        "comment": "spice-gtk3-vala is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229019",
+                        "comment": "spice-vdagent is earlier than 0:0.14.0-18.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229020",
+                        "comment": "spice-vdagent is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229021",
+                        "comment": "virt-viewer is earlier than 0:5.0-15.el7"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20192229022",
+                        "comment": "virt-viewer is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20192229023",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20192229001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

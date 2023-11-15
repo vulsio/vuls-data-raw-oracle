@@ -1,0 +1,219 @@
+{
+  "id": "oval:com.oracle.elsa:def:20211610",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-1610:  curl security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-1610",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-1610.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8231",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-8231.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8284",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-8284.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8285",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-8285.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-8286",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-8286.html"
+      }
+    ],
+    "description": "\n[7.61.1-18]\n- http: send payload when (proxy) authentication is done (#1918692)\n- curl: Inferior OCSP verification (CVE-2020-8286)\n- libcurl: FTP wildcard stack overflow (CVE-2020-8285)\n- curl: trusting FTP PASV responses (CVE-2020-8284)\n\n[7.61.1-17]\n- validate an ssl connection using an intermediate certificate (#1895355)\n\n[7.61.1-16]\n- fix multiarch conflicts in libcurl-minimal (#1895391)\n\n[7.61.1-15]\n- do not crash when HTTPS_PROXY and NO_PROXY are used together (#1873327)\n- libcurl: wrong connect-only connection (CVE-2020-8231)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-05-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-8231",
+          "href": "https://linux.oracle.com/cve/CVE-2020-8231.html"
+        },
+        {
+          "text": "CVE-2020-8284",
+          "href": "https://linux.oracle.com/cve/CVE-2020-8284.html"
+        },
+        {
+          "text": "CVE-2020-8285",
+          "href": "https://linux.oracle.com/cve/CVE-2020-8285.html"
+        },
+        {
+          "text": "CVE-2020-8286",
+          "href": "https://linux.oracle.com/cve/CVE-2020-8286.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610003",
+                        "comment": "curl is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610004",
+                        "comment": "curl is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610005",
+                        "comment": "libcurl is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610006",
+                        "comment": "libcurl is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610007",
+                        "comment": "libcurl-devel is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610008",
+                        "comment": "libcurl-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610009",
+                        "comment": "libcurl-minimal is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610010",
+                        "comment": "libcurl-minimal is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20211610002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610003",
+                        "comment": "curl is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610004",
+                        "comment": "curl is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610005",
+                        "comment": "libcurl is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610006",
+                        "comment": "libcurl is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610007",
+                        "comment": "libcurl-devel is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610008",
+                        "comment": "libcurl-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610009",
+                        "comment": "libcurl-minimal is earlier than 0:7.61.1-18.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211610010",
+                        "comment": "libcurl-minimal is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20211610011",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20211610001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

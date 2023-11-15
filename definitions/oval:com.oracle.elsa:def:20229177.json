@@ -1,0 +1,84 @@
+{
+  "id": "oval:com.oracle.elsa:def:20229177",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-9177:  jquery-ui security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-9177",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-9177.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-11022",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-11022.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-11023",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-11023.html"
+      }
+    ],
+    "description": "\n[1.10.4.custom-4.0.1]\n- Backport jQuery CVE-2020-11022 and CVE-2020-11023 fixes to bundled jQuery v1.10.2 [Orabug: 33869588]\n\n[1.10.4.custom-4]\n- removed %%defattr from specfile\n- removed Group from specfile\n- removed BuildRoot from specfiles\n\n* Tue May 10 2016 Grant Gainey 1.10.4.custom-3\n- jquery-ui: build on openSUSE\n\n[1.10.4.custom-2]\n- fix jquery-ui source url\n\n[1.10.4.custom-1]\n- initial jquery-ui build\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-03-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-11022",
+          "href": "https://linux.oracle.com/cve/CVE-2020-11022.html"
+        },
+        {
+          "text": "CVE-2020-11023",
+          "href": "https://linux.oracle.com/cve/CVE-2020-11023.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20229177003",
+                "comment": "jquery-ui is earlier than 0:1.10.4.custom-4.0.1.el7"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20229177004",
+                "comment": "jquery-ui is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20229177002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20229177001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

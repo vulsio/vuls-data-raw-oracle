@@ -1,0 +1,171 @@
+{
+  "id": "oval:com.oracle.elsa:def:20140704",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2014-0704:  qemu-kvm security and bug fix update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2014-0704",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2014-0704.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2014-2894",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2014-2894.html"
+      }
+    ],
+    "description": "\n[1.5.3-60.el7_0.2]\n- kvm-pc-add-hot_add_cpu-callback-to-all-machine-types.patch [bz#1094820]\n- Resolves: bz#1094820\n  (Hot plug CPU not working with RHEL6  machine types running on RHEL7 host.)\n\n[1.5.3-60.el7_0.1]\n- kvm-iscsi-fix-indentation.patch [bz#1090978]\n- kvm-iscsi-correctly-propagate-errors-in-iscsi_open.patch [bz#1090978]\n- kvm-block-iscsi-query-for-supported-VPD-pages.patch [bz#1090978]\n- kvm-block-iscsi-fix-segfault-if-writesame-fails.patch [bz#1090978]\n- kvm-iscsi-recognize-invalid-field-ASCQ-from-WRITE-SAME-c.patch [bz#1090978]\n- kvm-iscsi-ignore-flushes-on-scsi-generic-devices.patch [bz#1090978]\n- kvm-iscsi-always-query-max-WRITE-SAME-length.patch [bz#1090978]\n- kvm-iscsi-Don-t-set-error-if-already-set-in-iscsi_do_inq.patch [bz#1090978]\n- kvm-iscsi-Remember-to-set-ret-for-iscsi_open-in-error-ca.patch [bz#1090978]\n- kvm-qemu_loadvm_state-shadow-SeaBIOS-for-VM-incoming-fro.patch [1091322]\n- kvm-uhci-UNfix-irq-routing-for-RHEL-6-machtypes-RHEL-onl.patch [bz#1090981]\n- kvm-ide-Correct-improper-smart-self-test-counter-reset-i.patch [bz#1093612]\n- Resolves: bz#1091322\n  (fail to reboot guest after migration from RHEL6.5 host to RHEL7.0 host)\n- Resolves: bz#1090981\n  (Guest hits call trace migrate from RHEL6.5 to RHEL7.0 host with -M 6.1 & balloon & uhci device)\n- Resolves: bz#1090978\n  (qemu-kvm: iSCSI: Failure. SENSE KEY:ILLEGAL_REQUEST(5) ASCQ:INVALID_FIELD_IN_CDB(0x2400))\n- Resolves: bz#1093612\n  (CVE-2014-2894 qemu-kvm: QEMU: out of bounds buffer accesses, guest triggerable via IDE SMART [rhel-7.0.z])\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2014 Oracle, Inc.",
+      "issued": {
+        "date": "2014-07-23"
+      },
+      "cve": [
+        {
+          "text": "CVE-2014-2894",
+          "href": "https://linux.oracle.com/cve/CVE-2014-2894.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704003",
+                    "comment": "libcacard is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704004",
+                    "comment": "libcacard is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704005",
+                    "comment": "libcacard-devel is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704006",
+                    "comment": "libcacard-devel is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704007",
+                    "comment": "libcacard-tools is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704008",
+                    "comment": "libcacard-tools is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704009",
+                    "comment": "qemu-guest-agent is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704010",
+                    "comment": "qemu-guest-agent is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704011",
+                    "comment": "qemu-img is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704012",
+                    "comment": "qemu-img is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704013",
+                    "comment": "qemu-kvm is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704014",
+                    "comment": "qemu-kvm is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704015",
+                    "comment": "qemu-kvm-common is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704016",
+                    "comment": "qemu-kvm-common is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704017",
+                    "comment": "qemu-kvm-tools is earlier than 10:1.5.3-60.el7_0.2"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20140704018",
+                    "comment": "qemu-kvm-tools is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20140704002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20140704001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

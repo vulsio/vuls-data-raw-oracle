@@ -1,0 +1,287 @@
+{
+  "id": "oval:com.oracle.elsa:def:20170574",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2017-0574:  gnutls security, bug fix, and enhancement update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2017-0574",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-0574.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-8610",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-8610.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5335",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5335.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5337",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5337.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5336",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5336.html"
+      }
+    ],
+    "description": "\n[2.12.23-21]\n- Upgraded to 2.12.23 to incorporate multiple TLS 1.2 fixes\n  (#1326389, #1326073, #1323215, #1320982, #1328205, #1321112)\n- Modified gnutls-serv to accept --sni-hostname (#1333521)\n- Modified gnutls-serv to always reply with an alert message (#1327656)\n- Removed support for DSA2 as it causes interoperability issues (#1321112)\n- Allow sending and receiving certificates which were not in the\n  signature algorithms extension (#1328205)\n- Removed support for EXPORT ciphersuites (#1337460)\n- Raised the minimum acceptable DH size to 1024 (#1335924)\n- Restricted the number of alert that can be received during handshake (#1388730)\n- Added fixes for OpenPGP parsing issues (CVE-2017-5337, CVE-2017-5336, CVE-2017-5335)\n- The exposed (but internal) crypto back-end registration API is deprecated and no\n  longer functional. The ABI is kept compatible (#1415682)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2017 Oracle, Inc.",
+      "issued": {
+        "date": "2017-03-27"
+      },
+      "cve": [
+        {
+          "text": "CVE-2016-8610",
+          "href": "https://linux.oracle.com/cve/CVE-2016-8610.html"
+        },
+        {
+          "text": "CVE-2017-5335",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5335.html"
+        },
+        {
+          "text": "CVE-2017-5337",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5337.html"
+        },
+        {
+          "text": "CVE-2017-5336",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5336.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574003",
+                        "comment": "gnutls is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574004",
+                        "comment": "gnutls is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574005",
+                        "comment": "gnutls-devel is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574006",
+                        "comment": "gnutls-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574007",
+                        "comment": "gnutls-guile is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574008",
+                        "comment": "gnutls-guile is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574009",
+                        "comment": "gnutls-utils is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574010",
+                        "comment": "gnutls-utils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20170574002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574003",
+                        "comment": "gnutls is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574004",
+                        "comment": "gnutls is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574005",
+                        "comment": "gnutls-devel is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574006",
+                        "comment": "gnutls-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574007",
+                        "comment": "gnutls-guile is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574008",
+                        "comment": "gnutls-guile is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574009",
+                        "comment": "gnutls-utils is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574010",
+                        "comment": "gnutls-utils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20170574011",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574003",
+                        "comment": "gnutls is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574004",
+                        "comment": "gnutls is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574005",
+                        "comment": "gnutls-devel is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574006",
+                        "comment": "gnutls-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574007",
+                        "comment": "gnutls-guile is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574008",
+                        "comment": "gnutls-guile is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574009",
+                        "comment": "gnutls-utils is earlier than 0:2.12.23-21.el6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20170574010",
+                        "comment": "gnutls-utils is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20170574012",
+                "comment": "Oracle Linux arch is sparc64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20170574001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

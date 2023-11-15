@@ -1,0 +1,296 @@
+{
+  "id": "oval:com.oracle.elsa:def:20214368",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-4368:  openssh security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-4368",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-4368.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-14145",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-14145.html"
+      }
+    ],
+    "description": "\n[8.0p1-10]\n- sshd -T requires -C when 'Match' is used in sshd_config (#1836277)\n\n[8.0p1-9]\n- CVE-2020-14145 openssh: Observable Discrepancy leading to an information\n  leak in the algorithm negotiation (#1882252)\n- Hostbased ssh authentication fails if session ID contains a '/' (#1944125)\n\n[8.0p1-8]\n- ssh doesnt restore the blocking mode on standard output (#1942901)\n\n[8.0p1-7 + 0.10.3-7]\n- SFTP sort upon the modification time (#1909988)\n- ssh-keygen printing fingerprint issue with Windows keys (#1901518)\n- PIN is lost when iterating over tokens when adding pkcs11 keys to ssh-agent (#1843372)\n- ssh-agent segfaults during ssh-add -s pkcs11 (#1868996)\n- ssh-copy-id could not resolve ipv6 address ends with colon (#1933517)\n- sshd provides PAM an incorrect error code (#1879503)\n\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-11-16"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-14145",
+          "href": "https://linux.oracle.com/cve/CVE-2020-14145.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368003",
+                        "comment": "openssh-askpass is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368004",
+                        "comment": "openssh-askpass is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368005",
+                        "comment": "openssh is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368006",
+                        "comment": "openssh is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368007",
+                        "comment": "openssh-cavs is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368008",
+                        "comment": "openssh-cavs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368009",
+                        "comment": "openssh-clients is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368010",
+                        "comment": "openssh-clients is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368011",
+                        "comment": "openssh-keycat is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368012",
+                        "comment": "openssh-keycat is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368013",
+                        "comment": "openssh-ldap is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368014",
+                        "comment": "openssh-ldap is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368015",
+                        "comment": "openssh-server is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368016",
+                        "comment": "openssh-server is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368017",
+                        "comment": "pam_ssh_agent_auth is earlier than 0:0.10.3-7.10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368018",
+                        "comment": "pam_ssh_agent_auth is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20214368002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368005",
+                        "comment": "openssh is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368006",
+                        "comment": "openssh is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368007",
+                        "comment": "openssh-cavs is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368008",
+                        "comment": "openssh-cavs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368009",
+                        "comment": "openssh-clients is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368010",
+                        "comment": "openssh-clients is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368011",
+                        "comment": "openssh-keycat is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368012",
+                        "comment": "openssh-keycat is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368013",
+                        "comment": "openssh-ldap is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368014",
+                        "comment": "openssh-ldap is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368015",
+                        "comment": "openssh-server is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368016",
+                        "comment": "openssh-server is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368017",
+                        "comment": "pam_ssh_agent_auth is earlier than 0:0.10.3-7.10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368018",
+                        "comment": "pam_ssh_agent_auth is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368003",
+                        "comment": "openssh-askpass is earlier than 0:8.0p1-10.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20214368004",
+                        "comment": "openssh-askpass is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20214368019",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20214368001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

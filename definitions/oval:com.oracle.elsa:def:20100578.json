@@ -1,0 +1,266 @@
+{
+  "id": "oval:com.oracle.elsa:def:20100578",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2010-0578:  freetype security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2010-0578",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2010-0578.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2498",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2010-2498.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2499",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2010-2499.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2500",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2010-2500.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2519",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2010-2519.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2527",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2010-2527.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-2541",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2010-2541.html"
+      }
+    ],
+    "description": "\n\n[2.2.1-25]\n- Add freetype-2.2.1-axis-name-overflow.patch\n    (Avoid overflow when dealing with names of axes)\n- Resolves: #614012\n\n[2.2.1-24]\n- Modify freetype-2.2.1-CVE-2010-2519.patch (additional fix)\n    (If the type of the POST fragment is 0, the segment is completely ignored)\n- Resolves: #614012\n\n[2.2.1-23]\n- Add freetype-2.2.1-CVE-2010-2527.patch\n    (Use precision for '%s' where appropriate to avoid buffer overflows)\n- Resolves: #614012\n\n[2.2.1-22]\n- Add freetype-2.2.1-CVE-2010-2498.patch\n    (Assure that 'end_point' is not larger than 'glyph->num_points')\n- Add freetype-2.2.1-CVE-2010-2499.patch\n    (Check the buffer size during gathering PFB fragments)\n- Add freetype-2.2.1-CVE-2010-2500.patch\n    (Use smaller threshold values for 'width' and 'height')\n- Add freetype-2.2.1-CVE-2010-2519.patch\n    (Check 'rlen' the length of fragment declared in the POST fragment header)\n- Resolves: #614012 \n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2010 Oracle, Inc.",
+      "issued": {
+        "date": "2010-07-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-2498",
+          "href": "https://linux.oracle.com/cve/CVE-2010-2498.html"
+        },
+        {
+          "text": "CVE-2010-2499",
+          "href": "https://linux.oracle.com/cve/CVE-2010-2499.html"
+        },
+        {
+          "text": "CVE-2010-2500",
+          "href": "https://linux.oracle.com/cve/CVE-2010-2500.html"
+        },
+        {
+          "text": "CVE-2010-2519",
+          "href": "https://linux.oracle.com/cve/CVE-2010-2519.html"
+        },
+        {
+          "text": "CVE-2010-2527",
+          "href": "https://linux.oracle.com/cve/CVE-2010-2527.html"
+        },
+        {
+          "text": "CVE-2010-2541",
+          "href": "https://linux.oracle.com/cve/CVE-2010-2541.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578003",
+                        "comment": "freetype is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578004",
+                        "comment": "freetype is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578005",
+                        "comment": "freetype-demos is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578006",
+                        "comment": "freetype-demos is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578007",
+                        "comment": "freetype-devel is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578008",
+                        "comment": "freetype-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20100578002",
+                "comment": "Oracle Linux arch is ia64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578003",
+                        "comment": "freetype is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578004",
+                        "comment": "freetype is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578005",
+                        "comment": "freetype-demos is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578006",
+                        "comment": "freetype-demos is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578007",
+                        "comment": "freetype-devel is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578008",
+                        "comment": "freetype-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20100578009",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578003",
+                        "comment": "freetype is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578004",
+                        "comment": "freetype is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578005",
+                        "comment": "freetype-demos is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578006",
+                        "comment": "freetype-demos is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578007",
+                        "comment": "freetype-devel is earlier than 0:2.2.1-25.el5_5"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20100578008",
+                        "comment": "freetype-devel is signed with the Oracle Linux 5 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20100578010",
+                "comment": "Oracle Linux arch is i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20100578001",
+        "comment": "Oracle Linux 5 is installed"
+      }
+    ]
+  }
+}

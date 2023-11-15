@@ -1,0 +1,140 @@
+{
+  "id": "oval:com.oracle.elsa:def:20211679",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2021-1679:  bash security and bug fix update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2021-1679",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-1679.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-18276",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-18276.html"
+      }
+    ],
+    "description": "\n[4.4.19-14]\n- Fix hang when limit for nproc is very high\n  Resolves: #1890888\n\n[4.4.19-13]\n- Correctly drop saved UID when effective UID is not equal to its real UID\n  Resolves: #1793943\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2021 Oracle, Inc.",
+      "issued": {
+        "date": "2021-05-25"
+      },
+      "cve": [
+        {
+          "text": "CVE-2019-18276",
+          "href": "https://linux.oracle.com/cve/CVE-2019-18276.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679003",
+                        "comment": "bash is earlier than 0:4.4.19-14.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679004",
+                        "comment": "bash is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679005",
+                        "comment": "bash-doc is earlier than 0:4.4.19-14.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679006",
+                        "comment": "bash-doc is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20211679002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679003",
+                        "comment": "bash is earlier than 0:4.4.19-14.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679004",
+                        "comment": "bash is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679005",
+                        "comment": "bash-doc is earlier than 0:4.4.19-14.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20211679006",
+                        "comment": "bash-doc is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20211679007",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20211679001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,3609 @@
+{
+  "id": "oval:com.oracle.elsa:def:20194851",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-4851:  glibc security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-4851",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-4851.html"
+      }
+    ],
+    "description": "\n[2.28-72.0.1]\n- add Ampere emag  to tunable cpu list (Patrick McGehearty)\n- add optimized memset for emag\n- add an ASIMD variant of strlen for falkor\n- Orabug: 2700101.\n- Modify glibc-ora28849085.patch so it works with RHCK kernels.\n- Orabug: 28849085.\n- Make _IO_funlockfile match __funlockfile and _IO_flockfile match __flockfile\n- Both should test\n-   if (stream->_flags & _IO_USER_LOCK) == 0)\n-     _IO_lock_lock (*stream->_lock);\n- OraBug: 28481550.\n\n[2.28-72]\n- Skip wide buffer handling for legacy stdio handles (#1722215)\n\n[2.28-71]\n- Remove copy_file_range emulation (#1724975)\n\n[2.28-70]\n- Avoid nscd assertion failure during persistent db check (#1727152)\n\n[2.28-69]\n- Fix invalid free under valgrind with libdl (#1717438)\n\n[2.28-68]\n- Account for size of locale-archive in rpm package (#1725131)\n\n[2.28-67]\n- Reject IP addresses with trailing characters in getaddrinfo (#1727241)\n\n[2.28-66]\n- Avoid header conflict between <sys/stat.h> and <linux/stat.h> (#1699194)\n\n[2.28-65]\n- glibc-all-langpacks: Do not delete locale archive during update (#1717347)\n- Do not mark /usr/lib/locale/locale-archive as a configuration file\n  because it is always automatically overwritten by build-locale-archive.\n\n[2.28-64]\n- Avoid ABI exposure of the NSS service_user type (#1710894)\n\n[2.28-63]\n- Enable full ICMP errors for UDP DNS sockets. (#1670043)\n\n[2.28-62]\n- Convert post-install binary to rpm lua scriptlet (#1639346)\n\n[2.28-61]\n- Fix crash during wide stream buffer flush (#1710478)\n\n[2.28-60]\n- Add PF_XDP, AF_XDP and SOL_XDP from Linux 4.18 (#1706777)\n\n[2.28-59]\n- Add .gdb_index to debug information (#1612448)\n\n* Wed May 22 2019 DJ Delorie <dj@redhat.com) - 2.28-58\n- iconv, localedef: avoid floating point rounding differences (#1691528)\n\n[2.28-57]\n- locale: Add LOCPATH diagnostics to the locale program (#1701605)\n\n[2.28-56]\n- Fix hang in pldd.  (#1702539)\n\n[2.28-55]\n- s390x string function improvements (#1659438)\n\n[2.28-54]\n- Fix test suite failures due to race conditions in posix/tst-spawn\n  spawned processes. (#1659512)\n\n[2.28-53]\n- Add missing CFI data to __mpn_* functions on ppc64le (#1658901)\n\n[2.28-52]\n- intl: Do not return NULL on asprintf failure in gettext (#1663035)\n\n[2.28-51]\n- Increase BIND_NOW coverage (#1639343)\n\n[2.28-50]\n- Fix pthread_rwlock_trywrlock and pthread_rwlock_tryrdlock stalls (#1659293)\n\n[2.28-49]\n- malloc: Improve bad chunk detection (#1651283)\n\n[2.28-48]\n- Add compiler barriers around modifications of the robust mutex list\n  for pthread_mutex_trylock. (#1672773)\n\n[2.28-47]\n- powerpc: Only enable HTM if kernel supports PPC_FEATURE2_HTM_NOSC (#1651742)\n\n[2.28-46]\n- Only build libm with -fno-math-errno (#1664408)\n\n[2.28-45]\n- ja_JP: Add new Japanese Era name (#1577438)\n\n[2.28-44]\n- math: Add XFAILs for some IBM 128-bit long double fma tests (#1623537)\n\n[2.28-43]\n- malloc: realloc ncopies integer overflow (#1662843)\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-11-20"
+      }
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851003",
+                    "comment": "compat-libpthread-nonshared is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851004",
+                    "comment": "compat-libpthread-nonshared is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851005",
+                    "comment": "compat-libpthread-nonshared is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851006",
+                    "comment": "glibc is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851007",
+                    "comment": "glibc is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851008",
+                    "comment": "glibc is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851009",
+                    "comment": "glibc-all-langpacks is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851010",
+                    "comment": "glibc-all-langpacks is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851011",
+                    "comment": "glibc-all-langpacks is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851012",
+                    "comment": "glibc-common is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851013",
+                    "comment": "glibc-common is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851014",
+                    "comment": "glibc-common is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851015",
+                    "comment": "glibc-devel is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851016",
+                    "comment": "glibc-devel is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851017",
+                    "comment": "glibc-devel is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851018",
+                    "comment": "glibc-headers is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851019",
+                    "comment": "glibc-headers is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851020",
+                    "comment": "glibc-headers is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851021",
+                    "comment": "glibc-langpack-aa is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851022",
+                    "comment": "glibc-langpack-aa is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851023",
+                    "comment": "glibc-langpack-aa is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851024",
+                    "comment": "glibc-langpack-af is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851025",
+                    "comment": "glibc-langpack-af is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851026",
+                    "comment": "glibc-langpack-af is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851027",
+                    "comment": "glibc-langpack-agr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851028",
+                    "comment": "glibc-langpack-agr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851029",
+                    "comment": "glibc-langpack-agr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851030",
+                    "comment": "glibc-langpack-ak is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851031",
+                    "comment": "glibc-langpack-ak is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851032",
+                    "comment": "glibc-langpack-ak is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851033",
+                    "comment": "glibc-langpack-am is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851034",
+                    "comment": "glibc-langpack-am is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851035",
+                    "comment": "glibc-langpack-am is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851036",
+                    "comment": "glibc-langpack-an is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851037",
+                    "comment": "glibc-langpack-an is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851038",
+                    "comment": "glibc-langpack-an is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851039",
+                    "comment": "glibc-langpack-anp is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851040",
+                    "comment": "glibc-langpack-anp is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851041",
+                    "comment": "glibc-langpack-anp is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851042",
+                    "comment": "glibc-langpack-ar is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851043",
+                    "comment": "glibc-langpack-ar is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851044",
+                    "comment": "glibc-langpack-ar is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851045",
+                    "comment": "glibc-langpack-as is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851046",
+                    "comment": "glibc-langpack-as is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851047",
+                    "comment": "glibc-langpack-as is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851048",
+                    "comment": "glibc-langpack-ast is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851049",
+                    "comment": "glibc-langpack-ast is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851050",
+                    "comment": "glibc-langpack-ast is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851051",
+                    "comment": "glibc-langpack-ayc is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851052",
+                    "comment": "glibc-langpack-ayc is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851053",
+                    "comment": "glibc-langpack-ayc is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851054",
+                    "comment": "glibc-langpack-az is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851055",
+                    "comment": "glibc-langpack-az is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851056",
+                    "comment": "glibc-langpack-az is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851057",
+                    "comment": "glibc-langpack-be is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851058",
+                    "comment": "glibc-langpack-be is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851059",
+                    "comment": "glibc-langpack-be is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851060",
+                    "comment": "glibc-langpack-bem is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851061",
+                    "comment": "glibc-langpack-bem is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851062",
+                    "comment": "glibc-langpack-bem is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851063",
+                    "comment": "glibc-langpack-ber is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851064",
+                    "comment": "glibc-langpack-ber is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851065",
+                    "comment": "glibc-langpack-ber is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851066",
+                    "comment": "glibc-langpack-bg is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851067",
+                    "comment": "glibc-langpack-bg is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851068",
+                    "comment": "glibc-langpack-bg is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851069",
+                    "comment": "glibc-langpack-bhb is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851070",
+                    "comment": "glibc-langpack-bhb is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851071",
+                    "comment": "glibc-langpack-bhb is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851072",
+                    "comment": "glibc-langpack-bho is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851073",
+                    "comment": "glibc-langpack-bho is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851074",
+                    "comment": "glibc-langpack-bho is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851075",
+                    "comment": "glibc-langpack-bi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851076",
+                    "comment": "glibc-langpack-bi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851077",
+                    "comment": "glibc-langpack-bi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851078",
+                    "comment": "glibc-langpack-bn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851079",
+                    "comment": "glibc-langpack-bn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851080",
+                    "comment": "glibc-langpack-bn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851081",
+                    "comment": "glibc-langpack-bo is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851082",
+                    "comment": "glibc-langpack-bo is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851083",
+                    "comment": "glibc-langpack-bo is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851084",
+                    "comment": "glibc-langpack-br is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851085",
+                    "comment": "glibc-langpack-br is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851086",
+                    "comment": "glibc-langpack-br is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851087",
+                    "comment": "glibc-langpack-brx is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851088",
+                    "comment": "glibc-langpack-brx is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851089",
+                    "comment": "glibc-langpack-brx is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851090",
+                    "comment": "glibc-langpack-bs is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851091",
+                    "comment": "glibc-langpack-bs is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851092",
+                    "comment": "glibc-langpack-bs is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851093",
+                    "comment": "glibc-langpack-byn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851094",
+                    "comment": "glibc-langpack-byn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851095",
+                    "comment": "glibc-langpack-byn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851096",
+                    "comment": "glibc-langpack-ca is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851097",
+                    "comment": "glibc-langpack-ca is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851098",
+                    "comment": "glibc-langpack-ca is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851099",
+                    "comment": "glibc-langpack-ce is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851100",
+                    "comment": "glibc-langpack-ce is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851101",
+                    "comment": "glibc-langpack-ce is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851102",
+                    "comment": "glibc-langpack-chr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851103",
+                    "comment": "glibc-langpack-chr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851104",
+                    "comment": "glibc-langpack-chr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851105",
+                    "comment": "glibc-langpack-cmn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851106",
+                    "comment": "glibc-langpack-cmn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851107",
+                    "comment": "glibc-langpack-cmn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851108",
+                    "comment": "glibc-langpack-crh is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851109",
+                    "comment": "glibc-langpack-crh is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851110",
+                    "comment": "glibc-langpack-crh is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851111",
+                    "comment": "glibc-langpack-cs is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851112",
+                    "comment": "glibc-langpack-cs is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851113",
+                    "comment": "glibc-langpack-cs is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851114",
+                    "comment": "glibc-langpack-csb is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851115",
+                    "comment": "glibc-langpack-csb is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851116",
+                    "comment": "glibc-langpack-csb is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851117",
+                    "comment": "glibc-langpack-cv is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851118",
+                    "comment": "glibc-langpack-cv is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851119",
+                    "comment": "glibc-langpack-cv is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851120",
+                    "comment": "glibc-langpack-cy is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851121",
+                    "comment": "glibc-langpack-cy is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851122",
+                    "comment": "glibc-langpack-cy is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851123",
+                    "comment": "glibc-langpack-da is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851124",
+                    "comment": "glibc-langpack-da is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851125",
+                    "comment": "glibc-langpack-da is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851126",
+                    "comment": "glibc-langpack-de is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851127",
+                    "comment": "glibc-langpack-de is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851128",
+                    "comment": "glibc-langpack-de is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851129",
+                    "comment": "glibc-langpack-doi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851130",
+                    "comment": "glibc-langpack-doi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851131",
+                    "comment": "glibc-langpack-doi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851132",
+                    "comment": "glibc-langpack-dsb is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851133",
+                    "comment": "glibc-langpack-dsb is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851134",
+                    "comment": "glibc-langpack-dsb is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851135",
+                    "comment": "glibc-langpack-dv is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851136",
+                    "comment": "glibc-langpack-dv is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851137",
+                    "comment": "glibc-langpack-dv is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851138",
+                    "comment": "glibc-langpack-dz is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851139",
+                    "comment": "glibc-langpack-dz is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851140",
+                    "comment": "glibc-langpack-dz is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851141",
+                    "comment": "glibc-langpack-el is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851142",
+                    "comment": "glibc-langpack-el is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851143",
+                    "comment": "glibc-langpack-el is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851144",
+                    "comment": "glibc-langpack-en is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851145",
+                    "comment": "glibc-langpack-en is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851146",
+                    "comment": "glibc-langpack-en is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851147",
+                    "comment": "glibc-langpack-eo is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851148",
+                    "comment": "glibc-langpack-eo is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851149",
+                    "comment": "glibc-langpack-eo is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851150",
+                    "comment": "glibc-langpack-es is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851151",
+                    "comment": "glibc-langpack-es is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851152",
+                    "comment": "glibc-langpack-es is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851153",
+                    "comment": "glibc-langpack-et is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851154",
+                    "comment": "glibc-langpack-et is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851155",
+                    "comment": "glibc-langpack-et is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851156",
+                    "comment": "glibc-langpack-eu is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851157",
+                    "comment": "glibc-langpack-eu is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851158",
+                    "comment": "glibc-langpack-eu is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851159",
+                    "comment": "glibc-langpack-fa is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851160",
+                    "comment": "glibc-langpack-fa is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851161",
+                    "comment": "glibc-langpack-fa is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851162",
+                    "comment": "glibc-langpack-ff is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851163",
+                    "comment": "glibc-langpack-ff is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851164",
+                    "comment": "glibc-langpack-ff is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851165",
+                    "comment": "glibc-langpack-fi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851166",
+                    "comment": "glibc-langpack-fi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851167",
+                    "comment": "glibc-langpack-fi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851168",
+                    "comment": "glibc-langpack-fil is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851169",
+                    "comment": "glibc-langpack-fil is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851170",
+                    "comment": "glibc-langpack-fil is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851171",
+                    "comment": "glibc-langpack-fo is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851172",
+                    "comment": "glibc-langpack-fo is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851173",
+                    "comment": "glibc-langpack-fo is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851174",
+                    "comment": "glibc-langpack-fr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851175",
+                    "comment": "glibc-langpack-fr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851176",
+                    "comment": "glibc-langpack-fr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851177",
+                    "comment": "glibc-langpack-fur is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851178",
+                    "comment": "glibc-langpack-fur is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851179",
+                    "comment": "glibc-langpack-fur is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851180",
+                    "comment": "glibc-langpack-fy is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851181",
+                    "comment": "glibc-langpack-fy is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851182",
+                    "comment": "glibc-langpack-fy is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851183",
+                    "comment": "glibc-langpack-ga is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851184",
+                    "comment": "glibc-langpack-ga is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851185",
+                    "comment": "glibc-langpack-ga is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851186",
+                    "comment": "glibc-langpack-gd is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851187",
+                    "comment": "glibc-langpack-gd is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851188",
+                    "comment": "glibc-langpack-gd is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851189",
+                    "comment": "glibc-langpack-gez is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851190",
+                    "comment": "glibc-langpack-gez is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851191",
+                    "comment": "glibc-langpack-gez is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851192",
+                    "comment": "glibc-langpack-gl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851193",
+                    "comment": "glibc-langpack-gl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851194",
+                    "comment": "glibc-langpack-gl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851195",
+                    "comment": "glibc-langpack-gu is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851196",
+                    "comment": "glibc-langpack-gu is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851197",
+                    "comment": "glibc-langpack-gu is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851198",
+                    "comment": "glibc-langpack-gv is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851199",
+                    "comment": "glibc-langpack-gv is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851200",
+                    "comment": "glibc-langpack-gv is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851201",
+                    "comment": "glibc-langpack-ha is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851202",
+                    "comment": "glibc-langpack-ha is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851203",
+                    "comment": "glibc-langpack-ha is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851204",
+                    "comment": "glibc-langpack-hak is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851205",
+                    "comment": "glibc-langpack-hak is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851206",
+                    "comment": "glibc-langpack-hak is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851207",
+                    "comment": "glibc-langpack-he is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851208",
+                    "comment": "glibc-langpack-he is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851209",
+                    "comment": "glibc-langpack-he is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851210",
+                    "comment": "glibc-langpack-hi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851211",
+                    "comment": "glibc-langpack-hi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851212",
+                    "comment": "glibc-langpack-hi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851213",
+                    "comment": "glibc-langpack-hif is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851214",
+                    "comment": "glibc-langpack-hif is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851215",
+                    "comment": "glibc-langpack-hif is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851216",
+                    "comment": "glibc-langpack-hne is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851217",
+                    "comment": "glibc-langpack-hne is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851218",
+                    "comment": "glibc-langpack-hne is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851219",
+                    "comment": "glibc-langpack-hr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851220",
+                    "comment": "glibc-langpack-hr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851221",
+                    "comment": "glibc-langpack-hr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851222",
+                    "comment": "glibc-langpack-hsb is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851223",
+                    "comment": "glibc-langpack-hsb is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851224",
+                    "comment": "glibc-langpack-hsb is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851225",
+                    "comment": "glibc-langpack-ht is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851226",
+                    "comment": "glibc-langpack-ht is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851227",
+                    "comment": "glibc-langpack-ht is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851228",
+                    "comment": "glibc-langpack-hu is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851229",
+                    "comment": "glibc-langpack-hu is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851230",
+                    "comment": "glibc-langpack-hu is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851231",
+                    "comment": "glibc-langpack-hy is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851232",
+                    "comment": "glibc-langpack-hy is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851233",
+                    "comment": "glibc-langpack-hy is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851234",
+                    "comment": "glibc-langpack-ia is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851235",
+                    "comment": "glibc-langpack-ia is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851236",
+                    "comment": "glibc-langpack-ia is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851237",
+                    "comment": "glibc-langpack-id is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851238",
+                    "comment": "glibc-langpack-id is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851239",
+                    "comment": "glibc-langpack-id is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851240",
+                    "comment": "glibc-langpack-ig is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851241",
+                    "comment": "glibc-langpack-ig is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851242",
+                    "comment": "glibc-langpack-ig is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851243",
+                    "comment": "glibc-langpack-ik is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851244",
+                    "comment": "glibc-langpack-ik is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851245",
+                    "comment": "glibc-langpack-ik is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851246",
+                    "comment": "glibc-langpack-is is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851247",
+                    "comment": "glibc-langpack-is is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851248",
+                    "comment": "glibc-langpack-is is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851249",
+                    "comment": "glibc-langpack-it is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851250",
+                    "comment": "glibc-langpack-it is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851251",
+                    "comment": "glibc-langpack-it is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851252",
+                    "comment": "glibc-langpack-iu is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851253",
+                    "comment": "glibc-langpack-iu is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851254",
+                    "comment": "glibc-langpack-iu is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851255",
+                    "comment": "glibc-langpack-ja is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851256",
+                    "comment": "glibc-langpack-ja is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851257",
+                    "comment": "glibc-langpack-ja is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851258",
+                    "comment": "glibc-langpack-ka is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851259",
+                    "comment": "glibc-langpack-ka is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851260",
+                    "comment": "glibc-langpack-ka is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851261",
+                    "comment": "glibc-langpack-kab is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851262",
+                    "comment": "glibc-langpack-kab is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851263",
+                    "comment": "glibc-langpack-kab is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851264",
+                    "comment": "glibc-langpack-kk is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851265",
+                    "comment": "glibc-langpack-kk is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851266",
+                    "comment": "glibc-langpack-kk is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851267",
+                    "comment": "glibc-langpack-kl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851268",
+                    "comment": "glibc-langpack-kl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851269",
+                    "comment": "glibc-langpack-kl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851270",
+                    "comment": "glibc-langpack-km is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851271",
+                    "comment": "glibc-langpack-km is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851272",
+                    "comment": "glibc-langpack-km is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851273",
+                    "comment": "glibc-langpack-kn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851274",
+                    "comment": "glibc-langpack-kn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851275",
+                    "comment": "glibc-langpack-kn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851276",
+                    "comment": "glibc-langpack-ko is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851277",
+                    "comment": "glibc-langpack-ko is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851278",
+                    "comment": "glibc-langpack-ko is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851279",
+                    "comment": "glibc-langpack-kok is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851280",
+                    "comment": "glibc-langpack-kok is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851281",
+                    "comment": "glibc-langpack-kok is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851282",
+                    "comment": "glibc-langpack-ks is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851283",
+                    "comment": "glibc-langpack-ks is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851284",
+                    "comment": "glibc-langpack-ks is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851285",
+                    "comment": "glibc-langpack-ku is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851286",
+                    "comment": "glibc-langpack-ku is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851287",
+                    "comment": "glibc-langpack-ku is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851288",
+                    "comment": "glibc-langpack-kw is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851289",
+                    "comment": "glibc-langpack-kw is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851290",
+                    "comment": "glibc-langpack-kw is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851291",
+                    "comment": "glibc-langpack-ky is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851292",
+                    "comment": "glibc-langpack-ky is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851293",
+                    "comment": "glibc-langpack-ky is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851294",
+                    "comment": "glibc-langpack-lb is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851295",
+                    "comment": "glibc-langpack-lb is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851296",
+                    "comment": "glibc-langpack-lb is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851297",
+                    "comment": "glibc-langpack-lg is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851298",
+                    "comment": "glibc-langpack-lg is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851299",
+                    "comment": "glibc-langpack-lg is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851300",
+                    "comment": "glibc-langpack-li is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851301",
+                    "comment": "glibc-langpack-li is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851302",
+                    "comment": "glibc-langpack-li is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851303",
+                    "comment": "glibc-langpack-lij is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851304",
+                    "comment": "glibc-langpack-lij is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851305",
+                    "comment": "glibc-langpack-lij is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851306",
+                    "comment": "glibc-langpack-ln is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851307",
+                    "comment": "glibc-langpack-ln is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851308",
+                    "comment": "glibc-langpack-ln is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851309",
+                    "comment": "glibc-langpack-lo is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851310",
+                    "comment": "glibc-langpack-lo is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851311",
+                    "comment": "glibc-langpack-lo is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851312",
+                    "comment": "glibc-langpack-lt is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851313",
+                    "comment": "glibc-langpack-lt is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851314",
+                    "comment": "glibc-langpack-lt is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851315",
+                    "comment": "glibc-langpack-lv is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851316",
+                    "comment": "glibc-langpack-lv is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851317",
+                    "comment": "glibc-langpack-lv is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851318",
+                    "comment": "glibc-langpack-lzh is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851319",
+                    "comment": "glibc-langpack-lzh is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851320",
+                    "comment": "glibc-langpack-lzh is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851321",
+                    "comment": "glibc-langpack-mag is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851322",
+                    "comment": "glibc-langpack-mag is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851323",
+                    "comment": "glibc-langpack-mag is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851324",
+                    "comment": "glibc-langpack-mai is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851325",
+                    "comment": "glibc-langpack-mai is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851326",
+                    "comment": "glibc-langpack-mai is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851327",
+                    "comment": "glibc-langpack-mfe is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851328",
+                    "comment": "glibc-langpack-mfe is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851329",
+                    "comment": "glibc-langpack-mfe is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851330",
+                    "comment": "glibc-langpack-mg is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851331",
+                    "comment": "glibc-langpack-mg is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851332",
+                    "comment": "glibc-langpack-mg is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851333",
+                    "comment": "glibc-langpack-mhr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851334",
+                    "comment": "glibc-langpack-mhr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851335",
+                    "comment": "glibc-langpack-mhr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851336",
+                    "comment": "glibc-langpack-mi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851337",
+                    "comment": "glibc-langpack-mi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851338",
+                    "comment": "glibc-langpack-mi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851339",
+                    "comment": "glibc-langpack-miq is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851340",
+                    "comment": "glibc-langpack-miq is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851341",
+                    "comment": "glibc-langpack-miq is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851342",
+                    "comment": "glibc-langpack-mjw is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851343",
+                    "comment": "glibc-langpack-mjw is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851344",
+                    "comment": "glibc-langpack-mjw is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851345",
+                    "comment": "glibc-langpack-mk is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851346",
+                    "comment": "glibc-langpack-mk is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851347",
+                    "comment": "glibc-langpack-mk is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851348",
+                    "comment": "glibc-langpack-ml is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851349",
+                    "comment": "glibc-langpack-ml is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851350",
+                    "comment": "glibc-langpack-ml is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851351",
+                    "comment": "glibc-langpack-mn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851352",
+                    "comment": "glibc-langpack-mn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851353",
+                    "comment": "glibc-langpack-mn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851354",
+                    "comment": "glibc-langpack-mni is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851355",
+                    "comment": "glibc-langpack-mni is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851356",
+                    "comment": "glibc-langpack-mni is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851357",
+                    "comment": "glibc-langpack-mr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851358",
+                    "comment": "glibc-langpack-mr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851359",
+                    "comment": "glibc-langpack-mr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851360",
+                    "comment": "glibc-langpack-ms is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851361",
+                    "comment": "glibc-langpack-ms is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851362",
+                    "comment": "glibc-langpack-ms is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851363",
+                    "comment": "glibc-langpack-mt is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851364",
+                    "comment": "glibc-langpack-mt is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851365",
+                    "comment": "glibc-langpack-mt is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851366",
+                    "comment": "glibc-langpack-my is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851367",
+                    "comment": "glibc-langpack-my is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851368",
+                    "comment": "glibc-langpack-my is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851369",
+                    "comment": "glibc-langpack-nan is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851370",
+                    "comment": "glibc-langpack-nan is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851371",
+                    "comment": "glibc-langpack-nan is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851372",
+                    "comment": "glibc-langpack-nb is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851373",
+                    "comment": "glibc-langpack-nb is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851374",
+                    "comment": "glibc-langpack-nb is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851375",
+                    "comment": "glibc-langpack-nds is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851376",
+                    "comment": "glibc-langpack-nds is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851377",
+                    "comment": "glibc-langpack-nds is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851378",
+                    "comment": "glibc-langpack-ne is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851379",
+                    "comment": "glibc-langpack-ne is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851380",
+                    "comment": "glibc-langpack-ne is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851381",
+                    "comment": "glibc-langpack-nhn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851382",
+                    "comment": "glibc-langpack-nhn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851383",
+                    "comment": "glibc-langpack-nhn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851384",
+                    "comment": "glibc-langpack-niu is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851385",
+                    "comment": "glibc-langpack-niu is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851386",
+                    "comment": "glibc-langpack-niu is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851387",
+                    "comment": "glibc-langpack-nl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851388",
+                    "comment": "glibc-langpack-nl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851389",
+                    "comment": "glibc-langpack-nl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851390",
+                    "comment": "glibc-langpack-nn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851391",
+                    "comment": "glibc-langpack-nn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851392",
+                    "comment": "glibc-langpack-nn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851393",
+                    "comment": "glibc-langpack-nr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851394",
+                    "comment": "glibc-langpack-nr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851395",
+                    "comment": "glibc-langpack-nr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851396",
+                    "comment": "glibc-langpack-nso is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851397",
+                    "comment": "glibc-langpack-nso is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851398",
+                    "comment": "glibc-langpack-nso is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851399",
+                    "comment": "glibc-langpack-oc is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851400",
+                    "comment": "glibc-langpack-oc is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851401",
+                    "comment": "glibc-langpack-oc is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851402",
+                    "comment": "glibc-langpack-om is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851403",
+                    "comment": "glibc-langpack-om is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851404",
+                    "comment": "glibc-langpack-om is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851405",
+                    "comment": "glibc-langpack-or is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851406",
+                    "comment": "glibc-langpack-or is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851407",
+                    "comment": "glibc-langpack-or is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851408",
+                    "comment": "glibc-langpack-os is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851409",
+                    "comment": "glibc-langpack-os is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851410",
+                    "comment": "glibc-langpack-os is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851411",
+                    "comment": "glibc-langpack-pa is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851412",
+                    "comment": "glibc-langpack-pa is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851413",
+                    "comment": "glibc-langpack-pa is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851414",
+                    "comment": "glibc-langpack-pap is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851415",
+                    "comment": "glibc-langpack-pap is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851416",
+                    "comment": "glibc-langpack-pap is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851417",
+                    "comment": "glibc-langpack-pl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851418",
+                    "comment": "glibc-langpack-pl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851419",
+                    "comment": "glibc-langpack-pl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851420",
+                    "comment": "glibc-langpack-ps is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851421",
+                    "comment": "glibc-langpack-ps is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851422",
+                    "comment": "glibc-langpack-ps is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851423",
+                    "comment": "glibc-langpack-pt is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851424",
+                    "comment": "glibc-langpack-pt is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851425",
+                    "comment": "glibc-langpack-pt is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851426",
+                    "comment": "glibc-langpack-quz is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851427",
+                    "comment": "glibc-langpack-quz is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851428",
+                    "comment": "glibc-langpack-quz is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851429",
+                    "comment": "glibc-langpack-raj is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851430",
+                    "comment": "glibc-langpack-raj is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851431",
+                    "comment": "glibc-langpack-raj is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851432",
+                    "comment": "glibc-langpack-ro is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851433",
+                    "comment": "glibc-langpack-ro is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851434",
+                    "comment": "glibc-langpack-ro is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851435",
+                    "comment": "glibc-langpack-ru is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851436",
+                    "comment": "glibc-langpack-ru is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851437",
+                    "comment": "glibc-langpack-ru is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851438",
+                    "comment": "glibc-langpack-rw is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851439",
+                    "comment": "glibc-langpack-rw is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851440",
+                    "comment": "glibc-langpack-rw is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851441",
+                    "comment": "glibc-langpack-sa is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851442",
+                    "comment": "glibc-langpack-sa is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851443",
+                    "comment": "glibc-langpack-sa is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851444",
+                    "comment": "glibc-langpack-sah is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851445",
+                    "comment": "glibc-langpack-sah is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851446",
+                    "comment": "glibc-langpack-sah is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851447",
+                    "comment": "glibc-langpack-sat is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851448",
+                    "comment": "glibc-langpack-sat is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851449",
+                    "comment": "glibc-langpack-sat is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851450",
+                    "comment": "glibc-langpack-sc is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851451",
+                    "comment": "glibc-langpack-sc is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851452",
+                    "comment": "glibc-langpack-sc is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851453",
+                    "comment": "glibc-langpack-sd is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851454",
+                    "comment": "glibc-langpack-sd is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851455",
+                    "comment": "glibc-langpack-sd is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851456",
+                    "comment": "glibc-langpack-se is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851457",
+                    "comment": "glibc-langpack-se is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851458",
+                    "comment": "glibc-langpack-se is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851459",
+                    "comment": "glibc-langpack-sgs is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851460",
+                    "comment": "glibc-langpack-sgs is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851461",
+                    "comment": "glibc-langpack-sgs is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851462",
+                    "comment": "glibc-langpack-shn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851463",
+                    "comment": "glibc-langpack-shn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851464",
+                    "comment": "glibc-langpack-shn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851465",
+                    "comment": "glibc-langpack-shs is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851466",
+                    "comment": "glibc-langpack-shs is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851467",
+                    "comment": "glibc-langpack-shs is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851468",
+                    "comment": "glibc-langpack-si is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851469",
+                    "comment": "glibc-langpack-si is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851470",
+                    "comment": "glibc-langpack-si is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851471",
+                    "comment": "glibc-langpack-sid is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851472",
+                    "comment": "glibc-langpack-sid is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851473",
+                    "comment": "glibc-langpack-sid is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851474",
+                    "comment": "glibc-langpack-sk is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851475",
+                    "comment": "glibc-langpack-sk is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851476",
+                    "comment": "glibc-langpack-sk is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851477",
+                    "comment": "glibc-langpack-sl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851478",
+                    "comment": "glibc-langpack-sl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851479",
+                    "comment": "glibc-langpack-sl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851480",
+                    "comment": "glibc-langpack-sm is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851481",
+                    "comment": "glibc-langpack-sm is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851482",
+                    "comment": "glibc-langpack-sm is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851483",
+                    "comment": "glibc-langpack-so is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851484",
+                    "comment": "glibc-langpack-so is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851485",
+                    "comment": "glibc-langpack-so is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851486",
+                    "comment": "glibc-langpack-sq is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851487",
+                    "comment": "glibc-langpack-sq is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851488",
+                    "comment": "glibc-langpack-sq is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851489",
+                    "comment": "glibc-langpack-sr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851490",
+                    "comment": "glibc-langpack-sr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851491",
+                    "comment": "glibc-langpack-sr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851492",
+                    "comment": "glibc-langpack-ss is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851493",
+                    "comment": "glibc-langpack-ss is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851494",
+                    "comment": "glibc-langpack-ss is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851495",
+                    "comment": "glibc-langpack-st is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851496",
+                    "comment": "glibc-langpack-st is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851497",
+                    "comment": "glibc-langpack-st is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851498",
+                    "comment": "glibc-langpack-sv is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851499",
+                    "comment": "glibc-langpack-sv is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851500",
+                    "comment": "glibc-langpack-sv is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851501",
+                    "comment": "glibc-langpack-sw is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851502",
+                    "comment": "glibc-langpack-sw is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851503",
+                    "comment": "glibc-langpack-sw is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851504",
+                    "comment": "glibc-langpack-szl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851505",
+                    "comment": "glibc-langpack-szl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851506",
+                    "comment": "glibc-langpack-szl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851507",
+                    "comment": "glibc-langpack-ta is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851508",
+                    "comment": "glibc-langpack-ta is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851509",
+                    "comment": "glibc-langpack-ta is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851510",
+                    "comment": "glibc-langpack-tcy is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851511",
+                    "comment": "glibc-langpack-tcy is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851512",
+                    "comment": "glibc-langpack-tcy is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851513",
+                    "comment": "glibc-langpack-te is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851514",
+                    "comment": "glibc-langpack-te is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851515",
+                    "comment": "glibc-langpack-te is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851516",
+                    "comment": "glibc-langpack-tg is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851517",
+                    "comment": "glibc-langpack-tg is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851518",
+                    "comment": "glibc-langpack-tg is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851519",
+                    "comment": "glibc-langpack-th is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851520",
+                    "comment": "glibc-langpack-th is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851521",
+                    "comment": "glibc-langpack-th is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851522",
+                    "comment": "glibc-langpack-the is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851523",
+                    "comment": "glibc-langpack-the is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851524",
+                    "comment": "glibc-langpack-the is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851525",
+                    "comment": "glibc-langpack-ti is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851526",
+                    "comment": "glibc-langpack-ti is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851527",
+                    "comment": "glibc-langpack-ti is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851528",
+                    "comment": "glibc-langpack-tig is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851529",
+                    "comment": "glibc-langpack-tig is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851530",
+                    "comment": "glibc-langpack-tig is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851531",
+                    "comment": "glibc-langpack-tk is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851532",
+                    "comment": "glibc-langpack-tk is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851533",
+                    "comment": "glibc-langpack-tk is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851534",
+                    "comment": "glibc-langpack-tl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851535",
+                    "comment": "glibc-langpack-tl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851536",
+                    "comment": "glibc-langpack-tl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851537",
+                    "comment": "glibc-langpack-tn is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851538",
+                    "comment": "glibc-langpack-tn is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851539",
+                    "comment": "glibc-langpack-tn is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851540",
+                    "comment": "glibc-langpack-to is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851541",
+                    "comment": "glibc-langpack-to is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851542",
+                    "comment": "glibc-langpack-to is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851543",
+                    "comment": "glibc-langpack-tpi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851544",
+                    "comment": "glibc-langpack-tpi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851545",
+                    "comment": "glibc-langpack-tpi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851546",
+                    "comment": "glibc-langpack-tr is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851547",
+                    "comment": "glibc-langpack-tr is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851548",
+                    "comment": "glibc-langpack-tr is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851549",
+                    "comment": "glibc-langpack-ts is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851550",
+                    "comment": "glibc-langpack-ts is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851551",
+                    "comment": "glibc-langpack-ts is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851552",
+                    "comment": "glibc-langpack-tt is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851553",
+                    "comment": "glibc-langpack-tt is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851554",
+                    "comment": "glibc-langpack-tt is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851555",
+                    "comment": "glibc-langpack-ug is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851556",
+                    "comment": "glibc-langpack-ug is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851557",
+                    "comment": "glibc-langpack-ug is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851558",
+                    "comment": "glibc-langpack-uk is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851559",
+                    "comment": "glibc-langpack-uk is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851560",
+                    "comment": "glibc-langpack-uk is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851561",
+                    "comment": "glibc-langpack-unm is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851562",
+                    "comment": "glibc-langpack-unm is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851563",
+                    "comment": "glibc-langpack-unm is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851564",
+                    "comment": "glibc-langpack-ur is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851565",
+                    "comment": "glibc-langpack-ur is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851566",
+                    "comment": "glibc-langpack-ur is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851567",
+                    "comment": "glibc-langpack-uz is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851568",
+                    "comment": "glibc-langpack-uz is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851569",
+                    "comment": "glibc-langpack-uz is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851570",
+                    "comment": "glibc-langpack-ve is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851571",
+                    "comment": "glibc-langpack-ve is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851572",
+                    "comment": "glibc-langpack-ve is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851573",
+                    "comment": "glibc-langpack-vi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851574",
+                    "comment": "glibc-langpack-vi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851575",
+                    "comment": "glibc-langpack-vi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851576",
+                    "comment": "glibc-langpack-wa is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851577",
+                    "comment": "glibc-langpack-wa is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851578",
+                    "comment": "glibc-langpack-wa is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851579",
+                    "comment": "glibc-langpack-wae is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851580",
+                    "comment": "glibc-langpack-wae is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851581",
+                    "comment": "glibc-langpack-wae is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851582",
+                    "comment": "glibc-langpack-wal is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851583",
+                    "comment": "glibc-langpack-wal is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851584",
+                    "comment": "glibc-langpack-wal is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851585",
+                    "comment": "glibc-langpack-wo is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851586",
+                    "comment": "glibc-langpack-wo is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851587",
+                    "comment": "glibc-langpack-wo is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851588",
+                    "comment": "glibc-langpack-xh is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851589",
+                    "comment": "glibc-langpack-xh is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851590",
+                    "comment": "glibc-langpack-xh is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851591",
+                    "comment": "glibc-langpack-yi is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851592",
+                    "comment": "glibc-langpack-yi is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851593",
+                    "comment": "glibc-langpack-yi is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851594",
+                    "comment": "glibc-langpack-yo is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851595",
+                    "comment": "glibc-langpack-yo is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851596",
+                    "comment": "glibc-langpack-yo is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851597",
+                    "comment": "glibc-langpack-yue is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851598",
+                    "comment": "glibc-langpack-yue is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851599",
+                    "comment": "glibc-langpack-yue is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851600",
+                    "comment": "glibc-langpack-yuw is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851601",
+                    "comment": "glibc-langpack-yuw is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851602",
+                    "comment": "glibc-langpack-yuw is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851603",
+                    "comment": "glibc-langpack-zh is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851604",
+                    "comment": "glibc-langpack-zh is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851605",
+                    "comment": "glibc-langpack-zh is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851606",
+                    "comment": "glibc-langpack-zu is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851607",
+                    "comment": "glibc-langpack-zu is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851608",
+                    "comment": "glibc-langpack-zu is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851609",
+                    "comment": "glibc-locale-source is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851610",
+                    "comment": "glibc-locale-source is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851611",
+                    "comment": "glibc-locale-source is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851612",
+                    "comment": "glibc-minimal-langpack is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851613",
+                    "comment": "glibc-minimal-langpack is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851614",
+                    "comment": "glibc-minimal-langpack is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851615",
+                    "comment": "glibc-static is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851616",
+                    "comment": "glibc-static is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851617",
+                    "comment": "glibc-static is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851618",
+                    "comment": "glibc-utils is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851619",
+                    "comment": "glibc-utils is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851620",
+                    "comment": "glibc-utils is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851621",
+                    "comment": "libnsl is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851622",
+                    "comment": "libnsl is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851623",
+                    "comment": "libnsl is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851624",
+                    "comment": "nscd is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851625",
+                    "comment": "nscd is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851626",
+                    "comment": "nscd is ksplice-based"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851627",
+                    "comment": "nss_db is earlier than 2:2.28-72.0.1.ksplice1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851628",
+                    "comment": "nss_db is signed with the Oracle Linux 8 key"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20194851629",
+                    "comment": "nss_db is ksplice-based"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20194851002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20194851001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

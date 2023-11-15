@@ -1,0 +1,75 @@
+{
+  "id": "oval:com.oracle.elsa:def:20151154",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2015-1154:  libreswan security, bug fix and enhancement update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2015-1154",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2015-1154.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2015-3204",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2015-3204.html"
+      }
+    ],
+    "description": "\n[3.12-10.1.0.1]\n- add libreswan-oracle.patch to detect Oracle Linux distro\n\n[3.12-10.1]\n- Resolves: rhbz#1226407 CVE-2015-3204 libreswan: crafted IKE packet causes daemon restart\n\n[3.12-10]\n- Resolves: rhbz#1213652 Support CAVS [updated another prf() free symkey, bogus fips mode fix]\n\n[3.12-9]\n- Resolves: rhbz#1213652 Support CAVS [updated to kill another copy of prf()]\n- Resolves: rhbz#1208023 Libreswan with IPv6 [updated patch by Jaroslav Aster]\n- Resolves: rhbz#1208022 libreswan ignores module blacklist [updated modprobe handling]\n\n[3.12-8]\n- Resolves: rhbz#1213652 Support CAVS testing of the PRF/PRF+ functions\n\n[3.12-7]\n- Resolves: rhbz#1208022 libreswan ignores module blacklist rules\n- Resolves: rhbz#1208023 Libreswan with IPv6 in RHEL7 fails after reboot\n- Resolves: rhbz#1211146 pluto crashes in fips mode\n\n[3.12-6]\n- Resolves: rhbz#1198650 SELinux context string size limit\n- Resolves: rhbz#1198649 Add new option for BSI random requirement\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2015 Oracle, Inc.",
+      "issued": {
+        "date": "2015-06-23"
+      },
+      "cve": [
+        {
+          "text": "CVE-2015-3204",
+          "href": "https://linux.oracle.com/cve/CVE-2015-3204.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20151154003",
+                "comment": "libreswan is earlier than 0:3.12-10.1.0.1.el7_1"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20151154004",
+                "comment": "libreswan is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20151154002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20151154001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

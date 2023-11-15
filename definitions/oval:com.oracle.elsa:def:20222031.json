@@ -1,0 +1,166 @@
+{
+  "id": "oval:com.oracle.elsa:def:20222031",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-2031:  libssh security, bug fix, and enhancement update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-2031",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-2031.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2021-3634",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2021-3634.html"
+      }
+    ],
+    "description": "\n[0.9.6-3]\n- Remove STI tests\n\n[0.9.6-2]\n- Remove bad patch causing errors\n- Adding BuildRequires for openssh (SSHD support)\n\n[0.9.6-1]\n- Fix CVE-2021-3634: Fix possible heap-buffer overflow when\n  rekeying with different key exchange mechanism\n- Rebase to version 0.9.6\n- Rename SSHD_EXECUTABLE to SSH_EXECUTABLE in tests/torture.c\n- Resolves: rhbz#1896651, rhbz#1994600\n\n[0.9.4-4]\n- Revert previous commit as it is incorrect.\n\n[0.9.6-1]\n- Fix CVE-2021-3634: Fix possible heap-buffer overflow when\n  rekeying with different key exchange mechanism (#1978810)\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-05-17"
+      },
+      "cve": [
+        {
+          "text": "CVE-2021-3634",
+          "href": "https://linux.oracle.com/cve/CVE-2021-3634.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031003",
+                        "comment": "libssh is earlier than 0:0.9.6-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031004",
+                        "comment": "libssh is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031005",
+                        "comment": "libssh-config is earlier than 0:0.9.6-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031006",
+                        "comment": "libssh-config is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031007",
+                        "comment": "libssh-devel is earlier than 0:0.9.6-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031008",
+                        "comment": "libssh-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20222031002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031003",
+                        "comment": "libssh is earlier than 0:0.9.6-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031004",
+                        "comment": "libssh is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031005",
+                        "comment": "libssh-config is earlier than 0:0.9.6-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031006",
+                        "comment": "libssh-config is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031007",
+                        "comment": "libssh-devel is earlier than 0:0.9.6-3.el8"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20222031008",
+                        "comment": "libssh-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20222031009",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20222031001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

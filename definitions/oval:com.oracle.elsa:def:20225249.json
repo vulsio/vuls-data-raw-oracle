@@ -1,0 +1,505 @@
+{
+  "id": "oval:com.oracle.elsa:def:20225249",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-5249:  kernel security and bug fix update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 9"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-5249",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-5249.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27666",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27666.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1729",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-1729.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1966",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-1966.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1012",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-1012.html"
+      }
+    ],
+    "description": "\n[5.14.0-70.17.1.0.1_0.OL9]\n- lockdown: also lock down previous kgdb use (Daniel Thompson) [Orabug: 34290418] {CVE-2022-21499}\n\n[5.14.0-70.17.1_0.OL9]\n- Update Oracle Linux certificates (Kevin Lyons)\n- Disable signing for aarch64 (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was added to the kernel trusted keys list (olkmod_signing_key.pem) [Orabug: 29539237]\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 < 15.3-1.0.4\n- Remove nmap references from kernel (Mridula Shastry) [Orabug: 34313944]\n\n[5.14.0-70.17.1_0]\n- netfilter: nf_tables: disallow non-stateful expression in sets earlier (Phil Sutter) [2092994 2092995] {CVE-2022-1966}\n- thunderx nic: mark device as unmaintained (Inigo Huguet) [2092638 2060285]\n- pseries/eeh: Fix the kdump kernel crash during eeh_pseries_init (Steve Best) [2092255 2067770]\n- perf: Fix sys_perf_event_open() race against self (Michael Petlan) [2087963 2087964] {CVE-2022-1729}\n- spec: Fix separate tools build (Jiri Olsa) [2090852 2054579]\n- mm: lru_cache_disable: replace work queue synchronization with synchronize_rcu (Marcelo Tosatti) [2086963 2033500]\n\n[5.14.0-70.16.1_0]\n- dm integrity: fix memory corruption when tag_size is less than digest size (Benjamin Marzinski) [2082187 2081778]\n\n[5.14.0-70.15.1_0]\n- CI: Use zstream builder image (Veronika Kabatova)\n- tcp: drop the hash_32() part from the index calculation (Guillaume Nault) [2087128 2064868] {CVE-2022-1012}\n- tcp: increase source port perturb table to 2^16 (Guillaume Nault) [2087128 2064868] {CVE-2022-1012}\n- tcp: dynamically allocate the perturb table used by source ports (Guillaume Nault) [2087128 2064868] {CVE-2022-1012}\n- tcp: add small random increments to the source port (Guillaume Nault) [2087128 2064868] {CVE-2022-1012}\n- tcp: resalt the secret every 10 seconds (Guillaume Nault) [2087128 2064868] {CVE-2022-1012}\n- tcp: use different parts of the port_offset for index and offset (Guillaume Nault) [2087128 2064868] {CVE-2022-1012}\n- secure_seq: use the 64 bits of the siphash for port offset calculation (Guillaume Nault) [2087128 2064868] {CVE-2022-1012}\n- Revert 'netfilter: conntrack: tag conntracks picked up in local out hook' (Florian Westphal) [2085480 2061850]\n- Revert 'netfilter: nat: force port remap to prevent shadowing well-known ports' (Florian Westphal) [2085480 2061850]\n- redhat/koji/Makefile: Decouple koji Makefile from Makefile.common (Andrea Claudi)\n- redhat: fix make {distg-brew,distg-koji} (Andrea Claudi)\n- esp: limit skb_page_frag_refill use to a single page (Sabrina Dubroca) [2082950 2082951] {CVE-2022-27666}\n- esp: Fix possible buffer overflow in ESP transformation (Sabrina Dubroca) [2082950 2082951] {CVE-2022-27666}\n- sctp: use the correct skb for security_sctp_assoc_request (Ondrej Mosnacek) [2084044 2078856]\n- security: implement sctp_assoc_established hook in selinux (Ondrej Mosnacek) [2084044 2078856]\n- security: add sctp_assoc_established hook (Ondrej Mosnacek) [2084044 2078856]\n- security: call security_sctp_assoc_request in sctp_sf_do_5_1D_ce (Ondrej Mosnacek) [2084044 2078856]\n- security: pass asoc to sctp_assoc_request and sctp_sk_clone (Ondrej Mosnacek) [2084044 2078856]\n\n[5.14.0-70.14.1_0]\n- PCI: hv: Propagate coherence from VMbus device to PCI device (Vitaly Kuznetsov) [2074830 2068432]\n- Drivers: hv: vmbus: Propagate VMbus coherence to each VMbus device (Vitaly Kuznetsov) [2074830 2068432]\n- redhat: rpminspect: disable 'patches' check for known empty patch files (Herton R. Krzesinski)\n- redhat/configs: make SHA512_arch algos and CRYPTO_USER built-ins (Vladis Dronov) [2072643 2070624]\n- CI: Drop baseline runs (Veronika Kabatova)\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-06-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2022-27666",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27666.html"
+        },
+        {
+          "text": "CVE-2022-1729",
+          "href": "https://linux.oracle.com/cve/CVE-2022-1729.html"
+        },
+        {
+          "text": "CVE-2022-1966",
+          "href": "https://linux.oracle.com/cve/CVE-2022-1966.html"
+        },
+        {
+          "text": "CVE-2022-1012",
+          "href": "https://linux.oracle.com/cve/CVE-2022-1012.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249003",
+                        "comment": "bpftool is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249004",
+                        "comment": "bpftool is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249005",
+                        "comment": "kernel-cross-headers is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249006",
+                        "comment": "kernel-cross-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249007",
+                        "comment": "kernel-headers is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249008",
+                        "comment": "kernel-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249009",
+                        "comment": "kernel-tools is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249010",
+                        "comment": "kernel-tools is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249011",
+                        "comment": "kernel-tools-libs is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249012",
+                        "comment": "kernel-tools-libs is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249013",
+                        "comment": "kernel-tools-libs-devel is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249014",
+                        "comment": "kernel-tools-libs-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249015",
+                        "comment": "perf is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249016",
+                        "comment": "perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249017",
+                        "comment": "python3-perf is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249018",
+                        "comment": "python3-perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20225249002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249003",
+                        "comment": "bpftool is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249004",
+                        "comment": "bpftool is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249020",
+                        "comment": "kernel is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249021",
+                        "comment": "kernel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249022",
+                        "comment": "kernel-abi-stablelists is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249023",
+                        "comment": "kernel-abi-stablelists is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249024",
+                        "comment": "kernel-core is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249025",
+                        "comment": "kernel-core is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249005",
+                        "comment": "kernel-cross-headers is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249006",
+                        "comment": "kernel-cross-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249026",
+                        "comment": "kernel-debug is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249027",
+                        "comment": "kernel-debug is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249028",
+                        "comment": "kernel-debug-core is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249029",
+                        "comment": "kernel-debug-core is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249030",
+                        "comment": "kernel-debug-devel is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249031",
+                        "comment": "kernel-debug-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249032",
+                        "comment": "kernel-debug-devel-matched is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249033",
+                        "comment": "kernel-debug-devel-matched is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249034",
+                        "comment": "kernel-debug-modules is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249035",
+                        "comment": "kernel-debug-modules is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249036",
+                        "comment": "kernel-debug-modules-extra is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249037",
+                        "comment": "kernel-debug-modules-extra is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249038",
+                        "comment": "kernel-devel is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249039",
+                        "comment": "kernel-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249040",
+                        "comment": "kernel-devel-matched is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249041",
+                        "comment": "kernel-devel-matched is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249042",
+                        "comment": "kernel-doc is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249043",
+                        "comment": "kernel-doc is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249007",
+                        "comment": "kernel-headers is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249008",
+                        "comment": "kernel-headers is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249044",
+                        "comment": "kernel-modules is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249045",
+                        "comment": "kernel-modules is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249046",
+                        "comment": "kernel-modules-extra is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249047",
+                        "comment": "kernel-modules-extra is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249009",
+                        "comment": "kernel-tools is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249010",
+                        "comment": "kernel-tools is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249011",
+                        "comment": "kernel-tools-libs is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249012",
+                        "comment": "kernel-tools-libs is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249013",
+                        "comment": "kernel-tools-libs-devel is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249014",
+                        "comment": "kernel-tools-libs-devel is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249015",
+                        "comment": "perf is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249016",
+                        "comment": "perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249017",
+                        "comment": "python3-perf is earlier than 0:5.14.0-70.17.1.0.1.el9_0"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225249018",
+                        "comment": "python3-perf is signed with the Oracle Linux 9 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20225249019",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20225249001",
+        "comment": "Oracle Linux 9 is installed"
+      }
+    ]
+  }
+}

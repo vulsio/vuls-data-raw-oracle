@@ -1,0 +1,104 @@
+{
+  "id": "oval:com.oracle.elsa:def:20224582",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-4582:  gzip security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 9"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-4582",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-4582.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-1271",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-1271.html"
+      }
+    ],
+    "description": "\n[1.10-9]\n- fix an arbitrary-file-write vulnerability in zgrep\nResolves: CVE-2022-1271\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-06-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2022-1271",
+          "href": "https://linux.oracle.com/cve/CVE-2022-1271.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20224582003",
+                    "comment": "gzip is earlier than 0:1.10-9.el9_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20224582004",
+                    "comment": "gzip is signed with the Oracle Linux 9 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20224582002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20224582003",
+                    "comment": "gzip is earlier than 0:1.10-9.el9_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20224582004",
+                    "comment": "gzip is signed with the Oracle Linux 9 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20224582005",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20224582001",
+        "comment": "Oracle Linux 9 is installed"
+      }
+    ]
+  }
+}

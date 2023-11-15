@@ -1,0 +1,359 @@
+{
+  "id": "oval:com.oracle.elsa:def:202312354",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2023-12354:  istio security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2023-12354",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-12354.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27496",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27496.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27493",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27493.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27487",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27487.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27491",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27491.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27488",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27488.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27492",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27492.html"
+      }
+    ],
+    "description": "\nistio\n[1.16.4-1]\n- Added Oracle specific files for 1.16.4-1\n\nkubernetes\n[1.25.7-2]\n- libct/cg: add misc controller to v1 drivers (upstream runc patch)\n\n[1.25.7-1]\n- Added Oracle specific build files for Kubernetes\n\nolcne\n[1.6.1-8]\n- Update Istio config to include 1.15.7 to support upgrade from 1.5.x to 1.6.x\n\n[1.6.1-7]\n- Bugfix:Append a slash in oci-instance-metada query url\n\n[1.6.1-6]\n- Fixed helm installation in OLCNE upgrade\n\n[1.6.1-5]\n- Deprecate oci-private-key <path-on-control-plane-nodes> in favour of oci-private-key-file  <path-on-operatpr-node>\n- Updated olcne_version argument in olcnectl provision to support <major.minor.patch>\n\n[1.6.1-4]\n- Update Istio version to 1.16.4 to address CVE's\n- CVE-2022-27496\n- CVE-2022-27488\n- CVE-2022-27493\n- CVE-2022-27492\n- CVE-2022-27491\n- CVE-2022-27487\n\n[1.6.1-3]\n- Resolved the issue to install multiple network cards using multus\n\n[1.6.1-2]\n- Update kubelet for upstream runc misc cgroups patch\n\n[1.6.1-1]\n- Fix the bug olcnectl provision fails if ol8_developer does not exist\n\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2023 Oracle, Inc.",
+      "issued": {
+        "date": "2023-05-26"
+      },
+      "cve": [
+        {
+          "text": "CVE-2022-27496",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27496.html"
+        },
+        {
+          "text": "CVE-2022-27493",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27493.html"
+        },
+        {
+          "text": "CVE-2022-27487",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27487.html"
+        },
+        {
+          "text": "CVE-2022-27491",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27491.html"
+        },
+        {
+          "text": "CVE-2022-27488",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27488.html"
+        },
+        {
+          "text": "CVE-2022-27492",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27492.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354003",
+                    "comment": "istio is earlier than 0:1.16.4-1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354004",
+                    "comment": "istio is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354005",
+                    "comment": "istio-istioctl is earlier than 0:1.16.4-1.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354006",
+                    "comment": "istio-istioctl is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354007",
+                    "comment": "kubeadm is earlier than 0:1.25.7-2.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354008",
+                    "comment": "kubeadm is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354009",
+                    "comment": "kubectl is earlier than 0:1.25.7-2.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354010",
+                    "comment": "kubectl is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354011",
+                    "comment": "kubelet is earlier than 0:1.25.7-2.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354012",
+                    "comment": "kubelet is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354013",
+                    "comment": "olcne-agent is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354014",
+                    "comment": "olcne-agent is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354015",
+                    "comment": "olcne-api-server is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354016",
+                    "comment": "olcne-api-server is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354017",
+                    "comment": "olcne-calico-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354018",
+                    "comment": "olcne-calico-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354019",
+                    "comment": "olcne-gluster-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354020",
+                    "comment": "olcne-gluster-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354021",
+                    "comment": "olcne-grafana-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354022",
+                    "comment": "olcne-grafana-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354023",
+                    "comment": "olcne-istio-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354024",
+                    "comment": "olcne-istio-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354025",
+                    "comment": "olcne-metallb-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354026",
+                    "comment": "olcne-metallb-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354027",
+                    "comment": "olcne-multus-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354028",
+                    "comment": "olcne-multus-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354029",
+                    "comment": "olcne-nginx is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354030",
+                    "comment": "olcne-nginx is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354031",
+                    "comment": "olcne-oci-ccm-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354032",
+                    "comment": "olcne-oci-ccm-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354033",
+                    "comment": "olcne-olm-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354034",
+                    "comment": "olcne-olm-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354035",
+                    "comment": "olcne-prometheus-chart is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354036",
+                    "comment": "olcne-prometheus-chart is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354037",
+                    "comment": "olcne-utils is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354038",
+                    "comment": "olcne-utils is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354039",
+                    "comment": "olcnectl is earlier than 0:1.6.1-8.el8"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:202312354040",
+                    "comment": "olcnectl is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:202312354002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:202312354001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

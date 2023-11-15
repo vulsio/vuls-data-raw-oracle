@@ -1,0 +1,310 @@
+{
+  "id": "oval:com.oracle.elsa:def:202312688",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2023-12688: Unbreakable Enterprise kernel security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6",
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2023-12688",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-12688.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-1380",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-1380.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-3090",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-3090.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-31084",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-31084.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-3141",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-3141.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-35824",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-35824.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2023-3161",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2023-3161.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-41218",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-41218.html"
+      }
+    ],
+    "description": "\n[4.1.12-124.77.2]\n- media: dm1105: Fix use after free bug in dm1105_remove due to race condition (Zheng Wang)  [Orabug: 35514108]  {CVE-2023-35824}\n- media: dvb-core: Fix kernel WARNING for blocking operation in wait_event*() (Takashi Iwai)  [Orabug: 35477742]  {CVE-2023-31084}\n- media: dvb_frontend: fix locking issues at dvb_frontend_get_event() (Mauro Carvalho Chehab)  [Orabug: 35477742]  {CVE-2023-31084}\n- media: dvb-core: Fix UAF due to refcount races at releasing (Takashi Iwai)  [Orabug: 34820632]  {CVE-2022-41218}\n- media: dvb: dmx: fixed coding style issues of spacing (devendra sharma)  [Orabug: 34820632]\n\n[4.1.12-124.77.1]\n- ipvlan:Fix out-of-bounds caused by unclear skb->cb (t.feng)  [Orabug: 35550146]  {CVE-2023-3090}\n- memstick: r592: Fix UAF bug in r592_remove due to race condition (Zheng Wang)  [Orabug: 35514146]  {CVE-2023-3141}\n- fbcon: Check font dimension limits (Samuel Thibault)  [Orabug: 35493679]  {CVE-2023-3161}\n- wifi: brcmfmac: slab-out-of-bounds read in brcmf_get_assoc_ies() (Jisoo Jang)  [Orabug: 35250538]  {CVE-2023-1380}\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2023 Oracle, Inc.",
+      "issued": {
+        "date": "2023-07-31"
+      },
+      "cve": [
+        {
+          "text": "CVE-2023-1380",
+          "href": "https://linux.oracle.com/cve/CVE-2023-1380.html"
+        },
+        {
+          "text": "CVE-2023-3090",
+          "href": "https://linux.oracle.com/cve/CVE-2023-3090.html"
+        },
+        {
+          "text": "CVE-2023-31084",
+          "href": "https://linux.oracle.com/cve/CVE-2023-31084.html"
+        },
+        {
+          "text": "CVE-2023-3141",
+          "href": "https://linux.oracle.com/cve/CVE-2023-3141.html"
+        },
+        {
+          "text": "CVE-2023-35824",
+          "href": "https://linux.oracle.com/cve/CVE-2023-35824.html"
+        },
+        {
+          "text": "CVE-2023-3161",
+          "href": "https://linux.oracle.com/cve/CVE-2023-3161.html"
+        },
+        {
+          "text": "CVE-2022-41218",
+          "href": "https://linux.oracle.com/cve/CVE-2022-41218.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "OR",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688003",
+                        "comment": "kernel-uek is earlier than 0:4.1.12-124.77.2.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688004",
+                        "comment": "kernel-uek is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688005",
+                        "comment": "kernel-uek-debug is earlier than 0:4.1.12-124.77.2.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688006",
+                        "comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688007",
+                        "comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-124.77.2.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688008",
+                        "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688009",
+                        "comment": "kernel-uek-devel is earlier than 0:4.1.12-124.77.2.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688010",
+                        "comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688011",
+                        "comment": "kernel-uek-doc is earlier than 0:4.1.12-124.77.2.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688012",
+                        "comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688013",
+                        "comment": "kernel-uek-firmware is earlier than 0:4.1.12-124.77.2.el6uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688014",
+                        "comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:202312688002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:202312688001",
+            "comment": "Oracle Linux 6 is installed"
+          }
+        ]
+      },
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688017",
+                        "comment": "kernel-uek is earlier than 0:4.1.12-124.77.2.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688018",
+                        "comment": "kernel-uek is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688019",
+                        "comment": "kernel-uek-debug is earlier than 0:4.1.12-124.77.2.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688020",
+                        "comment": "kernel-uek-debug is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688021",
+                        "comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-124.77.2.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688022",
+                        "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688023",
+                        "comment": "kernel-uek-devel is earlier than 0:4.1.12-124.77.2.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688024",
+                        "comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688025",
+                        "comment": "kernel-uek-doc is earlier than 0:4.1.12-124.77.2.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688026",
+                        "comment": "kernel-uek-doc is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688027",
+                        "comment": "kernel-uek-firmware is earlier than 0:4.1.12-124.77.2.el7uek"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:202312688028",
+                        "comment": "kernel-uek-firmware is signed with the Oracle Linux 7 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:202312688016",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:202312688015",
+            "comment": "Oracle Linux 7 is installed"
+          }
+        ]
+      }
+    ]
+  }
+}

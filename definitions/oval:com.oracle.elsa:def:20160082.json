@@ -1,0 +1,148 @@
+{
+  "id": "oval:com.oracle.elsa:def:20160082",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2016-0082:  qemu-kvm security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 6"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2016-0082",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2016-0082.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2016-1714",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2016-1714.html"
+      }
+    ],
+    "description": "\n[0.12.1.2-2.479.el6_7.4]\n- kvm-fw_cfg-add-check-to-validate-current-entry-value-CVE.patch [bz#1298045]\n- Resolves: bz#1298045\n  (CVE-2016-1714 qemu-kvm: Qemu: nvram: OOB r/w access in processing firmware configurations [rhel-6.7.z])\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2016 Oracle, Inc.",
+      "issued": {
+        "date": "2016-01-28"
+      },
+      "cve": [
+        {
+          "text": "CVE-2016-1714",
+          "href": "https://linux.oracle.com/cve/CVE-2016-1714.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082003",
+                        "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.479.el6_7.4"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082004",
+                        "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082005",
+                        "comment": "qemu-img is earlier than 2:0.12.1.2-2.479.el6_7.4"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082006",
+                        "comment": "qemu-img is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082007",
+                        "comment": "qemu-kvm is earlier than 2:0.12.1.2-2.479.el6_7.4"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082008",
+                        "comment": "qemu-kvm is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082009",
+                        "comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.479.el6_7.4"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20160082010",
+                        "comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20160082002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20160082003",
+                    "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.479.el6_7.4"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20160082004",
+                    "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20160082011",
+                "comment": "Oracle Linux arch is i686"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20160082001",
+        "comment": "Oracle Linux 6 is installed"
+      }
+    ]
+  }
+}

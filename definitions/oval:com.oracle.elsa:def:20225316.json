@@ -1,0 +1,461 @@
+{
+  "id": "oval:com.oracle.elsa:def:20225316",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2022-5316:  kernel security and bug fix update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2022-5316",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-5316.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2020-28915",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2020-28915.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2022-27666",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2022-27666.html"
+      }
+    ],
+    "description": "\n[4.18.0-372.13.1.0.1_6.OL8]\n- Update Oracle Linux certificates (Kevin Lyons)\n- Disable signing for aarch64 (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was added to the kernel trusted keys list (olkmod_signing_key.pem) [Orabug: 29539237]\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 <= 15-11.0.5\n- debug: lockdown kgdb [Orabug: 34270802] {CVE-2022-21499}\n\n[4.18.0-372.13.1_6]\n- openvswitch: always update flow key after nat (Aaron Conole) [2068476 2066885]\n- KVM: PPC: Fix TCE handling for VFIO (Daniel Henrique Barboza) [2085572 2062687]\n- rfkill: make new event layout opt-in (Jose Ignacio Tornos Martinez) [2087641 2023175]\n- ASoC: Intel: soc-acpi: add entries in ADL match table (Jaroslav Kysela) [2090423 2052011]\n- isert: support for unsolicited NOPIN with no response (Maurizio Lombardi) [2079433 2035915]\n- iscsit: increment max_cmd_sn for isert on command release (Maurizio Lombardi) [2079433 2035915]\n- net: tcp better handling of reordering then loss cases (Marcelo Ricardo Leitner) [2080972 2074566]\n- tcp: tcp_mark_head_lost is only valid for sack-tcp (Marcelo Ricardo Leitner) [2080972 2074566]\n\n[4.18.0-372.12.1_6]\n- sctp: use the correct skb for security_sctp_assoc_request (Xin Long) [2070959]\n- net/mlx5e: Fix wrong source vport matching on tunnel rule (Amir Tzin) [2088610]\n- net/mlx5: DR, Fix missing flow_source when creating multi-destination FW table (Amir Tzin) [2088611]\n- net/mlx5: DR, Fix slab-out-of-bounds in mlx5_cmd_dr_create_fte (Amir Tzin) [2088611]\n- net/mlx5: DR, Cache STE shadow memory (Amir Tzin) [2075553]\n- net/mlx5: DR, Fix the threshold that defines when pool sync is initiated (Amir Tzin) [2075553]\n- drm/i915/display: Remove check for low voltage sku for max dp source rate (Jocelyn Falempe) [2066644]\n- net/mlx5: DR, Ignore modify TTL on RX if device doesn't support it (Amir Tzin) [2088638]\n- net/mlx5: Bridge, Fix devlink deadlock on net namespace deletion (Amir Tzin) [2081011]\n- net/mlx5e: TC, Skip redundant ct clear actions (Amir Tzin) [2079918]\n- net/mlx5e: TC, fix decap fallback to uplink when int port not supported (Amir Tzin) [2088639]\n- CI: Use zstream builder image (Veronika Kabatova)\n- ice: Allow to pass VLAN tagged packets to VF when port VLAN is configured (Petr Oros) [2081794]\n- ice: clear stale Tx queue settings before configuring (Petr Oros) [2081794]\n- ice: fix crash when writing timestamp on RX rings (Petr Oros) [2081794]\n- ice: Fix race during aux device (un)plugging (Petr Oros) [2081794]\n- ice: fix PTP stale Tx timestamps cleanup (Petr Oros) [2081794]\n- ice: ice_sched: fix an incorrect NULL check on list iterator (Petr Oros) [2081794]\n- ice: fix use-after-free when deinitializing mailbox snapshot (Petr Oros) [2081794]\n- ice: wait 5 s for EMP reset after firmware flash (Petr Oros) [2081794]\n- ice: Protect vf_state check by cfg_lock in ice_vc_process_vf_msg() (Petr Oros) [2081794]\n- ice: Fix incorrect locking in ice_vc_process_vf_msg() (Petr Oros) [2081794]\n- ice: Fix memory leak in ice_get_orom_civd_data() (Petr Oros) [2081794]\n- ice: fix crash in switchdev mode (Petr Oros) [2081794]\n- Revert 'iavf: Fix deadlock occurrence during resetting VF interface' (Petr Oros) [2081794]\n- ice: arfs: fix use-after-free when freeing @rx_cpu_rmap (Petr Oros) [2081794]\n- ice: clear cmd_type_offset_bsz for TX rings (Petr Oros) [2081794]\n- ice: xsk: fix VSI state check in ice_xsk_wakeup() (Petr Oros) [2081794]\n- ice: synchronize_rcu() when terminating rings (Petr Oros) [2081794]\n- ice: Do not skip not enabled queues in ice_vc_dis_qs_msg (Petr Oros) [2081794]\n- ice: Set txq_teid to ICE_INVAL_TEID on ring creation (Petr Oros) [2081794]\n- ice: Fix broken IFF_ALLMULTI handling (Petr Oros) [2081794]\n- ice: Fix MAC address setting (Petr Oros) [2081794]\n- openvswitch: Fix setting ipv6 fields causing hw csum failure (Eelco Chaudron) [2086549]\n- sched/cputime, proc/stat: Fix incorrect guest nice cpustat value (Waiman Long) [2084138]\n- procfs: Use all-in-one vtime aware kcpustat accessor (Waiman Long) [2084138]\n- procfs: Use vtime aware kcpustat accessor to fetch CPUTIME_SYSTEM (Waiman Long) [2084138]\n- proc: read kernel cpu stat pointer once (Waiman Long) [2084138]\n- proc: use 'unsigned int' in /proc/stat hook (Waiman Long) [2084138]\n- sched/cputime: Support other fields on kcpustat_field() (Waiman Long) [2084138]\n- sched/cputime: Add vtime guest task state (Waiman Long) [2084138]\n- sched/cputime: Add vtime idle task state (Waiman Long) [2084138]\n- sched/cputime: Spare a seqcount lock/unlock cycle on context switch (Waiman Long) [2084138]\n- sched/vtime: Move task_struct_rh->vtime_cpu back to vtime structure (Waiman Long) [2084138]\n- net: openvswitch: fix leak of nested actions (Eelco Chaudron) [2086590]\n- net/sched: fix initialization order when updating chain 0 head (Marcelo Ricardo Leitner) [2074221]\n- PCI: hv: Propagate coherence from VMbus device to PCI device (Vitaly Kuznetsov) [2074829]\n- Drivers: hv: vmbus: Propagate VMbus coherence to each VMbus device (Vitaly Kuznetsov) [2074829]\n\n[4.18.0-372.11.1_6]\n- Revert 'xfs: actually bump warning counts when we send warnings' (Carlos Maiolino) [2071713]\n- SUNRPC: use different lock keys for INET6 and LOCAL (Guillaume Nault) [2079856]\n- Revert 'netfilter: conntrack: tag conntracks picked up in local out hook' (Florian Westphal) [2065266]\n- Revert 'netfilter: nat: force port remap to prevent shadowing well-known ports' (Florian Westphal) [2065266]\n- KVM: PPC: Book3S HV: Add infrastructure to support 2nd DAWR (Laurent Vivier) [2079069]\n- KVM: PPC: Book3S HV: Rename current DAWR macros and variables (Laurent Vivier) [2079069]\n- esp: limit skb_page_frag_refill use to a single page (Sabrina Dubroca) [2062114] {CVE-2022-27666}\n- esp: Fix possible buffer overflow in ESP transformation (Sabrina Dubroca) [2062114] {CVE-2022-27666}\n- NFS: Don't loop forever in nfs_do_recoalesce() (Scott Mayhew) [2080998]\n\n[4.18.0-372.10.1_6]\n- Fonts: Replace discarded const qualifier (Nico Pache) [2064762]\n- Fonts: Support FONT_EXTRA_WORDS macros for built-in fonts (Nico Pache) [2064762]\n- fbdev, newport_con: Move FONT_EXTRA_WORDS macros into linux/font.h (Nico Pache) [2064762]\n- CI: Drop baseline runs (Veronika Kabatova)\n- redhat: drop the -sha512 suffix from default rhpkg invocation (Jarod Wilson)\n- redhat: switch release to zstream (Augusto Caringi)\n- ceph: fix possible NULL pointer dereference for req->r_session (Xiubo Li) [2080071]\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2022 Oracle, Inc.",
+      "issued": {
+        "date": "2022-07-02"
+      },
+      "cve": [
+        {
+          "text": "CVE-2020-28915",
+          "href": "https://linux.oracle.com/cve/CVE-2020-28915.html"
+        },
+        {
+          "text": "CVE-2022-27666",
+          "href": "https://linux.oracle.com/cve/CVE-2022-27666.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316003",
+                        "comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316004",
+                        "comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316005",
+                        "comment": "bpftool is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316006",
+                        "comment": "bpftool is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316007",
+                        "comment": "kernel-cross-headers is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316008",
+                        "comment": "kernel-cross-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316009",
+                        "comment": "kernel-headers is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316010",
+                        "comment": "kernel-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316011",
+                        "comment": "kernel-tools is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316012",
+                        "comment": "kernel-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316013",
+                        "comment": "kernel-tools-libs is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316014",
+                        "comment": "kernel-tools-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316015",
+                        "comment": "perf is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316016",
+                        "comment": "perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316017",
+                        "comment": "python3-perf is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316018",
+                        "comment": "python3-perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20225316002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "OR",
+                "criterias": [
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316003",
+                        "comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316004",
+                        "comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316005",
+                        "comment": "bpftool is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316006",
+                        "comment": "bpftool is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316020",
+                        "comment": "kernel is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316021",
+                        "comment": "kernel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316022",
+                        "comment": "kernel-abi-stablelists is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316023",
+                        "comment": "kernel-abi-stablelists is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316024",
+                        "comment": "kernel-core is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316025",
+                        "comment": "kernel-core is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316007",
+                        "comment": "kernel-cross-headers is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316008",
+                        "comment": "kernel-cross-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316026",
+                        "comment": "kernel-debug is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316027",
+                        "comment": "kernel-debug is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316028",
+                        "comment": "kernel-debug-core is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316029",
+                        "comment": "kernel-debug-core is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316030",
+                        "comment": "kernel-debug-devel is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316031",
+                        "comment": "kernel-debug-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316032",
+                        "comment": "kernel-debug-modules is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316033",
+                        "comment": "kernel-debug-modules is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316034",
+                        "comment": "kernel-debug-modules-extra is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316035",
+                        "comment": "kernel-debug-modules-extra is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316036",
+                        "comment": "kernel-devel is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316037",
+                        "comment": "kernel-devel is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316038",
+                        "comment": "kernel-doc is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316039",
+                        "comment": "kernel-doc is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316009",
+                        "comment": "kernel-headers is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316010",
+                        "comment": "kernel-headers is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316040",
+                        "comment": "kernel-modules is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316041",
+                        "comment": "kernel-modules is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316042",
+                        "comment": "kernel-modules-extra is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316043",
+                        "comment": "kernel-modules-extra is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316011",
+                        "comment": "kernel-tools is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316012",
+                        "comment": "kernel-tools is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316013",
+                        "comment": "kernel-tools-libs is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316014",
+                        "comment": "kernel-tools-libs is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316015",
+                        "comment": "perf is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316016",
+                        "comment": "perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  },
+                  {
+                    "operator": "AND",
+                    "criterions": [
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316017",
+                        "comment": "python3-perf is earlier than 0:4.18.0-372.13.1.0.1.el8_6"
+                      },
+                      {
+                        "test_ref": "oval:com.oracle.elsa:tst:20225316018",
+                        "comment": "python3-perf is signed with the Oracle Linux 8 key"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20225316019",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20225316001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}

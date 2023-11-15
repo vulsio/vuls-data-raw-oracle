@@ -1,0 +1,75 @@
+{
+  "id": "oval:com.oracle.elsa:def:20190809",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-0809:  ovmf security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-0809",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-0809.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12180",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12180.html"
+      }
+    ],
+    "description": "\n[20180508-3.gitee3198e672e2.el7_6.1]\n- ovmf-MdeModulePkg-PartitionDxe-Ensure-blocksize-holds-MBR.patch [bz#1684006]\n- ovmf-MdeModulePkg-RamDiskDxe-Restrict-on-RAM-disk-size-CV.patch [bz#1684006]\n- Resolves: bz#1684006\n  (CVE-2018-12180 OVMF: edk2: Buffer Overflow in BlockIo service for RAM disk [rhel-7.6.z])\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-04-23"
+      },
+      "cve": [
+        {
+          "text": "CVE-2018-12180",
+          "href": "https://linux.oracle.com/cve/CVE-2018-12180.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20190809003",
+                "comment": "OVMF is earlier than 0:20180508-3.gitee3198e672e2.el7_6.1"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20190809004",
+                "comment": "OVMF is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20190809002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20190809001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

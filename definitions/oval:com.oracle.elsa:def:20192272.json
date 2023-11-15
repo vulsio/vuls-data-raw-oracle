@@ -1,0 +1,113 @@
+{
+  "id": "oval:com.oracle.elsa:def:20192272",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-2272:  python-urllib3 security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-2272",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-2272.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-20060",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-20060.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-11236",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11236.html"
+      }
+    ],
+    "description": "\n[1.10.2-7]\n- Provide python2-urllib3\n- Add patch for CVE-2019-11236\nResolves: rhbz#1703360\n\n[1.10.2-6]\n- Source URL switched to HTTPS protocol\n- Add patch for CVE-2018-20060\nResolves: rhbz#1658471\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-08-13"
+      },
+      "cve": [
+        {
+          "text": "CVE-2018-20060",
+          "href": "https://linux.oracle.com/cve/CVE-2018-20060.html"
+        },
+        {
+          "text": "CVE-2019-11236",
+          "href": "https://linux.oracle.com/cve/CVE-2019-11236.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20192272003",
+                    "comment": "python-urllib3 is earlier than 0:1.10.2-7.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20192272004",
+                    "comment": "python-urllib3 is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20192272002",
+                "comment": "Oracle Linux arch is aarch64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20192272003",
+                    "comment": "python-urllib3 is earlier than 0:1.10.2-7.el7"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20192272004",
+                    "comment": "python-urllib3 is signed with the Oracle Linux 7 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20192272005",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20192272001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

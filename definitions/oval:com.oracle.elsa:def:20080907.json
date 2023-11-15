@@ -1,0 +1,104 @@
+{
+  "id": "oval:com.oracle.elsa:def:20080907",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2008-0907:  pam_krb5 security update (MODERATE)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2008-0907",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2008-0907.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2008-3825",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2008-3825.html"
+      }
+    ],
+    "description": "\n\n[2.2.14-1.el5_2.1]\n- add backported fix for ccache permissions bypass when the existing_ticket\n  option is used (CVE-2008-3825, #462112)\n",
+    "advisory": {
+      "severity": "MODERATE",
+      "rights": "Copyright 2008 Oracle, Inc.",
+      "issued": {
+        "date": "2008-10-02"
+      },
+      "cve": [
+        {
+          "text": "CVE-2008-3825",
+          "href": "https://linux.oracle.com/cve/CVE-2008-3825.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20080907003",
+                    "comment": "pam_krb5 is earlier than 0:2.2.14-1.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20080907004",
+                    "comment": "pam_krb5 is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20080907002",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20080907003",
+                    "comment": "pam_krb5 is earlier than 0:2.2.14-1.el5_2.1"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20080907004",
+                    "comment": "pam_krb5 is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20080907005",
+                "comment": "Oracle Linux arch is i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20080907001",
+        "comment": "Oracle Linux 5 is installed"
+      }
+    ]
+  }
+}

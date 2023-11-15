@@ -1,0 +1,128 @@
+{
+  "id": "oval:com.oracle.elsa:def:20120304",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2012-0304:  vixie-cron security, bug fix, and enhancement update (LOW)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 5"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2012-0304",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2012-0304.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2010-0424",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2010-0424.html"
+      }
+    ],
+    "description": "\n[4:4.1-81]\n- 455664 adoptions of crontab orphans, forgot add buffer for list of\n  orphans\n- Related: rhbz#455664\n\n[4:4.1-80]\n- 654961 crond process ignores the changes of user's home directory needs\n  bigger changes of code. The fix wasn't applied, detail in comment#11.\n- Related: rhbz#249512\n\n[4:4.1-79]\n- CVE-2010-0424 vixie-cron, cronie: Race condition by setting timestamp \n  of user's crontab file, when editing the file\n- Resolves: rhbz#741534\n\n[4:4.1-78]\n- 625016 - crond requires a restart if mcstransd is stopped \n- Resolves: rhbz#625016\n\n[4:4.1-78]\n- 460070 entries in cronjobs in /etc/cron.d are checked for valid syntax\n- Resolves: rhbz#460070\n\n[4:4.1-78]\n- 455664 adoptions of crontab orphans\n- 249512 crontab should verify a user's access to PAM cron service\n- Resolves: rhbz#455664, rhbz#249512\n\n[4:4.1-78]\n- 699621 and 699620 man page fix\n- 529632 service crond status return correct status\n- 480930 set correct pie options in CFLAGS and LDFLAGS\n- 476972 crontab error with @reboot entry\n- Resolves: rhbz#699621, rhbz#699620, rhbz#529632, rhbz#480930, rhbz#476972\n",
+    "advisory": {
+      "severity": "LOW",
+      "rights": "Copyright 2012 Oracle, Inc.",
+      "issued": {
+        "date": "2012-03-01"
+      },
+      "cve": [
+        {
+          "text": "CVE-2010-0424",
+          "href": "https://linux.oracle.com/cve/CVE-2010-0424.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "OR",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20120304003",
+                    "comment": "vixie-cron is earlier than 4:4.1-81.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20120304004",
+                    "comment": "vixie-cron is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20120304002",
+                "comment": "Oracle Linux arch is ia64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20120304003",
+                    "comment": "vixie-cron is earlier than 4:4.1-81.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20120304004",
+                    "comment": "vixie-cron is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20120304005",
+                "comment": "Oracle Linux arch is x86_64"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20120304003",
+                    "comment": "vixie-cron is earlier than 4:4.1-81.el5"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20120304004",
+                    "comment": "vixie-cron is signed with the Oracle Linux 5 key"
+                  }
+                ]
+              }
+            ],
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20120304006",
+                "comment": "Oracle Linux arch is i386"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20120304001",
+        "comment": "Oracle Linux 5 is installed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "id": "oval:com.oracle.elsa:def:20194668",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-4668:  edk2 security update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 7"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-4668",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-4668.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5715",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5715.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5753",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5753.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12180",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12180.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5731",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5731.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5732",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5732.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5733",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5733.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5734",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5734.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2017-5735",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2017-5735.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12178",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12178.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-12181",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12181.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2018-3630",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2018-3630.html"
+      }
+    ],
+    "description": "\n[1:1.2-5.el7]\n- Update spec file to remove 'modprobe kvm-intel' and remove --enable-kvm arg to ovmf_vars_generator so qemu will not require kvm kernel module. (Aaron Young) \n- Update spec file to modprobe kvm_intel module prior to running qemu to enroll default keys. (Aaron Young) \n- Enroll Oracle cert/key for OL secureboot support. (Aaron Young)\n\n[1:1.2-2.el7]\n- Change Image.c image load error to DEBUG_WARN from DEBUG_ERROR since it is normal for some images to fail to load if the associated hardware is not present. Such is the case with Ramfb. (Aaron Young)  [Orabug: 28868674]\n- Fix AAVMF build. Pull in OpenSSL code (as is done for x86_64) (Aaron Young) \n- Update AAVMF change log for version 1.2 (Aaron Young)\n\n[1:1.2-1.el7]\n- Update spec files and OVMF change log to version 1.2\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-06-06"
+      },
+      "cve": [
+        {
+          "text": "CVE-2017-5715",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5715.html"
+        },
+        {
+          "text": "CVE-2017-5753",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5753.html"
+        },
+        {
+          "text": "CVE-2018-12180",
+          "href": "https://linux.oracle.com/cve/CVE-2018-12180.html"
+        },
+        {
+          "text": "CVE-2017-5731",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5731.html"
+        },
+        {
+          "text": "CVE-2017-5732",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5732.html"
+        },
+        {
+          "text": "CVE-2017-5733",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5733.html"
+        },
+        {
+          "text": "CVE-2017-5734",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5734.html"
+        },
+        {
+          "text": "CVE-2017-5735",
+          "href": "https://linux.oracle.com/cve/CVE-2017-5735.html"
+        },
+        {
+          "text": "CVE-2018-12178",
+          "href": "https://linux.oracle.com/cve/CVE-2018-12178.html"
+        },
+        {
+          "text": "CVE-2018-12181",
+          "href": "https://linux.oracle.com/cve/CVE-2018-12181.html"
+        },
+        {
+          "text": "CVE-2018-3630",
+          "href": "https://linux.oracle.com/cve/CVE-2018-3630.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "AND",
+            "criterions": [
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20194668003",
+                "comment": "AAVMF is earlier than 1:1.2-5.el7"
+              },
+              {
+                "test_ref": "oval:com.oracle.elsa:tst:20194668004",
+                "comment": "AAVMF is signed with the Oracle Linux 7 key"
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20194668002",
+            "comment": "Oracle Linux arch is aarch64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20194668001",
+        "comment": "Oracle Linux 7 is installed"
+      }
+    ]
+  }
+}

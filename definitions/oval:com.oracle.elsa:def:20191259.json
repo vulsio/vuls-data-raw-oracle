@@ -1,0 +1,172 @@
+{
+  "id": "oval:com.oracle.elsa:def:20191259",
+  "version": "501",
+  "class": "patch",
+  "metadata": {
+    "title": "\nELSA-2019-1259:  dotnet security, bug fix, and enhancement update (IMPORTANT)\n",
+    "affected": {
+      "family": "unix",
+      "platform": [
+        "Oracle Linux 8"
+      ]
+    },
+    "reference": [
+      {
+        "source": "elsa",
+        "ref_id": "ELSA-2019-1259",
+        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-1259.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-0757",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-0757.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-0980",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-0980.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-0820",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-0820.html"
+      },
+      {
+        "source": "CVE",
+        "ref_id": "CVE-2019-0981",
+        "ref_url": "https://linux.oracle.com/cve/CVE-2019-0981.html"
+      }
+    ],
+    "description": "\n[2.1.507-2]\n- Link against strerror_r correctly\n- Resolves: RHBZ#1712471\n\n[2.1.507-1]\n- Update to .NET Core Runtime 2.1.11 and SDK 2.1.507\n- Resolves: RHBZ#1710068\n\n[2.1.506-1]\n- Update to .NET Core Runtime 2.1.10 and SDK 2.1.506\n- Resolves: RHBZ#1696836\n",
+    "advisory": {
+      "severity": "IMPORTANT",
+      "rights": "Copyright 2019 Oracle, Inc.",
+      "issued": {
+        "date": "2019-07-30"
+      },
+      "cve": [
+        {
+          "text": "CVE-2019-0757",
+          "href": "https://linux.oracle.com/cve/CVE-2019-0757.html"
+        },
+        {
+          "text": "CVE-2019-0980",
+          "href": "https://linux.oracle.com/cve/CVE-2019-0980.html"
+        },
+        {
+          "text": "CVE-2019-0820",
+          "href": "https://linux.oracle.com/cve/CVE-2019-0820.html"
+        },
+        {
+          "text": "CVE-2019-0981",
+          "href": "https://linux.oracle.com/cve/CVE-2019-0981.html"
+        }
+      ]
+    }
+  },
+  "criteria": {
+    "operator": "AND",
+    "criterias": [
+      {
+        "operator": "AND",
+        "criterias": [
+          {
+            "operator": "OR",
+            "criterias": [
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259003",
+                    "comment": "dotnet is earlier than 0:2.1.507-2.el8_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259004",
+                    "comment": "dotnet is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259005",
+                    "comment": "dotnet-host is earlier than 0:2.1.11-2.el8_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259006",
+                    "comment": "dotnet-host is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259007",
+                    "comment": "dotnet-host-fxr-2.1 is earlier than 0:2.1.11-2.el8_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259008",
+                    "comment": "dotnet-host-fxr-2.1 is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259009",
+                    "comment": "dotnet-runtime-2.1 is earlier than 0:2.1.11-2.el8_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259010",
+                    "comment": "dotnet-runtime-2.1 is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259011",
+                    "comment": "dotnet-sdk-2.1 is earlier than 0:2.1.507-2.el8_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259012",
+                    "comment": "dotnet-sdk-2.1 is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              },
+              {
+                "operator": "AND",
+                "criterions": [
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259013",
+                    "comment": "dotnet-sdk-2.1.5xx is earlier than 0:2.1.507-2.el8_0"
+                  },
+                  {
+                    "test_ref": "oval:com.oracle.elsa:tst:20191259014",
+                    "comment": "dotnet-sdk-2.1.5xx is signed with the Oracle Linux 8 key"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "criterions": [
+          {
+            "test_ref": "oval:com.oracle.elsa:tst:20191259002",
+            "comment": "Oracle Linux arch is x86_64"
+          }
+        ]
+      }
+    ],
+    "criterions": [
+      {
+        "test_ref": "oval:com.oracle.elsa:tst:20191259001",
+        "comment": "Oracle Linux 8 is installed"
+      }
+    ]
+  }
+}
