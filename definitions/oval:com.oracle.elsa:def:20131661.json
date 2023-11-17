@@ -1,721 +1,721 @@
 {
-  "id": "oval:com.oracle.elsa:def:20131661",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2013-1661:  rdma stack security, bug fix, and enhancement update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2013-1661",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2013-1661.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-4516",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-4516.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2013-2561",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2013-2561.html"
-      }
-    ],
-    "description": "\nibutils\n[1.5.7-8]\n- Add the -output patch to have programs use /var/cache/ibutils\n  instead of /tmp\n  Resolves: bz958569\n\ninfinipath-psm\n* Thu Jan 24 2013 Jay Fenlason <fenlason@redhat.com>\n- Put the udev rules file in the right place\n  Resolves: rhbz866732\n- include a patch from upstream to fix undefined references\n  Resolves: rhbz887730\n\n[3.0.1-115.1015_open.1]\n- New upstream releas\n  Resolves: rhbz818789\n\n[ 2.9-926.1005_open.2]\n- Add the udev rules file to close\n  Resolves: rhbz747406\n\n[2.9-926.1005_open.1]\n- New upstream version.\n  Resolves: rhbz635915\n\n* Fri Nov 05 2010 Jay Fenlason <fenlason@redhat.com>\n- Include the -execstack patch to get libinfinipath.so correctly\n  labeled as not executing the stack.\n  Resolves: rhbz612936\n\n[1.13-2]\n- Use macros for lib and include directories, and include dist tag in\n  release field.\n- Corrected License field.\n- Corrected Requires lines for libuuid.\n- Add Exclusive-arch x86_64\n  Related: rhbz570274\n\n[1.13-1]\n- Initial build.\n\nlibibverbs\n[1.1.7-1]\n- Update to latest upstream release\n- Remove patches that are now part of upstream\n- Fix ibv_srq_pingpong with negative value to -s option\n- Resolves: bz879191\n\nlibmlx4\n[1.0.5-4.el6.1]\n- Fix dracut module for compatibility with RHEL6 version of dracut.\n- Resolves: bz789121\n\n[1.0.5-4]\n- Add dracut module\n- Fix URL\n\n[1.0.5-3]\n- Reduce the dependencies of the setup script even further, it no longer\n  needs grep\n\n[1.0.5-2]\n- The setup script needs to have execute permissions\n\n[1.0.5-1]\n- Update to latest upstream\n- Drop awk based setup for a bash based setup, making including\n  the setup code on an initramfs easier\n- Modernize spec file\n- Related: bz950915\n\nlibrdmacm\n[1.0.17-1]\n- Official 1.0.17 release\n- The fix to bug 866221 got kicked back as incomplete last time, fix\n  it for real this time.\n- Intel adapters that use the qib driver don't like using inline data,\n  so use a memory region that is registered instead\n- Resolves: bz866221, bz828071\n\nmpitests\n[3.2-9]\n- Backport fixes from RHEL-7\n  Resolves: rhbz1002332\n\n[3.2-7]\n- include BuildRequires: hwloc-devel from RHEL-7.0\n- Add win_free patch to close\n  Resolves: rhbz734023\n\nmstflint\n[3.0-0.6.g6961daa.1]\n- Update to newer tarball that resolves licensing issues with the last\n  tarball\n- Related: bz818183\n\n[3.0-0.5.gff93670.1]\n- Update to latest upstream version, which includes ConnectIB support\n- Resolves: bz818183\n\nopenmpi\n[1.5.4-2.0.1]\n- Obsolete openmpi-psm-devel for 32bit\n\n[1.5.4-2]\n- Fix the build process by getting rid of the -build patch\n  and autogen to fix\n  Resolves: rhbz749115\n\nperftest\n[2.0-2]\n- Fix rpmdiff detected error.  Upstream overrode our cflags so stack\n  protector got turned off.\n- Related: bz806183\n\n[2.0-1]\n- Update to latest upstream release\n- We had to drop ib_clock_test program as no equivalent exists\n  in the latest release\n- Resolves: bz806183, bz806185, bz830099\n\n[1.3.0-2]\n- Update to latest upstream release\n- No longer strip rocee related code out, we can compile with it now\n- Related: bz739138\n\nqperf\n[0.4.9-1.0.1]\n- Rebuild for ULN upgrade\n\n[0.4.9-1]\n- Update to latest upstream release\n- Resolves: bz814909, bz840269\n\nrdma\n[3.10-3.0.1]\n- Append mlx4_* module parameters when insmod the modules [orabug 17429249] (Joe Jin)\n- Delay load mlx4_* to prevent hung when start udev. [orabug 16897608] (Joe Jin)\n- Fix FMR load, persistent ib0 subinterfaces, remove kudzu dependency (Chien Yen)\n- Add SDP to rdma.conf and rdma.init (Chien Yen)\n- Support Mellanox OFED 1.5.5 (Chien Yen)\n\n[3.10-3]\n- Replace an errant usage of PARENTDEVICE with PHYSDEV in ifdown-ib\n- Related: bz990288\n\n[3.10-2]\n- Somehow during editing I accidentally deleted a single character from\n  the post scriptlet.  rpmdiff caught it, now I'm fixing it.\n- Resolves: bz990288\n\n[3.10-1]\n- Bump version to match final kernel submission\n- Add support for P_Key interfaces to ifup-ib and ifdown-ib\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2013 Oracle, Inc.",
-      "issued": {
-        "date": "2013-11-25"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-4516",
-          "href": "https://linux.oracle.com/cve/CVE-2012-4516.html"
-        },
-        {
-          "text": "CVE-2013-2561",
-          "href": "https://linux.oracle.com/cve/CVE-2013-2561.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661003",
-                        "comment": "ibutils is earlier than 0:1.5.7-8.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661004",
-                        "comment": "ibutils is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661005",
-                        "comment": "ibutils-devel is earlier than 0:1.5.7-8.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661006",
-                        "comment": "ibutils-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661007",
-                        "comment": "ibutils-libs is earlier than 0:1.5.7-8.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661008",
-                        "comment": "ibutils-libs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661009",
-                        "comment": "infinipath-psm is earlier than 0:3.0.1-115.1015_open.2.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661010",
-                        "comment": "infinipath-psm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661011",
-                        "comment": "infinipath-psm-devel is earlier than 0:3.0.1-115.1015_open.2.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661012",
-                        "comment": "infinipath-psm-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661013",
-                        "comment": "libibverbs is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661014",
-                        "comment": "libibverbs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661015",
-                        "comment": "libibverbs-devel is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661016",
-                        "comment": "libibverbs-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661017",
-                        "comment": "libibverbs-devel-static is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661018",
-                        "comment": "libibverbs-devel-static is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661019",
-                        "comment": "libibverbs-utils is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661020",
-                        "comment": "libibverbs-utils is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661021",
-                        "comment": "libmlx4 is earlier than 0:1.0.5-4.el6.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661022",
-                        "comment": "libmlx4 is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661023",
-                        "comment": "libmlx4-static is earlier than 0:1.0.5-4.el6.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661024",
-                        "comment": "libmlx4-static is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661025",
-                        "comment": "librdmacm is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661026",
-                        "comment": "librdmacm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661027",
-                        "comment": "librdmacm-devel is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661028",
-                        "comment": "librdmacm-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661029",
-                        "comment": "librdmacm-static is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661030",
-                        "comment": "librdmacm-static is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661031",
-                        "comment": "librdmacm-utils is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661032",
-                        "comment": "librdmacm-utils is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661033",
-                        "comment": "mpitests-mvapich is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661034",
-                        "comment": "mpitests-mvapich is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661035",
-                        "comment": "mpitests-mvapich-psm is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661036",
-                        "comment": "mpitests-mvapich-psm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661037",
-                        "comment": "mpitests-mvapich2 is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661038",
-                        "comment": "mpitests-mvapich2 is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661039",
-                        "comment": "mpitests-mvapich2-psm is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661040",
-                        "comment": "mpitests-mvapich2-psm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661041",
-                        "comment": "mpitests-openmpi is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661042",
-                        "comment": "mpitests-openmpi is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661043",
-                        "comment": "mstflint is earlier than 0:3.0-0.6.g6961daa.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661044",
-                        "comment": "mstflint is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661045",
-                        "comment": "openmpi is earlier than 0:1.5.4-2.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661046",
-                        "comment": "openmpi is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661047",
-                        "comment": "openmpi-devel is earlier than 0:1.5.4-2.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661048",
-                        "comment": "openmpi-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661049",
-                        "comment": "perftest is earlier than 0:2.0-2.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661050",
-                        "comment": "perftest is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661051",
-                        "comment": "qperf is earlier than 0:0.4.9-1.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661052",
-                        "comment": "qperf is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661053",
-                        "comment": "rdma is earlier than 0:3.10-3.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661054",
-                        "comment": "rdma is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20131661002",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661003",
-                        "comment": "ibutils is earlier than 0:1.5.7-8.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661004",
-                        "comment": "ibutils is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661005",
-                        "comment": "ibutils-devel is earlier than 0:1.5.7-8.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661006",
-                        "comment": "ibutils-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661007",
-                        "comment": "ibutils-libs is earlier than 0:1.5.7-8.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661008",
-                        "comment": "ibutils-libs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661013",
-                        "comment": "libibverbs is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661014",
-                        "comment": "libibverbs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661015",
-                        "comment": "libibverbs-devel is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661016",
-                        "comment": "libibverbs-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661017",
-                        "comment": "libibverbs-devel-static is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661018",
-                        "comment": "libibverbs-devel-static is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661019",
-                        "comment": "libibverbs-utils is earlier than 0:1.1.7-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661020",
-                        "comment": "libibverbs-utils is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661021",
-                        "comment": "libmlx4 is earlier than 0:1.0.5-4.el6.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661022",
-                        "comment": "libmlx4 is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661023",
-                        "comment": "libmlx4-static is earlier than 0:1.0.5-4.el6.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661024",
-                        "comment": "libmlx4-static is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661025",
-                        "comment": "librdmacm is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661026",
-                        "comment": "librdmacm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661027",
-                        "comment": "librdmacm-devel is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661028",
-                        "comment": "librdmacm-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661029",
-                        "comment": "librdmacm-static is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661030",
-                        "comment": "librdmacm-static is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661031",
-                        "comment": "librdmacm-utils is earlier than 0:1.0.17-1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661032",
-                        "comment": "librdmacm-utils is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661033",
-                        "comment": "mpitests-mvapich is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661034",
-                        "comment": "mpitests-mvapich is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661037",
-                        "comment": "mpitests-mvapich2 is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661038",
-                        "comment": "mpitests-mvapich2 is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661041",
-                        "comment": "mpitests-openmpi is earlier than 0:3.2-9.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661042",
-                        "comment": "mpitests-openmpi is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661043",
-                        "comment": "mstflint is earlier than 0:3.0-0.6.g6961daa.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661044",
-                        "comment": "mstflint is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661045",
-                        "comment": "openmpi is earlier than 0:1.5.4-2.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661046",
-                        "comment": "openmpi is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661047",
-                        "comment": "openmpi-devel is earlier than 0:1.5.4-2.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661048",
-                        "comment": "openmpi-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661049",
-                        "comment": "perftest is earlier than 0:2.0-2.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661050",
-                        "comment": "perftest is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661051",
-                        "comment": "qperf is earlier than 0:0.4.9-1.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661052",
-                        "comment": "qperf is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661053",
-                        "comment": "rdma is earlier than 0:3.10-3.0.1.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131661054",
-                        "comment": "rdma is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20131661055",
-                "comment": "Oracle Linux arch is i686"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20131661001",
-        "comment": "Oracle Linux 6 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20131661",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2013-1661:  rdma stack security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2013-1661",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-1661.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-4516",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-4516.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-2561",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-2561.html"
+			}
+		],
+		"description": "\nibutils\n[1.5.7-8]\n- Add the -output patch to have programs use /var/cache/ibutils\n  instead of /tmp\n  Resolves: bz958569\n\ninfinipath-psm\n* Thu Jan 24 2013 Jay Fenlason <fenlason@redhat.com>\n- Put the udev rules file in the right place\n  Resolves: rhbz866732\n- include a patch from upstream to fix undefined references\n  Resolves: rhbz887730\n\n[3.0.1-115.1015_open.1]\n- New upstream releas\n  Resolves: rhbz818789\n\n[ 2.9-926.1005_open.2]\n- Add the udev rules file to close\n  Resolves: rhbz747406\n\n[2.9-926.1005_open.1]\n- New upstream version.\n  Resolves: rhbz635915\n\n* Fri Nov 05 2010 Jay Fenlason <fenlason@redhat.com>\n- Include the -execstack patch to get libinfinipath.so correctly\n  labeled as not executing the stack.\n  Resolves: rhbz612936\n\n[1.13-2]\n- Use macros for lib and include directories, and include dist tag in\n  release field.\n- Corrected License field.\n- Corrected Requires lines for libuuid.\n- Add Exclusive-arch x86_64\n  Related: rhbz570274\n\n[1.13-1]\n- Initial build.\n\nlibibverbs\n[1.1.7-1]\n- Update to latest upstream release\n- Remove patches that are now part of upstream\n- Fix ibv_srq_pingpong with negative value to -s option\n- Resolves: bz879191\n\nlibmlx4\n[1.0.5-4.el6.1]\n- Fix dracut module for compatibility with RHEL6 version of dracut.\n- Resolves: bz789121\n\n[1.0.5-4]\n- Add dracut module\n- Fix URL\n\n[1.0.5-3]\n- Reduce the dependencies of the setup script even further, it no longer\n  needs grep\n\n[1.0.5-2]\n- The setup script needs to have execute permissions\n\n[1.0.5-1]\n- Update to latest upstream\n- Drop awk based setup for a bash based setup, making including\n  the setup code on an initramfs easier\n- Modernize spec file\n- Related: bz950915\n\nlibrdmacm\n[1.0.17-1]\n- Official 1.0.17 release\n- The fix to bug 866221 got kicked back as incomplete last time, fix\n  it for real this time.\n- Intel adapters that use the qib driver don't like using inline data,\n  so use a memory region that is registered instead\n- Resolves: bz866221, bz828071\n\nmpitests\n[3.2-9]\n- Backport fixes from RHEL-7\n  Resolves: rhbz1002332\n\n[3.2-7]\n- include BuildRequires: hwloc-devel from RHEL-7.0\n- Add win_free patch to close\n  Resolves: rhbz734023\n\nmstflint\n[3.0-0.6.g6961daa.1]\n- Update to newer tarball that resolves licensing issues with the last\n  tarball\n- Related: bz818183\n\n[3.0-0.5.gff93670.1]\n- Update to latest upstream version, which includes ConnectIB support\n- Resolves: bz818183\n\nopenmpi\n[1.5.4-2.0.1]\n- Obsolete openmpi-psm-devel for 32bit\n\n[1.5.4-2]\n- Fix the build process by getting rid of the -build patch\n  and autogen to fix\n  Resolves: rhbz749115\n\nperftest\n[2.0-2]\n- Fix rpmdiff detected error.  Upstream overrode our cflags so stack\n  protector got turned off.\n- Related: bz806183\n\n[2.0-1]\n- Update to latest upstream release\n- We had to drop ib_clock_test program as no equivalent exists\n  in the latest release\n- Resolves: bz806183, bz806185, bz830099\n\n[1.3.0-2]\n- Update to latest upstream release\n- No longer strip rocee related code out, we can compile with it now\n- Related: bz739138\n\nqperf\n[0.4.9-1.0.1]\n- Rebuild for ULN upgrade\n\n[0.4.9-1]\n- Update to latest upstream release\n- Resolves: bz814909, bz840269\n\nrdma\n[3.10-3.0.1]\n- Append mlx4_* module parameters when insmod the modules [orabug 17429249] (Joe Jin)\n- Delay load mlx4_* to prevent hung when start udev. [orabug 16897608] (Joe Jin)\n- Fix FMR load, persistent ib0 subinterfaces, remove kudzu dependency (Chien Yen)\n- Add SDP to rdma.conf and rdma.init (Chien Yen)\n- Support Mellanox OFED 1.5.5 (Chien Yen)\n\n[3.10-3]\n- Replace an errant usage of PARENTDEVICE with PHYSDEV in ifdown-ib\n- Related: bz990288\n\n[3.10-2]\n- Somehow during editing I accidentally deleted a single character from\n  the post scriptlet.  rpmdiff caught it, now I'm fixing it.\n- Resolves: bz990288\n\n[3.10-1]\n- Bump version to match final kernel submission\n- Add support for P_Key interfaces to ifup-ib and ifdown-ib\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2013 Oracle, Inc.",
+			"issued": {
+				"date": "2013-11-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-4516",
+					"href": "https://linux.oracle.com/cve/CVE-2012-4516.html"
+				},
+				{
+					"text": "CVE-2013-2561",
+					"href": "https://linux.oracle.com/cve/CVE-2013-2561.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661003",
+												"comment": "ibutils is earlier than 0:1.5.7-8.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661004",
+												"comment": "ibutils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661005",
+												"comment": "ibutils-devel is earlier than 0:1.5.7-8.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661006",
+												"comment": "ibutils-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661007",
+												"comment": "ibutils-libs is earlier than 0:1.5.7-8.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661008",
+												"comment": "ibutils-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661009",
+												"comment": "infinipath-psm is earlier than 0:3.0.1-115.1015_open.2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661010",
+												"comment": "infinipath-psm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661011",
+												"comment": "infinipath-psm-devel is earlier than 0:3.0.1-115.1015_open.2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661012",
+												"comment": "infinipath-psm-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661013",
+												"comment": "libibverbs is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661014",
+												"comment": "libibverbs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661015",
+												"comment": "libibverbs-devel is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661016",
+												"comment": "libibverbs-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661017",
+												"comment": "libibverbs-devel-static is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661018",
+												"comment": "libibverbs-devel-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661019",
+												"comment": "libibverbs-utils is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661020",
+												"comment": "libibverbs-utils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661021",
+												"comment": "libmlx4 is earlier than 0:1.0.5-4.el6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661022",
+												"comment": "libmlx4 is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661023",
+												"comment": "libmlx4-static is earlier than 0:1.0.5-4.el6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661024",
+												"comment": "libmlx4-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661025",
+												"comment": "librdmacm is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661026",
+												"comment": "librdmacm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661027",
+												"comment": "librdmacm-devel is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661028",
+												"comment": "librdmacm-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661029",
+												"comment": "librdmacm-static is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661030",
+												"comment": "librdmacm-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661031",
+												"comment": "librdmacm-utils is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661032",
+												"comment": "librdmacm-utils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661033",
+												"comment": "mpitests-mvapich is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661034",
+												"comment": "mpitests-mvapich is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661035",
+												"comment": "mpitests-mvapich-psm is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661036",
+												"comment": "mpitests-mvapich-psm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661037",
+												"comment": "mpitests-mvapich2 is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661038",
+												"comment": "mpitests-mvapich2 is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661039",
+												"comment": "mpitests-mvapich2-psm is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661040",
+												"comment": "mpitests-mvapich2-psm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661041",
+												"comment": "mpitests-openmpi is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661042",
+												"comment": "mpitests-openmpi is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661043",
+												"comment": "mstflint is earlier than 0:3.0-0.6.g6961daa.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661044",
+												"comment": "mstflint is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661045",
+												"comment": "openmpi is earlier than 0:1.5.4-2.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661046",
+												"comment": "openmpi is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661047",
+												"comment": "openmpi-devel is earlier than 0:1.5.4-2.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661048",
+												"comment": "openmpi-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661049",
+												"comment": "perftest is earlier than 0:2.0-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661050",
+												"comment": "perftest is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661051",
+												"comment": "qperf is earlier than 0:0.4.9-1.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661052",
+												"comment": "qperf is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661053",
+												"comment": "rdma is earlier than 0:3.10-3.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661054",
+												"comment": "rdma is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20131661002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661003",
+												"comment": "ibutils is earlier than 0:1.5.7-8.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661004",
+												"comment": "ibutils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661005",
+												"comment": "ibutils-devel is earlier than 0:1.5.7-8.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661006",
+												"comment": "ibutils-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661007",
+												"comment": "ibutils-libs is earlier than 0:1.5.7-8.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661008",
+												"comment": "ibutils-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661013",
+												"comment": "libibverbs is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661014",
+												"comment": "libibverbs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661015",
+												"comment": "libibverbs-devel is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661016",
+												"comment": "libibverbs-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661017",
+												"comment": "libibverbs-devel-static is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661018",
+												"comment": "libibverbs-devel-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661019",
+												"comment": "libibverbs-utils is earlier than 0:1.1.7-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661020",
+												"comment": "libibverbs-utils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661021",
+												"comment": "libmlx4 is earlier than 0:1.0.5-4.el6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661022",
+												"comment": "libmlx4 is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661023",
+												"comment": "libmlx4-static is earlier than 0:1.0.5-4.el6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661024",
+												"comment": "libmlx4-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661025",
+												"comment": "librdmacm is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661026",
+												"comment": "librdmacm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661027",
+												"comment": "librdmacm-devel is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661028",
+												"comment": "librdmacm-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661029",
+												"comment": "librdmacm-static is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661030",
+												"comment": "librdmacm-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661031",
+												"comment": "librdmacm-utils is earlier than 0:1.0.17-1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661032",
+												"comment": "librdmacm-utils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661033",
+												"comment": "mpitests-mvapich is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661034",
+												"comment": "mpitests-mvapich is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661037",
+												"comment": "mpitests-mvapich2 is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661038",
+												"comment": "mpitests-mvapich2 is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661041",
+												"comment": "mpitests-openmpi is earlier than 0:3.2-9.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661042",
+												"comment": "mpitests-openmpi is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661043",
+												"comment": "mstflint is earlier than 0:3.0-0.6.g6961daa.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661044",
+												"comment": "mstflint is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661045",
+												"comment": "openmpi is earlier than 0:1.5.4-2.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661046",
+												"comment": "openmpi is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661047",
+												"comment": "openmpi-devel is earlier than 0:1.5.4-2.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661048",
+												"comment": "openmpi-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661049",
+												"comment": "perftest is earlier than 0:2.0-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661050",
+												"comment": "perftest is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661051",
+												"comment": "qperf is earlier than 0:0.4.9-1.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661052",
+												"comment": "qperf is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661053",
+												"comment": "rdma is earlier than 0:3.10-3.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131661054",
+												"comment": "rdma is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20131661055",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20131661001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
 }

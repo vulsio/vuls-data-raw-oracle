@@ -1,578 +1,578 @@
 {
-  "id": "oval:com.oracle.elsa:def:20225263",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2022-5263:  qemu-kvm security and bug fix update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 9"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2022-5263",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-5263.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-26353",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2022-26353.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-26354",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2022-26354.html"
-      }
-    ],
-    "description": "\n[6.2.0-11.el9_0.3]\n- kvm-RHEL-disable-seqpacket-for-vhost-vsock-device-in-rhe.patch [bz#2071102]\n- kvm-virtio-net-fix-map-leaking-on-error-during-receive.patch [bz#2075635]\n- kvm-vhost-vsock-detach-the-virqueue-element-in-case-of-e.patch [bz#2075640]\n- Resolves: bz#2071102\n  (RHEL 9.0 guest with vsock device migration failed from RHEL 9.0 > RHEL 8.6 [rhel-9.0.0.z])\n- Resolves: bz#2075635\n  (CVE-2022-26353 qemu-kvm: QEMU: virtio-net: map leaking on error during receive [rhel-9] [rhel-9.0.0.z])\n- Resolves: bz#2075640\n  (CVE-2022-26354 qemu-kvm: QEMU: vhost-vsock: missing virtqueue detach on error can lead to memory leak [rhel-9] [rhel-9.0.0.z])\n\n[6.2.0-11.el9_0.2]\n- kvm-pci-expose-TYPE_XIO3130_DOWNSTREAM-name.patch [bz#2053584]\n- kvm-acpi-pcihp-pcie-set-power-on-cap-on-parent-slot.patch [bz#2053584]\n- kvm-vmxcap-Add-5-level-EPT-bit.patch [bz#2038051]\n- kvm-i386-Add-Icelake-Server-v6-CPU-model-with-5-level-EP.patch [bz#2038051]\n- kvm-acpi-fix-QEMU-crash-when-started-with-SLIC-table.patch [bz#2043531]\n- kvm-tests-acpi-whitelist-expected-blobs-before-changing-.patch [bz#2043531]\n- kvm-tests-acpi-add-SLIC-table-test.patch [bz#2043531]\n- kvm-tests-acpi-SLIC-update-expected-blobs.patch [bz#2043531]\n- kvm-tests-acpi-manually-pad-OEM_ID-OEM_TABLE_ID-for-test.patch [bz#2043531]\n- kvm-tests-acpi-whitelist-nvdimm-s-SSDT-and-FACP.slic-exp.patch [bz#2043531]\n- kvm-acpi-fix-OEM-ID-OEM-Table-ID-padding.patch [bz#2043531]\n- kvm-tests-acpi-update-expected-blobs.patch [bz#2043531]\n- kvm-tests-acpi-test-short-OEM_ID-OEM_TABLE_ID-values-in-.patch [bz#2043531]\n- kvm-rhel-workaround-for-lack-of-binary-patches-in-SRPM.patch [bz#2043531]\n- Resolves: bz#2053584\n  (watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [cat:2843])\n- Resolves: bz#2038051\n  (Win11 (q35+edk2) guest broke after install wsl2 through 'wsl --install -d Ubuntu-20.04')\n- Resolves: bz#2043531\n  (Guest can not start with SLIC acpi table)\n\n[6.2.0-11.el9_0.1]\n- kvm-RHEL-mark-old-machine-types-as-deprecated.patch [bz#2052050]\n- kvm-hw-virtio-vdpa-Fix-leak-of-host-notifier-memory-regi.patch [bz#2059786]\n- kvm-spec-Fix-obsolete-for-spice-subpackages.patch [bz#2059175 bz#2059146]\n- kvm-spec-Obsolete-old-usb-redir-subpackage.patch [bz#2059175 bz#2059146]\n- kvm-spec-Obsolete-ssh-driver.patch [bz#2059175 bz#2059146]\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2022 Oracle, Inc.",
-      "issued": {
-        "date": "2022-07-04"
-      },
-      "cve": [
-        {
-          "text": "CVE-2022-26353",
-          "href": "https://linux.oracle.com/cve/CVE-2022-26353.html"
-        },
-        {
-          "text": "CVE-2022-26354",
-          "href": "https://linux.oracle.com/cve/CVE-2022-26354.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263003",
-                        "comment": "qemu-guest-agent is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263004",
-                        "comment": "qemu-guest-agent is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263005",
-                        "comment": "qemu-img is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263006",
-                        "comment": "qemu-img is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263007",
-                        "comment": "qemu-kvm is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263008",
-                        "comment": "qemu-kvm is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263009",
-                        "comment": "qemu-kvm-audio-pa is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263010",
-                        "comment": "qemu-kvm-audio-pa is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263011",
-                        "comment": "qemu-kvm-block-curl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263012",
-                        "comment": "qemu-kvm-block-curl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263013",
-                        "comment": "qemu-kvm-block-rbd is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263014",
-                        "comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263015",
-                        "comment": "qemu-kvm-common is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263016",
-                        "comment": "qemu-kvm-common is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263017",
-                        "comment": "qemu-kvm-core is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263018",
-                        "comment": "qemu-kvm-core is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263019",
-                        "comment": "qemu-kvm-device-display-virtio-gpu is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263020",
-                        "comment": "qemu-kvm-device-display-virtio-gpu is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263021",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-gl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263022",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-gl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263023",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263024",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263025",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263026",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263027",
-                        "comment": "qemu-kvm-device-usb-host is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263028",
-                        "comment": "qemu-kvm-device-usb-host is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263029",
-                        "comment": "qemu-kvm-docs is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263030",
-                        "comment": "qemu-kvm-docs is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263031",
-                        "comment": "qemu-kvm-tools is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263032",
-                        "comment": "qemu-kvm-tools is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263033",
-                        "comment": "qemu-pr-helper is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263034",
-                        "comment": "qemu-pr-helper is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20225263002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263003",
-                        "comment": "qemu-guest-agent is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263004",
-                        "comment": "qemu-guest-agent is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263005",
-                        "comment": "qemu-img is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263006",
-                        "comment": "qemu-img is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263007",
-                        "comment": "qemu-kvm is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263008",
-                        "comment": "qemu-kvm is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263009",
-                        "comment": "qemu-kvm-audio-pa is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263010",
-                        "comment": "qemu-kvm-audio-pa is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263011",
-                        "comment": "qemu-kvm-block-curl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263012",
-                        "comment": "qemu-kvm-block-curl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263013",
-                        "comment": "qemu-kvm-block-rbd is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263014",
-                        "comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263015",
-                        "comment": "qemu-kvm-common is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263016",
-                        "comment": "qemu-kvm-common is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263017",
-                        "comment": "qemu-kvm-core is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263018",
-                        "comment": "qemu-kvm-core is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263019",
-                        "comment": "qemu-kvm-device-display-virtio-gpu is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263020",
-                        "comment": "qemu-kvm-device-display-virtio-gpu is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263021",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-gl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263022",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-gl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263023",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263024",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263025",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263026",
-                        "comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263036",
-                        "comment": "qemu-kvm-device-display-virtio-vga is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263037",
-                        "comment": "qemu-kvm-device-display-virtio-vga is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263038",
-                        "comment": "qemu-kvm-device-display-virtio-vga-gl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263039",
-                        "comment": "qemu-kvm-device-display-virtio-vga-gl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263027",
-                        "comment": "qemu-kvm-device-usb-host is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263028",
-                        "comment": "qemu-kvm-device-usb-host is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263040",
-                        "comment": "qemu-kvm-device-usb-redirect is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263041",
-                        "comment": "qemu-kvm-device-usb-redirect is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263029",
-                        "comment": "qemu-kvm-docs is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263030",
-                        "comment": "qemu-kvm-docs is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263031",
-                        "comment": "qemu-kvm-tools is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263032",
-                        "comment": "qemu-kvm-tools is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263042",
-                        "comment": "qemu-kvm-ui-egl-headless is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263043",
-                        "comment": "qemu-kvm-ui-egl-headless is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263044",
-                        "comment": "qemu-kvm-ui-opengl is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263045",
-                        "comment": "qemu-kvm-ui-opengl is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263033",
-                        "comment": "qemu-pr-helper is earlier than 17:6.2.0-11.el9_0.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20225263034",
-                        "comment": "qemu-pr-helper is signed with the Oracle Linux 9 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20225263035",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20225263001",
-        "comment": "Oracle Linux 9 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20225263",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-5263:  qemu-kvm security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-5263",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-5263.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-26353",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-26353.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-26354",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-26354.html"
+			}
+		],
+		"description": "\n[6.2.0-11.el9_0.3]\n- kvm-RHEL-disable-seqpacket-for-vhost-vsock-device-in-rhe.patch [bz#2071102]\n- kvm-virtio-net-fix-map-leaking-on-error-during-receive.patch [bz#2075635]\n- kvm-vhost-vsock-detach-the-virqueue-element-in-case-of-e.patch [bz#2075640]\n- Resolves: bz#2071102\n  (RHEL 9.0 guest with vsock device migration failed from RHEL 9.0 > RHEL 8.6 [rhel-9.0.0.z])\n- Resolves: bz#2075635\n  (CVE-2022-26353 qemu-kvm: QEMU: virtio-net: map leaking on error during receive [rhel-9] [rhel-9.0.0.z])\n- Resolves: bz#2075640\n  (CVE-2022-26354 qemu-kvm: QEMU: vhost-vsock: missing virtqueue detach on error can lead to memory leak [rhel-9] [rhel-9.0.0.z])\n\n[6.2.0-11.el9_0.2]\n- kvm-pci-expose-TYPE_XIO3130_DOWNSTREAM-name.patch [bz#2053584]\n- kvm-acpi-pcihp-pcie-set-power-on-cap-on-parent-slot.patch [bz#2053584]\n- kvm-vmxcap-Add-5-level-EPT-bit.patch [bz#2038051]\n- kvm-i386-Add-Icelake-Server-v6-CPU-model-with-5-level-EP.patch [bz#2038051]\n- kvm-acpi-fix-QEMU-crash-when-started-with-SLIC-table.patch [bz#2043531]\n- kvm-tests-acpi-whitelist-expected-blobs-before-changing-.patch [bz#2043531]\n- kvm-tests-acpi-add-SLIC-table-test.patch [bz#2043531]\n- kvm-tests-acpi-SLIC-update-expected-blobs.patch [bz#2043531]\n- kvm-tests-acpi-manually-pad-OEM_ID-OEM_TABLE_ID-for-test.patch [bz#2043531]\n- kvm-tests-acpi-whitelist-nvdimm-s-SSDT-and-FACP.slic-exp.patch [bz#2043531]\n- kvm-acpi-fix-OEM-ID-OEM-Table-ID-padding.patch [bz#2043531]\n- kvm-tests-acpi-update-expected-blobs.patch [bz#2043531]\n- kvm-tests-acpi-test-short-OEM_ID-OEM_TABLE_ID-values-in-.patch [bz#2043531]\n- kvm-rhel-workaround-for-lack-of-binary-patches-in-SRPM.patch [bz#2043531]\n- Resolves: bz#2053584\n  (watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [cat:2843])\n- Resolves: bz#2038051\n  (Win11 (q35+edk2) guest broke after install wsl2 through 'wsl --install -d Ubuntu-20.04')\n- Resolves: bz#2043531\n  (Guest can not start with SLIC acpi table)\n\n[6.2.0-11.el9_0.1]\n- kvm-RHEL-mark-old-machine-types-as-deprecated.patch [bz#2052050]\n- kvm-hw-virtio-vdpa-Fix-leak-of-host-notifier-memory-regi.patch [bz#2059786]\n- kvm-spec-Fix-obsolete-for-spice-subpackages.patch [bz#2059175 bz#2059146]\n- kvm-spec-Obsolete-old-usb-redir-subpackage.patch [bz#2059175 bz#2059146]\n- kvm-spec-Obsolete-ssh-driver.patch [bz#2059175 bz#2059146]\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-07-04"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-26353",
+					"href": "https://linux.oracle.com/cve/CVE-2022-26353.html"
+				},
+				{
+					"text": "CVE-2022-26354",
+					"href": "https://linux.oracle.com/cve/CVE-2022-26354.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263003",
+												"comment": "qemu-guest-agent is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263005",
+												"comment": "qemu-img is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263006",
+												"comment": "qemu-img is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263007",
+												"comment": "qemu-kvm is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263009",
+												"comment": "qemu-kvm-audio-pa is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263010",
+												"comment": "qemu-kvm-audio-pa is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263011",
+												"comment": "qemu-kvm-block-curl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263012",
+												"comment": "qemu-kvm-block-curl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263013",
+												"comment": "qemu-kvm-block-rbd is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263014",
+												"comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263015",
+												"comment": "qemu-kvm-common is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263016",
+												"comment": "qemu-kvm-common is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263017",
+												"comment": "qemu-kvm-core is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263018",
+												"comment": "qemu-kvm-core is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263019",
+												"comment": "qemu-kvm-device-display-virtio-gpu is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263020",
+												"comment": "qemu-kvm-device-display-virtio-gpu is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263021",
+												"comment": "qemu-kvm-device-display-virtio-gpu-gl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263022",
+												"comment": "qemu-kvm-device-display-virtio-gpu-gl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263023",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263024",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263025",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263026",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263027",
+												"comment": "qemu-kvm-device-usb-host is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263028",
+												"comment": "qemu-kvm-device-usb-host is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263029",
+												"comment": "qemu-kvm-docs is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263030",
+												"comment": "qemu-kvm-docs is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263031",
+												"comment": "qemu-kvm-tools is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263032",
+												"comment": "qemu-kvm-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263033",
+												"comment": "qemu-pr-helper is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263034",
+												"comment": "qemu-pr-helper is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20225263002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263003",
+												"comment": "qemu-guest-agent is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263005",
+												"comment": "qemu-img is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263006",
+												"comment": "qemu-img is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263007",
+												"comment": "qemu-kvm is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263009",
+												"comment": "qemu-kvm-audio-pa is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263010",
+												"comment": "qemu-kvm-audio-pa is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263011",
+												"comment": "qemu-kvm-block-curl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263012",
+												"comment": "qemu-kvm-block-curl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263013",
+												"comment": "qemu-kvm-block-rbd is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263014",
+												"comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263015",
+												"comment": "qemu-kvm-common is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263016",
+												"comment": "qemu-kvm-common is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263017",
+												"comment": "qemu-kvm-core is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263018",
+												"comment": "qemu-kvm-core is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263019",
+												"comment": "qemu-kvm-device-display-virtio-gpu is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263020",
+												"comment": "qemu-kvm-device-display-virtio-gpu is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263021",
+												"comment": "qemu-kvm-device-display-virtio-gpu-gl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263022",
+												"comment": "qemu-kvm-device-display-virtio-gpu-gl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263023",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263024",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263025",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263026",
+												"comment": "qemu-kvm-device-display-virtio-gpu-pci-gl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263036",
+												"comment": "qemu-kvm-device-display-virtio-vga is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263037",
+												"comment": "qemu-kvm-device-display-virtio-vga is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263038",
+												"comment": "qemu-kvm-device-display-virtio-vga-gl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263039",
+												"comment": "qemu-kvm-device-display-virtio-vga-gl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263027",
+												"comment": "qemu-kvm-device-usb-host is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263028",
+												"comment": "qemu-kvm-device-usb-host is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263040",
+												"comment": "qemu-kvm-device-usb-redirect is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263041",
+												"comment": "qemu-kvm-device-usb-redirect is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263029",
+												"comment": "qemu-kvm-docs is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263030",
+												"comment": "qemu-kvm-docs is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263031",
+												"comment": "qemu-kvm-tools is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263032",
+												"comment": "qemu-kvm-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263042",
+												"comment": "qemu-kvm-ui-egl-headless is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263043",
+												"comment": "qemu-kvm-ui-egl-headless is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263044",
+												"comment": "qemu-kvm-ui-opengl is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263045",
+												"comment": "qemu-kvm-ui-opengl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263033",
+												"comment": "qemu-pr-helper is earlier than 17:6.2.0-11.el9_0.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225263034",
+												"comment": "qemu-pr-helper is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20225263035",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20225263001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
 }

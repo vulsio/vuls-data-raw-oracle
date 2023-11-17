@@ -1,175 +1,175 @@
 {
-  "id": "oval:com.oracle.elsa:def:20191181",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2019-1181:  qemu-kvm security update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2019-1181",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-1181.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-12126",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12126.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-12130",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12130.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2018-12127",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2018-12127.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11091",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11091.html"
-      }
-    ],
-    "description": "\n[0.12.1.2-2.506.el6_10.3]\n- kvm-target-i386-define-md-clear-bit.patch [bz#1698996]\n- Resolves: bz#1698996\n  (CVE-2018-12130 qemu-kvm: hardware: MFBDS)\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2019 Oracle, Inc.",
-      "issued": {
-        "date": "2019-05-14"
-      },
-      "cve": [
-        {
-          "text": "CVE-2018-12126",
-          "href": "https://linux.oracle.com/cve/CVE-2018-12126.html"
-        },
-        {
-          "text": "CVE-2018-12130",
-          "href": "https://linux.oracle.com/cve/CVE-2018-12130.html"
-        },
-        {
-          "text": "CVE-2018-12127",
-          "href": "https://linux.oracle.com/cve/CVE-2018-12127.html"
-        },
-        {
-          "text": "CVE-2019-11091",
-          "href": "https://linux.oracle.com/cve/CVE-2019-11091.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181003",
-                        "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.506.el6_10.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181004",
-                        "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181005",
-                        "comment": "qemu-img is earlier than 2:0.12.1.2-2.506.el6_10.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181006",
-                        "comment": "qemu-img is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181007",
-                        "comment": "qemu-kvm is earlier than 2:0.12.1.2-2.506.el6_10.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181008",
-                        "comment": "qemu-kvm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181009",
-                        "comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.506.el6_10.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20191181010",
-                        "comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20191181002",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20191181003",
-                    "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.506.el6_10.3"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20191181004",
-                    "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20191181011",
-                "comment": "Oracle Linux arch is i686"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20191181001",
-        "comment": "Oracle Linux 6 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20191181",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-1181:  qemu-kvm security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-1181",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-1181.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-12126",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-12126.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-12130",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-12130.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-12127",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-12127.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11091",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-11091.html"
+			}
+		],
+		"description": "\n[0.12.1.2-2.506.el6_10.3]\n- kvm-target-i386-define-md-clear-bit.patch [bz#1698996]\n- Resolves: bz#1698996\n  (CVE-2018-12130 qemu-kvm: hardware: MFBDS)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-05-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-12126",
+					"href": "https://linux.oracle.com/cve/CVE-2018-12126.html"
+				},
+				{
+					"text": "CVE-2018-12130",
+					"href": "https://linux.oracle.com/cve/CVE-2018-12130.html"
+				},
+				{
+					"text": "CVE-2018-12127",
+					"href": "https://linux.oracle.com/cve/CVE-2018-12127.html"
+				},
+				{
+					"text": "CVE-2019-11091",
+					"href": "https://linux.oracle.com/cve/CVE-2019-11091.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181003",
+												"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.506.el6_10.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181005",
+												"comment": "qemu-img is earlier than 2:0.12.1.2-2.506.el6_10.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181006",
+												"comment": "qemu-img is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181007",
+												"comment": "qemu-kvm is earlier than 2:0.12.1.2-2.506.el6_10.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181009",
+												"comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.506.el6_10.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20191181010",
+												"comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20191181002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20191181003",
+										"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.506.el6_10.3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20191181004",
+										"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20191181011",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20191181001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
 }

@@ -1,472 +1,472 @@
 {
-  "id": "oval:com.oracle.elsa:def:20132513",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2013-2513: Unbreakable Enterprise kernel security and bugfix update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 5",
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2013-2513",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2013-2513.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2013-0871",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2013-0871.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2013-0913",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2013-0913.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2013-1773",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2013-1773.html"
-      }
-    ],
-    "description": "\n[2.6.39-400.21.1]\n- SPEC: v2.6.39-400.21.1 (Maxim Uvarov)\n- xen/mmu: On early bootup, flush the TLB when changing RO->RW bits Xen provided pagetables. (Konrad Rzeszutek Wilk)\n\n[2.6.39-400.20.1]\n- SPEC: v2.6.39-400.20.1 (Maxim Uvarov)\n- PCI: Set device power state to PCI_D0 for device without native PM support (Ajaykumar Hotchandani) [Orabug: 16482495]\n- sched: Fix cgroup movement of waking process (Daisuke Nishimura) [Orabug: 13740515]\n- sched: Fix cgroup movement of newly created process (Daisuke Nishimura) [Orabug: 13740515]\n- sched: Fix cgroup movement of forking process (Daisuke Nishimura) [Orabug: 13740515]\n\n[2.6.39-400.19.1]\n- IB/core: Allow device-specific per-port sysfs files (Ralph Campbell)\n- RDMA/cma: Pass QP type into rdma_create_id() (Sean Hefty)\n- IB: Rename RAW_ETY to RAW_ETHERTYPE (Aleksey Senin)\n- IB: Warning Resolution. (Ajaykumar Hotchandani)\n- mlx4_core: fix FMR flags in free MTT range (Saeed Mahameed)\n- mlx4_core/ib: sriov fmr bug fixes (Saeed Mahameed)\n- mlx4_core: Change bitmap allocator to work in round-robin fashion (Saeed\n  Mahameed)\n- mlx4_vnic: move host admin vnics to closed state when closing the vnic.\n  (Saeed Mahameed)\n- mlx4_ib: make sure to flush clean_wq while closing sriov device (Saeed\n  Mahameed)\n- ib_sdp: fix deadlock when sdp_cma_handler is called while socket is being\n  closed (Saeed Mahameed)\n- ib_sdp: add unhandled events to rdma_cm_event_str (Saeed Mahameed)\n- mlx4_core: use dev->sriov instead of hardcoed 127 vfs when initializing FMR\n  MPT tables (Saeed Mahameed)\n- mlx4_vnic: print vnic keep alive info in mlx4_vnic_info (Saeed Mahameed)\n- rds: Congestion flag does not get cleared causing the connection to hang\n  (Bang Nguyen) [Orabug: 16424692]\n- dm table: set flush capability based on underlying devices (Mike Snitzer)\n  [Orabug: 16392584]\n- wake_up_process() should be never used to wakeup a TASK_STOPPED/TRACED task\n  (Oleg Nesterov) [Orabug: 16405869] {CVE-2013-0871}\n- ptrace: ensure arch_ptrace/ptrace_request can never race with SIGKILL (Oleg\n  Nesterov) [Orabug: 16405869] {CVE-2013-0871}\n- ptrace: introduce signal_wake_up_state() and ptrace_signal_wake_up() (Oleg\n  Nesterov) [Orabug: 16405869] {CVE-2013-0871}\n- drm/i915: bounds check execbuffer relocation count (Kees Cook) [Orabug:\n  16482650] {CVE-2013-0913}\n- NLS: improve UTF8 -> UTF16 string conversion routine (Alan Stern) [Orabug:\n  16425571] {CVE-2013-1773}\n- ipmi: make kcs timeout parameters as module options (Pavel Bures) [Orabug:\n  16470881]\n- drm/i915/lvds: ditch ->prepare special case (Daniel Vetter) [Orabug:\n  14394113]\n- drm/i915: Leave LVDS registers unlocked (Keith Packard) [Orabug: 14394113]\n- drm/i915: dont clobber the pipe param in sanitize_modesetting (Daniel\n  Vetter) [Orabug: 14394113]\n- drm/i915: Sanitize BIOS debugging bits from PIPECONF (Chris Wilson) [Orabug:\n  14394113]\n\n[2.6.39-400.18.1]\n- SPEC: fix doc build (Guru Anbalagane)\n- floppy: Fix a crash during rmmod (Vivek Goyal) [Orabug: 16040504]\n- x86: ignore changes to paravirt_lazy_mode while in an interrupt context\n  (Chuck Anderson) [Orabug: 16417326]\n- x86/msr: Add capabilities check (Alan Cox) [Orabug: 16405007] {CVE-2013-0268}\n- spec: unique debuginfo (Maxim Uvarov) [Orabug: 16245366]\n- xfs: Use preallocation for inodes with extsz hints (Dave Chinner) [Orabug:\n  16307993]\n- Add SIOCRDSGETTOS to get the current TOS for the socket (bang.nguyen)\n  [Orabug: 16397197]\n- Changes to connect/TOS interface (bang.nguyen) [Orabug: 16397197]\n- floppy: Cleanup disk->queue before caling put_disk() if add_disk() was never\n  called (Vivek Goyal) [Orabug: 16040504]\n\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2013 Oracle, Inc.",
-      "issued": {
-        "date": "2013-04-11"
-      },
-      "cve": [
-        {
-          "text": "CVE-2013-0871",
-          "href": "https://linux.oracle.com/cve/CVE-2013-0871.html"
-        },
-        {
-          "text": "CVE-2013-0913",
-          "href": "https://linux.oracle.com/cve/CVE-2013-0913.html"
-        },
-        {
-          "text": "CVE-2013-1773",
-          "href": "https://linux.oracle.com/cve/CVE-2013-1773.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513003",
-                            "comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513004",
-                            "comment": "kernel-uek is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513005",
-                            "comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513006",
-                            "comment": "kernel-uek-debug is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513007",
-                            "comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513008",
-                            "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513009",
-                            "comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513010",
-                            "comment": "kernel-uek-devel is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513011",
-                            "comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513012",
-                            "comment": "kernel-uek-doc is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513013",
-                            "comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513014",
-                            "comment": "kernel-uek-firmware is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20132513002",
-                    "comment": "Oracle Linux arch is x86_64"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513003",
-                            "comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513004",
-                            "comment": "kernel-uek is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513005",
-                            "comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513006",
-                            "comment": "kernel-uek-debug is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513007",
-                            "comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513008",
-                            "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513009",
-                            "comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513010",
-                            "comment": "kernel-uek-devel is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513011",
-                            "comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513012",
-                            "comment": "kernel-uek-doc is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513013",
-                            "comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el5uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513014",
-                            "comment": "kernel-uek-firmware is signed with the Oracle Linux 5 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20132513015",
-                    "comment": "Oracle Linux arch is i386"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20132513001",
-            "comment": "Oracle Linux 5 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513018",
-                            "comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513019",
-                            "comment": "kernel-uek is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513020",
-                            "comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513021",
-                            "comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513022",
-                            "comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513023",
-                            "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513024",
-                            "comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513025",
-                            "comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513026",
-                            "comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513027",
-                            "comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513028",
-                            "comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513029",
-                            "comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20132513017",
-                    "comment": "Oracle Linux arch is x86_64"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513018",
-                            "comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513019",
-                            "comment": "kernel-uek is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513020",
-                            "comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513021",
-                            "comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513022",
-                            "comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513023",
-                            "comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513024",
-                            "comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513025",
-                            "comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513026",
-                            "comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513027",
-                            "comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513028",
-                            "comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el6uek"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20132513029",
-                            "comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20132513030",
-                    "comment": "Oracle Linux arch is i686"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20132513016",
-            "comment": "Oracle Linux 6 is installed"
-          }
-        ]
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20132513",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2013-2513: Unbreakable Enterprise kernel security and bugfix update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5",
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2013-2513",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-2513.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-0871",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-0871.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-0913",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-0913.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-1773",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-1773.html"
+			}
+		],
+		"description": "\n[2.6.39-400.21.1]\n- SPEC: v2.6.39-400.21.1 (Maxim Uvarov)\n- xen/mmu: On early bootup, flush the TLB when changing RO->RW bits Xen provided pagetables. (Konrad Rzeszutek Wilk)\n\n[2.6.39-400.20.1]\n- SPEC: v2.6.39-400.20.1 (Maxim Uvarov)\n- PCI: Set device power state to PCI_D0 for device without native PM support (Ajaykumar Hotchandani) [Orabug: 16482495]\n- sched: Fix cgroup movement of waking process (Daisuke Nishimura) [Orabug: 13740515]\n- sched: Fix cgroup movement of newly created process (Daisuke Nishimura) [Orabug: 13740515]\n- sched: Fix cgroup movement of forking process (Daisuke Nishimura) [Orabug: 13740515]\n\n[2.6.39-400.19.1]\n- IB/core: Allow device-specific per-port sysfs files (Ralph Campbell)\n- RDMA/cma: Pass QP type into rdma_create_id() (Sean Hefty)\n- IB: Rename RAW_ETY to RAW_ETHERTYPE (Aleksey Senin)\n- IB: Warning Resolution. (Ajaykumar Hotchandani)\n- mlx4_core: fix FMR flags in free MTT range (Saeed Mahameed)\n- mlx4_core/ib: sriov fmr bug fixes (Saeed Mahameed)\n- mlx4_core: Change bitmap allocator to work in round-robin fashion (Saeed\n  Mahameed)\n- mlx4_vnic: move host admin vnics to closed state when closing the vnic.\n  (Saeed Mahameed)\n- mlx4_ib: make sure to flush clean_wq while closing sriov device (Saeed\n  Mahameed)\n- ib_sdp: fix deadlock when sdp_cma_handler is called while socket is being\n  closed (Saeed Mahameed)\n- ib_sdp: add unhandled events to rdma_cm_event_str (Saeed Mahameed)\n- mlx4_core: use dev->sriov instead of hardcoed 127 vfs when initializing FMR\n  MPT tables (Saeed Mahameed)\n- mlx4_vnic: print vnic keep alive info in mlx4_vnic_info (Saeed Mahameed)\n- rds: Congestion flag does not get cleared causing the connection to hang\n  (Bang Nguyen) [Orabug: 16424692]\n- dm table: set flush capability based on underlying devices (Mike Snitzer)\n  [Orabug: 16392584]\n- wake_up_process() should be never used to wakeup a TASK_STOPPED/TRACED task\n  (Oleg Nesterov) [Orabug: 16405869] {CVE-2013-0871}\n- ptrace: ensure arch_ptrace/ptrace_request can never race with SIGKILL (Oleg\n  Nesterov) [Orabug: 16405869] {CVE-2013-0871}\n- ptrace: introduce signal_wake_up_state() and ptrace_signal_wake_up() (Oleg\n  Nesterov) [Orabug: 16405869] {CVE-2013-0871}\n- drm/i915: bounds check execbuffer relocation count (Kees Cook) [Orabug:\n  16482650] {CVE-2013-0913}\n- NLS: improve UTF8 -> UTF16 string conversion routine (Alan Stern) [Orabug:\n  16425571] {CVE-2013-1773}\n- ipmi: make kcs timeout parameters as module options (Pavel Bures) [Orabug:\n  16470881]\n- drm/i915/lvds: ditch ->prepare special case (Daniel Vetter) [Orabug:\n  14394113]\n- drm/i915: Leave LVDS registers unlocked (Keith Packard) [Orabug: 14394113]\n- drm/i915: dont clobber the pipe param in sanitize_modesetting (Daniel\n  Vetter) [Orabug: 14394113]\n- drm/i915: Sanitize BIOS debugging bits from PIPECONF (Chris Wilson) [Orabug:\n  14394113]\n\n[2.6.39-400.18.1]\n- SPEC: fix doc build (Guru Anbalagane)\n- floppy: Fix a crash during rmmod (Vivek Goyal) [Orabug: 16040504]\n- x86: ignore changes to paravirt_lazy_mode while in an interrupt context\n  (Chuck Anderson) [Orabug: 16417326]\n- x86/msr: Add capabilities check (Alan Cox) [Orabug: 16405007] {CVE-2013-0268}\n- spec: unique debuginfo (Maxim Uvarov) [Orabug: 16245366]\n- xfs: Use preallocation for inodes with extsz hints (Dave Chinner) [Orabug:\n  16307993]\n- Add SIOCRDSGETTOS to get the current TOS for the socket (bang.nguyen)\n  [Orabug: 16397197]\n- Changes to connect/TOS interface (bang.nguyen) [Orabug: 16397197]\n- floppy: Cleanup disk->queue before caling put_disk() if add_disk() was never\n  called (Vivek Goyal) [Orabug: 16040504]\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2013 Oracle, Inc.",
+			"issued": {
+				"date": "2013-04-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2013-0871",
+					"href": "https://linux.oracle.com/cve/CVE-2013-0871.html"
+				},
+				{
+					"text": "CVE-2013-0913",
+					"href": "https://linux.oracle.com/cve/CVE-2013-0913.html"
+				},
+				{
+					"text": "CVE-2013-1773",
+					"href": "https://linux.oracle.com/cve/CVE-2013-1773.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513003",
+														"comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513004",
+														"comment": "kernel-uek is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513005",
+														"comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513006",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513007",
+														"comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513008",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513009",
+														"comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513010",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513011",
+														"comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513012",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513013",
+														"comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513014",
+														"comment": "kernel-uek-firmware is signed with the Oracle Linux 5 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20132513002",
+										"comment": "Oracle Linux arch is x86_64"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513003",
+														"comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513004",
+														"comment": "kernel-uek is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513005",
+														"comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513006",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513007",
+														"comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513008",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513009",
+														"comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513010",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513011",
+														"comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513012",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 5 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513013",
+														"comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el5uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513014",
+														"comment": "kernel-uek-firmware is signed with the Oracle Linux 5 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20132513015",
+										"comment": "Oracle Linux arch is i386"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20132513001",
+						"comment": "Oracle Linux 5 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513018",
+														"comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513019",
+														"comment": "kernel-uek is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513020",
+														"comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513021",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513022",
+														"comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513023",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513024",
+														"comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513025",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513026",
+														"comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513027",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513028",
+														"comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513029",
+														"comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20132513017",
+										"comment": "Oracle Linux arch is x86_64"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513018",
+														"comment": "kernel-uek is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513019",
+														"comment": "kernel-uek is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513020",
+														"comment": "kernel-uek-debug is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513021",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513022",
+														"comment": "kernel-uek-debug-devel is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513023",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513024",
+														"comment": "kernel-uek-devel is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513025",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513026",
+														"comment": "kernel-uek-doc is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513027",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513028",
+														"comment": "kernel-uek-firmware is earlier than 0:2.6.39-400.21.1.el6uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20132513029",
+														"comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20132513030",
+										"comment": "Oracle Linux arch is i686"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20132513016",
+						"comment": "Oracle Linux 6 is installed"
+					}
+				]
+			}
+		]
+	}
 }

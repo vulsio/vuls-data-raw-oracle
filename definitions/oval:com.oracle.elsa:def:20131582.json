@@ -1,244 +1,244 @@
 {
-  "id": "oval:com.oracle.elsa:def:20131582",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2013-1582:  python security, bug fix, and enhancement update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2013-1582",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2013-1582.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2013-4238",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2013-4238.html"
-      }
-    ],
-    "description": "\n[2.6.6-51]\n- Fixed memory leak in _ssl._get_peer_alt_names\nResolves: rhbz#1002983\n\n[2.6.6-50]\n- Added fix for CVE-2013-4238\nResolves: rhbz#998784\n\n[2.6.6-49]\n- Fix shebangs in several files in python-tools subpackage\nResolves: rhbz#521898\n\n[2.6.6-48]\n- Fix sqlite3.Cursor.lastrowid under a Turkish locale.\nResolves: rhbz#841937\n\n[2.6.6-47]\n- Urlparse now parses query and fragment of urls for any scheme.\nResolves: rhbz#978129\n\n[2.6.6-46]\n- Add wrapper for select.select to restart a system call\nResolves: rhbz#948025\n\n[2.6.6-45]\n- Add try-except to catch OSError in WatchedFileHandler\nResolves: rhbz#919163\n\n[2.6.6-44]\n- Fix urandom to throw proper exception\nResolves: rhbz#893034\n\n[2.6.6-43]\n- Backport of collections.OrderedDict from Python 2.7\nResolves: rhbz#929258\n\n[2.6.6-42]\n- Add an explicit RPATH to _elementtree.so pointing at the directory\ncontaining system expat\nResolves: rhbz#962779\n\n[2.6.6-41]\n- Don't let failed incoming SSL connection stay open forever\nResolves: rhbz#960168\n\n[2.6.6-40]\n- Fix Python not reading Alternative Subject Names from some SSL\ncertificates\nResolves: rhbz#928390\n\n[2.6.6-39]\n- Remove BOM insertion code from SysLogHandler that causes messages to be\ntreated as EMERG level\nResolves: rhbz#845802\n\n[2.6.6-38]\n- move most of the payload of the core package to the libs subpackage, given\nthat the libs aren't meaningfully usable without the standard libraries\n- preserve timestamps when fixing shebangs (patch 158) and when installing,\nto minimize .pyc/.pyo differences across architectures (due to the embedded\nmtime in .pyc/.pyo headers)\n- fix multilib issue in /usr/bin/modulator and /usr/bin/pynche\nRelated: rhbz#958256\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2013 Oracle, Inc.",
-      "issued": {
-        "date": "2013-11-26"
-      },
-      "cve": [
-        {
-          "text": "CVE-2013-4238",
-          "href": "https://linux.oracle.com/cve/CVE-2013-4238.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582003",
-                        "comment": "python is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582004",
-                        "comment": "python is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582005",
-                        "comment": "python-devel is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582006",
-                        "comment": "python-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582007",
-                        "comment": "python-libs is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582008",
-                        "comment": "python-libs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582009",
-                        "comment": "python-test is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582010",
-                        "comment": "python-test is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582011",
-                        "comment": "python-tools is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582012",
-                        "comment": "python-tools is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582013",
-                        "comment": "tkinter is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582014",
-                        "comment": "tkinter is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20131582002",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582003",
-                        "comment": "python is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582004",
-                        "comment": "python is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582005",
-                        "comment": "python-devel is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582006",
-                        "comment": "python-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582007",
-                        "comment": "python-libs is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582008",
-                        "comment": "python-libs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582009",
-                        "comment": "python-test is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582010",
-                        "comment": "python-test is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582011",
-                        "comment": "python-tools is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582012",
-                        "comment": "python-tools is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582013",
-                        "comment": "tkinter is earlier than 0:2.6.6-51.el6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20131582014",
-                        "comment": "tkinter is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20131582015",
-                "comment": "Oracle Linux arch is i686"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20131582001",
-        "comment": "Oracle Linux 6 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20131582",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2013-1582:  python security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2013-1582",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-1582.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-4238",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-4238.html"
+			}
+		],
+		"description": "\n[2.6.6-51]\n- Fixed memory leak in _ssl._get_peer_alt_names\nResolves: rhbz#1002983\n\n[2.6.6-50]\n- Added fix for CVE-2013-4238\nResolves: rhbz#998784\n\n[2.6.6-49]\n- Fix shebangs in several files in python-tools subpackage\nResolves: rhbz#521898\n\n[2.6.6-48]\n- Fix sqlite3.Cursor.lastrowid under a Turkish locale.\nResolves: rhbz#841937\n\n[2.6.6-47]\n- Urlparse now parses query and fragment of urls for any scheme.\nResolves: rhbz#978129\n\n[2.6.6-46]\n- Add wrapper for select.select to restart a system call\nResolves: rhbz#948025\n\n[2.6.6-45]\n- Add try-except to catch OSError in WatchedFileHandler\nResolves: rhbz#919163\n\n[2.6.6-44]\n- Fix urandom to throw proper exception\nResolves: rhbz#893034\n\n[2.6.6-43]\n- Backport of collections.OrderedDict from Python 2.7\nResolves: rhbz#929258\n\n[2.6.6-42]\n- Add an explicit RPATH to _elementtree.so pointing at the directory\ncontaining system expat\nResolves: rhbz#962779\n\n[2.6.6-41]\n- Don't let failed incoming SSL connection stay open forever\nResolves: rhbz#960168\n\n[2.6.6-40]\n- Fix Python not reading Alternative Subject Names from some SSL\ncertificates\nResolves: rhbz#928390\n\n[2.6.6-39]\n- Remove BOM insertion code from SysLogHandler that causes messages to be\ntreated as EMERG level\nResolves: rhbz#845802\n\n[2.6.6-38]\n- move most of the payload of the core package to the libs subpackage, given\nthat the libs aren't meaningfully usable without the standard libraries\n- preserve timestamps when fixing shebangs (patch 158) and when installing,\nto minimize .pyc/.pyo differences across architectures (due to the embedded\nmtime in .pyc/.pyo headers)\n- fix multilib issue in /usr/bin/modulator and /usr/bin/pynche\nRelated: rhbz#958256\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2013 Oracle, Inc.",
+			"issued": {
+				"date": "2013-11-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2013-4238",
+					"href": "https://linux.oracle.com/cve/CVE-2013-4238.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582003",
+												"comment": "python is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582004",
+												"comment": "python is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582005",
+												"comment": "python-devel is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582006",
+												"comment": "python-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582007",
+												"comment": "python-libs is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582008",
+												"comment": "python-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582009",
+												"comment": "python-test is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582010",
+												"comment": "python-test is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582011",
+												"comment": "python-tools is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582012",
+												"comment": "python-tools is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582013",
+												"comment": "tkinter is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582014",
+												"comment": "tkinter is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20131582002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582003",
+												"comment": "python is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582004",
+												"comment": "python is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582005",
+												"comment": "python-devel is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582006",
+												"comment": "python-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582007",
+												"comment": "python-libs is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582008",
+												"comment": "python-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582009",
+												"comment": "python-test is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582010",
+												"comment": "python-test is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582011",
+												"comment": "python-tools is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582012",
+												"comment": "python-tools is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582013",
+												"comment": "tkinter is earlier than 0:2.6.6-51.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20131582014",
+												"comment": "tkinter is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20131582015",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20131582001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
 }

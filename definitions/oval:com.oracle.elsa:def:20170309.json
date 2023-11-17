@@ -1,157 +1,157 @@
 {
-  "id": "oval:com.oracle.elsa:def:20170309",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2017-0309:  qemu-kvm security and bug fix update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2017-0309",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-0309.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2857",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-2857.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-2615",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2017-2615.html"
-      }
-    ],
-    "description": "\n[0.12.1.2-2.491.el6_8.6]\n- kvm-cirrus_vga-fix-division-by-0-for-color-expansion-rop.patch [bz#1418230 bz#1419416]\n- kvm-cirrus_vga-fix-off-by-one-in-blit_region_is_unsafe.patch [bz#1418230 bz#1419416]\n- kvm-display-cirrus-check-vga-bits-per-pixel-bpp-value.patch [bz#1418230 bz#1419416]\n- kvm-display-cirrus-ignore-source-pitch-value-as-needed-i.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-handle-negative-pitch-in-cirrus_invalidate_re.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-allow-zero-source-pitch-in-pattern-fill-rops.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-fix-blit-address-mask-handling.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-fix-oob-access-issue-CVE-2017-2615.patch [bz#1418230 bz#1419416]\n- Resolves: bz#1418230\n  (CVE-2017-2615 qemu-kvm: Qemu: display: cirrus: oob access while doing bitblt copy backward mode [rhel-6.8.z])\n- Resolves: bz#1419416\n  (CVE-2017-2615 qemu-kvm-rhev: Qemu: display: cirrus: oob access while doing bitblt copy backward mode [rhel-6.8.z])\n\n[0.12.1.2-2.491.el6_8.5]\n- kvm-net-check-packet-payload-length.patch [bz#1398213]\n- Resolves: bz#1398213\n  (CVE-2016-2857 qemu-kvm: Qemu: net: out of bounds read in net_checksum_calculate() [rhel-6.8.z])\n\n[0.12.1.2-2.491.el6.4]\n- kvm-virtio-introduce-virtqueue_unmap_sg.patch [bz#1408389]\n- kvm-virtio-introduce-virtqueue_discard.patch [bz#1408389]\n- kvm-virtio-decrement-vq-inuse-in-virtqueue_discard.patch [bz#1408389]\n- kvm-balloon-fix-segfault-and-harden-the-stats-queue.patch [bz#1408389]\n- kvm-virtio-balloon-discard-virtqueue-element-on-reset.patch [bz#1408389]\n- kvm-virtio-zero-vq-inuse-in-virtio_reset.patch [bz#1408389]\n- Resolves: bz#1408389\n  ([RHEL6.8.z] KVM guest shuts itself down after 128th reboot)\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2017 Oracle, Inc.",
-      "issued": {
-        "date": "2017-02-23"
-      },
-      "cve": [
-        {
-          "text": "CVE-2016-2857",
-          "href": "https://linux.oracle.com/cve/CVE-2016-2857.html"
-        },
-        {
-          "text": "CVE-2017-2615",
-          "href": "https://linux.oracle.com/cve/CVE-2017-2615.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309003",
-                        "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.491.el6_8.6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309004",
-                        "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309005",
-                        "comment": "qemu-img is earlier than 2:0.12.1.2-2.491.el6_8.6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309006",
-                        "comment": "qemu-img is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309007",
-                        "comment": "qemu-kvm is earlier than 2:0.12.1.2-2.491.el6_8.6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309008",
-                        "comment": "qemu-kvm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309009",
-                        "comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.491.el6_8.6"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20170309010",
-                        "comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20170309002",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20170309003",
-                    "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.491.el6_8.6"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20170309004",
-                    "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20170309011",
-                "comment": "Oracle Linux arch is i686"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20170309001",
-        "comment": "Oracle Linux 6 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20170309",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2017-0309:  qemu-kvm security and bug fix update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2017-0309",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2017-0309.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2857",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2857.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-2615",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-2615.html"
+			}
+		],
+		"description": "\n[0.12.1.2-2.491.el6_8.6]\n- kvm-cirrus_vga-fix-division-by-0-for-color-expansion-rop.patch [bz#1418230 bz#1419416]\n- kvm-cirrus_vga-fix-off-by-one-in-blit_region_is_unsafe.patch [bz#1418230 bz#1419416]\n- kvm-display-cirrus-check-vga-bits-per-pixel-bpp-value.patch [bz#1418230 bz#1419416]\n- kvm-display-cirrus-ignore-source-pitch-value-as-needed-i.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-handle-negative-pitch-in-cirrus_invalidate_re.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-allow-zero-source-pitch-in-pattern-fill-rops.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-fix-blit-address-mask-handling.patch [bz#1418230 bz#1419416]\n- kvm-cirrus-fix-oob-access-issue-CVE-2017-2615.patch [bz#1418230 bz#1419416]\n- Resolves: bz#1418230\n  (CVE-2017-2615 qemu-kvm: Qemu: display: cirrus: oob access while doing bitblt copy backward mode [rhel-6.8.z])\n- Resolves: bz#1419416\n  (CVE-2017-2615 qemu-kvm-rhev: Qemu: display: cirrus: oob access while doing bitblt copy backward mode [rhel-6.8.z])\n\n[0.12.1.2-2.491.el6_8.5]\n- kvm-net-check-packet-payload-length.patch [bz#1398213]\n- Resolves: bz#1398213\n  (CVE-2016-2857 qemu-kvm: Qemu: net: out of bounds read in net_checksum_calculate() [rhel-6.8.z])\n\n[0.12.1.2-2.491.el6.4]\n- kvm-virtio-introduce-virtqueue_unmap_sg.patch [bz#1408389]\n- kvm-virtio-introduce-virtqueue_discard.patch [bz#1408389]\n- kvm-virtio-decrement-vq-inuse-in-virtqueue_discard.patch [bz#1408389]\n- kvm-balloon-fix-segfault-and-harden-the-stats-queue.patch [bz#1408389]\n- kvm-virtio-balloon-discard-virtqueue-element-on-reset.patch [bz#1408389]\n- kvm-virtio-zero-vq-inuse-in-virtio_reset.patch [bz#1408389]\n- Resolves: bz#1408389\n  ([RHEL6.8.z] KVM guest shuts itself down after 128th reboot)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2017 Oracle, Inc.",
+			"issued": {
+				"date": "2017-02-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-2857",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2857.html"
+				},
+				{
+					"text": "CVE-2017-2615",
+					"href": "https://linux.oracle.com/cve/CVE-2017-2615.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309003",
+												"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.491.el6_8.6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309005",
+												"comment": "qemu-img is earlier than 2:0.12.1.2-2.491.el6_8.6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309006",
+												"comment": "qemu-img is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309007",
+												"comment": "qemu-kvm is earlier than 2:0.12.1.2-2.491.el6_8.6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309009",
+												"comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.491.el6_8.6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170309010",
+												"comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20170309002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20170309003",
+										"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.491.el6_8.6"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20170309004",
+										"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20170309011",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20170309001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
 }

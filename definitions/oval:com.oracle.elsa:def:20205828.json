@@ -1,392 +1,392 @@
 {
-  "id": "oval:com.oracle.elsa:def:20205828",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2020-5828:  coredns cri-o cri-tools etcd flannel kata kata-agent kata-image kata-ksm-throttler kata-proxy kata-runtime kata-shim kubernetes kubernetes-cni kubernetes-cni-plugins kubernetes-dashboard olcne yq security update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2020-5828",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-5828.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-16845",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2020-16845.html"
-      }
-    ],
-    "description": "\ncoredns\n[1.3.1-1.0.6]\n- Address CVE-2020-16845\n\n[1.3.1-1.0.5]\n- Fix image location\n\ncri-o\n[1.14.7-1.0.8]\n- Address CVE-2020-16845\n\ncri-tools\n[1.14.0-1.0.6]\n- Address CVE-2020-16845\n\netcd\n[3.3.10-1.0.5]\n- Address CVE-2020-16845\n\n[3.3.10-1.0.4]\n- Fix image location\n\nflannel\n[0.10.0-2.1.12]\n- Address CVE-2020-16845\n\n[0.10.0-2.1.11]\n- Resize flannel image\n\n[0.10.0-2.1.10]\n- Fix image location\n\nkata\n[1.7.3-1.0.9]\n- Address CVE-2020-16845\n\nkata-agent\n[1.7.3-1.0.6]\n- Address CVE-2020-16845\n\nkata-image\n[1.7.3-1.0.6.1]\n- Address CVE-2020-16845\n\nkata-ksm-throttler\n[1.7.3-1.0.5]\n- Address CVE-2020-16845\n\nkata-proxy\n[1.7.3-1.0.5]\n- Address CVE-2020-16845\n\nkata-runtime\n[1.7.3-1.0.6]\n- Address CVE-2020-16845\n\nkata-shim\n[1.7.3-1.0.5]\n- Address CVE-2020-16845\n\nkubernetes\n[1.14.9-1.0.9]\n- Pin components min version\n\n[1.14.9-1.0.8]\n- Address CVE-2020-16845\n\nkubernetes-cni\n[0.7.1-1.0.3]\n- Pin min version of cni-plugins\n\n[0.7.1-1.0.2]\n- Address CVE-2020-16845\n\nkubernetes-cni-plugins\n[0.8.6-1.0.3]\n- Address CVE-2020-16845\n\nkubernetes-dashboard\n[1.10.1-1.1.8]\n- Address CVE-2020-16845\n\n[1.8.3-2.0.1]\n- Update to v1.8.3\n\nolcne\n[1.0.7-2]\n- kubernetes pod subnet flag not honored in flannel configuration\n\n[1.0.7-1]\n- Address CVE-2020-16845\n\nyq\n[2.4.0-1.0.5]\n- Address CVE-2020-16845\n\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2020 Oracle, Inc.",
-      "issued": {
-        "date": "2020-08-31"
-      },
-      "cve": [
-        {
-          "text": "CVE-2020-16845",
-          "href": "https://linux.oracle.com/cve/CVE-2020-16845.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828003",
-                    "comment": "kubernetes-cni is earlier than 0:0.7.1-1.0.3.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828004",
-                    "comment": "kubernetes-cni is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828005",
-                    "comment": "kubernetes-cni-plugins is earlier than 0:0.8.6-1.0.3.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828006",
-                    "comment": "kubernetes-cni-plugins is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828007",
-                    "comment": "flannel is earlier than 0:0.10.0-2.1.12.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828008",
-                    "comment": "flannel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828009",
-                    "comment": "kata is earlier than 0:1.7.3-1.0.9.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828010",
-                    "comment": "kata is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828011",
-                    "comment": "kata-agent is earlier than 0:1.7.3-1.0.6.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828012",
-                    "comment": "kata-agent is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828013",
-                    "comment": "kata-image is earlier than 0:1.7.3-1.0.6.1.ol7_202008171204"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828014",
-                    "comment": "kata-image is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828015",
-                    "comment": "kata-ksm-throttler is earlier than 0:1.7.3-1.0.5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828016",
-                    "comment": "kata-ksm-throttler is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828017",
-                    "comment": "kata-proxy is earlier than 0:1.7.3-1.0.5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828018",
-                    "comment": "kata-proxy is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828019",
-                    "comment": "kata-runtime is earlier than 0:1.7.3-1.0.6.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828020",
-                    "comment": "kata-runtime is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828021",
-                    "comment": "kata-shim is earlier than 0:1.7.3-1.0.5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828022",
-                    "comment": "kata-shim is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828023",
-                    "comment": "yq is earlier than 0:2.4.0-1.0.5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828024",
-                    "comment": "yq is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828025",
-                    "comment": "conmon is earlier than 0:1.14.7-1.0.8.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828026",
-                    "comment": "conmon is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828027",
-                    "comment": "coredns is earlier than 0:1.3.1-1.0.6.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828028",
-                    "comment": "coredns is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828029",
-                    "comment": "cri-o is earlier than 0:1.14.7-1.0.8.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828030",
-                    "comment": "cri-o is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828031",
-                    "comment": "cri-tools is earlier than 0:1.14.0-1.0.6.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828032",
-                    "comment": "cri-tools is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828033",
-                    "comment": "etcd is earlier than 0:3.3.10-1.0.5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828034",
-                    "comment": "etcd is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828035",
-                    "comment": "kubeadm is earlier than 0:1.14.9-1.0.9.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828036",
-                    "comment": "kubeadm is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828037",
-                    "comment": "kubectl is earlier than 0:1.14.9-1.0.9.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828038",
-                    "comment": "kubectl is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828039",
-                    "comment": "kubelet is earlier than 0:1.14.9-1.0.9.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828040",
-                    "comment": "kubelet is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828041",
-                    "comment": "kubernetes-dashboard is earlier than 0:1.10.1-1.1.8.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828042",
-                    "comment": "kubernetes-dashboard is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828043",
-                    "comment": "olcne-agent is earlier than 0:1.0.7-2.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828044",
-                    "comment": "olcne-agent is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828045",
-                    "comment": "olcne-api-server is earlier than 0:1.0.7-2.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828046",
-                    "comment": "olcne-api-server is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828047",
-                    "comment": "olcne-nginx is earlier than 0:1.0.7-2.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828048",
-                    "comment": "olcne-nginx is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828049",
-                    "comment": "olcne-utils is earlier than 0:1.0.7-2.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828050",
-                    "comment": "olcne-utils is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828051",
-                    "comment": "olcnectl is earlier than 0:1.0.7-2.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20205828052",
-                    "comment": "olcnectl is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20205828002",
-            "comment": "Oracle Linux arch is x86_64"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20205828001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20205828",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-5828:  coredns cri-o cri-tools etcd flannel kata kata-agent kata-image kata-ksm-throttler kata-proxy kata-runtime kata-shim kubernetes kubernetes-cni kubernetes-cni-plugins kubernetes-dashboard olcne yq security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-5828",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-5828.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-16845",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-16845.html"
+			}
+		],
+		"description": "\ncoredns\n[1.3.1-1.0.6]\n- Address CVE-2020-16845\n\n[1.3.1-1.0.5]\n- Fix image location\n\ncri-o\n[1.14.7-1.0.8]\n- Address CVE-2020-16845\n\ncri-tools\n[1.14.0-1.0.6]\n- Address CVE-2020-16845\n\netcd\n[3.3.10-1.0.5]\n- Address CVE-2020-16845\n\n[3.3.10-1.0.4]\n- Fix image location\n\nflannel\n[0.10.0-2.1.12]\n- Address CVE-2020-16845\n\n[0.10.0-2.1.11]\n- Resize flannel image\n\n[0.10.0-2.1.10]\n- Fix image location\n\nkata\n[1.7.3-1.0.9]\n- Address CVE-2020-16845\n\nkata-agent\n[1.7.3-1.0.6]\n- Address CVE-2020-16845\n\nkata-image\n[1.7.3-1.0.6.1]\n- Address CVE-2020-16845\n\nkata-ksm-throttler\n[1.7.3-1.0.5]\n- Address CVE-2020-16845\n\nkata-proxy\n[1.7.3-1.0.5]\n- Address CVE-2020-16845\n\nkata-runtime\n[1.7.3-1.0.6]\n- Address CVE-2020-16845\n\nkata-shim\n[1.7.3-1.0.5]\n- Address CVE-2020-16845\n\nkubernetes\n[1.14.9-1.0.9]\n- Pin components min version\n\n[1.14.9-1.0.8]\n- Address CVE-2020-16845\n\nkubernetes-cni\n[0.7.1-1.0.3]\n- Pin min version of cni-plugins\n\n[0.7.1-1.0.2]\n- Address CVE-2020-16845\n\nkubernetes-cni-plugins\n[0.8.6-1.0.3]\n- Address CVE-2020-16845\n\nkubernetes-dashboard\n[1.10.1-1.1.8]\n- Address CVE-2020-16845\n\n[1.8.3-2.0.1]\n- Update to v1.8.3\n\nolcne\n[1.0.7-2]\n- kubernetes pod subnet flag not honored in flannel configuration\n\n[1.0.7-1]\n- Address CVE-2020-16845\n\nyq\n[2.4.0-1.0.5]\n- Address CVE-2020-16845\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-08-31"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-16845",
+					"href": "https://linux.oracle.com/cve/CVE-2020-16845.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828003",
+										"comment": "kubernetes-cni is earlier than 0:0.7.1-1.0.3.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828004",
+										"comment": "kubernetes-cni is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828005",
+										"comment": "kubernetes-cni-plugins is earlier than 0:0.8.6-1.0.3.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828006",
+										"comment": "kubernetes-cni-plugins is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828007",
+										"comment": "flannel is earlier than 0:0.10.0-2.1.12.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828008",
+										"comment": "flannel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828009",
+										"comment": "kata is earlier than 0:1.7.3-1.0.9.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828010",
+										"comment": "kata is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828011",
+										"comment": "kata-agent is earlier than 0:1.7.3-1.0.6.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828012",
+										"comment": "kata-agent is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828013",
+										"comment": "kata-image is earlier than 0:1.7.3-1.0.6.1.ol7_202008171204"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828014",
+										"comment": "kata-image is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828015",
+										"comment": "kata-ksm-throttler is earlier than 0:1.7.3-1.0.5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828016",
+										"comment": "kata-ksm-throttler is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828017",
+										"comment": "kata-proxy is earlier than 0:1.7.3-1.0.5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828018",
+										"comment": "kata-proxy is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828019",
+										"comment": "kata-runtime is earlier than 0:1.7.3-1.0.6.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828020",
+										"comment": "kata-runtime is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828021",
+										"comment": "kata-shim is earlier than 0:1.7.3-1.0.5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828022",
+										"comment": "kata-shim is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828023",
+										"comment": "yq is earlier than 0:2.4.0-1.0.5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828024",
+										"comment": "yq is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828025",
+										"comment": "conmon is earlier than 0:1.14.7-1.0.8.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828026",
+										"comment": "conmon is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828027",
+										"comment": "coredns is earlier than 0:1.3.1-1.0.6.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828028",
+										"comment": "coredns is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828029",
+										"comment": "cri-o is earlier than 0:1.14.7-1.0.8.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828030",
+										"comment": "cri-o is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828031",
+										"comment": "cri-tools is earlier than 0:1.14.0-1.0.6.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828032",
+										"comment": "cri-tools is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828033",
+										"comment": "etcd is earlier than 0:3.3.10-1.0.5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828034",
+										"comment": "etcd is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828035",
+										"comment": "kubeadm is earlier than 0:1.14.9-1.0.9.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828036",
+										"comment": "kubeadm is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828037",
+										"comment": "kubectl is earlier than 0:1.14.9-1.0.9.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828038",
+										"comment": "kubectl is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828039",
+										"comment": "kubelet is earlier than 0:1.14.9-1.0.9.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828040",
+										"comment": "kubelet is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828041",
+										"comment": "kubernetes-dashboard is earlier than 0:1.10.1-1.1.8.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828042",
+										"comment": "kubernetes-dashboard is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828043",
+										"comment": "olcne-agent is earlier than 0:1.0.7-2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828044",
+										"comment": "olcne-agent is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828045",
+										"comment": "olcne-api-server is earlier than 0:1.0.7-2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828046",
+										"comment": "olcne-api-server is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828047",
+										"comment": "olcne-nginx is earlier than 0:1.0.7-2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828048",
+										"comment": "olcne-nginx is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828049",
+										"comment": "olcne-utils is earlier than 0:1.0.7-2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828050",
+										"comment": "olcne-utils is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828051",
+										"comment": "olcnectl is earlier than 0:1.0.7-2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205828052",
+										"comment": "olcnectl is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20205828002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20205828001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }

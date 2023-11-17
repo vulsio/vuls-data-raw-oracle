@@ -1,282 +1,282 @@
 {
-  "id": "oval:com.oracle.elsa:def:20211853",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2021-1853:  unbound security, bug fix, and enhancement update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 8"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2021-1853",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-1853.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25038",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25038.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25040",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25040.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25042",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25042.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25032",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25032.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25034",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25034.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25035",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25035.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25036",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25036.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25037",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25037.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25039",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25039.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-25041",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-25041.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-28935",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2020-28935.html"
-      }
-    ],
-    "description": "\n[1.7.3-15]\n- Fix SPEC file to not check md5 mtime and size of /var/lib/unbound/root.key\n- Resolves: rhbz#1714175\n- Use system-wide crypto policy setting (PROFILE=SYSTEM) instead of custom setting\n- Resolves: rhbz#1842837\n- Enable additional logging in unbound\n- Resolves: rhbz#1850460\n- security hardening from x41 report\n- Resolves: rhbz#1859933\n- symbolic link traversal when writing PID file\n- Resolves: rhbz#1899058\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2021 Oracle, Inc.",
-      "issued": {
-        "date": "2021-05-25"
-      },
-      "cve": [
-        {
-          "text": "CVE-2019-25038",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25038.html"
-        },
-        {
-          "text": "CVE-2019-25040",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25040.html"
-        },
-        {
-          "text": "CVE-2019-25042",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25042.html"
-        },
-        {
-          "text": "CVE-2019-25032",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25032.html"
-        },
-        {
-          "text": "CVE-2019-25034",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25034.html"
-        },
-        {
-          "text": "CVE-2019-25035",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25035.html"
-        },
-        {
-          "text": "CVE-2019-25036",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25036.html"
-        },
-        {
-          "text": "CVE-2019-25037",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25037.html"
-        },
-        {
-          "text": "CVE-2019-25039",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25039.html"
-        },
-        {
-          "text": "CVE-2019-25041",
-          "href": "https://linux.oracle.com/cve/CVE-2019-25041.html"
-        },
-        {
-          "text": "CVE-2020-28935",
-          "href": "https://linux.oracle.com/cve/CVE-2020-28935.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853003",
-                        "comment": "python3-unbound is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853004",
-                        "comment": "python3-unbound is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853005",
-                        "comment": "unbound is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853006",
-                        "comment": "unbound is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853007",
-                        "comment": "unbound-devel is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853008",
-                        "comment": "unbound-devel is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853009",
-                        "comment": "unbound-libs is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853010",
-                        "comment": "unbound-libs is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20211853002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853003",
-                        "comment": "python3-unbound is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853004",
-                        "comment": "python3-unbound is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853005",
-                        "comment": "unbound is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853006",
-                        "comment": "unbound is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853007",
-                        "comment": "unbound-devel is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853008",
-                        "comment": "unbound-devel is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853009",
-                        "comment": "unbound-libs is earlier than 0:1.7.3-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20211853010",
-                        "comment": "unbound-libs is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20211853011",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20211853001",
-        "comment": "Oracle Linux 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20211853",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-1853:  unbound security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-1853",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-1853.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25038",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25038.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25040",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25040.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25042",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25042.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25032",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25032.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25034",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25034.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25035",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25035.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25036",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25036.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25037",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25037.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25039",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25039.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-25041",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-25041.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-28935",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-28935.html"
+			}
+		],
+		"description": "\n[1.7.3-15]\n- Fix SPEC file to not check md5 mtime and size of /var/lib/unbound/root.key\n- Resolves: rhbz#1714175\n- Use system-wide crypto policy setting (PROFILE=SYSTEM) instead of custom setting\n- Resolves: rhbz#1842837\n- Enable additional logging in unbound\n- Resolves: rhbz#1850460\n- security hardening from x41 report\n- Resolves: rhbz#1859933\n- symbolic link traversal when writing PID file\n- Resolves: rhbz#1899058\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-05-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-25038",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25038.html"
+				},
+				{
+					"text": "CVE-2019-25040",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25040.html"
+				},
+				{
+					"text": "CVE-2019-25042",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25042.html"
+				},
+				{
+					"text": "CVE-2019-25032",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25032.html"
+				},
+				{
+					"text": "CVE-2019-25034",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25034.html"
+				},
+				{
+					"text": "CVE-2019-25035",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25035.html"
+				},
+				{
+					"text": "CVE-2019-25036",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25036.html"
+				},
+				{
+					"text": "CVE-2019-25037",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25037.html"
+				},
+				{
+					"text": "CVE-2019-25039",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25039.html"
+				},
+				{
+					"text": "CVE-2019-25041",
+					"href": "https://linux.oracle.com/cve/CVE-2019-25041.html"
+				},
+				{
+					"text": "CVE-2020-28935",
+					"href": "https://linux.oracle.com/cve/CVE-2020-28935.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853003",
+												"comment": "python3-unbound is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853004",
+												"comment": "python3-unbound is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853005",
+												"comment": "unbound is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853006",
+												"comment": "unbound is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853007",
+												"comment": "unbound-devel is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853008",
+												"comment": "unbound-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853009",
+												"comment": "unbound-libs is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853010",
+												"comment": "unbound-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20211853002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853003",
+												"comment": "python3-unbound is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853004",
+												"comment": "python3-unbound is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853005",
+												"comment": "unbound is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853006",
+												"comment": "unbound is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853007",
+												"comment": "unbound-devel is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853008",
+												"comment": "unbound-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853009",
+												"comment": "unbound-libs is earlier than 0:1.7.3-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20211853010",
+												"comment": "unbound-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20211853011",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20211853001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
 }

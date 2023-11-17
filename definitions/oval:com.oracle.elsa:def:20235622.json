@@ -1,254 +1,254 @@
 {
-  "id": "oval:com.oracle.elsa:def:20235622",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2023-5622:  kernel security and bug fix update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2023-5622",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-5622.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-3609",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2023-3609.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-35001",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2023-35001.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-32233",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2023-32233.html"
-      }
-    ],
-    "description": "\n[3.10.0-1160.102.1.0.1.OL7]\n- debug: lock down kgdb [Orabug: 34270798] {CVE-2022-21499}\n\n[3.10.0-1160.102.1.OL7]\n- Update Oracle Linux certificates (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was compiled into kernel (olkmod_signing_key.x509)(alexey.petrenko@oracle.com)\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 <= 15-2.0.9\n- Update oracle(kernel-sig-key) value to match new certificate (Ilya Okomin)\n\n[3.10.0-1160.102.1]\n- net/sched: cls_u32: Fix reference counter leak leading to overflow (Davide Caratti) [2225486] {CVE-2023-3609}\n- NFSv4.1: fix handling of backchannel binding in BIND_CONN_TO_SESSION (Benjamin Coddington) [2219604]\n\n[3.10.0-1160.101.1]\n- cifs: fix a buffer leak in smb2_query_symlink (Jay Shin) [2166706]\n- kernfs: Improve kernfs_notify() poll notification latency (Ian Kent) [1703180]\n- netfilter: nf_tables: prevent OOB access in nft_byteorder_eval (Florian Westphal) [2221720] {CVE-2023-35001}\n\n[3.10.0-1160.100.1]\n- bnxt: count Tx drops (Jamie Bainbridge) [2175062]\n- bnxt: make sure xmit_more + errors does not miss doorbells (Jamie Bainbridge) [2175062]\n- netfilter: nf_tables: skip deactivated anonymous sets during lookups (Florian Westphal) [2196159] {CVE-2023-32233}\n- netfilter: nf_tables: do not allow SET_ID to refer to another table (Florian Westphal) [2196159]\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2023 Oracle, Inc.",
-      "issued": {
-        "date": "2023-10-11"
-      },
-      "cve": [
-        {
-          "text": "CVE-2023-3609",
-          "href": "https://linux.oracle.com/cve/CVE-2023-3609.html"
-        },
-        {
-          "text": "CVE-2023-35001",
-          "href": "https://linux.oracle.com/cve/CVE-2023-35001.html"
-        },
-        {
-          "text": "CVE-2023-32233",
-          "href": "https://linux.oracle.com/cve/CVE-2023-32233.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622003",
-                    "comment": "bpftool is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622004",
-                    "comment": "bpftool is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622005",
-                    "comment": "kernel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622006",
-                    "comment": "kernel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622007",
-                    "comment": "kernel-abi-whitelists is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622008",
-                    "comment": "kernel-abi-whitelists is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622009",
-                    "comment": "kernel-debug is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622010",
-                    "comment": "kernel-debug is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622011",
-                    "comment": "kernel-debug-devel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622012",
-                    "comment": "kernel-debug-devel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622013",
-                    "comment": "kernel-devel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622014",
-                    "comment": "kernel-devel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622015",
-                    "comment": "kernel-doc is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622016",
-                    "comment": "kernel-doc is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622017",
-                    "comment": "kernel-headers is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622018",
-                    "comment": "kernel-headers is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622019",
-                    "comment": "kernel-tools is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622020",
-                    "comment": "kernel-tools is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622021",
-                    "comment": "kernel-tools-libs is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622022",
-                    "comment": "kernel-tools-libs is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622023",
-                    "comment": "kernel-tools-libs-devel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622024",
-                    "comment": "kernel-tools-libs-devel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622025",
-                    "comment": "perf is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622026",
-                    "comment": "perf is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622027",
-                    "comment": "python-perf is earlier than 0:3.10.0-1160.102.1.0.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20235622028",
-                    "comment": "python-perf is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20235622002",
-            "comment": "Oracle Linux arch is x86_64"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20235622001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20235622",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-5622:  kernel security and bug fix update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-5622",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-5622.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-3609",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-3609.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-35001",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-35001.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-32233",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-32233.html"
+			}
+		],
+		"description": "\n[3.10.0-1160.102.1.0.1.OL7]\n- debug: lock down kgdb [Orabug: 34270798] {CVE-2022-21499}\n\n[3.10.0-1160.102.1.OL7]\n- Update Oracle Linux certificates (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was compiled into kernel (olkmod_signing_key.x509)(alexey.petrenko@oracle.com)\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 <= 15-2.0.9\n- Update oracle(kernel-sig-key) value to match new certificate (Ilya Okomin)\n\n[3.10.0-1160.102.1]\n- net/sched: cls_u32: Fix reference counter leak leading to overflow (Davide Caratti) [2225486] {CVE-2023-3609}\n- NFSv4.1: fix handling of backchannel binding in BIND_CONN_TO_SESSION (Benjamin Coddington) [2219604]\n\n[3.10.0-1160.101.1]\n- cifs: fix a buffer leak in smb2_query_symlink (Jay Shin) [2166706]\n- kernfs: Improve kernfs_notify() poll notification latency (Ian Kent) [1703180]\n- netfilter: nf_tables: prevent OOB access in nft_byteorder_eval (Florian Westphal) [2221720] {CVE-2023-35001}\n\n[3.10.0-1160.100.1]\n- bnxt: count Tx drops (Jamie Bainbridge) [2175062]\n- bnxt: make sure xmit_more + errors does not miss doorbells (Jamie Bainbridge) [2175062]\n- netfilter: nf_tables: skip deactivated anonymous sets during lookups (Florian Westphal) [2196159] {CVE-2023-32233}\n- netfilter: nf_tables: do not allow SET_ID to refer to another table (Florian Westphal) [2196159]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-10-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-3609",
+					"href": "https://linux.oracle.com/cve/CVE-2023-3609.html"
+				},
+				{
+					"text": "CVE-2023-35001",
+					"href": "https://linux.oracle.com/cve/CVE-2023-35001.html"
+				},
+				{
+					"text": "CVE-2023-32233",
+					"href": "https://linux.oracle.com/cve/CVE-2023-32233.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622003",
+										"comment": "bpftool is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622004",
+										"comment": "bpftool is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622005",
+										"comment": "kernel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622006",
+										"comment": "kernel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622007",
+										"comment": "kernel-abi-whitelists is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622008",
+										"comment": "kernel-abi-whitelists is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622009",
+										"comment": "kernel-debug is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622010",
+										"comment": "kernel-debug is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622011",
+										"comment": "kernel-debug-devel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622012",
+										"comment": "kernel-debug-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622013",
+										"comment": "kernel-devel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622014",
+										"comment": "kernel-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622015",
+										"comment": "kernel-doc is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622016",
+										"comment": "kernel-doc is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622017",
+										"comment": "kernel-headers is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622018",
+										"comment": "kernel-headers is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622019",
+										"comment": "kernel-tools is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622020",
+										"comment": "kernel-tools is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622021",
+										"comment": "kernel-tools-libs is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622022",
+										"comment": "kernel-tools-libs is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622023",
+										"comment": "kernel-tools-libs-devel is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622024",
+										"comment": "kernel-tools-libs-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622025",
+										"comment": "perf is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622026",
+										"comment": "perf is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622027",
+										"comment": "python-perf is earlier than 0:3.10.0-1160.102.1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20235622028",
+										"comment": "python-perf is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20235622002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20235622001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }

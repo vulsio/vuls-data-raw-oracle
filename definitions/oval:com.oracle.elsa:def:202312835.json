@@ -1,353 +1,353 @@
 {
-  "id": "oval:com.oracle.elsa:def:202312835",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2023-12835:  qemu security update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2023-12835",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-12835.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-0330",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2023-0330.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-3180",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2023-3180.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-3301",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2023-3301.html"
-      }
-    ],
-    "description": "\n[15:4.2.1-28.el7]\n- virtio-crypto: verify src&dst buffer length for sym request (Zhenwei Pi)  [Orabug: 35724113]  {CVE-2023-3180}\n- hw/scsi/lsi53c895a: Fix reentrancy issues in the LSI controller (CVE-2023-0330) (Thomas Huth)  [Orabug: 35724112]  {CVE-2023-0330}\n- kvm: Atomic memslot updates (David Hildenbrand)  [Orabug: 35719844]\n- KVM: keep track of running ioctls (Emanuele Giuseppe Esposito)  [Orabug: 35719844]\n- accel: introduce accelerator blocker API (Emanuele Giuseppe Esposito)  [Orabug: 35719844]\n- KVM: Use a big lock to replace per-kml slots_lock (Peter Xu)  [Orabug: 35719844]\n- pcie: don't set link state active if the slot is empty (Laurent Vivier)  [Orabug: 35707933]\n- vhost-vdpa: do not cleanup the vdpa/vhost-net structures if peer nic is present (Ani Sinha)  [Orabug: 35662850]  {CVE-2023-3301}\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2023 Oracle, Inc.",
-      "issued": {
-        "date": "2023-09-22"
-      },
-      "cve": [
-        {
-          "text": "CVE-2023-0330",
-          "href": "https://linux.oracle.com/cve/CVE-2023-0330.html"
-        },
-        {
-          "text": "CVE-2023-3180",
-          "href": "https://linux.oracle.com/cve/CVE-2023-3180.html"
-        },
-        {
-          "text": "CVE-2023-3301",
-          "href": "https://linux.oracle.com/cve/CVE-2023-3301.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835003",
-                        "comment": "ivshmem-tools is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835004",
-                        "comment": "ivshmem-tools is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835005",
-                        "comment": "qemu is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835006",
-                        "comment": "qemu is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835007",
-                        "comment": "qemu-block-gluster is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835008",
-                        "comment": "qemu-block-gluster is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835009",
-                        "comment": "qemu-block-iscsi is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835010",
-                        "comment": "qemu-block-iscsi is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835011",
-                        "comment": "qemu-block-rbd is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835012",
-                        "comment": "qemu-block-rbd is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835013",
-                        "comment": "qemu-common is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835014",
-                        "comment": "qemu-common is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835015",
-                        "comment": "qemu-img is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835016",
-                        "comment": "qemu-img is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835017",
-                        "comment": "qemu-kvm is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835018",
-                        "comment": "qemu-kvm is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835019",
-                        "comment": "qemu-kvm-core is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835020",
-                        "comment": "qemu-kvm-core is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835021",
-                        "comment": "qemu-system-aarch64 is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835022",
-                        "comment": "qemu-system-aarch64 is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835023",
-                        "comment": "qemu-system-aarch64-core is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835024",
-                        "comment": "qemu-system-aarch64-core is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:202312835002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835005",
-                        "comment": "qemu is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835006",
-                        "comment": "qemu is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835007",
-                        "comment": "qemu-block-gluster is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835008",
-                        "comment": "qemu-block-gluster is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835009",
-                        "comment": "qemu-block-iscsi is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835010",
-                        "comment": "qemu-block-iscsi is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835011",
-                        "comment": "qemu-block-rbd is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835012",
-                        "comment": "qemu-block-rbd is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835013",
-                        "comment": "qemu-common is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835014",
-                        "comment": "qemu-common is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835015",
-                        "comment": "qemu-img is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835016",
-                        "comment": "qemu-img is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835017",
-                        "comment": "qemu-kvm is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835018",
-                        "comment": "qemu-kvm is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835019",
-                        "comment": "qemu-kvm-core is earlier than 15:4.2.1-28.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312835020",
-                        "comment": "qemu-kvm-core is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:202312835025",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:202312835001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:202312835",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-12835:  qemu security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-12835",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-12835.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-0330",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-0330.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-3180",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-3180.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-3301",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-3301.html"
+			}
+		],
+		"description": "\n[15:4.2.1-28.el7]\n- virtio-crypto: verify src&dst buffer length for sym request (Zhenwei Pi)  [Orabug: 35724113]  {CVE-2023-3180}\n- hw/scsi/lsi53c895a: Fix reentrancy issues in the LSI controller (CVE-2023-0330) (Thomas Huth)  [Orabug: 35724112]  {CVE-2023-0330}\n- kvm: Atomic memslot updates (David Hildenbrand)  [Orabug: 35719844]\n- KVM: keep track of running ioctls (Emanuele Giuseppe Esposito)  [Orabug: 35719844]\n- accel: introduce accelerator blocker API (Emanuele Giuseppe Esposito)  [Orabug: 35719844]\n- KVM: Use a big lock to replace per-kml slots_lock (Peter Xu)  [Orabug: 35719844]\n- pcie: don't set link state active if the slot is empty (Laurent Vivier)  [Orabug: 35707933]\n- vhost-vdpa: do not cleanup the vdpa/vhost-net structures if peer nic is present (Ani Sinha)  [Orabug: 35662850]  {CVE-2023-3301}\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-09-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-0330",
+					"href": "https://linux.oracle.com/cve/CVE-2023-0330.html"
+				},
+				{
+					"text": "CVE-2023-3180",
+					"href": "https://linux.oracle.com/cve/CVE-2023-3180.html"
+				},
+				{
+					"text": "CVE-2023-3301",
+					"href": "https://linux.oracle.com/cve/CVE-2023-3301.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835003",
+												"comment": "ivshmem-tools is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835004",
+												"comment": "ivshmem-tools is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835005",
+												"comment": "qemu is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835006",
+												"comment": "qemu is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835007",
+												"comment": "qemu-block-gluster is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835008",
+												"comment": "qemu-block-gluster is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835009",
+												"comment": "qemu-block-iscsi is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835010",
+												"comment": "qemu-block-iscsi is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835011",
+												"comment": "qemu-block-rbd is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835012",
+												"comment": "qemu-block-rbd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835013",
+												"comment": "qemu-common is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835014",
+												"comment": "qemu-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835015",
+												"comment": "qemu-img is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835016",
+												"comment": "qemu-img is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835017",
+												"comment": "qemu-kvm is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835018",
+												"comment": "qemu-kvm is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835019",
+												"comment": "qemu-kvm-core is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835020",
+												"comment": "qemu-kvm-core is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835021",
+												"comment": "qemu-system-aarch64 is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835022",
+												"comment": "qemu-system-aarch64 is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835023",
+												"comment": "qemu-system-aarch64-core is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835024",
+												"comment": "qemu-system-aarch64-core is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312835002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835005",
+												"comment": "qemu is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835006",
+												"comment": "qemu is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835007",
+												"comment": "qemu-block-gluster is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835008",
+												"comment": "qemu-block-gluster is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835009",
+												"comment": "qemu-block-iscsi is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835010",
+												"comment": "qemu-block-iscsi is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835011",
+												"comment": "qemu-block-rbd is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835012",
+												"comment": "qemu-block-rbd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835013",
+												"comment": "qemu-common is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835014",
+												"comment": "qemu-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835015",
+												"comment": "qemu-img is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835016",
+												"comment": "qemu-img is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835017",
+												"comment": "qemu-kvm is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835018",
+												"comment": "qemu-kvm is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835019",
+												"comment": "qemu-kvm-core is earlier than 15:4.2.1-28.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312835020",
+												"comment": "qemu-kvm-core is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312835025",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202312835001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }

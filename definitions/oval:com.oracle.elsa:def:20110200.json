@@ -1,298 +1,298 @@
 {
-  "id": "oval:com.oracle.elsa:def:20110200",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2011-0200:  krb5 security update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2011-0200",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2011-0200.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2010-1322",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2010-1322.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2010-1323",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2010-1323.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2010-1324",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2010-1324.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2010-4020",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2010-4020.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2010-4022",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2010-4022.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2011-0281",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2011-0281.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2011-0282",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2011-0282.html"
-      }
-    ],
-    "description": "\n\n[1.8.2-3.4]\n- add upstream patches to fix standalone kpropd exiting if the per-client\n  child process exits with an error, and hang or crash in the KDC when using\n  the LDAP kdb backend (CVE-2010-4022, CVE-2011-0281, CVE-2011-0282, #671101)\n\n[1.8.2-3.3]\n- pull up crypto changes made between 1.8.2 and 1.8.3 to fix upstream #6751,\n  assumed to already be there for the next fix\n- incorporate candidate patch to fix various issues from MITKRB5-SA-2010-007\n  (CVE-2010-1323, CVE-2010-1324, CVE-2010-4020, #651962)\n\n[1.8.2-3.2]\n- fix reading of keyUsage extensions when attempting to select pkinit client\n  certs (part of #644825, RT#6775)\n- fix selection of pkinit client certs when one or more don't include a\n  subjectAltName extension (part of #644825, RT#6774)\n\n[1.8.2-3.1]\n- incorporate candidate patch to fix uninitialized pointer crash in the KDC\n  (CVE-2010-1322, #636336)\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2011 Oracle, Inc.",
-      "issued": {
-        "date": "2011-02-10"
-      },
-      "cve": [
-        {
-          "text": "CVE-2010-1322",
-          "href": "https://linux.oracle.com/cve/CVE-2010-1322.html"
-        },
-        {
-          "text": "CVE-2010-1323",
-          "href": "https://linux.oracle.com/cve/CVE-2010-1323.html"
-        },
-        {
-          "text": "CVE-2010-1324",
-          "href": "https://linux.oracle.com/cve/CVE-2010-1324.html"
-        },
-        {
-          "text": "CVE-2010-4020",
-          "href": "https://linux.oracle.com/cve/CVE-2010-4020.html"
-        },
-        {
-          "text": "CVE-2010-4022",
-          "href": "https://linux.oracle.com/cve/CVE-2010-4022.html"
-        },
-        {
-          "text": "CVE-2011-0281",
-          "href": "https://linux.oracle.com/cve/CVE-2011-0281.html"
-        },
-        {
-          "text": "CVE-2011-0282",
-          "href": "https://linux.oracle.com/cve/CVE-2011-0282.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200003",
-                        "comment": "krb5-devel is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200004",
-                        "comment": "krb5-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200005",
-                        "comment": "krb5-libs is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200006",
-                        "comment": "krb5-libs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200007",
-                        "comment": "krb5-pkinit-openssl is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200008",
-                        "comment": "krb5-pkinit-openssl is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200009",
-                        "comment": "krb5-server is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200010",
-                        "comment": "krb5-server is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200011",
-                        "comment": "krb5-server-ldap is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200012",
-                        "comment": "krb5-server-ldap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200013",
-                        "comment": "krb5-workstation is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200014",
-                        "comment": "krb5-workstation is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20110200002",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200003",
-                        "comment": "krb5-devel is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200004",
-                        "comment": "krb5-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200005",
-                        "comment": "krb5-libs is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200006",
-                        "comment": "krb5-libs is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200007",
-                        "comment": "krb5-pkinit-openssl is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200008",
-                        "comment": "krb5-pkinit-openssl is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200009",
-                        "comment": "krb5-server is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200010",
-                        "comment": "krb5-server is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200011",
-                        "comment": "krb5-server-ldap is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200012",
-                        "comment": "krb5-server-ldap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200013",
-                        "comment": "krb5-workstation is earlier than 0:1.8.2-3.el6_0.4"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20110200014",
-                        "comment": "krb5-workstation is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20110200015",
-                "comment": "Oracle Linux arch is i686"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20110200001",
-        "comment": "Oracle Linux 6 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20110200",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2011-0200:  krb5 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2011-0200",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2011-0200.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2010-1322",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2010-1322.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2010-1323",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2010-1323.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2010-1324",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2010-1324.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2010-4020",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2010-4020.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2010-4022",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2010-4022.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-0281",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-0281.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-0282",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-0282.html"
+			}
+		],
+		"description": "\n\n[1.8.2-3.4]\n- add upstream patches to fix standalone kpropd exiting if the per-client\n  child process exits with an error, and hang or crash in the KDC when using\n  the LDAP kdb backend (CVE-2010-4022, CVE-2011-0281, CVE-2011-0282, #671101)\n\n[1.8.2-3.3]\n- pull up crypto changes made between 1.8.2 and 1.8.3 to fix upstream #6751,\n  assumed to already be there for the next fix\n- incorporate candidate patch to fix various issues from MITKRB5-SA-2010-007\n  (CVE-2010-1323, CVE-2010-1324, CVE-2010-4020, #651962)\n\n[1.8.2-3.2]\n- fix reading of keyUsage extensions when attempting to select pkinit client\n  certs (part of #644825, RT#6775)\n- fix selection of pkinit client certs when one or more don't include a\n  subjectAltName extension (part of #644825, RT#6774)\n\n[1.8.2-3.1]\n- incorporate candidate patch to fix uninitialized pointer crash in the KDC\n  (CVE-2010-1322, #636336)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2011 Oracle, Inc.",
+			"issued": {
+				"date": "2011-02-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-1322",
+					"href": "https://linux.oracle.com/cve/CVE-2010-1322.html"
+				},
+				{
+					"text": "CVE-2010-1323",
+					"href": "https://linux.oracle.com/cve/CVE-2010-1323.html"
+				},
+				{
+					"text": "CVE-2010-1324",
+					"href": "https://linux.oracle.com/cve/CVE-2010-1324.html"
+				},
+				{
+					"text": "CVE-2010-4020",
+					"href": "https://linux.oracle.com/cve/CVE-2010-4020.html"
+				},
+				{
+					"text": "CVE-2010-4022",
+					"href": "https://linux.oracle.com/cve/CVE-2010-4022.html"
+				},
+				{
+					"text": "CVE-2011-0281",
+					"href": "https://linux.oracle.com/cve/CVE-2011-0281.html"
+				},
+				{
+					"text": "CVE-2011-0282",
+					"href": "https://linux.oracle.com/cve/CVE-2011-0282.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200003",
+												"comment": "krb5-devel is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200004",
+												"comment": "krb5-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200005",
+												"comment": "krb5-libs is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200006",
+												"comment": "krb5-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200007",
+												"comment": "krb5-pkinit-openssl is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200008",
+												"comment": "krb5-pkinit-openssl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200009",
+												"comment": "krb5-server is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200010",
+												"comment": "krb5-server is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200011",
+												"comment": "krb5-server-ldap is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200012",
+												"comment": "krb5-server-ldap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200013",
+												"comment": "krb5-workstation is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200014",
+												"comment": "krb5-workstation is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20110200002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200003",
+												"comment": "krb5-devel is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200004",
+												"comment": "krb5-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200005",
+												"comment": "krb5-libs is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200006",
+												"comment": "krb5-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200007",
+												"comment": "krb5-pkinit-openssl is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200008",
+												"comment": "krb5-pkinit-openssl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200009",
+												"comment": "krb5-server is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200010",
+												"comment": "krb5-server is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200011",
+												"comment": "krb5-server-ldap is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200012",
+												"comment": "krb5-server-ldap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200013",
+												"comment": "krb5-workstation is earlier than 0:1.8.2-3.el6_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110200014",
+												"comment": "krb5-workstation is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20110200015",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20110200001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
 }

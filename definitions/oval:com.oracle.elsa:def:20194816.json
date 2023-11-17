@@ -1,195 +1,195 @@
 {
-  "id": "oval:com.oracle.elsa:def:20194816",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2019-4816:  kubernetes security update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2019-4816",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2019-4816.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11244",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11244.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-9512",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-9512.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11246",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11246.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11251",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11251.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11247",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11247.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11249",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11249.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-16276",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-16276.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-11253",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-11253.html"
-      }
-    ],
-    "description": "\nkubernetes\n[1.12.10-1.0.10]\n- [CVE-2019-16276] Kubernetes Vulnerabilities Allow Authentication Bypass, DoS\n\n[1.12.10-1.0.9]\n- Define rolling update for flannel\n\n[1.12.10-1.0.8]\n- Modify flannel/dashboard image tags to use images that have the cve fix\n\nkubeadm-ha-setup\n[0.0.2-1.0.68]\n- Pull image prior to update and fix image repo for addons\n\n[0.0.2-1.0.67]\n- Bump golang build version\n\n[0.0.2-1.0.66]\n- [CVE-2019-16276] Support patching flannel/dashboard on upgrade\n\n[0.0.2-1.0.65]\n- [CVE 2019-16276] Support deploygin 1.12 and 1.13 with CVE patched\n\n[0.0.2-1.0.64]\n- [CVE-2019-16276] Support patching etcd on upgrade\n\n[0.0.2-1.0.63]\n- [CVE-2019-16276] while upgrading a cluster patch the coredns image\n\n[0.0.2-1.0.62]\n- CVE-2019-16276 : Update flannel , etcd coredns and dashboard images.\n\n[0.0.2-1.0.61]\n- Added Support for 1.13.11 and removed support for 1.13.10\n\n[0.0.2-1.0.59]\n- Remove Support for 1.14.6\n\n[0.0.2-1.0.58]\n- Replacing reference to kubernetes-dashboard-amd64 with kubernetes-dashboard\n\n[0.0.2-1.0.57]\n- Support 1.12.10\n\n[0.0.2-1.0.56]\n- Support 1.14.6\n\n[0.0.2-1.0.55]\n- Support 1.13.10\n\n[0.0.2-1.0.54]\n- Support 1.13.9\n\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2020 Oracle, Inc.",
-      "issued": {
-        "date": "2020-01-31"
-      },
-      "cve": [
-        {
-          "text": "CVE-2019-11244",
-          "href": "https://linux.oracle.com/cve/CVE-2019-11244.html"
-        },
-        {
-          "text": "CVE-2019-9512",
-          "href": "https://linux.oracle.com/cve/CVE-2019-9512.html"
-        },
-        {
-          "text": "CVE-2019-11246",
-          "href": "https://linux.oracle.com/cve/CVE-2019-11246.html"
-        },
-        {
-          "text": "CVE-2019-11251",
-          "href": "https://linux.oracle.com/cve/CVE-2019-11251.html"
-        },
-        {
-          "text": "CVE-2019-11247",
-          "href": "https://linux.oracle.com/cve/CVE-2019-11247.html"
-        },
-        {
-          "text": "CVE-2019-11249",
-          "href": "https://linux.oracle.com/cve/CVE-2019-11249.html"
-        },
-        {
-          "text": "CVE-2019-16276",
-          "href": "https://linux.oracle.com/cve/CVE-2019-16276.html"
-        },
-        {
-          "text": "CVE-2019-11253",
-          "href": "https://linux.oracle.com/cve/CVE-2019-11253.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816003",
-                    "comment": "kubeadm is earlier than 0:1.12.10-1.0.10.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816004",
-                    "comment": "kubeadm is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816005",
-                    "comment": "kubeadm-ha-setup is earlier than 0:0.0.2-1.0.68.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816006",
-                    "comment": "kubeadm-ha-setup is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816007",
-                    "comment": "kubeadm-upgrade is earlier than 0:0.0.1-1.0.27.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816008",
-                    "comment": "kubeadm-upgrade is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816009",
-                    "comment": "kubectl is earlier than 0:1.12.10-1.0.10.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816010",
-                    "comment": "kubectl is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816011",
-                    "comment": "kubelet is earlier than 0:1.12.10-1.0.10.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20194816012",
-                    "comment": "kubelet is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20194816002",
-            "comment": "Oracle Linux arch is x86_64"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20194816001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20194816",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-4816:  kubernetes security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-4816",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-4816.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11244",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-11244.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-9512",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-9512.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11246",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-11246.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11251",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-11251.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11247",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-11247.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11249",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-11249.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-16276",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-16276.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-11253",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-11253.html"
+			}
+		],
+		"description": "\nkubernetes\n[1.12.10-1.0.10]\n- [CVE-2019-16276] Kubernetes Vulnerabilities Allow Authentication Bypass, DoS\n\n[1.12.10-1.0.9]\n- Define rolling update for flannel\n\n[1.12.10-1.0.8]\n- Modify flannel/dashboard image tags to use images that have the cve fix\n\nkubeadm-ha-setup\n[0.0.2-1.0.68]\n- Pull image prior to update and fix image repo for addons\n\n[0.0.2-1.0.67]\n- Bump golang build version\n\n[0.0.2-1.0.66]\n- [CVE-2019-16276] Support patching flannel/dashboard on upgrade\n\n[0.0.2-1.0.65]\n- [CVE 2019-16276] Support deploygin 1.12 and 1.13 with CVE patched\n\n[0.0.2-1.0.64]\n- [CVE-2019-16276] Support patching etcd on upgrade\n\n[0.0.2-1.0.63]\n- [CVE-2019-16276] while upgrading a cluster patch the coredns image\n\n[0.0.2-1.0.62]\n- CVE-2019-16276 : Update flannel , etcd coredns and dashboard images.\n\n[0.0.2-1.0.61]\n- Added Support for 1.13.11 and removed support for 1.13.10\n\n[0.0.2-1.0.59]\n- Remove Support for 1.14.6\n\n[0.0.2-1.0.58]\n- Replacing reference to kubernetes-dashboard-amd64 with kubernetes-dashboard\n\n[0.0.2-1.0.57]\n- Support 1.12.10\n\n[0.0.2-1.0.56]\n- Support 1.14.6\n\n[0.0.2-1.0.55]\n- Support 1.13.10\n\n[0.0.2-1.0.54]\n- Support 1.13.9\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-01-31"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-11244",
+					"href": "https://linux.oracle.com/cve/CVE-2019-11244.html"
+				},
+				{
+					"text": "CVE-2019-9512",
+					"href": "https://linux.oracle.com/cve/CVE-2019-9512.html"
+				},
+				{
+					"text": "CVE-2019-11246",
+					"href": "https://linux.oracle.com/cve/CVE-2019-11246.html"
+				},
+				{
+					"text": "CVE-2019-11251",
+					"href": "https://linux.oracle.com/cve/CVE-2019-11251.html"
+				},
+				{
+					"text": "CVE-2019-11247",
+					"href": "https://linux.oracle.com/cve/CVE-2019-11247.html"
+				},
+				{
+					"text": "CVE-2019-11249",
+					"href": "https://linux.oracle.com/cve/CVE-2019-11249.html"
+				},
+				{
+					"text": "CVE-2019-16276",
+					"href": "https://linux.oracle.com/cve/CVE-2019-16276.html"
+				},
+				{
+					"text": "CVE-2019-11253",
+					"href": "https://linux.oracle.com/cve/CVE-2019-11253.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816003",
+										"comment": "kubeadm is earlier than 0:1.12.10-1.0.10.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816004",
+										"comment": "kubeadm is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816005",
+										"comment": "kubeadm-ha-setup is earlier than 0:0.0.2-1.0.68.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816006",
+										"comment": "kubeadm-ha-setup is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816007",
+										"comment": "kubeadm-upgrade is earlier than 0:0.0.1-1.0.27.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816008",
+										"comment": "kubeadm-upgrade is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816009",
+										"comment": "kubectl is earlier than 0:1.12.10-1.0.10.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816010",
+										"comment": "kubectl is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816011",
+										"comment": "kubelet is earlier than 0:1.12.10-1.0.10.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194816012",
+										"comment": "kubelet is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20194816002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20194816001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }

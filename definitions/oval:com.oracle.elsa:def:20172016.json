@@ -1,166 +1,166 @@
 {
-  "id": "oval:com.oracle.elsa:def:20172016",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2017-2016:  curl security, bug fix, and enhancement update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2017-2016",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-2016.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-7167",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-7167.html"
-      }
-    ],
-    "description": "\n[7.29.0-42]\n- fix use of uninitialized variable detected by Covscan\n\n[7.29.0-41]\n- make FTPS work with --proxytunnel (#1420327)\n\n[7.29.0-40]\n- make FTPS work with --proxytunnel (#1420327)\n\n[7.29.0-39]\n- work around race condition in PK11_FindSlotByName() in NSS (#1404815)\n\n[7.29.0-38]\n- make FTPS work with --proxytunnel (#1420327)\n\n[7.29.0-37]\n- fix tight loop in non-blocking TLS handhsake over proxy (#1388162)\n- handle cookies with numerical IPv6 address (#1341503)\n- make libcurl recognize chacha20-poly1305 and SHA384 cipher-suites (#1374740)\n- curl -E: allow to escape ':' in cert nickname (#1376062)\n- run automake in %prep to avoid patching Makefile.in files from now on\n\n[7.29.0-36]\n- reject negative string lengths in curl_easy_[un]escape() (CVE-2016-7167)\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2017 Oracle, Inc.",
-      "issued": {
-        "date": "2017-08-07"
-      },
-      "cve": [
-        {
-          "text": "CVE-2016-7167",
-          "href": "https://linux.oracle.com/cve/CVE-2016-7167.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016003",
-                        "comment": "curl is earlier than 0:7.29.0-42.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016004",
-                        "comment": "curl is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016005",
-                        "comment": "libcurl is earlier than 0:7.29.0-42.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016006",
-                        "comment": "libcurl is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016007",
-                        "comment": "libcurl-devel is earlier than 0:7.29.0-42.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016008",
-                        "comment": "libcurl-devel is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20172016002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016003",
-                        "comment": "curl is earlier than 0:7.29.0-42.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016004",
-                        "comment": "curl is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016005",
-                        "comment": "libcurl is earlier than 0:7.29.0-42.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016006",
-                        "comment": "libcurl is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016007",
-                        "comment": "libcurl-devel is earlier than 0:7.29.0-42.el7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20172016008",
-                        "comment": "libcurl-devel is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20172016009",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20172016001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20172016",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2017-2016:  curl security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2017-2016",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2017-2016.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-7167",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-7167.html"
+			}
+		],
+		"description": "\n[7.29.0-42]\n- fix use of uninitialized variable detected by Covscan\n\n[7.29.0-41]\n- make FTPS work with --proxytunnel (#1420327)\n\n[7.29.0-40]\n- make FTPS work with --proxytunnel (#1420327)\n\n[7.29.0-39]\n- work around race condition in PK11_FindSlotByName() in NSS (#1404815)\n\n[7.29.0-38]\n- make FTPS work with --proxytunnel (#1420327)\n\n[7.29.0-37]\n- fix tight loop in non-blocking TLS handhsake over proxy (#1388162)\n- handle cookies with numerical IPv6 address (#1341503)\n- make libcurl recognize chacha20-poly1305 and SHA384 cipher-suites (#1374740)\n- curl -E: allow to escape ':' in cert nickname (#1376062)\n- run automake in %prep to avoid patching Makefile.in files from now on\n\n[7.29.0-36]\n- reject negative string lengths in curl_easy_[un]escape() (CVE-2016-7167)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2017 Oracle, Inc.",
+			"issued": {
+				"date": "2017-08-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-7167",
+					"href": "https://linux.oracle.com/cve/CVE-2016-7167.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016003",
+												"comment": "curl is earlier than 0:7.29.0-42.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016004",
+												"comment": "curl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016005",
+												"comment": "libcurl is earlier than 0:7.29.0-42.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016006",
+												"comment": "libcurl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016007",
+												"comment": "libcurl-devel is earlier than 0:7.29.0-42.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016008",
+												"comment": "libcurl-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20172016002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016003",
+												"comment": "curl is earlier than 0:7.29.0-42.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016004",
+												"comment": "curl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016005",
+												"comment": "libcurl is earlier than 0:7.29.0-42.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016006",
+												"comment": "libcurl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016007",
+												"comment": "libcurl-devel is earlier than 0:7.29.0-42.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20172016008",
+												"comment": "libcurl-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20172016009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20172016001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }

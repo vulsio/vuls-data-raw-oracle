@@ -1,175 +1,175 @@
 {
-  "id": "oval:com.oracle.elsa:def:20171206",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2017-1206:  qemu-kvm security update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2017-1206",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2017-1206.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-9603",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-9603.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-2633",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2017-2633.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-7718",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2017-7718.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2017-7980",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2017-7980.html"
-      }
-    ],
-    "description": "\n[0.12.1.2-2.503.el6_9.3]\n- kvm-cirrus-avoid-write-only-variables.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-stop-passing-around-dst-pointers-in-the-blitt.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-stop-passing-around-src-pointers-in-the-blitt.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-fix-off-by-one-in-cirrus_bitblt_rop_bkwd_tran.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-fix-PUTPIXEL-macro.patch [bz#1444377 bz#1444379]\n- Resolves: bz#1444377\n  (CVE-2017-7980 qemu-kvm: Qemu: display: cirrus: OOB r/w access issues in bitblt routines [rhel-6.9.z])\n- Resolves: bz#1444379\n  (CVE-2017-7980 qemu-kvm-rhev: Qemu: display: cirrus: OOB r/w access issues in bitblt routines [rhel-6.9.z])\n\n[0.12.1.2-2.503.el6_9.2]\n- kvm-fix-cirrus_vga-fix-OOB-read-case-qemu-Segmentation-f.patch [bz#1443447 bz#1443449]\n- kvm-cirrus-vnc-zap-bitblit-support-from-console-code.patch [bz#1443447 bz#1443449]\n- Resolves: bz#1443447\n  (CVE-2017-7718 qemu-kvm: Qemu: display: cirrus: OOB read access issue [rhel-6.9.z])\n- Resolves: bz#1443449\n  (CVE-2017-7718 qemu-kvm-rhev: Qemu: display: cirrus: OOB read access issue [rhel-6.9.z])\n- Resolves: bz#1447544\n  (CVE-2016-9603 qemu-kvm-rhev: Qemu: cirrus: heap buffer overflow via vnc connection [rhel-6.9.z] )\n- Resolves: bz#1447540\n  (CVE-2016-9603 qemu-kvm: Qemu: cirrus: heap buffer overflow via vnc connection [rhel-6.9.z])\n\n[0.12.1.2-2.503.el6_9.1]\n- kvm-vns-tls-don-t-use-depricated-gnutls-functions.patch [bz#1428750]\n- kvm-vnc-apply-display-size-limits.patch [bz#1400438 bz#1425943]\n- Resolves: bz#1400438\n  (qemu-kvm coredump in vnc_refresh_server_surface [rhel-6.9.z])\n- Resolves: bz#1425943\n  (CVE-2017-2633 qemu-kvm-rhev: Qemu: VNC: memory corruption due to unchecked resolution limit [rhel-6.9.z])\n- Resolves: bz#1428750\n  (Fails to build in brew)\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2017 Oracle, Inc.",
-      "issued": {
-        "date": "2017-05-09"
-      },
-      "cve": [
-        {
-          "text": "CVE-2016-9603",
-          "href": "https://linux.oracle.com/cve/CVE-2016-9603.html"
-        },
-        {
-          "text": "CVE-2017-2633",
-          "href": "https://linux.oracle.com/cve/CVE-2017-2633.html"
-        },
-        {
-          "text": "CVE-2017-7718",
-          "href": "https://linux.oracle.com/cve/CVE-2017-7718.html"
-        },
-        {
-          "text": "CVE-2017-7980",
-          "href": "https://linux.oracle.com/cve/CVE-2017-7980.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206003",
-                        "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.503.el6_9.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206004",
-                        "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206005",
-                        "comment": "qemu-img is earlier than 2:0.12.1.2-2.503.el6_9.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206006",
-                        "comment": "qemu-img is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206007",
-                        "comment": "qemu-kvm is earlier than 2:0.12.1.2-2.503.el6_9.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206008",
-                        "comment": "qemu-kvm is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206009",
-                        "comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.503.el6_9.3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20171206010",
-                        "comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20171206002",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20171206003",
-                    "comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.503.el6_9.3"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20171206004",
-                    "comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20171206011",
-                "comment": "Oracle Linux arch is i686"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20171206001",
-        "comment": "Oracle Linux 6 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20171206",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2017-1206:  qemu-kvm security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2017-1206",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2017-1206.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-9603",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-9603.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-2633",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-2633.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-7718",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-7718.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-7980",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-7980.html"
+			}
+		],
+		"description": "\n[0.12.1.2-2.503.el6_9.3]\n- kvm-cirrus-avoid-write-only-variables.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-stop-passing-around-dst-pointers-in-the-blitt.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-stop-passing-around-src-pointers-in-the-blitt.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-fix-off-by-one-in-cirrus_bitblt_rop_bkwd_tran.patch [bz#1444377 bz#1444379]\n- kvm-cirrus-fix-PUTPIXEL-macro.patch [bz#1444377 bz#1444379]\n- Resolves: bz#1444377\n  (CVE-2017-7980 qemu-kvm: Qemu: display: cirrus: OOB r/w access issues in bitblt routines [rhel-6.9.z])\n- Resolves: bz#1444379\n  (CVE-2017-7980 qemu-kvm-rhev: Qemu: display: cirrus: OOB r/w access issues in bitblt routines [rhel-6.9.z])\n\n[0.12.1.2-2.503.el6_9.2]\n- kvm-fix-cirrus_vga-fix-OOB-read-case-qemu-Segmentation-f.patch [bz#1443447 bz#1443449]\n- kvm-cirrus-vnc-zap-bitblit-support-from-console-code.patch [bz#1443447 bz#1443449]\n- Resolves: bz#1443447\n  (CVE-2017-7718 qemu-kvm: Qemu: display: cirrus: OOB read access issue [rhel-6.9.z])\n- Resolves: bz#1443449\n  (CVE-2017-7718 qemu-kvm-rhev: Qemu: display: cirrus: OOB read access issue [rhel-6.9.z])\n- Resolves: bz#1447544\n  (CVE-2016-9603 qemu-kvm-rhev: Qemu: cirrus: heap buffer overflow via vnc connection [rhel-6.9.z] )\n- Resolves: bz#1447540\n  (CVE-2016-9603 qemu-kvm: Qemu: cirrus: heap buffer overflow via vnc connection [rhel-6.9.z])\n\n[0.12.1.2-2.503.el6_9.1]\n- kvm-vns-tls-don-t-use-depricated-gnutls-functions.patch [bz#1428750]\n- kvm-vnc-apply-display-size-limits.patch [bz#1400438 bz#1425943]\n- Resolves: bz#1400438\n  (qemu-kvm coredump in vnc_refresh_server_surface [rhel-6.9.z])\n- Resolves: bz#1425943\n  (CVE-2017-2633 qemu-kvm-rhev: Qemu: VNC: memory corruption due to unchecked resolution limit [rhel-6.9.z])\n- Resolves: bz#1428750\n  (Fails to build in brew)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2017 Oracle, Inc.",
+			"issued": {
+				"date": "2017-05-09"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-9603",
+					"href": "https://linux.oracle.com/cve/CVE-2016-9603.html"
+				},
+				{
+					"text": "CVE-2017-2633",
+					"href": "https://linux.oracle.com/cve/CVE-2017-2633.html"
+				},
+				{
+					"text": "CVE-2017-7718",
+					"href": "https://linux.oracle.com/cve/CVE-2017-7718.html"
+				},
+				{
+					"text": "CVE-2017-7980",
+					"href": "https://linux.oracle.com/cve/CVE-2017-7980.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206003",
+												"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.503.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206005",
+												"comment": "qemu-img is earlier than 2:0.12.1.2-2.503.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206006",
+												"comment": "qemu-img is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206007",
+												"comment": "qemu-kvm is earlier than 2:0.12.1.2-2.503.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206009",
+												"comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.503.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171206010",
+												"comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20171206002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20171206003",
+										"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.503.el6_9.3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20171206004",
+										"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20171206011",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20171206001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
 }

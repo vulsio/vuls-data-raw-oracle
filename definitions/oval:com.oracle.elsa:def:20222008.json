@@ -1,227 +1,227 @@
 {
-  "id": "oval:com.oracle.elsa:def:20222008",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2022-2008:  cockpit security, bug fix, and enhancement update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 8"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2022-2008",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-2008.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-3698",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-3698.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-3660",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-3660.html"
-      }
-    ],
-    "description": "\n[264.1-1.0.1]\n- Remove duplicate reference to server in cockpit [Orabug: 33862832]\n- Update documentation links [Orabug: 32795691]\n- Make documentation links point to Oracle Linux information [Orabug: 30271413] [Orabug: 32013095]\n- Fix rendering of hwinfo page on systems with some empty memory slots [Orabug: 32826970]\n\n[264.1-1]\n- metrics: Fix link construction for user services\n- Translation updates (rhbz#2016998)\n\n[264-1]\n- Metrics: Improve layout on small resolutions\n - Networking: Fix checkpoint handling and IP settings dialog (rhbz#2056386)\n - Services: Show error message instead of eternal 'Loading...' state\n - Accounts: Add override button to confirm weak password\n - Accounts: Fix parsing of 'last login' date\n\n[263-1]\n- Overview: Show scheduled shutdowns\n- Networking: Add firewall service description\n- Shell: Fix browser history\n\n[261-1]\n- shell: Allow adding keys with passphrase\n\n[260-1]\n- Certificate login validation (rhbz#1992620, CVE-2021-3698)\n- Client: Show previously used hosts\n- Client: Support port specification\n- bridge: Warning on missing cockpit-system package\n\n[259-1]\n- Translation updates\n\n[258-1]\n- Tweak login screen UI\n- Fix SELinux policy installation\n\n[257-1]\n- Support for reading TLS certificates with any permissions\n- cockpit-ws no longer supports merged certificates\n- Services: Show user-owned systemd units (rhbz#1792270)\n\n[255-1]\n- Restrict frame embedding to same origin (rhbz#1984902, CVE-2021-3660)\n- kdump: Show 'Directory' field for NFS mounts (rbhz#2004041)\n\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2022 Oracle, Inc.",
-      "issued": {
-        "date": "2022-05-17"
-      },
-      "cve": [
-        {
-          "text": "CVE-2021-3698",
-          "href": "https://linux.oracle.com/cve/CVE-2021-3698.html"
-        },
-        {
-          "text": "CVE-2021-3660",
-          "href": "https://linux.oracle.com/cve/CVE-2021-3660.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008003",
-                        "comment": "cockpit is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008004",
-                        "comment": "cockpit is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008005",
-                        "comment": "cockpit-bridge is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008006",
-                        "comment": "cockpit-bridge is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008007",
-                        "comment": "cockpit-doc is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008008",
-                        "comment": "cockpit-doc is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008009",
-                        "comment": "cockpit-system is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008010",
-                        "comment": "cockpit-system is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008011",
-                        "comment": "cockpit-ws is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008012",
-                        "comment": "cockpit-ws is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20222008002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008003",
-                        "comment": "cockpit is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008004",
-                        "comment": "cockpit is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008005",
-                        "comment": "cockpit-bridge is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008006",
-                        "comment": "cockpit-bridge is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008007",
-                        "comment": "cockpit-doc is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008008",
-                        "comment": "cockpit-doc is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008009",
-                        "comment": "cockpit-system is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008010",
-                        "comment": "cockpit-system is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008011",
-                        "comment": "cockpit-ws is earlier than 0:264.1-1.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20222008012",
-                        "comment": "cockpit-ws is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20222008013",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20222008001",
-        "comment": "Oracle Linux 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20222008",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-2008:  cockpit security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-2008",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-2008.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-3698",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-3698.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-3660",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-3660.html"
+			}
+		],
+		"description": "\n[264.1-1.0.1]\n- Remove duplicate reference to server in cockpit [Orabug: 33862832]\n- Update documentation links [Orabug: 32795691]\n- Make documentation links point to Oracle Linux information [Orabug: 30271413] [Orabug: 32013095]\n- Fix rendering of hwinfo page on systems with some empty memory slots [Orabug: 32826970]\n\n[264.1-1]\n- metrics: Fix link construction for user services\n- Translation updates (rhbz#2016998)\n\n[264-1]\n- Metrics: Improve layout on small resolutions\n - Networking: Fix checkpoint handling and IP settings dialog (rhbz#2056386)\n - Services: Show error message instead of eternal 'Loading...' state\n - Accounts: Add override button to confirm weak password\n - Accounts: Fix parsing of 'last login' date\n\n[263-1]\n- Overview: Show scheduled shutdowns\n- Networking: Add firewall service description\n- Shell: Fix browser history\n\n[261-1]\n- shell: Allow adding keys with passphrase\n\n[260-1]\n- Certificate login validation (rhbz#1992620, CVE-2021-3698)\n- Client: Show previously used hosts\n- Client: Support port specification\n- bridge: Warning on missing cockpit-system package\n\n[259-1]\n- Translation updates\n\n[258-1]\n- Tweak login screen UI\n- Fix SELinux policy installation\n\n[257-1]\n- Support for reading TLS certificates with any permissions\n- cockpit-ws no longer supports merged certificates\n- Services: Show user-owned systemd units (rhbz#1792270)\n\n[255-1]\n- Restrict frame embedding to same origin (rhbz#1984902, CVE-2021-3660)\n- kdump: Show 'Directory' field for NFS mounts (rbhz#2004041)\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-05-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-3698",
+					"href": "https://linux.oracle.com/cve/CVE-2021-3698.html"
+				},
+				{
+					"text": "CVE-2021-3660",
+					"href": "https://linux.oracle.com/cve/CVE-2021-3660.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008003",
+												"comment": "cockpit is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008004",
+												"comment": "cockpit is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008005",
+												"comment": "cockpit-bridge is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008006",
+												"comment": "cockpit-bridge is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008007",
+												"comment": "cockpit-doc is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008008",
+												"comment": "cockpit-doc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008009",
+												"comment": "cockpit-system is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008010",
+												"comment": "cockpit-system is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008011",
+												"comment": "cockpit-ws is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008012",
+												"comment": "cockpit-ws is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20222008002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008003",
+												"comment": "cockpit is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008004",
+												"comment": "cockpit is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008005",
+												"comment": "cockpit-bridge is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008006",
+												"comment": "cockpit-bridge is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008007",
+												"comment": "cockpit-doc is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008008",
+												"comment": "cockpit-doc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008009",
+												"comment": "cockpit-system is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008010",
+												"comment": "cockpit-system is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008011",
+												"comment": "cockpit-ws is earlier than 0:264.1-1.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20222008012",
+												"comment": "cockpit-ws is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20222008013",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20222008001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
 }

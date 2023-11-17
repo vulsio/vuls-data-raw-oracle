@@ -1,424 +1,424 @@
 {
-  "id": "oval:com.oracle.elsa:def:20230852",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2023-0852:  httpd:2.4 security and bug fix update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 8"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2023-0852",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-0852.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2006-20001",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2006-20001.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-37436",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2022-37436.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-36760",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2022-36760.html"
-      }
-    ],
-    "description": "\nhttpd\n[2.4.37-51.0.1.1]\n- Set vstring per ORACLE_SUPPORT_PRODUCT [Orabug: 29892262]\n- Replace index.html with Oracle's index page oracle_index.html\n\n[2.4.37-51.1]\n- Resolves: #2165967 - prevent sscg creating /dhparams.pem\n- Resolves: #2165976 - CVE-2006-20001 httpd: mod_dav: out-of-bounds read/write\n  of zero byte\n- Resolves: #2165977 - CVE-2022-37436 httpd: mod_proxy: HTTP response splitting\n- Resolves: #2165978 - CVE-2022-36760 httpd: mod_proxy_ajp: Possible request\n  smuggling\n\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2023 Oracle, Inc.",
-      "issued": {
-        "date": "2023-02-22"
-      },
-      "cve": [
-        {
-          "text": "CVE-2006-20001",
-          "href": "https://linux.oracle.com/cve/CVE-2006-20001.html"
-        },
-        {
-          "text": "CVE-2022-37436",
-          "href": "https://linux.oracle.com/cve/CVE-2022-37436.html"
-        },
-        {
-          "text": "CVE-2022-36760",
-          "href": "https://linux.oracle.com/cve/CVE-2022-36760.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterias": [
-                      {
-                        "operator": "OR",
-                        "criterias": [
-                          {
-                            "operator": "AND",
-                            "criterions": [
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852004",
-                                "comment": "mod_http2 is earlier than 0:1.15.7-5.module+el8.6.0+20548+01710940"
-                              },
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852005",
-                                "comment": "mod_http2 is signed with the Oracle Linux 8 key"
-                              }
-                            ]
-                          },
-                          {
-                            "operator": "AND",
-                            "criterions": [
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852006",
-                                "comment": "mod_md is earlier than 1:2.0.8-8.module+el8.5.0+20475+4f6a8fd5"
-                              },
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852007",
-                                "comment": "mod_md is signed with the Oracle Linux 8 key"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ],
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852003",
-                        "comment": "Module httpd:2.4 is enabled"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852008",
-                        "comment": "httpd is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852009",
-                        "comment": "httpd is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852010",
-                        "comment": "httpd-devel is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852011",
-                        "comment": "httpd-devel is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852012",
-                        "comment": "httpd-filesystem is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852013",
-                        "comment": "httpd-filesystem is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852014",
-                        "comment": "httpd-manual is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852015",
-                        "comment": "httpd-manual is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852016",
-                        "comment": "httpd-tools is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852017",
-                        "comment": "httpd-tools is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852018",
-                        "comment": "mod_ldap is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852019",
-                        "comment": "mod_ldap is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852020",
-                        "comment": "mod_proxy_html is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852021",
-                        "comment": "mod_proxy_html is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852022",
-                        "comment": "mod_session is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852023",
-                        "comment": "mod_session is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852024",
-                        "comment": "mod_ssl is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852025",
-                        "comment": "mod_ssl is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20230852002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterias": [
-                      {
-                        "operator": "OR",
-                        "criterias": [
-                          {
-                            "operator": "AND",
-                            "criterions": [
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852004",
-                                "comment": "mod_http2 is earlier than 0:1.15.7-5.module+el8.6.0+20548+01710940"
-                              },
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852005",
-                                "comment": "mod_http2 is signed with the Oracle Linux 8 key"
-                              }
-                            ]
-                          },
-                          {
-                            "operator": "AND",
-                            "criterions": [
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852006",
-                                "comment": "mod_md is earlier than 1:2.0.8-8.module+el8.5.0+20475+4f6a8fd5"
-                              },
-                              {
-                                "test_ref": "oval:com.oracle.elsa:tst:20230852007",
-                                "comment": "mod_md is signed with the Oracle Linux 8 key"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ],
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852003",
-                        "comment": "Module httpd:2.4 is enabled"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852008",
-                        "comment": "httpd is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852009",
-                        "comment": "httpd is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852010",
-                        "comment": "httpd-devel is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852011",
-                        "comment": "httpd-devel is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852012",
-                        "comment": "httpd-filesystem is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852013",
-                        "comment": "httpd-filesystem is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852014",
-                        "comment": "httpd-manual is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852015",
-                        "comment": "httpd-manual is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852016",
-                        "comment": "httpd-tools is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852017",
-                        "comment": "httpd-tools is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852018",
-                        "comment": "mod_ldap is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852019",
-                        "comment": "mod_ldap is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852020",
-                        "comment": "mod_proxy_html is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852021",
-                        "comment": "mod_proxy_html is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852022",
-                        "comment": "mod_session is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852023",
-                        "comment": "mod_session is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852024",
-                        "comment": "mod_ssl is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20230852025",
-                        "comment": "mod_ssl is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20230852026",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20230852001",
-        "comment": "Oracle Linux 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20230852",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-0852:  httpd:2.4 security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-0852",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-0852.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2006-20001",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2006-20001.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-37436",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-37436.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-36760",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-36760.html"
+			}
+		],
+		"description": "\nhttpd\n[2.4.37-51.0.1.1]\n- Set vstring per ORACLE_SUPPORT_PRODUCT [Orabug: 29892262]\n- Replace index.html with Oracle's index page oracle_index.html\n\n[2.4.37-51.1]\n- Resolves: #2165967 - prevent sscg creating /dhparams.pem\n- Resolves: #2165976 - CVE-2006-20001 httpd: mod_dav: out-of-bounds read/write\n  of zero byte\n- Resolves: #2165977 - CVE-2022-37436 httpd: mod_proxy: HTTP response splitting\n- Resolves: #2165978 - CVE-2022-36760 httpd: mod_proxy_ajp: Possible request\n  smuggling\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-02-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2006-20001",
+					"href": "https://linux.oracle.com/cve/CVE-2006-20001.html"
+				},
+				{
+					"text": "CVE-2022-37436",
+					"href": "https://linux.oracle.com/cve/CVE-2022-37436.html"
+				},
+				{
+					"text": "CVE-2022-36760",
+					"href": "https://linux.oracle.com/cve/CVE-2022-36760.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterias": [
+											{
+												"operator": "OR",
+												"criterias": [
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852004",
+																"comment": "mod_http2 is earlier than 0:1.15.7-5.module+el8.6.0+20548+01710940"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852005",
+																"comment": "mod_http2 is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852006",
+																"comment": "mod_md is earlier than 1:2.0.8-8.module+el8.5.0+20475+4f6a8fd5"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852007",
+																"comment": "mod_md is signed with the Oracle Linux 8 key"
+															}
+														]
+													}
+												]
+											}
+										],
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852003",
+												"comment": "Module httpd:2.4 is enabled"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852008",
+												"comment": "httpd is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852009",
+												"comment": "httpd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852010",
+												"comment": "httpd-devel is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852011",
+												"comment": "httpd-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852012",
+												"comment": "httpd-filesystem is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852013",
+												"comment": "httpd-filesystem is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852014",
+												"comment": "httpd-manual is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852015",
+												"comment": "httpd-manual is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852016",
+												"comment": "httpd-tools is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852017",
+												"comment": "httpd-tools is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852018",
+												"comment": "mod_ldap is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852019",
+												"comment": "mod_ldap is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852020",
+												"comment": "mod_proxy_html is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852021",
+												"comment": "mod_proxy_html is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852022",
+												"comment": "mod_session is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852023",
+												"comment": "mod_session is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852024",
+												"comment": "mod_ssl is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852025",
+												"comment": "mod_ssl is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20230852002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterias": [
+											{
+												"operator": "OR",
+												"criterias": [
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852004",
+																"comment": "mod_http2 is earlier than 0:1.15.7-5.module+el8.6.0+20548+01710940"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852005",
+																"comment": "mod_http2 is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852006",
+																"comment": "mod_md is earlier than 1:2.0.8-8.module+el8.5.0+20475+4f6a8fd5"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20230852007",
+																"comment": "mod_md is signed with the Oracle Linux 8 key"
+															}
+														]
+													}
+												]
+											}
+										],
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852003",
+												"comment": "Module httpd:2.4 is enabled"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852008",
+												"comment": "httpd is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852009",
+												"comment": "httpd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852010",
+												"comment": "httpd-devel is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852011",
+												"comment": "httpd-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852012",
+												"comment": "httpd-filesystem is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852013",
+												"comment": "httpd-filesystem is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852014",
+												"comment": "httpd-manual is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852015",
+												"comment": "httpd-manual is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852016",
+												"comment": "httpd-tools is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852017",
+												"comment": "httpd-tools is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852018",
+												"comment": "mod_ldap is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852019",
+												"comment": "mod_ldap is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852020",
+												"comment": "mod_proxy_html is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852021",
+												"comment": "mod_proxy_html is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852022",
+												"comment": "mod_session is earlier than 0:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852023",
+												"comment": "mod_session is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852024",
+												"comment": "mod_ssl is earlier than 1:2.4.37-51.0.1.module+el8.7.0+20923+af3b70dd.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230852025",
+												"comment": "mod_ssl is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20230852026",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20230852001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
 }

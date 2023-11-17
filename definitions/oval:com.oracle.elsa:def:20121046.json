@@ -1,836 +1,836 @@
 {
-  "id": "oval:com.oracle.elsa:def:20121046",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2012-1046:  php security update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2012-1046",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2012-1046.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-2143",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-2143.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2011-4153",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2011-4153.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-0057",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-0057.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-0789",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-0789.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-1172",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-1172.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-2336",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-2336.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2010-2950",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2010-2950.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-2386",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-2386.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2012-0781",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2012-0781.html"
-      }
-    ],
-    "description": "\n[5.3.3-14]\n- add security fix for CVE-2010-2950\n\n[5.3.3-13]\n- fix tests for CVE-2012-2143, CVE-2012-0789\n\n[5.3.3-12]\n- add fix for CVE-2012-2336\n\n[5.3.3-11]\n- add security fixes for CVE-2012-0781, CVE-2011-4153, CVE-2012-0057,\n  CVE-2012-0789, CVE-2012-1172, CVE-2012-2143, CVE-2012-2386\n\n[5.3.3-9]\n- correct detection of = in CVE-2012-1823 fix (#818607)\n\n[5.3.3-8]\n- add security fix for CVE-2012-1823 (#818607)\n\n[5.3.3-7]\n- add security fix for CVE-2012-0830 (#786744)\n\n[5.3.3-6]\n- merge Joe's changes:\n- improve CVE-2011-1466 fix to cover CAL_GREGORIAN, CAL_JEWISH\n- add security fixes for CVE-2011-2483, CVE-2011-0708, CVE-2011-1148,\n  CVE-2011-1466, CVE-2011-1468, CVE-2011-1469, CVE-2011-1470,\n  CVE-2011-1471, CVE-2011-1938, and CVE-2011-2202 (#740732)\n\n[5.3.3-5]\n- remove extra php.ini-prod/devel files caused by %patch -b\n\n[5.3.3-4]\n- add security fixes for CVE-2011-4885, CVE-2011-4566 (#769755)\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2012 Oracle, Inc.",
-      "issued": {
-        "date": "2012-06-29"
-      },
-      "cve": [
-        {
-          "text": "CVE-2012-2143",
-          "href": "https://linux.oracle.com/cve/CVE-2012-2143.html"
-        },
-        {
-          "text": "CVE-2011-4153",
-          "href": "https://linux.oracle.com/cve/CVE-2011-4153.html"
-        },
-        {
-          "text": "CVE-2012-0057",
-          "href": "https://linux.oracle.com/cve/CVE-2012-0057.html"
-        },
-        {
-          "text": "CVE-2012-0789",
-          "href": "https://linux.oracle.com/cve/CVE-2012-0789.html"
-        },
-        {
-          "text": "CVE-2012-1172",
-          "href": "https://linux.oracle.com/cve/CVE-2012-1172.html"
-        },
-        {
-          "text": "CVE-2012-2336",
-          "href": "https://linux.oracle.com/cve/CVE-2012-2336.html"
-        },
-        {
-          "text": "CVE-2010-2950",
-          "href": "https://linux.oracle.com/cve/CVE-2010-2950.html"
-        },
-        {
-          "text": "CVE-2012-2386",
-          "href": "https://linux.oracle.com/cve/CVE-2012-2386.html"
-        },
-        {
-          "text": "CVE-2012-0781",
-          "href": "https://linux.oracle.com/cve/CVE-2012-0781.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046003",
-                        "comment": "php is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046004",
-                        "comment": "php is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046005",
-                        "comment": "php-bcmath is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046006",
-                        "comment": "php-bcmath is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046007",
-                        "comment": "php-cli is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046008",
-                        "comment": "php-cli is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046009",
-                        "comment": "php-common is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046010",
-                        "comment": "php-common is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046011",
-                        "comment": "php-dba is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046012",
-                        "comment": "php-dba is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046013",
-                        "comment": "php-devel is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046014",
-                        "comment": "php-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046015",
-                        "comment": "php-embedded is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046016",
-                        "comment": "php-embedded is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046017",
-                        "comment": "php-enchant is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046018",
-                        "comment": "php-enchant is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046019",
-                        "comment": "php-gd is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046020",
-                        "comment": "php-gd is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046021",
-                        "comment": "php-imap is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046022",
-                        "comment": "php-imap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046023",
-                        "comment": "php-intl is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046024",
-                        "comment": "php-intl is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046025",
-                        "comment": "php-ldap is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046026",
-                        "comment": "php-ldap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046027",
-                        "comment": "php-mbstring is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046028",
-                        "comment": "php-mbstring is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046029",
-                        "comment": "php-mysql is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046030",
-                        "comment": "php-mysql is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046031",
-                        "comment": "php-odbc is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046032",
-                        "comment": "php-odbc is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046033",
-                        "comment": "php-pdo is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046034",
-                        "comment": "php-pdo is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046035",
-                        "comment": "php-pgsql is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046036",
-                        "comment": "php-pgsql is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046037",
-                        "comment": "php-process is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046038",
-                        "comment": "php-process is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046039",
-                        "comment": "php-pspell is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046040",
-                        "comment": "php-pspell is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046041",
-                        "comment": "php-recode is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046042",
-                        "comment": "php-recode is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046043",
-                        "comment": "php-snmp is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046044",
-                        "comment": "php-snmp is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046045",
-                        "comment": "php-soap is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046046",
-                        "comment": "php-soap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046047",
-                        "comment": "php-tidy is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046048",
-                        "comment": "php-tidy is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046049",
-                        "comment": "php-xml is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046050",
-                        "comment": "php-xml is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046051",
-                        "comment": "php-xmlrpc is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046052",
-                        "comment": "php-xmlrpc is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046053",
-                        "comment": "php-zts is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046054",
-                        "comment": "php-zts is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20121046002",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046003",
-                        "comment": "php is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046004",
-                        "comment": "php is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046005",
-                        "comment": "php-bcmath is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046006",
-                        "comment": "php-bcmath is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046007",
-                        "comment": "php-cli is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046008",
-                        "comment": "php-cli is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046009",
-                        "comment": "php-common is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046010",
-                        "comment": "php-common is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046011",
-                        "comment": "php-dba is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046012",
-                        "comment": "php-dba is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046013",
-                        "comment": "php-devel is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046014",
-                        "comment": "php-devel is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046015",
-                        "comment": "php-embedded is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046016",
-                        "comment": "php-embedded is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046017",
-                        "comment": "php-enchant is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046018",
-                        "comment": "php-enchant is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046019",
-                        "comment": "php-gd is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046020",
-                        "comment": "php-gd is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046021",
-                        "comment": "php-imap is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046022",
-                        "comment": "php-imap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046023",
-                        "comment": "php-intl is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046024",
-                        "comment": "php-intl is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046025",
-                        "comment": "php-ldap is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046026",
-                        "comment": "php-ldap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046027",
-                        "comment": "php-mbstring is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046028",
-                        "comment": "php-mbstring is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046029",
-                        "comment": "php-mysql is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046030",
-                        "comment": "php-mysql is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046031",
-                        "comment": "php-odbc is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046032",
-                        "comment": "php-odbc is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046033",
-                        "comment": "php-pdo is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046034",
-                        "comment": "php-pdo is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046035",
-                        "comment": "php-pgsql is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046036",
-                        "comment": "php-pgsql is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046037",
-                        "comment": "php-process is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046038",
-                        "comment": "php-process is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046039",
-                        "comment": "php-pspell is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046040",
-                        "comment": "php-pspell is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046041",
-                        "comment": "php-recode is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046042",
-                        "comment": "php-recode is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046043",
-                        "comment": "php-snmp is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046044",
-                        "comment": "php-snmp is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046045",
-                        "comment": "php-soap is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046046",
-                        "comment": "php-soap is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046047",
-                        "comment": "php-tidy is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046048",
-                        "comment": "php-tidy is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046049",
-                        "comment": "php-xml is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046050",
-                        "comment": "php-xml is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046051",
-                        "comment": "php-xmlrpc is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046052",
-                        "comment": "php-xmlrpc is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046053",
-                        "comment": "php-zts is earlier than 0:5.3.3-14.el6_3"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20121046054",
-                        "comment": "php-zts is signed with the Oracle Linux 6 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20121046055",
-                "comment": "Oracle Linux arch is i686"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20121046001",
-        "comment": "Oracle Linux 6 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20121046",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2012-1046:  php security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2012-1046",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2012-1046.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-2143",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-2143.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-4153",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-4153.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-0057",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-0057.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-0789",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-0789.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-1172",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-1172.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-2336",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-2336.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2010-2950",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2010-2950.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-2386",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-2386.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-0781",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-0781.html"
+			}
+		],
+		"description": "\n[5.3.3-14]\n- add security fix for CVE-2010-2950\n\n[5.3.3-13]\n- fix tests for CVE-2012-2143, CVE-2012-0789\n\n[5.3.3-12]\n- add fix for CVE-2012-2336\n\n[5.3.3-11]\n- add security fixes for CVE-2012-0781, CVE-2011-4153, CVE-2012-0057,\n  CVE-2012-0789, CVE-2012-1172, CVE-2012-2143, CVE-2012-2386\n\n[5.3.3-9]\n- correct detection of = in CVE-2012-1823 fix (#818607)\n\n[5.3.3-8]\n- add security fix for CVE-2012-1823 (#818607)\n\n[5.3.3-7]\n- add security fix for CVE-2012-0830 (#786744)\n\n[5.3.3-6]\n- merge Joe's changes:\n- improve CVE-2011-1466 fix to cover CAL_GREGORIAN, CAL_JEWISH\n- add security fixes for CVE-2011-2483, CVE-2011-0708, CVE-2011-1148,\n  CVE-2011-1466, CVE-2011-1468, CVE-2011-1469, CVE-2011-1470,\n  CVE-2011-1471, CVE-2011-1938, and CVE-2011-2202 (#740732)\n\n[5.3.3-5]\n- remove extra php.ini-prod/devel files caused by %patch -b\n\n[5.3.3-4]\n- add security fixes for CVE-2011-4885, CVE-2011-4566 (#769755)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2012 Oracle, Inc.",
+			"issued": {
+				"date": "2012-06-29"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-2143",
+					"href": "https://linux.oracle.com/cve/CVE-2012-2143.html"
+				},
+				{
+					"text": "CVE-2011-4153",
+					"href": "https://linux.oracle.com/cve/CVE-2011-4153.html"
+				},
+				{
+					"text": "CVE-2012-0057",
+					"href": "https://linux.oracle.com/cve/CVE-2012-0057.html"
+				},
+				{
+					"text": "CVE-2012-0789",
+					"href": "https://linux.oracle.com/cve/CVE-2012-0789.html"
+				},
+				{
+					"text": "CVE-2012-1172",
+					"href": "https://linux.oracle.com/cve/CVE-2012-1172.html"
+				},
+				{
+					"text": "CVE-2012-2336",
+					"href": "https://linux.oracle.com/cve/CVE-2012-2336.html"
+				},
+				{
+					"text": "CVE-2010-2950",
+					"href": "https://linux.oracle.com/cve/CVE-2010-2950.html"
+				},
+				{
+					"text": "CVE-2012-2386",
+					"href": "https://linux.oracle.com/cve/CVE-2012-2386.html"
+				},
+				{
+					"text": "CVE-2012-0781",
+					"href": "https://linux.oracle.com/cve/CVE-2012-0781.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046003",
+												"comment": "php is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046004",
+												"comment": "php is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046005",
+												"comment": "php-bcmath is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046006",
+												"comment": "php-bcmath is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046007",
+												"comment": "php-cli is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046008",
+												"comment": "php-cli is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046009",
+												"comment": "php-common is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046010",
+												"comment": "php-common is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046011",
+												"comment": "php-dba is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046012",
+												"comment": "php-dba is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046013",
+												"comment": "php-devel is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046014",
+												"comment": "php-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046015",
+												"comment": "php-embedded is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046016",
+												"comment": "php-embedded is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046017",
+												"comment": "php-enchant is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046018",
+												"comment": "php-enchant is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046019",
+												"comment": "php-gd is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046020",
+												"comment": "php-gd is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046021",
+												"comment": "php-imap is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046022",
+												"comment": "php-imap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046023",
+												"comment": "php-intl is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046024",
+												"comment": "php-intl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046025",
+												"comment": "php-ldap is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046026",
+												"comment": "php-ldap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046027",
+												"comment": "php-mbstring is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046028",
+												"comment": "php-mbstring is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046029",
+												"comment": "php-mysql is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046030",
+												"comment": "php-mysql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046031",
+												"comment": "php-odbc is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046032",
+												"comment": "php-odbc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046033",
+												"comment": "php-pdo is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046034",
+												"comment": "php-pdo is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046035",
+												"comment": "php-pgsql is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046036",
+												"comment": "php-pgsql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046037",
+												"comment": "php-process is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046038",
+												"comment": "php-process is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046039",
+												"comment": "php-pspell is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046040",
+												"comment": "php-pspell is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046041",
+												"comment": "php-recode is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046042",
+												"comment": "php-recode is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046043",
+												"comment": "php-snmp is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046044",
+												"comment": "php-snmp is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046045",
+												"comment": "php-soap is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046046",
+												"comment": "php-soap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046047",
+												"comment": "php-tidy is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046048",
+												"comment": "php-tidy is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046049",
+												"comment": "php-xml is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046050",
+												"comment": "php-xml is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046051",
+												"comment": "php-xmlrpc is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046052",
+												"comment": "php-xmlrpc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046053",
+												"comment": "php-zts is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046054",
+												"comment": "php-zts is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20121046002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046003",
+												"comment": "php is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046004",
+												"comment": "php is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046005",
+												"comment": "php-bcmath is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046006",
+												"comment": "php-bcmath is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046007",
+												"comment": "php-cli is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046008",
+												"comment": "php-cli is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046009",
+												"comment": "php-common is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046010",
+												"comment": "php-common is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046011",
+												"comment": "php-dba is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046012",
+												"comment": "php-dba is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046013",
+												"comment": "php-devel is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046014",
+												"comment": "php-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046015",
+												"comment": "php-embedded is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046016",
+												"comment": "php-embedded is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046017",
+												"comment": "php-enchant is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046018",
+												"comment": "php-enchant is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046019",
+												"comment": "php-gd is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046020",
+												"comment": "php-gd is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046021",
+												"comment": "php-imap is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046022",
+												"comment": "php-imap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046023",
+												"comment": "php-intl is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046024",
+												"comment": "php-intl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046025",
+												"comment": "php-ldap is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046026",
+												"comment": "php-ldap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046027",
+												"comment": "php-mbstring is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046028",
+												"comment": "php-mbstring is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046029",
+												"comment": "php-mysql is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046030",
+												"comment": "php-mysql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046031",
+												"comment": "php-odbc is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046032",
+												"comment": "php-odbc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046033",
+												"comment": "php-pdo is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046034",
+												"comment": "php-pdo is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046035",
+												"comment": "php-pgsql is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046036",
+												"comment": "php-pgsql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046037",
+												"comment": "php-process is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046038",
+												"comment": "php-process is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046039",
+												"comment": "php-pspell is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046040",
+												"comment": "php-pspell is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046041",
+												"comment": "php-recode is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046042",
+												"comment": "php-recode is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046043",
+												"comment": "php-snmp is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046044",
+												"comment": "php-snmp is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046045",
+												"comment": "php-soap is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046046",
+												"comment": "php-soap is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046047",
+												"comment": "php-tidy is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046048",
+												"comment": "php-tidy is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046049",
+												"comment": "php-xml is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046050",
+												"comment": "php-xml is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046051",
+												"comment": "php-xmlrpc is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046052",
+												"comment": "php-xmlrpc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046053",
+												"comment": "php-zts is earlier than 0:5.3.3-14.el6_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20121046054",
+												"comment": "php-zts is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20121046055",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20121046001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
 }

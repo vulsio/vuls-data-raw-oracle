@@ -1,362 +1,362 @@
 {
-  "id": "oval:com.oracle.elsa:def:20161940",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2016-1940:  openssl security update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 6",
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2016-1940",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2016-1940.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2177",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-2177.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2179",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-2179.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2181",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-2181.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-6302",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-6302.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-6306",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-6306.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2178",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-2178.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2180",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-2180.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-2182",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-2182.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2016-6304",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2016-6304.html"
-      }
-    ],
-    "description": "\n[1.0.1e-48.3]\n- fix CVE-2016-2177 - possible integer overflow\n- fix CVE-2016-2178 - non-constant time DSA operations\n- fix CVE-2016-2179 - further DoS issues in DTLS\n- fix CVE-2016-2180 - OOB read in TS_OBJ_print_bio()\n- fix CVE-2016-2181 - DTLS1 replay protection and unprocessed records issue\n- fix CVE-2016-2182 - possible buffer overflow in BN_bn2dec()\n- fix CVE-2016-6302 - insufficient TLS session ticket HMAC length check\n- fix CVE-2016-6304 - unbound memory growth with OCSP status request\n- fix CVE-2016-6306 - certificate message OOB reads\n- mitigate CVE-2016-2183 - degrade all 64bit block ciphers and RC4 to\n  112 bit effective strength\n- replace expired testing certificates\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2016 Oracle, Inc.",
-      "issued": {
-        "date": "2016-09-27"
-      },
-      "cve": [
-        {
-          "text": "CVE-2016-2177",
-          "href": "https://linux.oracle.com/cve/CVE-2016-2177.html"
-        },
-        {
-          "text": "CVE-2016-2179",
-          "href": "https://linux.oracle.com/cve/CVE-2016-2179.html"
-        },
-        {
-          "text": "CVE-2016-2181",
-          "href": "https://linux.oracle.com/cve/CVE-2016-2181.html"
-        },
-        {
-          "text": "CVE-2016-6302",
-          "href": "https://linux.oracle.com/cve/CVE-2016-6302.html"
-        },
-        {
-          "text": "CVE-2016-6306",
-          "href": "https://linux.oracle.com/cve/CVE-2016-6306.html"
-        },
-        {
-          "text": "CVE-2016-2178",
-          "href": "https://linux.oracle.com/cve/CVE-2016-2178.html"
-        },
-        {
-          "text": "CVE-2016-2180",
-          "href": "https://linux.oracle.com/cve/CVE-2016-2180.html"
-        },
-        {
-          "text": "CVE-2016-2182",
-          "href": "https://linux.oracle.com/cve/CVE-2016-2182.html"
-        },
-        {
-          "text": "CVE-2016-6304",
-          "href": "https://linux.oracle.com/cve/CVE-2016-6304.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "OR",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940003",
-                            "comment": "openssl is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940004",
-                            "comment": "openssl is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940005",
-                            "comment": "openssl-devel is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940006",
-                            "comment": "openssl-devel is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940007",
-                            "comment": "openssl-perl is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940008",
-                            "comment": "openssl-perl is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940009",
-                            "comment": "openssl-static is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940010",
-                            "comment": "openssl-static is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20161940002",
-                    "comment": "Oracle Linux arch is x86_64"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940003",
-                            "comment": "openssl is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940004",
-                            "comment": "openssl is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940005",
-                            "comment": "openssl-devel is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940006",
-                            "comment": "openssl-devel is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940007",
-                            "comment": "openssl-perl is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940008",
-                            "comment": "openssl-perl is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940009",
-                            "comment": "openssl-static is earlier than 0:1.0.1e-48.el6_8.3"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20161940010",
-                            "comment": "openssl-static is signed with the Oracle Linux 6 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20161940011",
-                    "comment": "Oracle Linux arch is i686"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20161940001",
-            "comment": "Oracle Linux 6 is installed"
-          }
-        ]
-      },
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940014",
-                        "comment": "openssl is earlier than 1:1.0.1e-51.el7_2.7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940015",
-                        "comment": "openssl is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940016",
-                        "comment": "openssl-devel is earlier than 1:1.0.1e-51.el7_2.7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940017",
-                        "comment": "openssl-devel is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940018",
-                        "comment": "openssl-libs is earlier than 1:1.0.1e-51.el7_2.7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940019",
-                        "comment": "openssl-libs is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940020",
-                        "comment": "openssl-perl is earlier than 1:1.0.1e-51.el7_2.7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940021",
-                        "comment": "openssl-perl is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940022",
-                        "comment": "openssl-static is earlier than 1:1.0.1e-51.el7_2.7"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20161940023",
-                        "comment": "openssl-static is signed with the Oracle Linux 7 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20161940013",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20161940012",
-            "comment": "Oracle Linux 7 is installed"
-          }
-        ]
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20161940",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2016-1940:  openssl security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6",
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2016-1940",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-1940.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2177",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2177.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2179",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2179.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2181",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2181.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-6302",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-6302.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-6306",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-6306.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2178",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2178.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2180",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2180.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2182",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2182.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-6304",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-6304.html"
+			}
+		],
+		"description": "\n[1.0.1e-48.3]\n- fix CVE-2016-2177 - possible integer overflow\n- fix CVE-2016-2178 - non-constant time DSA operations\n- fix CVE-2016-2179 - further DoS issues in DTLS\n- fix CVE-2016-2180 - OOB read in TS_OBJ_print_bio()\n- fix CVE-2016-2181 - DTLS1 replay protection and unprocessed records issue\n- fix CVE-2016-2182 - possible buffer overflow in BN_bn2dec()\n- fix CVE-2016-6302 - insufficient TLS session ticket HMAC length check\n- fix CVE-2016-6304 - unbound memory growth with OCSP status request\n- fix CVE-2016-6306 - certificate message OOB reads\n- mitigate CVE-2016-2183 - degrade all 64bit block ciphers and RC4 to\n  112 bit effective strength\n- replace expired testing certificates\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2016 Oracle, Inc.",
+			"issued": {
+				"date": "2016-09-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-2177",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2177.html"
+				},
+				{
+					"text": "CVE-2016-2179",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2179.html"
+				},
+				{
+					"text": "CVE-2016-2181",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2181.html"
+				},
+				{
+					"text": "CVE-2016-6302",
+					"href": "https://linux.oracle.com/cve/CVE-2016-6302.html"
+				},
+				{
+					"text": "CVE-2016-6306",
+					"href": "https://linux.oracle.com/cve/CVE-2016-6306.html"
+				},
+				{
+					"text": "CVE-2016-2178",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2178.html"
+				},
+				{
+					"text": "CVE-2016-2180",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2180.html"
+				},
+				{
+					"text": "CVE-2016-2182",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2182.html"
+				},
+				{
+					"text": "CVE-2016-6304",
+					"href": "https://linux.oracle.com/cve/CVE-2016-6304.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940003",
+														"comment": "openssl is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940004",
+														"comment": "openssl is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940005",
+														"comment": "openssl-devel is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940006",
+														"comment": "openssl-devel is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940007",
+														"comment": "openssl-perl is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940008",
+														"comment": "openssl-perl is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940009",
+														"comment": "openssl-static is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940010",
+														"comment": "openssl-static is signed with the Oracle Linux 6 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161940002",
+										"comment": "Oracle Linux arch is x86_64"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940003",
+														"comment": "openssl is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940004",
+														"comment": "openssl is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940005",
+														"comment": "openssl-devel is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940006",
+														"comment": "openssl-devel is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940007",
+														"comment": "openssl-perl is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940008",
+														"comment": "openssl-perl is signed with the Oracle Linux 6 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940009",
+														"comment": "openssl-static is earlier than 0:1.0.1e-48.el6_8.3"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20161940010",
+														"comment": "openssl-static is signed with the Oracle Linux 6 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161940011",
+										"comment": "Oracle Linux arch is i686"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20161940001",
+						"comment": "Oracle Linux 6 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940014",
+												"comment": "openssl is earlier than 1:1.0.1e-51.el7_2.7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940015",
+												"comment": "openssl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940016",
+												"comment": "openssl-devel is earlier than 1:1.0.1e-51.el7_2.7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940017",
+												"comment": "openssl-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940018",
+												"comment": "openssl-libs is earlier than 1:1.0.1e-51.el7_2.7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940019",
+												"comment": "openssl-libs is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940020",
+												"comment": "openssl-perl is earlier than 1:1.0.1e-51.el7_2.7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940021",
+												"comment": "openssl-perl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940022",
+												"comment": "openssl-static is earlier than 1:1.0.1e-51.el7_2.7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20161940023",
+												"comment": "openssl-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20161940013",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20161940012",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			}
+		]
+	}
 }

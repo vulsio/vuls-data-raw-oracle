@@ -1,210 +1,210 @@
 {
-  "id": "oval:com.oracle.elsa:def:20201840",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2020-1840:  openssl security and bug fix update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 8"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2020-1840",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-1840.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-1547",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-1547.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-1549",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-1549.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-1563",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-1563.html"
-      }
-    ],
-    "description": "\n[1.1.1c-15]\n- add selftest of the RAND_DRBG implementation\n\n[1.1.1c-14]\n- fix incorrect error return value from FIPS_selftest_dsa\n- S390x: properly restore SIGILL signal handler\n\n[1.1.1c-12]\n- additional fix for the edk2 build\n\n[1.1.1c-9]\n- disallow use of SHA-1 signatures in TLS in FIPS mode\n\n[1.1.1c-8]\n- fix CVE-2019-1547 - side-channel weak encryption vulnerability\n- fix CVE-2019-1563 - padding oracle in CMS API\n- fix CVE-2019-1549 - ensure fork safety of the DRBG\n- fix handling of non-FIPS allowed EC curves in FIPS mode\n- fix TLS compliance issues\n\n[1.1.1c-7]\n- backported ARM performance fixes from master\n\n[1.1.1c-6]\n- backport of S390x ECC CPACF enhancements from master\n- FIPS mode: properly disable 1024 bit DSA key generation\n- FIPS mode: skip ED25519 and ED448 algorithms in openssl speed\n- FIPS mode: allow AES-CCM ciphersuites\n\n[1.1.1c-5]\n- make the code suitable for edk2 build\n\n[1.1.1c-4]\n- backport of SSKDF from master\n\n[1.1.1c-3]\n- backport of KBKDF and KRB5KDF from master\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2020 Oracle, Inc.",
-      "issued": {
-        "date": "2020-05-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2019-1547",
-          "href": "https://linux.oracle.com/cve/CVE-2019-1547.html"
-        },
-        {
-          "text": "CVE-2019-1549",
-          "href": "https://linux.oracle.com/cve/CVE-2019-1549.html"
-        },
-        {
-          "text": "CVE-2019-1563",
-          "href": "https://linux.oracle.com/cve/CVE-2019-1563.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840003",
-                        "comment": "openssl is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840004",
-                        "comment": "openssl is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840005",
-                        "comment": "openssl-devel is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840006",
-                        "comment": "openssl-devel is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840007",
-                        "comment": "openssl-libs is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840008",
-                        "comment": "openssl-libs is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840009",
-                        "comment": "openssl-perl is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840010",
-                        "comment": "openssl-perl is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20201840002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840003",
-                        "comment": "openssl is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840004",
-                        "comment": "openssl is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840005",
-                        "comment": "openssl-devel is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840006",
-                        "comment": "openssl-devel is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840007",
-                        "comment": "openssl-libs is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840008",
-                        "comment": "openssl-libs is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840009",
-                        "comment": "openssl-perl is earlier than 1:1.1.1c-15.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201840010",
-                        "comment": "openssl-perl is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20201840011",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20201840001",
-        "comment": "Oracle Linux 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20201840",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-1840:  openssl security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-1840",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-1840.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-1547",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-1547.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-1549",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-1549.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-1563",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-1563.html"
+			}
+		],
+		"description": "\n[1.1.1c-15]\n- add selftest of the RAND_DRBG implementation\n\n[1.1.1c-14]\n- fix incorrect error return value from FIPS_selftest_dsa\n- S390x: properly restore SIGILL signal handler\n\n[1.1.1c-12]\n- additional fix for the edk2 build\n\n[1.1.1c-9]\n- disallow use of SHA-1 signatures in TLS in FIPS mode\n\n[1.1.1c-8]\n- fix CVE-2019-1547 - side-channel weak encryption vulnerability\n- fix CVE-2019-1563 - padding oracle in CMS API\n- fix CVE-2019-1549 - ensure fork safety of the DRBG\n- fix handling of non-FIPS allowed EC curves in FIPS mode\n- fix TLS compliance issues\n\n[1.1.1c-7]\n- backported ARM performance fixes from master\n\n[1.1.1c-6]\n- backport of S390x ECC CPACF enhancements from master\n- FIPS mode: properly disable 1024 bit DSA key generation\n- FIPS mode: skip ED25519 and ED448 algorithms in openssl speed\n- FIPS mode: allow AES-CCM ciphersuites\n\n[1.1.1c-5]\n- make the code suitable for edk2 build\n\n[1.1.1c-4]\n- backport of SSKDF from master\n\n[1.1.1c-3]\n- backport of KBKDF and KRB5KDF from master\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-05-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-1547",
+					"href": "https://linux.oracle.com/cve/CVE-2019-1547.html"
+				},
+				{
+					"text": "CVE-2019-1549",
+					"href": "https://linux.oracle.com/cve/CVE-2019-1549.html"
+				},
+				{
+					"text": "CVE-2019-1563",
+					"href": "https://linux.oracle.com/cve/CVE-2019-1563.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840003",
+												"comment": "openssl is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840004",
+												"comment": "openssl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840005",
+												"comment": "openssl-devel is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840006",
+												"comment": "openssl-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840007",
+												"comment": "openssl-libs is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840008",
+												"comment": "openssl-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840009",
+												"comment": "openssl-perl is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840010",
+												"comment": "openssl-perl is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201840002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840003",
+												"comment": "openssl is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840004",
+												"comment": "openssl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840005",
+												"comment": "openssl-devel is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840006",
+												"comment": "openssl-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840007",
+												"comment": "openssl-libs is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840008",
+												"comment": "openssl-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840009",
+												"comment": "openssl-perl is earlier than 1:1.1.1c-15.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201840010",
+												"comment": "openssl-perl is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201840011",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20201840001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
 }

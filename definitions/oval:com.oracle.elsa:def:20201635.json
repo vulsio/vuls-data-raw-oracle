@@ -1,192 +1,192 @@
 {
-  "id": "oval:com.oracle.elsa:def:20201635",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2020-1635:  gdb security and bug fix update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 8"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2020-1635",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2020-1635.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2019-1010180",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2019-1010180.html"
-      }
-    ],
-    "description": "\n[8.2-11.0.1]\n- Import Implement s390x arch13 support (Andreas Krebbel, RH BZ 1768593).\n\n[8.2-8.0.2]\n- Forward-port patches from ol8-u1:\n  gdb-ctf-forward-type.patch\n  gdb-ctf-func-args.patch\n  gdb-ctf-optout-var.patch\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.2-8.0.1]\n- Forward-port patches from ol8-u1:\n  gdb-ctf.patch\n  gdb-ctf-upstream1.patch\n  gdb-ctf-prfunc.patch\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.2-8.el8]\n- Fix buffer overflow reading sections with invalid sizes\n  (Keith Seitz, RH BZ 1742099)\n\n[8.2-7.el8]\n- Fix segfault that happens on parse_macro_definition because\n  debugedit corrupts the .debug_macro section (Sergio Durigan Junior,\n  RH BZ 1708192).\n\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2020 Oracle, Inc.",
-      "issued": {
-        "date": "2020-05-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2019-1010180",
-          "href": "https://linux.oracle.com/cve/CVE-2019-1010180.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635003",
-                        "comment": "gdb is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635004",
-                        "comment": "gdb is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635005",
-                        "comment": "gdb-doc is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635006",
-                        "comment": "gdb-doc is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635007",
-                        "comment": "gdb-gdbserver is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635008",
-                        "comment": "gdb-gdbserver is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635009",
-                        "comment": "gdb-headless is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635010",
-                        "comment": "gdb-headless is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20201635002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635003",
-                        "comment": "gdb is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635004",
-                        "comment": "gdb is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635005",
-                        "comment": "gdb-doc is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635006",
-                        "comment": "gdb-doc is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635007",
-                        "comment": "gdb-gdbserver is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635008",
-                        "comment": "gdb-gdbserver is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635009",
-                        "comment": "gdb-headless is earlier than 0:8.2-11.0.1.el8"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:20201635010",
-                        "comment": "gdb-headless is signed with the Oracle Linux 8 key"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20201635011",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20201635001",
-        "comment": "Oracle Linux 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20201635",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-1635:  gdb security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-1635",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-1635.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-1010180",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-1010180.html"
+			}
+		],
+		"description": "\n[8.2-11.0.1]\n- Import Implement s390x arch13 support (Andreas Krebbel, RH BZ 1768593).\n\n[8.2-8.0.2]\n- Forward-port patches from ol8-u1:\n  gdb-ctf-forward-type.patch\n  gdb-ctf-func-args.patch\n  gdb-ctf-optout-var.patch\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.2-8.0.1]\n- Forward-port patches from ol8-u1:\n  gdb-ctf.patch\n  gdb-ctf-upstream1.patch\n  gdb-ctf-prfunc.patch\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.2-8.el8]\n- Fix buffer overflow reading sections with invalid sizes\n  (Keith Seitz, RH BZ 1742099)\n\n[8.2-7.el8]\n- Fix segfault that happens on parse_macro_definition because\n  debugedit corrupts the .debug_macro section (Sergio Durigan Junior,\n  RH BZ 1708192).\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-05-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-1010180",
+					"href": "https://linux.oracle.com/cve/CVE-2019-1010180.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635003",
+												"comment": "gdb is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635004",
+												"comment": "gdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635005",
+												"comment": "gdb-doc is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635006",
+												"comment": "gdb-doc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635007",
+												"comment": "gdb-gdbserver is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635008",
+												"comment": "gdb-gdbserver is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635009",
+												"comment": "gdb-headless is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635010",
+												"comment": "gdb-headless is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201635002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635003",
+												"comment": "gdb is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635004",
+												"comment": "gdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635005",
+												"comment": "gdb-doc is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635006",
+												"comment": "gdb-doc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635007",
+												"comment": "gdb-gdbserver is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635008",
+												"comment": "gdb-gdbserver is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635009",
+												"comment": "gdb-headless is earlier than 0:8.2-11.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201635010",
+												"comment": "gdb-headless is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201635011",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20201635001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
 }

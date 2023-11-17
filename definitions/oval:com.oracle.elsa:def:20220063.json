@@ -1,254 +1,254 @@
 {
-  "id": "oval:com.oracle.elsa:def:20220063",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2022-0063:  kernel security and bug fix update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2022-0063",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-0063.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-25704",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2020-25704.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2020-36322",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2020-36322.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-42739",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-42739.html"
-      }
-    ],
-    "description": "\n[3.10.0-1160.53.1.OL7]\n- Update Oracle Linux certificates (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was compiled into kernel (olkmod_signing_key.x509)(alexey.petrenko@oracle.com)\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 <= 15-2.0.9\n- Update oracle(kernel-sig-key) value to match new certificate (Ilya Okomin)\n\n[3.10.0-1160.53.1]\n- fuse: fix live lock in fuse_iget() (Miklos Szeredi) [1952046]\n- fuse: fix bad inode (Miklos Szeredi) [1952046]\n- GFS2: Truncate address space mapping when deleting an inode (Bob Peterson) [1364234]\n- gfs2: Fix gfs2_testbit to use clone bitmaps (Bob Peterson) [1364234]\n- gfs2: clear buf_in_tr when ending a transaction in sweep_bh_for_rgrps (Bob Peterson) [1364234]\n- gfs2: Fix oversight in gfs2_ail1_flush (Bob Peterson) [1364234]\n- gfs2: Additional information when gfs2_ail1_flush withdraws (Bob Peterson) [1364234]\n- gfs2: leaf_dealloc needs to allocate one more revoke (Bob Peterson) [1364234]\n- gfs2: allow journal replay to hold sd_log_flush_lock (Bob Peterson) [1364234]\n- gfs2: don't allow releasepage to free bd still used for revokes (Bob Peterson) [1364234]\n- gfs2: flesh out delayed withdraw for gfs2_log_flush (Bob Peterson) [1364234]\n- gfs2: Do proper error checking for go_sync family of glops functions (Bob Peterson) [1364234]\n- gfs2: drain the ail2 list after io errors (Bob Peterson) [1364234]\n- gfs2: Withdraw in gfs2_ail1_flush if write_cache_pages fails (Bob Peterson) [1364234]\n- gfs2: Do log_flush in gfs2_ail_empty_gl even if ail list is empty (Bob Peterson) [1364234]\n- gfs2: Check for log write errors before telling dlm to unlock (Bob Peterson) [1364234]\n- gfs2: Prepare to withdraw as soon as an IO error occurs in log write (Bob Peterson) [1364234]\n- gfs2: Issue revokes more intelligently (Bob Peterson) [1364234]\n- gfs2: Add verbose option to check_journal_clean (Bob Peterson) [1364234]\n- gfs2: fix infinite loop when checking ail item count before go_inval (Bob Peterson) [1364234]\n- gfs2: Force withdraw to replay journals and wait for it to finish (Bob Peterson) [1364234]\n- gfs2: Allow some glocks to be used during withdraw (Bob Peterson) [1364234]\n- gfs2: move check_journal_clean to util.c for future use (Bob Peterson) [1364234]\n- gfs2: Ignore dlm recovery requests if gfs2 is withdrawn (Bob Peterson) [1364234]\n- gfs2: Only complain the first time an io error occurs in quota or log (Bob Peterson) [1364234]\n- gfs2: log error reform (Bob Peterson) [1364234]\n- gfs2: Rework how rgrp buffer_heads are managed (Bob Peterson) [1364234]\n- gfs2: clear ail1 list when gfs2 withdraws (Bob Peterson) [1364234]\n- gfs2: Introduce concept of a pending withdraw (Bob Peterson) [1364234]\n- gfs2: Return bool from gfs2_assert functions (Bob Peterson) [1364234]\n- gfs2: Turn gfs2_consist into void functions (Bob Peterson) [1364234]\n- gfs2: Remove usused cluster_wide arguments of gfs2_consist functions (Bob Peterson) [1364234]\n- gfs2: Report errors before withdraw (Bob Peterson) [1364234]\n- gfs2: Split gfs2_lm_withdraw into two functions (Bob Peterson) [1364234]\n- gfs2: Fix incorrect variable name (Bob Peterson) [1364234]\n- gfs2: Don't write log headers after file system withdraw (Bob Peterson) [1364234]\n- gfs2: clean up iopen glock mess in gfs2_create_inode (Bob Peterson) [1364234]\n- gfs2: Close timing window with GLF_INVALIDATE_IN_PROGRESS (Bob Peterson) [1364234]\n- gfs2: fix infinite loop in gfs2_ail1_flush on io error (Bob Peterson) [1364234]\n- gfs2: Introduce function gfs2_withdrawn (Bob Peterson) [1364234]\n- gfs2: replace more printk with calls to fs_info and friends (Bob Peterson) [1364234]\n- gfs2: dump fsid when dumping glock problems (Bob Peterson) [1364234]\n- gfs2: simplify gfs2_freeze by removing case (Bob Peterson) [1364234]\n- gfs2: Rename SDF_SHUTDOWN to SDF_WITHDRAWN (Bob Peterson) [1364234]\n- gfs2: Warn when a journal replay overwrites a rgrp with buffers (Bob Peterson) [1364234]\n- gfs2: log which portion of the journal is replayed (Bob Peterson) [1364234]\n- gfs2: slow the deluge of io error messages (Bob Peterson) [1364234]\n- gfs2: Don't withdraw under a spin lock (Bob Peterson) [1364234]\n- GFS2: Clear gl_object when deleting an inode in gfs2_delete_inode (Bob Peterson) [1364234]\n- gfs2: Use fs_* functions instead of pr_* function where we can (Bob Peterson) [1364234]\nmore consistently (Bob Peterson) [1364234]\n\n[3.10.0-1160.52.1]\n- acpi-cpufreq: Honor _PSD table setting on new AMD CPUs (David Arcari) [2019588]\n- x86/cpu/amd: Call init_amd_zn() om Family 19h processors too (David Arcari) [2019218]\n- x86/cpu/AMD: Fix erratum 1076 (CPB bit) (David Arcari) [2019218]\n- i40e: Fix the conditional for i40e_vc_validate_vqs_bitmaps (Stefan Assmann) [1977246]\n- i40e: Fix virtchnl_queue_select bitmap validation (Stefan Assmann) [1977246]\n\n[3.10.0-1160.51.1]\n- mm, fs: Fix do_generic_file_read() error return (Carlos Maiolino) [2020857]\n- perf/core: Fix a memory leak in perf_event_parse_addr_filter() (Michael Petlan) [1901932]\n\n[3.10.0-1160.50.1]\n- tcp: grow window for OOO packets only for SACK flows (Guillaume Nault) [1990665]\n- scsi: mpt3sas: Fix unlock imbalance (Tomas Henzl) [2006536]\n- pci-hyperv: Fix setting CPU affinity on Azure (Vitaly Kuznetsov) [2019272]\n- media: firewire: firedtv-avc: fix a buffer overflow in avc_ca_pmt() (Lucas Zampieri) [1956471] {CVE-2021-42739}\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2022 Oracle, Inc.",
-      "issued": {
-        "date": "2022-01-11"
-      },
-      "cve": [
-        {
-          "text": "CVE-2020-25704",
-          "href": "https://linux.oracle.com/cve/CVE-2020-25704.html"
-        },
-        {
-          "text": "CVE-2020-36322",
-          "href": "https://linux.oracle.com/cve/CVE-2020-36322.html"
-        },
-        {
-          "text": "CVE-2021-42739",
-          "href": "https://linux.oracle.com/cve/CVE-2021-42739.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063003",
-                    "comment": "bpftool is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063004",
-                    "comment": "bpftool is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063005",
-                    "comment": "kernel is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063006",
-                    "comment": "kernel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063007",
-                    "comment": "kernel-abi-whitelists is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063008",
-                    "comment": "kernel-abi-whitelists is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063009",
-                    "comment": "kernel-debug is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063010",
-                    "comment": "kernel-debug is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063011",
-                    "comment": "kernel-debug-devel is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063012",
-                    "comment": "kernel-debug-devel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063013",
-                    "comment": "kernel-devel is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063014",
-                    "comment": "kernel-devel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063015",
-                    "comment": "kernel-doc is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063016",
-                    "comment": "kernel-doc is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063017",
-                    "comment": "kernel-headers is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063018",
-                    "comment": "kernel-headers is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063019",
-                    "comment": "kernel-tools is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063020",
-                    "comment": "kernel-tools is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063021",
-                    "comment": "kernel-tools-libs is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063022",
-                    "comment": "kernel-tools-libs is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063023",
-                    "comment": "kernel-tools-libs-devel is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063024",
-                    "comment": "kernel-tools-libs-devel is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063025",
-                    "comment": "perf is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063026",
-                    "comment": "perf is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063027",
-                    "comment": "python-perf is earlier than 0:3.10.0-1160.53.1.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20220063028",
-                    "comment": "python-perf is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20220063002",
-            "comment": "Oracle Linux arch is x86_64"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20220063001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20220063",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-0063:  kernel security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-0063",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-0063.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-25704",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-25704.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-36322",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-36322.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-42739",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-42739.html"
+			}
+		],
+		"description": "\n[3.10.0-1160.53.1.OL7]\n- Update Oracle Linux certificates (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was compiled into kernel (olkmod_signing_key.x509)(alexey.petrenko@oracle.com)\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 <= 15-2.0.9\n- Update oracle(kernel-sig-key) value to match new certificate (Ilya Okomin)\n\n[3.10.0-1160.53.1]\n- fuse: fix live lock in fuse_iget() (Miklos Szeredi) [1952046]\n- fuse: fix bad inode (Miklos Szeredi) [1952046]\n- GFS2: Truncate address space mapping when deleting an inode (Bob Peterson) [1364234]\n- gfs2: Fix gfs2_testbit to use clone bitmaps (Bob Peterson) [1364234]\n- gfs2: clear buf_in_tr when ending a transaction in sweep_bh_for_rgrps (Bob Peterson) [1364234]\n- gfs2: Fix oversight in gfs2_ail1_flush (Bob Peterson) [1364234]\n- gfs2: Additional information when gfs2_ail1_flush withdraws (Bob Peterson) [1364234]\n- gfs2: leaf_dealloc needs to allocate one more revoke (Bob Peterson) [1364234]\n- gfs2: allow journal replay to hold sd_log_flush_lock (Bob Peterson) [1364234]\n- gfs2: don't allow releasepage to free bd still used for revokes (Bob Peterson) [1364234]\n- gfs2: flesh out delayed withdraw for gfs2_log_flush (Bob Peterson) [1364234]\n- gfs2: Do proper error checking for go_sync family of glops functions (Bob Peterson) [1364234]\n- gfs2: drain the ail2 list after io errors (Bob Peterson) [1364234]\n- gfs2: Withdraw in gfs2_ail1_flush if write_cache_pages fails (Bob Peterson) [1364234]\n- gfs2: Do log_flush in gfs2_ail_empty_gl even if ail list is empty (Bob Peterson) [1364234]\n- gfs2: Check for log write errors before telling dlm to unlock (Bob Peterson) [1364234]\n- gfs2: Prepare to withdraw as soon as an IO error occurs in log write (Bob Peterson) [1364234]\n- gfs2: Issue revokes more intelligently (Bob Peterson) [1364234]\n- gfs2: Add verbose option to check_journal_clean (Bob Peterson) [1364234]\n- gfs2: fix infinite loop when checking ail item count before go_inval (Bob Peterson) [1364234]\n- gfs2: Force withdraw to replay journals and wait for it to finish (Bob Peterson) [1364234]\n- gfs2: Allow some glocks to be used during withdraw (Bob Peterson) [1364234]\n- gfs2: move check_journal_clean to util.c for future use (Bob Peterson) [1364234]\n- gfs2: Ignore dlm recovery requests if gfs2 is withdrawn (Bob Peterson) [1364234]\n- gfs2: Only complain the first time an io error occurs in quota or log (Bob Peterson) [1364234]\n- gfs2: log error reform (Bob Peterson) [1364234]\n- gfs2: Rework how rgrp buffer_heads are managed (Bob Peterson) [1364234]\n- gfs2: clear ail1 list when gfs2 withdraws (Bob Peterson) [1364234]\n- gfs2: Introduce concept of a pending withdraw (Bob Peterson) [1364234]\n- gfs2: Return bool from gfs2_assert functions (Bob Peterson) [1364234]\n- gfs2: Turn gfs2_consist into void functions (Bob Peterson) [1364234]\n- gfs2: Remove usused cluster_wide arguments of gfs2_consist functions (Bob Peterson) [1364234]\n- gfs2: Report errors before withdraw (Bob Peterson) [1364234]\n- gfs2: Split gfs2_lm_withdraw into two functions (Bob Peterson) [1364234]\n- gfs2: Fix incorrect variable name (Bob Peterson) [1364234]\n- gfs2: Don't write log headers after file system withdraw (Bob Peterson) [1364234]\n- gfs2: clean up iopen glock mess in gfs2_create_inode (Bob Peterson) [1364234]\n- gfs2: Close timing window with GLF_INVALIDATE_IN_PROGRESS (Bob Peterson) [1364234]\n- gfs2: fix infinite loop in gfs2_ail1_flush on io error (Bob Peterson) [1364234]\n- gfs2: Introduce function gfs2_withdrawn (Bob Peterson) [1364234]\n- gfs2: replace more printk with calls to fs_info and friends (Bob Peterson) [1364234]\n- gfs2: dump fsid when dumping glock problems (Bob Peterson) [1364234]\n- gfs2: simplify gfs2_freeze by removing case (Bob Peterson) [1364234]\n- gfs2: Rename SDF_SHUTDOWN to SDF_WITHDRAWN (Bob Peterson) [1364234]\n- gfs2: Warn when a journal replay overwrites a rgrp with buffers (Bob Peterson) [1364234]\n- gfs2: log which portion of the journal is replayed (Bob Peterson) [1364234]\n- gfs2: slow the deluge of io error messages (Bob Peterson) [1364234]\n- gfs2: Don't withdraw under a spin lock (Bob Peterson) [1364234]\n- GFS2: Clear gl_object when deleting an inode in gfs2_delete_inode (Bob Peterson) [1364234]\n- gfs2: Use fs_* functions instead of pr_* function where we can (Bob Peterson) [1364234]\nmore consistently (Bob Peterson) [1364234]\n\n[3.10.0-1160.52.1]\n- acpi-cpufreq: Honor _PSD table setting on new AMD CPUs (David Arcari) [2019588]\n- x86/cpu/amd: Call init_amd_zn() om Family 19h processors too (David Arcari) [2019218]\n- x86/cpu/AMD: Fix erratum 1076 (CPB bit) (David Arcari) [2019218]\n- i40e: Fix the conditional for i40e_vc_validate_vqs_bitmaps (Stefan Assmann) [1977246]\n- i40e: Fix virtchnl_queue_select bitmap validation (Stefan Assmann) [1977246]\n\n[3.10.0-1160.51.1]\n- mm, fs: Fix do_generic_file_read() error return (Carlos Maiolino) [2020857]\n- perf/core: Fix a memory leak in perf_event_parse_addr_filter() (Michael Petlan) [1901932]\n\n[3.10.0-1160.50.1]\n- tcp: grow window for OOO packets only for SACK flows (Guillaume Nault) [1990665]\n- scsi: mpt3sas: Fix unlock imbalance (Tomas Henzl) [2006536]\n- pci-hyperv: Fix setting CPU affinity on Azure (Vitaly Kuznetsov) [2019272]\n- media: firewire: firedtv-avc: fix a buffer overflow in avc_ca_pmt() (Lucas Zampieri) [1956471] {CVE-2021-42739}\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-01-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-25704",
+					"href": "https://linux.oracle.com/cve/CVE-2020-25704.html"
+				},
+				{
+					"text": "CVE-2020-36322",
+					"href": "https://linux.oracle.com/cve/CVE-2020-36322.html"
+				},
+				{
+					"text": "CVE-2021-42739",
+					"href": "https://linux.oracle.com/cve/CVE-2021-42739.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063003",
+										"comment": "bpftool is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063004",
+										"comment": "bpftool is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063005",
+										"comment": "kernel is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063006",
+										"comment": "kernel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063007",
+										"comment": "kernel-abi-whitelists is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063008",
+										"comment": "kernel-abi-whitelists is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063009",
+										"comment": "kernel-debug is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063010",
+										"comment": "kernel-debug is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063011",
+										"comment": "kernel-debug-devel is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063012",
+										"comment": "kernel-debug-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063013",
+										"comment": "kernel-devel is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063014",
+										"comment": "kernel-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063015",
+										"comment": "kernel-doc is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063016",
+										"comment": "kernel-doc is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063017",
+										"comment": "kernel-headers is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063018",
+										"comment": "kernel-headers is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063019",
+										"comment": "kernel-tools is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063020",
+										"comment": "kernel-tools is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063021",
+										"comment": "kernel-tools-libs is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063022",
+										"comment": "kernel-tools-libs is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063023",
+										"comment": "kernel-tools-libs-devel is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063024",
+										"comment": "kernel-tools-libs-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063025",
+										"comment": "perf is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063026",
+										"comment": "perf is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063027",
+										"comment": "python-perf is earlier than 0:3.10.0-1160.53.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220063028",
+										"comment": "python-perf is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20220063002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20220063001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }

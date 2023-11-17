@@ -1,372 +1,372 @@
 {
-  "id": "oval:com.oracle.elsa:def:20221819",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2022-1819:  go-toolset:ol8 security and bug fix update (MODERATE)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 8"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2022-1819",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2022-1819.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-39293",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-39293.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-41772",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-41772.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-23773",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2022-23773.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-38297",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-38297.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-41771",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-41771.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-23772",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2022-23772.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2022-23806",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2022-23806.html"
-      }
-    ],
-    "description": "\ndelve\n[1.7.2-1.0.1]\n- Disable DWARF compression which has issues (Alex Burmashev)\n\n[1.7.2-1]\n- Rebase to 1.7.2\n- Related: rhbz#2014088\n\ngolang\n[1.17.7-1]\n- Rebase to Go 1.17.7\n- Remove fips memory leak patch (fixed in tree)\n- Resolves: rhbz#2015930\n\ngo-toolset\n[1.17.7-1]\n- Rebase to Go 1.17.7\n- Remove fips memory leak patch (fixed in tree)\n- Resolves: rhbz#2015930\n\n[1.17.5-1]\n- Rebase to Go 1.17.5\n- Resolves: rhbz#2031112\n\n[1.17.4-1]\n- Rebase Go to 1.17.4\n- Add vdso_s390x_gettime patch\n- Add remove_waitgroup_misuse_tests patch\n- Related: rhbz#2014088\n- Resolves: rhbz#2028570\n- Resolves: rhbz#2022828\n- Resolves: rhbz#2024686\n- Resolves: rhbz#2028662\n\n[1.17.2-1]\n- Rebase to Go 1.17.2\n- Rebase to Delve 1.7.2\n- Resolves: rhbz#2014088\n\n",
-    "advisory": {
-      "severity": "MODERATE",
-      "rights": "Copyright 2022 Oracle, Inc.",
-      "issued": {
-        "date": "2022-05-17"
-      },
-      "cve": [
-        {
-          "text": "CVE-2021-39293",
-          "href": "https://linux.oracle.com/cve/CVE-2021-39293.html"
-        },
-        {
-          "text": "CVE-2021-41772",
-          "href": "https://linux.oracle.com/cve/CVE-2021-41772.html"
-        },
-        {
-          "text": "CVE-2022-23773",
-          "href": "https://linux.oracle.com/cve/CVE-2022-23773.html"
-        },
-        {
-          "text": "CVE-2021-38297",
-          "href": "https://linux.oracle.com/cve/CVE-2021-38297.html"
-        },
-        {
-          "text": "CVE-2021-41771",
-          "href": "https://linux.oracle.com/cve/CVE-2021-41771.html"
-        },
-        {
-          "text": "CVE-2022-23772",
-          "href": "https://linux.oracle.com/cve/CVE-2022-23772.html"
-        },
-        {
-          "text": "CVE-2022-23806",
-          "href": "https://linux.oracle.com/cve/CVE-2022-23806.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819004",
-                            "comment": "go-toolset is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819005",
-                            "comment": "go-toolset is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819006",
-                            "comment": "golang is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819007",
-                            "comment": "golang is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819008",
-                            "comment": "golang-bin is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819009",
-                            "comment": "golang-bin is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819010",
-                            "comment": "golang-docs is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819011",
-                            "comment": "golang-docs is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819012",
-                            "comment": "golang-misc is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819013",
-                            "comment": "golang-misc is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819014",
-                            "comment": "golang-src is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819015",
-                            "comment": "golang-src is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819016",
-                            "comment": "golang-tests is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819017",
-                            "comment": "golang-tests is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20221819003",
-                    "comment": "Module go-toolset:ol8 is enabled"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20221819002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterias": [
-                  {
-                    "operator": "OR",
-                    "criterias": [
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819019",
-                            "comment": "delve is earlier than 0:1.7.2-1.0.1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819020",
-                            "comment": "delve is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819004",
-                            "comment": "go-toolset is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819005",
-                            "comment": "go-toolset is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819006",
-                            "comment": "golang is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819007",
-                            "comment": "golang is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819008",
-                            "comment": "golang-bin is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819009",
-                            "comment": "golang-bin is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819010",
-                            "comment": "golang-docs is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819011",
-                            "comment": "golang-docs is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819012",
-                            "comment": "golang-misc is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819013",
-                            "comment": "golang-misc is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819021",
-                            "comment": "golang-race is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819022",
-                            "comment": "golang-race is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819014",
-                            "comment": "golang-src is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819015",
-                            "comment": "golang-src is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      },
-                      {
-                        "operator": "AND",
-                        "criterions": [
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819016",
-                            "comment": "golang-tests is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
-                          },
-                          {
-                            "test_ref": "oval:com.oracle.elsa:tst:20221819017",
-                            "comment": "golang-tests is signed with the Oracle Linux 8 key"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20221819003",
-                    "comment": "Module go-toolset:ol8 is enabled"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20221819018",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20221819001",
-        "comment": "Oracle Linux 8 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20221819",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-1819:  go-toolset:ol8 security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-1819",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-1819.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-39293",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-39293.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-41772",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-41772.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-23773",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-23773.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-38297",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-38297.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-41771",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-41771.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-23772",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-23772.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-23806",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-23806.html"
+			}
+		],
+		"description": "\ndelve\n[1.7.2-1.0.1]\n- Disable DWARF compression which has issues (Alex Burmashev)\n\n[1.7.2-1]\n- Rebase to 1.7.2\n- Related: rhbz#2014088\n\ngolang\n[1.17.7-1]\n- Rebase to Go 1.17.7\n- Remove fips memory leak patch (fixed in tree)\n- Resolves: rhbz#2015930\n\ngo-toolset\n[1.17.7-1]\n- Rebase to Go 1.17.7\n- Remove fips memory leak patch (fixed in tree)\n- Resolves: rhbz#2015930\n\n[1.17.5-1]\n- Rebase to Go 1.17.5\n- Resolves: rhbz#2031112\n\n[1.17.4-1]\n- Rebase Go to 1.17.4\n- Add vdso_s390x_gettime patch\n- Add remove_waitgroup_misuse_tests patch\n- Related: rhbz#2014088\n- Resolves: rhbz#2028570\n- Resolves: rhbz#2022828\n- Resolves: rhbz#2024686\n- Resolves: rhbz#2028662\n\n[1.17.2-1]\n- Rebase to Go 1.17.2\n- Rebase to Delve 1.7.2\n- Resolves: rhbz#2014088\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-05-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-39293",
+					"href": "https://linux.oracle.com/cve/CVE-2021-39293.html"
+				},
+				{
+					"text": "CVE-2021-41772",
+					"href": "https://linux.oracle.com/cve/CVE-2021-41772.html"
+				},
+				{
+					"text": "CVE-2022-23773",
+					"href": "https://linux.oracle.com/cve/CVE-2022-23773.html"
+				},
+				{
+					"text": "CVE-2021-38297",
+					"href": "https://linux.oracle.com/cve/CVE-2021-38297.html"
+				},
+				{
+					"text": "CVE-2021-41771",
+					"href": "https://linux.oracle.com/cve/CVE-2021-41771.html"
+				},
+				{
+					"text": "CVE-2022-23772",
+					"href": "https://linux.oracle.com/cve/CVE-2022-23772.html"
+				},
+				{
+					"text": "CVE-2022-23806",
+					"href": "https://linux.oracle.com/cve/CVE-2022-23806.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819004",
+														"comment": "go-toolset is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819005",
+														"comment": "go-toolset is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819006",
+														"comment": "golang is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819007",
+														"comment": "golang is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819008",
+														"comment": "golang-bin is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819009",
+														"comment": "golang-bin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819010",
+														"comment": "golang-docs is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819011",
+														"comment": "golang-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819012",
+														"comment": "golang-misc is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819013",
+														"comment": "golang-misc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819014",
+														"comment": "golang-src is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819015",
+														"comment": "golang-src is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819016",
+														"comment": "golang-tests is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819017",
+														"comment": "golang-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20221819003",
+										"comment": "Module go-toolset:ol8 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20221819002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819019",
+														"comment": "delve is earlier than 0:1.7.2-1.0.1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819020",
+														"comment": "delve is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819004",
+														"comment": "go-toolset is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819005",
+														"comment": "go-toolset is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819006",
+														"comment": "golang is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819007",
+														"comment": "golang is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819008",
+														"comment": "golang-bin is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819009",
+														"comment": "golang-bin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819010",
+														"comment": "golang-docs is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819011",
+														"comment": "golang-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819012",
+														"comment": "golang-misc is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819013",
+														"comment": "golang-misc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819021",
+														"comment": "golang-race is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819022",
+														"comment": "golang-race is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819014",
+														"comment": "golang-src is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819015",
+														"comment": "golang-src is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819016",
+														"comment": "golang-tests is earlier than 0:1.17.7-1.module+el8.6.0+20559+3b94dc2a"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20221819017",
+														"comment": "golang-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20221819003",
+										"comment": "Module go-toolset:ol8 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20221819018",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20221819001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
 }

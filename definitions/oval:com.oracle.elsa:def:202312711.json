@@ -1,394 +1,394 @@
 {
-  "id": "oval:com.oracle.elsa:def:202312711",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2023-12711:  openssh security update (CRITICAL)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2023-12711",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2023-12711.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2023-38408",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2023-38408.html"
-      }
-    ],
-    "description": "\n[7.4p1-23.0.1_fips]\n- Change Epoch from 1 to 10\n- Enable fips KDF POST [Orabug: 32461750]\n- Disable diffie-hellman-group-exchange-sha256 KEX FIPS method [Orabug: 32461739]\n\n[7.4p1-23.0.1]\n- enlarge format buffer size for certificate serial\n  number so the log message can record any 64-bit integer without\n  truncation (openssh bz#3012) [Orabug: 30448895]\n\n[7.4p1-23 + 0.10.3-2]\n- Avoid remote code execution in ssh-agent PKCS#11 support\n  Resolves: CVE-2023-38408\n",
-    "advisory": {
-      "severity": "CRITICAL",
-      "rights": "Copyright 2023 Oracle, Inc.",
-      "issued": {
-        "date": "2023-08-10"
-      },
-      "cve": [
-        {
-          "text": "CVE-2023-38408",
-          "href": "https://linux.oracle.com/cve/CVE-2023-38408.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711003",
-                        "comment": "openssh is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711004",
-                        "comment": "openssh is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711005",
-                        "comment": "openssh is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711006",
-                        "comment": "openssh-askpass is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711007",
-                        "comment": "openssh-askpass is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711008",
-                        "comment": "openssh-askpass is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711009",
-                        "comment": "openssh-cavs is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711010",
-                        "comment": "openssh-cavs is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711011",
-                        "comment": "openssh-cavs is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711012",
-                        "comment": "openssh-clients is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711013",
-                        "comment": "openssh-clients is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711014",
-                        "comment": "openssh-clients is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711015",
-                        "comment": "openssh-keycat is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711016",
-                        "comment": "openssh-keycat is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711017",
-                        "comment": "openssh-keycat is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711018",
-                        "comment": "openssh-ldap is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711019",
-                        "comment": "openssh-ldap is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711020",
-                        "comment": "openssh-ldap is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711021",
-                        "comment": "openssh-server is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711022",
-                        "comment": "openssh-server is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711023",
-                        "comment": "openssh-server is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711024",
-                        "comment": "openssh-server-sysvinit is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711025",
-                        "comment": "openssh-server-sysvinit is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711026",
-                        "comment": "openssh-server-sysvinit is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711027",
-                        "comment": "pam_ssh_agent_auth is earlier than 10:0.10.3-2.23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711028",
-                        "comment": "pam_ssh_agent_auth is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711029",
-                        "comment": "pam_ssh_agent_auth is fips patched"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:202312711002",
-                "comment": "Oracle Linux arch is aarch64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "OR",
-                "criterias": [
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711003",
-                        "comment": "openssh is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711004",
-                        "comment": "openssh is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711005",
-                        "comment": "openssh is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711006",
-                        "comment": "openssh-askpass is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711007",
-                        "comment": "openssh-askpass is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711008",
-                        "comment": "openssh-askpass is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711009",
-                        "comment": "openssh-cavs is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711010",
-                        "comment": "openssh-cavs is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711011",
-                        "comment": "openssh-cavs is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711012",
-                        "comment": "openssh-clients is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711013",
-                        "comment": "openssh-clients is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711014",
-                        "comment": "openssh-clients is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711015",
-                        "comment": "openssh-keycat is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711016",
-                        "comment": "openssh-keycat is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711017",
-                        "comment": "openssh-keycat is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711018",
-                        "comment": "openssh-ldap is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711019",
-                        "comment": "openssh-ldap is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711020",
-                        "comment": "openssh-ldap is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711021",
-                        "comment": "openssh-server is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711022",
-                        "comment": "openssh-server is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711023",
-                        "comment": "openssh-server is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711024",
-                        "comment": "openssh-server-sysvinit is earlier than 10:7.4p1-23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711025",
-                        "comment": "openssh-server-sysvinit is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711026",
-                        "comment": "openssh-server-sysvinit is fips patched"
-                      }
-                    ]
-                  },
-                  {
-                    "operator": "AND",
-                    "criterions": [
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711027",
-                        "comment": "pam_ssh_agent_auth is earlier than 10:0.10.3-2.23.0.1.el7_9_fips"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711028",
-                        "comment": "pam_ssh_agent_auth is signed with the Oracle Linux 7 key"
-                      },
-                      {
-                        "test_ref": "oval:com.oracle.elsa:tst:202312711029",
-                        "comment": "pam_ssh_agent_auth is fips patched"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:202312711030",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:202312711001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:202312711",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-12711:  openssh security update (CRITICAL)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-12711",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-12711.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-38408",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-38408.html"
+			}
+		],
+		"description": "\n[7.4p1-23.0.1_fips]\n- Change Epoch from 1 to 10\n- Enable fips KDF POST [Orabug: 32461750]\n- Disable diffie-hellman-group-exchange-sha256 KEX FIPS method [Orabug: 32461739]\n\n[7.4p1-23.0.1]\n- enlarge format buffer size for certificate serial\n  number so the log message can record any 64-bit integer without\n  truncation (openssh bz#3012) [Orabug: 30448895]\n\n[7.4p1-23 + 0.10.3-2]\n- Avoid remote code execution in ssh-agent PKCS#11 support\n  Resolves: CVE-2023-38408\n",
+		"advisory": {
+			"severity": "CRITICAL",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-08-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-38408",
+					"href": "https://linux.oracle.com/cve/CVE-2023-38408.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711003",
+												"comment": "openssh is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711004",
+												"comment": "openssh is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711005",
+												"comment": "openssh is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711006",
+												"comment": "openssh-askpass is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711007",
+												"comment": "openssh-askpass is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711008",
+												"comment": "openssh-askpass is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711009",
+												"comment": "openssh-cavs is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711010",
+												"comment": "openssh-cavs is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711011",
+												"comment": "openssh-cavs is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711012",
+												"comment": "openssh-clients is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711013",
+												"comment": "openssh-clients is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711014",
+												"comment": "openssh-clients is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711015",
+												"comment": "openssh-keycat is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711016",
+												"comment": "openssh-keycat is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711017",
+												"comment": "openssh-keycat is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711018",
+												"comment": "openssh-ldap is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711019",
+												"comment": "openssh-ldap is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711020",
+												"comment": "openssh-ldap is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711021",
+												"comment": "openssh-server is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711022",
+												"comment": "openssh-server is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711023",
+												"comment": "openssh-server is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711024",
+												"comment": "openssh-server-sysvinit is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711025",
+												"comment": "openssh-server-sysvinit is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711026",
+												"comment": "openssh-server-sysvinit is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711027",
+												"comment": "pam_ssh_agent_auth is earlier than 10:0.10.3-2.23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711028",
+												"comment": "pam_ssh_agent_auth is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711029",
+												"comment": "pam_ssh_agent_auth is fips patched"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312711002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711003",
+												"comment": "openssh is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711004",
+												"comment": "openssh is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711005",
+												"comment": "openssh is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711006",
+												"comment": "openssh-askpass is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711007",
+												"comment": "openssh-askpass is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711008",
+												"comment": "openssh-askpass is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711009",
+												"comment": "openssh-cavs is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711010",
+												"comment": "openssh-cavs is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711011",
+												"comment": "openssh-cavs is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711012",
+												"comment": "openssh-clients is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711013",
+												"comment": "openssh-clients is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711014",
+												"comment": "openssh-clients is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711015",
+												"comment": "openssh-keycat is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711016",
+												"comment": "openssh-keycat is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711017",
+												"comment": "openssh-keycat is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711018",
+												"comment": "openssh-ldap is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711019",
+												"comment": "openssh-ldap is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711020",
+												"comment": "openssh-ldap is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711021",
+												"comment": "openssh-server is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711022",
+												"comment": "openssh-server is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711023",
+												"comment": "openssh-server is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711024",
+												"comment": "openssh-server-sysvinit is earlier than 10:7.4p1-23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711025",
+												"comment": "openssh-server-sysvinit is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711026",
+												"comment": "openssh-server-sysvinit is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711027",
+												"comment": "pam_ssh_agent_auth is earlier than 10:0.10.3-2.23.0.1.el7_9_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711028",
+												"comment": "pam_ssh_agent_auth is signed with the Oracle Linux 7 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312711029",
+												"comment": "pam_ssh_agent_auth is fips patched"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312711030",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202312711001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }

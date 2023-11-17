@@ -1,128 +1,128 @@
 {
-  "id": "oval:com.oracle.elsa:def:20100258",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2010-0258:  pam_krb5 security and bug fix update (LOW)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 5"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2010-0258",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2010-0258.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2009-1384",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2009-1384.html"
-      }
-    ],
-    "description": "\n[2.2.14-15]\n- update backport for selecting which key to use for validation so that it\n  prefers services with the local host name as the instance, from HEAD (more\n  of #450776)\n\n[2.2.14-14]\n- backport the 'multiple_ccaches' option from HEAD, requiring that it\n  be enabled to not immediately remove an old ccache when asked to create\n  a new one (#463417)\n\n[2.2.14-13]\n- add patch to add the 'chpw_prompt' option, to allow the older behavior\n  of attempting a password-change during authentication if libkrb5 detects\n  an expired password, based on patch from Olivier Fourdan (#509092)\n\n[2.2.14-12]\n- dont vary the password prompt depending on whether or not the user exists\n  or is known to the KDC (CVE-2009-1384, #505265)\n- prefer using the 'host' service when verifying that a TGT isnt forged,\n  from HEAD (#450776)\n\n[2.2.14-11]\n- dont enforce minimum_uid when no_user_check is also used, from\n  HEAD (#490404)\n- dont try to get password-changing creds with all of the flags set\n  that we would request for a TGT (#489015)\n\n",
-    "advisory": {
-      "severity": "LOW",
-      "rights": "Copyright 2010 Oracle, Inc.",
-      "issued": {
-        "date": "2010-04-05"
-      },
-      "cve": [
-        {
-          "text": "CVE-2009-1384",
-          "href": "https://linux.oracle.com/cve/CVE-2009-1384.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "OR",
-        "criterias": [
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20100258003",
-                    "comment": "pam_krb5 is earlier than 0:2.2.14-15"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20100258004",
-                    "comment": "pam_krb5 is signed with the Oracle Linux 5 key"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20100258002",
-                "comment": "Oracle Linux arch is ia64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20100258003",
-                    "comment": "pam_krb5 is earlier than 0:2.2.14-15"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20100258004",
-                    "comment": "pam_krb5 is signed with the Oracle Linux 5 key"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20100258005",
-                "comment": "Oracle Linux arch is x86_64"
-              }
-            ]
-          },
-          {
-            "operator": "AND",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20100258003",
-                    "comment": "pam_krb5 is earlier than 0:2.2.14-15"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20100258004",
-                    "comment": "pam_krb5 is signed with the Oracle Linux 5 key"
-                  }
-                ]
-              }
-            ],
-            "criterions": [
-              {
-                "test_ref": "oval:com.oracle.elsa:tst:20100258006",
-                "comment": "Oracle Linux arch is i386"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20100258001",
-        "comment": "Oracle Linux 5 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20100258",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2010-0258:  pam_krb5 security and bug fix update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2010-0258",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2010-0258.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2009-1384",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2009-1384.html"
+			}
+		],
+		"description": "\n[2.2.14-15]\n- update backport for selecting which key to use for validation so that it\n  prefers services with the local host name as the instance, from HEAD (more\n  of #450776)\n\n[2.2.14-14]\n- backport the 'multiple_ccaches' option from HEAD, requiring that it\n  be enabled to not immediately remove an old ccache when asked to create\n  a new one (#463417)\n\n[2.2.14-13]\n- add patch to add the 'chpw_prompt' option, to allow the older behavior\n  of attempting a password-change during authentication if libkrb5 detects\n  an expired password, based on patch from Olivier Fourdan (#509092)\n\n[2.2.14-12]\n- dont vary the password prompt depending on whether or not the user exists\n  or is known to the KDC (CVE-2009-1384, #505265)\n- prefer using the 'host' service when verifying that a TGT isnt forged,\n  from HEAD (#450776)\n\n[2.2.14-11]\n- dont enforce minimum_uid when no_user_check is also used, from\n  HEAD (#490404)\n- dont try to get password-changing creds with all of the flags set\n  that we would request for a TGT (#489015)\n\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2010 Oracle, Inc.",
+			"issued": {
+				"date": "2010-04-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-1384",
+					"href": "https://linux.oracle.com/cve/CVE-2009-1384.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20100258003",
+										"comment": "pam_krb5 is earlier than 0:2.2.14-15"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20100258004",
+										"comment": "pam_krb5 is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20100258002",
+								"comment": "Oracle Linux arch is ia64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20100258003",
+										"comment": "pam_krb5 is earlier than 0:2.2.14-15"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20100258004",
+										"comment": "pam_krb5 is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20100258005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20100258003",
+										"comment": "pam_krb5 is earlier than 0:2.2.14-15"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20100258004",
+										"comment": "pam_krb5 is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20100258006",
+								"comment": "Oracle Linux arch is i386"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20100258001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
 }

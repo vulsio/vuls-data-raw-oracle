@@ -1,268 +1,268 @@
 {
-  "id": "oval:com.oracle.elsa:def:20219397",
-  "version": "501",
-  "class": "patch",
-  "metadata": {
-    "title": "\nELSA-2021-9397:  olcne security update (IMPORTANT)\n",
-    "affected": {
-      "family": "unix",
-      "platform": [
-        "Oracle Linux 7"
-      ]
-    },
-    "reference": [
-      {
-        "source": "elsa",
-        "ref_id": "ELSA-2021-9397",
-        "ref_url": "https://linux.oracle.com/errata/ELSA-2021-9397.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-28683",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-28683.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-28682",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-28682.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-31920",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-31920.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-31921",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-31921.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-29258",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-29258.html"
-      },
-      {
-        "source": "CVE",
-        "ref_id": "CVE-2021-34824",
-        "ref_url": "https://linux.oracle.com/cve/CVE-2021-34824.html"
-      }
-    ],
-    "description": "\nolcne\n[1.2.4-5]\n- Updated registry-image-helper.sh to work with olcne-utils\n\n[1.2.4-4]\n- Fix istio template for 1.9.6 for k8s update failure\n\n[1.2.4-3]\n- Fixed yaml file to stop olcne-nginx and keepalived services at uninstall [Orabug: 32296282]\n\n[1.2.4-2]\n- Fix iptables issue when running on OL7 host using OL8 image\n\n[1.2.4-1]\n- Address Istio CVE's CVE-2021-28683, CVE-2021-28682, CVE-2021-29258, CVE-2021-31920, CVE-2021-31921, CVE-2021-34824\n\nistio\n[1.9.6-2]\n- Fix iptables issue when running on OL7 host using OL8 image\n- Added istio-mixs and istio-mixc to Obsoletes list\n\n[1.9.6-1]\n- Address CVE-2021-28683, CVE-2021-28682, CVE-2021-29258, CVE-2021-31920, CVE-2021-31921, CVE-2021-34824\n\nkubernetes\n[1.18.18-3]\n- Fix iptables OL7 host kernel issue when running with OL8 image\n\n[1.18.18-1]\n- Address CVE-2021-27918\n",
-    "advisory": {
-      "severity": "IMPORTANT",
-      "rights": "Copyright 2021 Oracle, Inc.",
-      "issued": {
-        "date": "2021-08-06"
-      },
-      "cve": [
-        {
-          "text": "CVE-2021-28683",
-          "href": "https://linux.oracle.com/cve/CVE-2021-28683.html"
-        },
-        {
-          "text": "CVE-2021-28682",
-          "href": "https://linux.oracle.com/cve/CVE-2021-28682.html"
-        },
-        {
-          "text": "CVE-2021-31920",
-          "href": "https://linux.oracle.com/cve/CVE-2021-31920.html"
-        },
-        {
-          "text": "CVE-2021-31921",
-          "href": "https://linux.oracle.com/cve/CVE-2021-31921.html"
-        },
-        {
-          "text": "CVE-2021-29258",
-          "href": "https://linux.oracle.com/cve/CVE-2021-29258.html"
-        },
-        {
-          "text": "CVE-2021-34824",
-          "href": "https://linux.oracle.com/cve/CVE-2021-34824.html"
-        }
-      ]
-    }
-  },
-  "criteria": {
-    "operator": "AND",
-    "criterias": [
-      {
-        "operator": "AND",
-        "criterias": [
-          {
-            "operator": "OR",
-            "criterias": [
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397003",
-                    "comment": "istio is earlier than 0:1.9.6-2.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397004",
-                    "comment": "istio is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397005",
-                    "comment": "istio-istioctl is earlier than 0:1.9.6-2.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397006",
-                    "comment": "istio-istioctl is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397007",
-                    "comment": "kubeadm is earlier than 0:1.18.18-3.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397008",
-                    "comment": "kubeadm is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397009",
-                    "comment": "kubectl is earlier than 0:1.18.18-3.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397010",
-                    "comment": "kubectl is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397011",
-                    "comment": "kubelet is earlier than 0:1.18.18-3.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397012",
-                    "comment": "kubelet is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397013",
-                    "comment": "olcne-agent is earlier than 0:1.2.4-5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397014",
-                    "comment": "olcne-agent is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397015",
-                    "comment": "olcne-api-server is earlier than 0:1.2.4-5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397016",
-                    "comment": "olcne-api-server is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397017",
-                    "comment": "olcne-istio-chart is earlier than 0:1.2.4-5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397018",
-                    "comment": "olcne-istio-chart is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397019",
-                    "comment": "olcne-nginx is earlier than 0:1.2.4-5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397020",
-                    "comment": "olcne-nginx is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397021",
-                    "comment": "olcne-prometheus-chart is earlier than 0:1.2.4-5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397022",
-                    "comment": "olcne-prometheus-chart is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397023",
-                    "comment": "olcne-utils is earlier than 0:1.2.4-5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397024",
-                    "comment": "olcne-utils is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              },
-              {
-                "operator": "AND",
-                "criterions": [
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397025",
-                    "comment": "olcnectl is earlier than 0:1.2.4-5.el7"
-                  },
-                  {
-                    "test_ref": "oval:com.oracle.elsa:tst:20219397026",
-                    "comment": "olcnectl is signed with the Oracle Linux 7 key"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "criterions": [
-          {
-            "test_ref": "oval:com.oracle.elsa:tst:20219397002",
-            "comment": "Oracle Linux arch is x86_64"
-          }
-        ]
-      }
-    ],
-    "criterions": [
-      {
-        "test_ref": "oval:com.oracle.elsa:tst:20219397001",
-        "comment": "Oracle Linux 7 is installed"
-      }
-    ]
-  }
+	"id": "oval:com.oracle.elsa:def:20219397",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-9397:  olcne security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-9397",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-9397.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-28683",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-28683.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-28682",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-28682.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-31920",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-31920.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-31921",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-31921.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-29258",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-29258.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-34824",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-34824.html"
+			}
+		],
+		"description": "\nolcne\n[1.2.4-5]\n- Updated registry-image-helper.sh to work with olcne-utils\n\n[1.2.4-4]\n- Fix istio template for 1.9.6 for k8s update failure\n\n[1.2.4-3]\n- Fixed yaml file to stop olcne-nginx and keepalived services at uninstall [Orabug: 32296282]\n\n[1.2.4-2]\n- Fix iptables issue when running on OL7 host using OL8 image\n\n[1.2.4-1]\n- Address Istio CVE's CVE-2021-28683, CVE-2021-28682, CVE-2021-29258, CVE-2021-31920, CVE-2021-31921, CVE-2021-34824\n\nistio\n[1.9.6-2]\n- Fix iptables issue when running on OL7 host using OL8 image\n- Added istio-mixs and istio-mixc to Obsoletes list\n\n[1.9.6-1]\n- Address CVE-2021-28683, CVE-2021-28682, CVE-2021-29258, CVE-2021-31920, CVE-2021-31921, CVE-2021-34824\n\nkubernetes\n[1.18.18-3]\n- Fix iptables OL7 host kernel issue when running with OL8 image\n\n[1.18.18-1]\n- Address CVE-2021-27918\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-08-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-28683",
+					"href": "https://linux.oracle.com/cve/CVE-2021-28683.html"
+				},
+				{
+					"text": "CVE-2021-28682",
+					"href": "https://linux.oracle.com/cve/CVE-2021-28682.html"
+				},
+				{
+					"text": "CVE-2021-31920",
+					"href": "https://linux.oracle.com/cve/CVE-2021-31920.html"
+				},
+				{
+					"text": "CVE-2021-31921",
+					"href": "https://linux.oracle.com/cve/CVE-2021-31921.html"
+				},
+				{
+					"text": "CVE-2021-29258",
+					"href": "https://linux.oracle.com/cve/CVE-2021-29258.html"
+				},
+				{
+					"text": "CVE-2021-34824",
+					"href": "https://linux.oracle.com/cve/CVE-2021-34824.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397003",
+										"comment": "istio is earlier than 0:1.9.6-2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397004",
+										"comment": "istio is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397005",
+										"comment": "istio-istioctl is earlier than 0:1.9.6-2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397006",
+										"comment": "istio-istioctl is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397007",
+										"comment": "kubeadm is earlier than 0:1.18.18-3.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397008",
+										"comment": "kubeadm is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397009",
+										"comment": "kubectl is earlier than 0:1.18.18-3.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397010",
+										"comment": "kubectl is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397011",
+										"comment": "kubelet is earlier than 0:1.18.18-3.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397012",
+										"comment": "kubelet is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397013",
+										"comment": "olcne-agent is earlier than 0:1.2.4-5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397014",
+										"comment": "olcne-agent is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397015",
+										"comment": "olcne-api-server is earlier than 0:1.2.4-5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397016",
+										"comment": "olcne-api-server is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397017",
+										"comment": "olcne-istio-chart is earlier than 0:1.2.4-5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397018",
+										"comment": "olcne-istio-chart is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397019",
+										"comment": "olcne-nginx is earlier than 0:1.2.4-5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397020",
+										"comment": "olcne-nginx is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397021",
+										"comment": "olcne-prometheus-chart is earlier than 0:1.2.4-5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397022",
+										"comment": "olcne-prometheus-chart is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397023",
+										"comment": "olcne-utils is earlier than 0:1.2.4-5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397024",
+										"comment": "olcne-utils is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397025",
+										"comment": "olcnectl is earlier than 0:1.2.4-5.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219397026",
+										"comment": "olcnectl is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20219397002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20219397001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
 }
