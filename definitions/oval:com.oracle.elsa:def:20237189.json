@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20237189",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-7189:  fwupd security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-7189",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-7189.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-3287",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-3287.html"
+			}
+		],
+		"description": "\n[1.7.8-2.0.1]\n- Modify %prep to correctly apply downstream patches\n- Align sections to 512 bytes [Orabug: 35265981]\n- Use objcopy to build arm/aarch64 binaries if binutils 2.30-113.0.3 or newer [Orabug: 35265981]\n- Enabled signing for aarch64 [Orabug: 35265981]\n- Modify meson.build for fwupd-efi [Orabug: 35265981]\n- Update SBAT data to include Oracle [Oracle: 33072886]\n- Build with the updated Oracle certificate\n- Use oraclesecureboot301 as certdir [Orabug: 29881368]\n- Use new signing certificate (Alex Burmashev)\n\n[1.7.8-2]\n- Backport the Redfish security fixes which affect IDRAC.\n- Resolves: rhbz#2170950\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-11-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-3287",
+					"href": "https://linux.oracle.com/cve/CVE-2022-3287.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189003",
+												"comment": "fwupd is earlier than 0:1.7.8-2.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189004",
+												"comment": "fwupd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189005",
+												"comment": "fwupd-devel is earlier than 0:1.7.8-2.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189006",
+												"comment": "fwupd-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20237189002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189003",
+												"comment": "fwupd is earlier than 0:1.7.8-2.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189004",
+												"comment": "fwupd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189005",
+												"comment": "fwupd-devel is earlier than 0:1.7.8-2.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237189006",
+												"comment": "fwupd-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20237189007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20237189001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
