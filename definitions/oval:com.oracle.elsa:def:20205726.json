@@ -14,22 +14,22 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2020-5726",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2020-5726.html"
-			},
-			{
-				"source": "CVE",
-				"ref_id": "CVE-2020-13379",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-13379.html"
-			},
-			{
-				"source": "CVE",
-				"ref_id": "CVE-2020-8555",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-8555.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-5726.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2020-10749",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-10749.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-10749.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-13379",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-13379.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-8555",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-8555.html"
 			}
 		],
 		"description": "\ngrafana\n[%{}-1.0.1]\n- Added Oracle Specific Build Files for grafana\n\nkubernetes-cni\n[0.7.1-1.0.1]\n- Added Oracle specific build files for Kubernetes CNI\n\nkubernetes-cni-plugins\n[0.8.6-1.0.1]\n- Added Oracle specific build files for Kubernetes CNI Plugins\n\nkubernetes\n[1.14.9-1.0.4]\n- CVE-2020-10749: IPv4 only clusters susceptible to MitM attacks via IPv6 rogue router advertisements\n- CVE-2020-8555: Half-Blind SSRF in kube-controller-manager\n\n[1.14.9-1.0.3]\n- [CVE-2019-11254] kube-apiserver Denial of Service vulnerability from malicious YAML payloads\n\n[1.14.9-1.0.2]\n- Use bounded crio version\n\n[1.14.9-1.0.1]\n- Added Oracle specific build files for Kubernetes\n\nkubernetes\n[1.17.6-1.0.2.el7]\n- Update to kubernetes-cni for CVE-2020-10749\n\n[1.17.6-1.0.2.el7]\n- Added Oracle specific build files for Kubernetes\n\nolcne\n[1.1.1-1]\n- Update Istio to use Grafana 6.7.4 to address CVE-2020-13379\n- Kubernetes update due to CVE-2020-10749 and CVE-2020-8555\n",
@@ -41,16 +41,16 @@
 			},
 			"cve": [
 				{
+					"text": "CVE-2020-10749",
+					"href": "https://linux.oracle.com/cve/CVE-2020-10749.html"
+				},
+				{
 					"text": "CVE-2020-13379",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2020-13379.html"
+					"href": "https://linux.oracle.com/cve/CVE-2020-13379.html"
 				},
 				{
 					"text": "CVE-2020-8555",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2020-8555.html"
-				},
-				{
-					"text": "CVE-2020-10749",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2020-10749.html"
+					"href": "https://linux.oracle.com/cve/CVE-2020-8555.html"
 				}
 			]
 		}
@@ -69,11 +69,11 @@
 								"criterions": [
 									{
 										"test_ref": "oval:com.oracle.elsa:tst:20205726003",
-										"comment": "kubernetes-cni is earlier than 0:0.7.1-1.0.1.el7"
+										"comment": "grafana is earlier than 0:6.7.4-1.0.1.el7"
 									},
 									{
 										"test_ref": "oval:com.oracle.elsa:tst:20205726004",
-										"comment": "kubernetes-cni is signed with the Oracle Linux 7 key"
+										"comment": "grafana is signed with the Oracle Linux 7 key"
 									}
 								]
 							},
@@ -82,11 +82,11 @@
 								"criterions": [
 									{
 										"test_ref": "oval:com.oracle.elsa:tst:20205726005",
-										"comment": "kubernetes-cni-plugins is earlier than 0:0.8.6-1.0.2.el7"
+										"comment": "kubeadm is earlier than 0:1.14.9-1.0.4.el7"
 									},
 									{
 										"test_ref": "oval:com.oracle.elsa:tst:20205726006",
-										"comment": "kubernetes-cni-plugins is signed with the Oracle Linux 7 key"
+										"comment": "kubeadm is signed with the Oracle Linux 7 key"
 									}
 								]
 							},
@@ -95,7 +95,7 @@
 								"criterions": [
 									{
 										"test_ref": "oval:com.oracle.elsa:tst:20205726007",
-										"comment": "kubeadm is earlier than 0:1.14.9-1.0.4.el7"
+										"comment": "kubeadm is earlier than 0:1.17.6-1.0.2.el7"
 									},
 									{
 										"test_ref": "oval:com.oracle.elsa:tst:20205726008",
@@ -121,49 +121,10 @@
 								"criterions": [
 									{
 										"test_ref": "oval:com.oracle.elsa:tst:20205726011",
-										"comment": "kubelet is earlier than 0:1.14.9-1.0.4.el7"
-									},
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726012",
-										"comment": "kubelet is signed with the Oracle Linux 7 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726013",
-										"comment": "grafana is earlier than 0:6.7.4-1.0.1.el7"
-									},
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726014",
-										"comment": "grafana is signed with the Oracle Linux 7 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726015",
-										"comment": "kubeadm is earlier than 0:1.17.6-1.0.2.el7"
-									},
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726016",
-										"comment": "kubeadm is signed with the Oracle Linux 7 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726017",
 										"comment": "kubectl is earlier than 0:1.17.6-1.0.2.el7"
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726018",
+										"test_ref": "oval:com.oracle.elsa:tst:20205726012",
 										"comment": "kubectl is signed with the Oracle Linux 7 key"
 									}
 								]
@@ -172,12 +133,51 @@
 								"operator": "AND",
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726019",
+										"test_ref": "oval:com.oracle.elsa:tst:20205726013",
+										"comment": "kubelet is earlier than 0:1.14.9-1.0.4.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205726014",
+										"comment": "kubelet is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205726015",
 										"comment": "kubelet is earlier than 0:1.17.6-1.0.2.el7"
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20205726020",
+										"test_ref": "oval:com.oracle.elsa:tst:20205726016",
 										"comment": "kubelet is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205726017",
+										"comment": "kubernetes-cni is earlier than 0:0.7.1-1.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205726018",
+										"comment": "kubernetes-cni is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205726019",
+										"comment": "kubernetes-cni-plugins is earlier than 0:0.8.6-1.0.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205726020",
+										"comment": "kubernetes-cni-plugins is signed with the Oracle Linux 7 key"
 									}
 								]
 							},

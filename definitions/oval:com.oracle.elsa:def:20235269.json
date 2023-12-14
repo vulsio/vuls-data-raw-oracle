@@ -14,20 +14,20 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2023-5269",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2023-5269.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-5269.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-2454",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-2454.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-2454.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-2455",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-2455.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-2455.html"
 			}
 		],
-		"description": "\npgaudit\n[1.7.0-1]\n- Update to 1.7.0\n- Support postgresql 15\n- Related: #2128241\n\n[1.5.0-1]\n- Update to version 1.5.0\n  Related: #1855776\n\n[1.4.0-4]\n- Bump release for rebuild against libpq-12.1-3\n\n[1.4.0-3]\n- BuildRequires libpq-devel\n\n[1.4.0-2]\n- BuildRequires postgresql-server-devel\n\n[1.4.0-1]\n- Update to 1.4.0\n\n[1.3.1-1]\n- Update to 1.3.1 and apply patch for pgsql v12 compatibility\n\n[1.2.0-4]\n- SCLize the SPEC\n\n[1.2.0-3]\n- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild\n\n[1.2.0-2]\n- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild\n\n[1.2.0-1]\n- Initial RPM packaging for Fedora\n- Based on Devrim Gunduz's packaging for PostgreSQL RPM Repo\n\n[1.0.0-1]\n- Update to 1.0.0\n\n[0.0.4-1]\n- Initial RPM packaging for PostgreSQL RPM Repository\n\npg_repack\n[1.4.8-1]\n- Update to version 1.4.8\n- Postgresql 15 is supported\n- Related: #2128241\n\n[1.4.6-4]\n- Rebuilt for IMA sigs, glibc 2.34, aarch64 flags\n  Related: rhbz#1991688\n\npostgres-decoderbufs\n[1.9.7-1.Final]\n- Iitial import for postgresql 15 stream\n- Related: #2128241\n\n[1.4.0-4.Final]\n- Rebuilt for IMA sigs, glibc 2.34, aarch64 flags\n  Related: rhbz#1991688\n\n[1.4.0-3.Final]\n- Build jit based on what postgresql server does\n  Related: #1933048\n\n[1.4.0-2.Final]\n- Rebuilt for RHEL 9 BETA on Apr 15th 2021. Related: rhbz#1947937\n\n[1.4.0-1.Final]\n- Update to new release 1.4.0\n\n[1.1.0-0.6.Final]\n- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild\n\n[1.1.0-0.5.Final]\n- Rebuilt for protobuf 3.14\n\n[1.1.0-0.4.Final]\n- Rebuilt for protobuf 3.13\n\n[1.1.0-0.3.Final]\n- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild\n\n[1.1.0-0.2.Final]\n- Rebuilt for protobuf 3.12\n\n[1.1.0-0.1.Final]\n- Update to 1.1.0.Final\n\n[1.0.0-0.1.Beta3]\n- Update to 1.0.0-Beta3\n- Drop BR: postgis-devel\n\npostgresql\n[15.3-1]\n- Update to upstream version 15.3\n- Fixes: CVE-2023-2454 CVE-2023-2455\n- Resolves: #2207934\n\n[15.2-1]\n- Update to upstream version 15.2\n- Update postgresql-setup to 8.8\n- PostgreSQL systemd unit waits for the network to be up\n- Resolves: #2128241\n\n[15.0-1]\n- Initial import for postgresql 15\n- Specfile is based on version locate in centos stream\n  It reflects changes with libpq. This version of databse server\n  will use private libpq library.\n- Resolves: #2128241\n",
+		"description": "\npgaudit\npg_repack\npostgres-decoderbufs\npostgresql\n[15.3-1]\n- Update to upstream version 15.3\n- Fixes: CVE-2023-2454 CVE-2023-2455\n- Resolves: #2207934\n",
 		"advisory": {
 			"severity": "MODERATE",
 			"rights": "Copyright 2023 Oracle, Inc.",
@@ -37,11 +37,11 @@
 			"cve": [
 				{
 					"text": "CVE-2023-2454",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2023-2454.html"
+					"href": "https://linux.oracle.com/cve/CVE-2023-2454.html"
 				},
 				{
 					"text": "CVE-2023-2455",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2023-2455.html"
+					"href": "https://linux.oracle.com/cve/CVE-2023-2455.html"
 				}
 			]
 		}
@@ -334,6 +334,19 @@
 														"operator": "AND",
 														"criterions": [
 															{
+																"test_ref": "oval:com.oracle.elsa:tst:20235269008",
+																"comment": "postgres-decoderbufs is earlier than 0:1.9.7-1.Final.module+el8.8.0+20973+992b6275"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20235269009",
+																"comment": "postgres-decoderbufs is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
 																"test_ref": "oval:com.oracle.elsa:tst:20235269004",
 																"comment": "pg_repack is earlier than 0:1.4.8-1.module+el8.8.0+20973+992b6275"
 															},
@@ -353,19 +366,6 @@
 															{
 																"test_ref": "oval:com.oracle.elsa:tst:20235269007",
 																"comment": "pgaudit is signed with the Oracle Linux 8 key"
-															}
-														]
-													},
-													{
-														"operator": "AND",
-														"criterions": [
-															{
-																"test_ref": "oval:com.oracle.elsa:tst:20235269008",
-																"comment": "postgres-decoderbufs is earlier than 0:1.9.7-1.Final.module+el8.8.0+20973+992b6275"
-															},
-															{
-																"test_ref": "oval:com.oracle.elsa:tst:20235269009",
-																"comment": "postgres-decoderbufs is signed with the Oracle Linux 8 key"
 															}
 														]
 													}

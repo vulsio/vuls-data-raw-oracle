@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2019-2827",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2019-2827.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-2827.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-14835",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-14835.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-14835.html"
 			}
 		],
 		"description": "\n- [4.18.0-80.11.2_0.OL8]\n- Oracle Linux certificates (Alexey Petrenko)\n- Oracle Linux RHCK Module Signing Key was added to the kernel trusted keys list (olkmod_signing_key.pem) [Orabug: 29539237]\n- Update x509.genkey [Orabug: 24817676]\n\n[4.18.0-80.11.2_0]\n- [vhost] vhost: make sure log_num < in_num (Eugenio Perez) [1750881 1750882] {CVE-2019-14835}\n",
@@ -27,12 +27,12 @@
 			"severity": "IMPORTANT",
 			"rights": "Copyright 2019 Oracle, Inc.",
 			"issued": {
-				"date": "2019-09-20"
+				"date": "2019-09-22"
 			},
 			"cve": [
 				{
 					"text": "CVE-2019-14835",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2019-14835.html"
+					"href": "https://linux.oracle.com/cve/CVE-2019-14835.html"
 				}
 			]
 		}
@@ -298,6 +298,19 @@
 										"operator": "AND",
 										"criterions": [
 											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192827003",
+												"comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-80.11.2.el8_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192827004",
+												"comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
 												"test_ref": "oval:com.oracle.elsa:tst:20192827040",
 												"comment": "perf is earlier than 0:4.18.0-80.11.2.el8_0"
 											},
@@ -317,19 +330,6 @@
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20192827043",
 												"comment": "python3-perf is signed with the Oracle Linux 8 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192827003",
-												"comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-80.11.2.el8_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192827004",
-												"comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
 											}
 										]
 									}

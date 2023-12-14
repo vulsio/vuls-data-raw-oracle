@@ -14,17 +14,17 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2023-5761",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2023-5761.html"
-			},
-			{
-				"source": "CVE",
-				"ref_id": "CVE-2023-22081",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-22081.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-5761.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-22067",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-22067.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-22067.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-22081",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-22081.html"
 			}
 		],
 		"description": "\n[1:1.8.0.392.b08-2]\n- Revert jcmd move as jcmd will not operate without tools.jar\n- Related: RHEL-13577\n\n[1:1.8.0.392.b08-1]\n- Update to shenandoah-jdk8u392-b08 (GA)\n- Update release notes for shenandoah-8u392-b08.\n- Update generate_tarball.sh to be closer to upstream vanilla script inc. no more ECC removal\n- Update bug URL for RHEL to point to the Red Hat customer portal\n- Change top_level_dir_name to use the VCS tag, matching new upstream release style tarball\n- Regenerate PR2462 patch following JDK-8315135\n- Add backport of JDK-8312489 heading upstream for 8u402 (see OPENJDK-2095)\n- Add missing JFR alternative ghost\n- Move jcmd to the headless package\n- ** This tarball is embargoed until 2023-10-17 @ 1pm PT. **\n- Resolves: RHEL-12212\n- Resolves: RHEL-13574\n- Resolves: RHEL-13575\n- Resolves: RHEL-13576\n- Resolves: RHEL-11319\n- Resolves: RHEL-13577\n\n[1:1.8.0.392.b08-1]\n- For non debug subpackages, ghosted all alternatives (rhbz1649776)\n- For non system JDKs, if-outed versionless provides.\n- Aligned versions to be %{epoch}:%{version}-%{release} instead of chaotic\n- Related: RHEL-11319\n",
@@ -36,12 +36,12 @@
 			},
 			"cve": [
 				{
-					"text": "CVE-2023-22081",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2023-22081.html"
+					"text": "CVE-2023-22067",
+					"href": "https://linux.oracle.com/cve/CVE-2023-22067.html"
 				},
 				{
-					"text": "CVE-2023-22067",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2023-22067.html"
+					"text": "CVE-2023-22081",
+					"href": "https://linux.oracle.com/cve/CVE-2023-22081.html"
 				}
 			]
 		}
@@ -102,36 +102,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20235761009",
-												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.392.b08-2.el7_9"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761010",
-												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761011",
-												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.392.b08-2.el7_9"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761012",
-												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761013",
 												"comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0.392.b08-2.el7_9"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761014",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761010",
 												"comment": "java-1.8.0-openjdk-javadoc is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -140,11 +114,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761015",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761011",
 												"comment": "java-1.8.0-openjdk-javadoc-zip is earlier than 1:1.8.0.392.b08-2.el7_9"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761016",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761012",
 												"comment": "java-1.8.0-openjdk-javadoc-zip is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -153,12 +127,38 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761017",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761013",
 												"comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0.392.b08-2.el7_9"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761018",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761014",
 												"comment": "java-1.8.0-openjdk-src is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761015",
+												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.392.b08-2.el7_9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761016",
+												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761017",
+												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.392.b08-2.el7_9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761018",
+												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 7 key"
 											}
 										]
 									}
@@ -195,6 +195,32 @@
 										"operator": "AND",
 										"criterions": [
 											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761015",
+												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.392.b08-2.el7_9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761016",
+												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761017",
+												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.392.b08-2.el7_9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235761018",
+												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
 												"test_ref": "oval:com.oracle.elsa:tst:20235761005",
 												"comment": "java-1.8.0-openjdk-accessibility is earlier than 1:1.8.0.392.b08-2.el7_9"
 											},
@@ -222,36 +248,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20235761009",
-												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.392.b08-2.el7_9"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761010",
-												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761011",
-												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.392.b08-2.el7_9"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761012",
-												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761013",
 												"comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0.392.b08-2.el7_9"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761014",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761010",
 												"comment": "java-1.8.0-openjdk-javadoc is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -260,11 +260,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761015",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761011",
 												"comment": "java-1.8.0-openjdk-javadoc-zip is earlier than 1:1.8.0.392.b08-2.el7_9"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761016",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761012",
 												"comment": "java-1.8.0-openjdk-javadoc-zip is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -273,11 +273,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761017",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761013",
 												"comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0.392.b08-2.el7_9"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235761018",
+												"test_ref": "oval:com.oracle.elsa:tst:20235761014",
 												"comment": "java-1.8.0-openjdk-src is signed with the Oracle Linux 7 key"
 											}
 										]

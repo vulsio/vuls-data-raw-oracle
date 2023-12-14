@@ -8,28 +8,28 @@
 			"family": "unix",
 			"platform": [
 				"Oracle Linux 5",
-				"Oracle Linux 6",
-				"Oracle Linux 7"
+				"Oracle Linux 7",
+				"Oracle Linux 6"
 			]
 		},
 		"reference": [
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2016-1041",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2016-1041.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-1041.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2016-2805",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2016-2805.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2805.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2016-2807",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2016-2807.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2807.html"
 			}
 		],
-		"description": "\n[38.8.0-1.0.1]\n- Replaced thunderbird-redhat-default-prefs.js with thunderbird-oracle-default-prefs.js\n\n[38.8.0-1]\n- Update to 38.8.0\n",
+		"description": "\n[38.8.0-2.0.1]\n- Replaced thunderbird-redhat-default-prefs.js with thunderbird-oracle-default-prefs.js\n\n[38.8.0-2]\n- Update to 38.8.0\n",
 		"advisory": {
 			"severity": "IMPORTANT",
 			"rights": "Copyright 2016 Oracle, Inc.",
@@ -39,11 +39,11 @@
 			"cve": [
 				{
 					"text": "CVE-2016-2805",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2016-2805.html"
+					"href": "https://linux.oracle.com/cve/CVE-2016-2805.html"
 				},
 				{
 					"text": "CVE-2016-2807",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2016-2807.html"
+					"href": "https://linux.oracle.com/cve/CVE-2016-2807.html"
 				}
 			]
 		}
@@ -119,6 +119,41 @@
 				"operator": "AND",
 				"criterias": [
 					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161041008",
+										"comment": "thunderbird is earlier than 0:38.8.0-1.0.1.el7_2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161041009",
+										"comment": "thunderbird is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20161041007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20161041006",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
 						"operator": "OR",
 						"criterias": [
 							{
@@ -128,11 +163,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20161041008",
+												"test_ref": "oval:com.oracle.elsa:tst:20161041012",
 												"comment": "thunderbird is earlier than 0:38.8.0-2.0.1.el6_8"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20161041009",
+												"test_ref": "oval:com.oracle.elsa:tst:20161041013",
 												"comment": "thunderbird is signed with the Oracle Linux 6 key"
 											}
 										]
@@ -140,7 +175,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20161041007",
+										"test_ref": "oval:com.oracle.elsa:tst:20161041011",
 										"comment": "Oracle Linux arch is x86_64"
 									}
 								]
@@ -152,11 +187,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20161041008",
+												"test_ref": "oval:com.oracle.elsa:tst:20161041012",
 												"comment": "thunderbird is earlier than 0:38.8.0-2.0.1.el6_8"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20161041009",
+												"test_ref": "oval:com.oracle.elsa:tst:20161041013",
 												"comment": "thunderbird is signed with the Oracle Linux 6 key"
 											}
 										]
@@ -164,7 +199,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20161041010",
+										"test_ref": "oval:com.oracle.elsa:tst:20161041014",
 										"comment": "Oracle Linux arch is i686"
 									}
 								]
@@ -174,43 +209,8 @@
 				],
 				"criterions": [
 					{
-						"test_ref": "oval:com.oracle.elsa:tst:20161041006",
+						"test_ref": "oval:com.oracle.elsa:tst:20161041010",
 						"comment": "Oracle Linux 6 is installed"
-					}
-				]
-			},
-			{
-				"operator": "AND",
-				"criterias": [
-					{
-						"operator": "AND",
-						"criterias": [
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20161041013",
-										"comment": "thunderbird is earlier than 0:38.8.0-1.0.1.el7_2"
-									},
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20161041014",
-										"comment": "thunderbird is signed with the Oracle Linux 7 key"
-									}
-								]
-							}
-						],
-						"criterions": [
-							{
-								"test_ref": "oval:com.oracle.elsa:tst:20161041012",
-								"comment": "Oracle Linux arch is x86_64"
-							}
-						]
-					}
-				],
-				"criterions": [
-					{
-						"test_ref": "oval:com.oracle.elsa:tst:20161041011",
-						"comment": "Oracle Linux 7 is installed"
 					}
 				]
 			}

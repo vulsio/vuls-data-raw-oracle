@@ -14,17 +14,17 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2018-3041",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2018-3041.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-3041.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2018-1060",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2018-1060.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-1060.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2018-1061",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2018-1061.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-1061.html"
 			}
 		],
 		"description": "\n[2.7.5-76.0.1]\n- Add Oracle Linux distribution in platform.py [orabug 20812544]\n\n[2.7.5-76]\n- Remove an unversioned obsoletes tag\nResolves: rhbz#1627059\n\n[2.7.5-75]\n- Provide the /usr/libexec/platform-python symlink to the main binary\nResolves: rhbz#1599159\n\n[2.7.5-74]\n- Fix OSERROR 17 due to _multiprocessing/semaphore.c assuming\n  a one-to-one Pid -> process mapping\nResolves: rhbz#1579432\n\n[2.7.5-73]\n- Remove 3DS cipher to mitigate CVE-2016-2183 (sweet32).\nResolves: rhbz#1581901\n\n[2.7.5-72]\n- Fix CVE-2018-1060 and CVE-2018-1061\nResolves: rhbz#1563454 and rhbz#1549192\n- Provide python2-libs from the python-libs subpackage\nResolves: rhbz#1557460\n\n[2.7.5-71]\n- Limit the number of CPU cores when building the package on power architectures\nResolves: rhbz#1568974\n\n[2.7.5-70]\n- Do not send IP addresses in SNI TLS extension\nResolves: rhbz#1555314\n",
@@ -32,16 +32,16 @@
 			"severity": "MODERATE",
 			"rights": "Copyright 2018 Oracle, Inc.",
 			"issued": {
-				"date": "2018-11-02"
+				"date": "2018-11-05"
 			},
 			"cve": [
 				{
 					"text": "CVE-2018-1060",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2018-1060.html"
+					"href": "https://linux.oracle.com/cve/CVE-2018-1060.html"
 				},
 				{
 					"text": "CVE-2018-1061",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2018-1061.html"
+					"href": "https://linux.oracle.com/cve/CVE-2018-1061.html"
 				}
 			]
 		}
@@ -76,11 +76,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20183041005",
-												"comment": "python-devel is earlier than 0:2.7.5-76.0.1.el7"
+												"comment": "python-debug is earlier than 0:2.7.5-76.0.1.el7"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20183041006",
-												"comment": "python-devel is signed with the Oracle Linux 7 key"
+												"comment": "python-debug is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -89,11 +89,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20183041007",
-												"comment": "python-libs is earlier than 0:2.7.5-76.0.1.el7"
+												"comment": "python-devel is earlier than 0:2.7.5-76.0.1.el7"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20183041008",
-												"comment": "python-libs is signed with the Oracle Linux 7 key"
+												"comment": "python-devel is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -102,11 +102,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20183041009",
-												"comment": "python-debug is earlier than 0:2.7.5-76.0.1.el7"
+												"comment": "python-libs is earlier than 0:2.7.5-76.0.1.el7"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20183041010",
-												"comment": "python-debug is signed with the Oracle Linux 7 key"
+												"comment": "python-libs is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -169,12 +169,51 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041009",
+												"test_ref": "oval:com.oracle.elsa:tst:20183041003",
+												"comment": "python is earlier than 0:2.7.5-76.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183041004",
+												"comment": "python is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183041005",
 												"comment": "python-debug is earlier than 0:2.7.5-76.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041010",
+												"test_ref": "oval:com.oracle.elsa:tst:20183041006",
 												"comment": "python-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183041007",
+												"comment": "python-devel is earlier than 0:2.7.5-76.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183041008",
+												"comment": "python-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183041009",
+												"comment": "python-libs is earlier than 0:2.7.5-76.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183041010",
+												"comment": "python-libs is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -214,45 +253,6 @@
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20183041016",
 												"comment": "tkinter is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041003",
-												"comment": "python is earlier than 0:2.7.5-76.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041004",
-												"comment": "python is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041005",
-												"comment": "python-devel is earlier than 0:2.7.5-76.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041006",
-												"comment": "python-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041007",
-												"comment": "python-libs is earlier than 0:2.7.5-76.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20183041008",
-												"comment": "python-libs is signed with the Oracle Linux 7 key"
 											}
 										]
 									}

@@ -7,20 +7,20 @@
 		"affected": {
 			"family": "unix",
 			"platform": [
-				"Oracle Linux 6",
-				"Oracle Linux 7"
+				"Oracle Linux 7",
+				"Oracle Linux 6"
 			]
 		},
 		"reference": [
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2016-0063",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2016-0063.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-0063.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2015-8138",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2015-8138.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-8138.html"
 			}
 		],
 		"description": "\n[4.2.6p5-5.el6_7.4]\n- don't accept server/peer packets with zero origin timestamp (CVE-2015-8138)\n",
@@ -33,7 +33,7 @@
 			"cve": [
 				{
 					"text": "CVE-2015-8138",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2015-8138.html"
+					"href": "https://linux.oracle.com/cve/CVE-2015-8138.html"
 				}
 			]
 		}
@@ -41,6 +41,98 @@
 	"criteria": {
 		"operator": "OR",
 		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063003",
+												"comment": "ntp is earlier than 0:4.2.6p5-22.el7_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063004",
+												"comment": "ntp is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063005",
+												"comment": "ntp-doc is earlier than 0:4.2.6p5-22.el7_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063006",
+												"comment": "ntp-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063007",
+												"comment": "ntp-perl is earlier than 0:4.2.6p5-22.el7_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063008",
+												"comment": "ntp-perl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063009",
+												"comment": "ntpdate is earlier than 0:4.2.6p5-22.el7_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063010",
+												"comment": "ntpdate is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063011",
+												"comment": "sntp is earlier than 0:4.2.6p5-22.el7_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160063012",
+												"comment": "sntp is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20160063002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20160063001",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			},
 			{
 				"operator": "AND",
 				"criterias": [
@@ -57,11 +149,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063003",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063015",
 														"comment": "ntp is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063004",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063016",
 														"comment": "ntp is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -70,11 +162,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063005",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063017",
 														"comment": "ntp-doc is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063006",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063018",
 														"comment": "ntp-doc is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -83,11 +175,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063007",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063019",
 														"comment": "ntp-perl is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063008",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063020",
 														"comment": "ntp-perl is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -96,11 +188,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063009",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063021",
 														"comment": "ntpdate is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063010",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063022",
 														"comment": "ntpdate is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -110,7 +202,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20160063002",
+										"test_ref": "oval:com.oracle.elsa:tst:20160063014",
 										"comment": "Oracle Linux arch is x86_64"
 									}
 								]
@@ -125,11 +217,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063003",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063015",
 														"comment": "ntp is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063004",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063016",
 														"comment": "ntp is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -138,11 +230,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063005",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063017",
 														"comment": "ntp-doc is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063006",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063018",
 														"comment": "ntp-doc is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -151,11 +243,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063007",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063019",
 														"comment": "ntp-perl is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063008",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063020",
 														"comment": "ntp-perl is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -164,11 +256,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063009",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063021",
 														"comment": "ntpdate is earlier than 0:4.2.6p5-5.el6_7.4"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20160063010",
+														"test_ref": "oval:com.oracle.elsa:tst:20160063022",
 														"comment": "ntpdate is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -178,7 +270,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20160063011",
+										"test_ref": "oval:com.oracle.elsa:tst:20160063023",
 										"comment": "Oracle Linux arch is i686"
 									}
 								]
@@ -188,100 +280,8 @@
 				],
 				"criterions": [
 					{
-						"test_ref": "oval:com.oracle.elsa:tst:20160063001",
+						"test_ref": "oval:com.oracle.elsa:tst:20160063013",
 						"comment": "Oracle Linux 6 is installed"
-					}
-				]
-			},
-			{
-				"operator": "AND",
-				"criterias": [
-					{
-						"operator": "AND",
-						"criterias": [
-							{
-								"operator": "OR",
-								"criterias": [
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063014",
-												"comment": "ntp is earlier than 0:4.2.6p5-22.el7_2.1"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063015",
-												"comment": "ntp is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063016",
-												"comment": "ntpdate is earlier than 0:4.2.6p5-22.el7_2.1"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063017",
-												"comment": "ntpdate is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063018",
-												"comment": "ntp-doc is earlier than 0:4.2.6p5-22.el7_2.1"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063019",
-												"comment": "ntp-doc is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063020",
-												"comment": "ntp-perl is earlier than 0:4.2.6p5-22.el7_2.1"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063021",
-												"comment": "ntp-perl is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063022",
-												"comment": "sntp is earlier than 0:4.2.6p5-22.el7_2.1"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20160063023",
-												"comment": "sntp is signed with the Oracle Linux 7 key"
-											}
-										]
-									}
-								]
-							}
-						],
-						"criterions": [
-							{
-								"test_ref": "oval:com.oracle.elsa:tst:20160063013",
-								"comment": "Oracle Linux arch is x86_64"
-							}
-						]
-					}
-				],
-				"criterions": [
-					{
-						"test_ref": "oval:com.oracle.elsa:tst:20160063012",
-						"comment": "Oracle Linux 7 is installed"
 					}
 				]
 			}

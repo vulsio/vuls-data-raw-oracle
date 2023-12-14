@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2019-3699",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2019-3699.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-3699.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-3890",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-3890.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-3890.html"
 			}
 		],
 		"description": "\nevolution\n[3.28.5-9]\n- Add patch for RH bug #1724984 ([ECompEditor] Ensure attendee changes stored before save)\n\n[3.28.5-8]\n- Add patch for RH bug #1724659 (Make sure intltool-merge cache is created only once)\n\n[3.28.5-7]\n- Add patch for RH bug #1724232 (Help Contents (F1) has a bad link to GNOME site)\n\nevolution-data-server\n[3.28.5-11]\n- Update patch for RH bug #1713619 (test-cal-client-get-revision could fail due to delayed D-Bus property change notification)\n\n[3.28.5-10]\n- Add patch related to evolution-ews CVE-2019-3890 (RH bug #1696763)\n\nevolution-ews\n[3.28.5-5]\n- Rebuild with added gating\n\n[3.28.5-4]\n- Add patch for RH bug #1696761 (CVE-2019-3890 - SSL Certificates are not validated)\n",
@@ -32,7 +32,7 @@
 			"cve": [
 				{
 					"text": "CVE-2019-3890",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2019-3890.html"
+					"href": "https://linux.oracle.com/cve/CVE-2019-3890.html"
 				}
 			]
 		}
@@ -41,10 +41,10 @@
 		"operator": "AND",
 		"criterias": [
 			{
-				"operator": "AND",
+				"operator": "OR",
 				"criterias": [
 					{
-						"operator": "OR",
+						"operator": "AND",
 						"criterias": [
 							{
 								"operator": "AND",
@@ -58,196 +58,225 @@
 										"comment": "evolution-data-server-doc is signed with the Oracle Linux 8 key"
 									}
 								]
-							},
+							}
+						],
+						"criterions": [
 							{
-								"operator": "AND",
-								"criterions": [
+								"test_ref": "oval:com.oracle.elsa:tst:20193699002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699005",
-										"comment": "evolution-data-server-perl is earlier than 0:3.28.5-11.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699006",
+												"comment": "evolution is earlier than 0:3.28.5-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699007",
+												"comment": "evolution is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699006",
-										"comment": "evolution-data-server-perl is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699007",
-										"comment": "evolution-data-server-tests is earlier than 0:3.28.5-11.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699008",
+												"comment": "evolution-bogofilter is earlier than 0:3.28.5-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699009",
+												"comment": "evolution-bogofilter is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699008",
-										"comment": "evolution-data-server-tests is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699009",
-										"comment": "evolution-devel is earlier than 0:3.28.5-9.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699010",
+												"comment": "evolution-data-server is earlier than 0:3.28.5-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699011",
+												"comment": "evolution-data-server is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699010",
-										"comment": "evolution-devel is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699011",
-										"comment": "evolution is earlier than 0:3.28.5-9.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699012",
+												"comment": "evolution-data-server-devel is earlier than 0:3.28.5-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699013",
+												"comment": "evolution-data-server-devel is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699012",
-										"comment": "evolution is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699013",
-										"comment": "evolution-bogofilter is earlier than 0:3.28.5-9.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699003",
+												"comment": "evolution-data-server-doc is earlier than 0:3.28.5-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699004",
+												"comment": "evolution-data-server-doc is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699014",
-										"comment": "evolution-bogofilter is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699015",
-										"comment": "evolution-data-server is earlier than 0:3.28.5-11.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699014",
+												"comment": "evolution-data-server-langpacks is earlier than 0:3.28.5-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699015",
+												"comment": "evolution-data-server-langpacks is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699016",
-										"comment": "evolution-data-server is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699017",
-										"comment": "evolution-data-server-devel is earlier than 0:3.28.5-11.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699016",
+												"comment": "evolution-data-server-perl is earlier than 0:3.28.5-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699017",
+												"comment": "evolution-data-server-perl is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699018",
-										"comment": "evolution-data-server-devel is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699019",
-										"comment": "evolution-data-server-langpacks is earlier than 0:3.28.5-11.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699018",
+												"comment": "evolution-data-server-tests is earlier than 0:3.28.5-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699019",
+												"comment": "evolution-data-server-tests is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699020",
-										"comment": "evolution-data-server-langpacks is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699021",
-										"comment": "evolution-ews is earlier than 0:3.28.5-5.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699020",
+												"comment": "evolution-devel is earlier than 0:3.28.5-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699021",
+												"comment": "evolution-devel is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699022",
-										"comment": "evolution-ews is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699023",
-										"comment": "evolution-ews-langpacks is earlier than 0:3.28.5-5.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699022",
+												"comment": "evolution-ews is earlier than 0:3.28.5-5.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699023",
+												"comment": "evolution-ews is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699024",
-										"comment": "evolution-ews-langpacks is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699025",
-										"comment": "evolution-help is earlier than 0:3.28.5-9.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699024",
+												"comment": "evolution-ews-langpacks is earlier than 0:3.28.5-5.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699025",
+												"comment": "evolution-ews-langpacks is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699026",
-										"comment": "evolution-help is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699027",
-										"comment": "evolution-langpacks is earlier than 0:3.28.5-9.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699026",
+												"comment": "evolution-help is earlier than 0:3.28.5-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699027",
+												"comment": "evolution-help is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699028",
-										"comment": "evolution-langpacks is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699029",
-										"comment": "evolution-pst is earlier than 0:3.28.5-9.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699028",
+												"comment": "evolution-langpacks is earlier than 0:3.28.5-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699029",
+												"comment": "evolution-langpacks is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699030",
-										"comment": "evolution-pst is signed with the Oracle Linux 8 key"
-									}
-								]
-							},
-							{
-								"operator": "AND",
-								"criterions": [
-									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699031",
-										"comment": "evolution-spamassassin is earlier than 0:3.28.5-9.el8"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699030",
+												"comment": "evolution-pst is earlier than 0:3.28.5-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699031",
+												"comment": "evolution-pst is signed with the Oracle Linux 8 key"
+											}
+										]
 									},
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20193699032",
-										"comment": "evolution-spamassassin is signed with the Oracle Linux 8 key"
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699032",
+												"comment": "evolution-spamassassin is earlier than 0:3.28.5-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193699033",
+												"comment": "evolution-spamassassin is signed with the Oracle Linux 8 key"
+											}
+										]
 									}
 								]
 							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20193699005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
 						]
-					}
-				],
-				"criterions": [
-					{
-						"test_ref": "oval:com.oracle.elsa:tst:20193699002",
-						"comment": "Oracle Linux arch is x86_64"
 					}
 				]
 			}

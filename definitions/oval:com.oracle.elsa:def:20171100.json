@@ -7,23 +7,23 @@
 		"affected": {
 			"family": "unix",
 			"platform": [
-				"Oracle Linux 6",
-				"Oracle Linux 7"
+				"Oracle Linux 7",
+				"Oracle Linux 6"
 			]
 		},
 		"reference": [
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2017-1100",
-				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2017-1100.html"
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2017-1100.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2017-5461",
-				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2017-5461.html"
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-5461.html"
 			}
 		],
-		"description": "\nnss\n[3.28.4-1.0.0.1]\n- Added nss-vendor.patch to change vendor\n\n[3.28.4-1.0]\n- Rebase to NSS 3.28.4\n\nnss-util\n[3.28.4-1.0]\n- Rebase to nss-3.28.4 to accommodate base64 encoding issue\n",
+		"description": "\nnss\n[3.28.4-1.0.1]\n- Added nss-vendor.patch to change vendor\n- Temporarily disable some tests until expired PayPalEE.cert is renewed\n\n[3.28.4-1]\n- Rebase to 3.28.4\n\nnss-util\n[3.28.4-1]\n- Rebase to NSS 3.28.4 to accommodate base64 encoding fix\n",
 		"advisory": {
 			"severity": "CRITICAL",
 			"rights": "Copyright 2017 Oracle, Inc.",
@@ -33,7 +33,7 @@
 			"cve": [
 				{
 					"text": "CVE-2017-5461",
-					"href": "https://linux-qa.oracle.com/cve/CVE-2017-5461.html"
+					"href": "https://linux.oracle.com/cve/CVE-2017-5461.html"
 				}
 			]
 		}
@@ -41,6 +41,124 @@
 	"criteria": {
 		"operator": "OR",
 		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100003",
+												"comment": "nss is earlier than 0:3.28.4-1.0.0.1.el7_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100004",
+												"comment": "nss is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100005",
+												"comment": "nss-devel is earlier than 0:3.28.4-1.0.0.1.el7_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100006",
+												"comment": "nss-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100007",
+												"comment": "nss-pkcs11-devel is earlier than 0:3.28.4-1.0.0.1.el7_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100008",
+												"comment": "nss-pkcs11-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100009",
+												"comment": "nss-sysinit is earlier than 0:3.28.4-1.0.0.1.el7_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100010",
+												"comment": "nss-sysinit is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100011",
+												"comment": "nss-tools is earlier than 0:3.28.4-1.0.0.1.el7_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100012",
+												"comment": "nss-tools is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100013",
+												"comment": "nss-util is earlier than 0:3.28.4-1.0.el7_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100014",
+												"comment": "nss-util is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100015",
+												"comment": "nss-util-devel is earlier than 0:3.28.4-1.0.el7_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20171100016",
+												"comment": "nss-util-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20171100002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20171100001",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			},
 			{
 				"operator": "AND",
 				"criterias": [
@@ -57,11 +175,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100003",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100019",
 														"comment": "nss is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100004",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100020",
 														"comment": "nss is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -70,11 +188,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100005",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100021",
 														"comment": "nss-devel is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100006",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100022",
 														"comment": "nss-devel is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -83,11 +201,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100007",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100023",
 														"comment": "nss-pkcs11-devel is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100008",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100024",
 														"comment": "nss-pkcs11-devel is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -96,11 +214,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100009",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100025",
 														"comment": "nss-sysinit is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100010",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100026",
 														"comment": "nss-sysinit is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -109,11 +227,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100011",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100027",
 														"comment": "nss-tools is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100012",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100028",
 														"comment": "nss-tools is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -122,11 +240,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100013",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100029",
 														"comment": "nss-util is earlier than 0:3.28.4-1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100014",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100030",
 														"comment": "nss-util is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -135,11 +253,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100015",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100031",
 														"comment": "nss-util-devel is earlier than 0:3.28.4-1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100016",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100032",
 														"comment": "nss-util-devel is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -149,7 +267,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20171100002",
+										"test_ref": "oval:com.oracle.elsa:tst:20171100018",
 										"comment": "Oracle Linux arch is x86_64"
 									}
 								]
@@ -164,11 +282,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100003",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100019",
 														"comment": "nss is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100004",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100020",
 														"comment": "nss is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -177,11 +295,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100005",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100021",
 														"comment": "nss-devel is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100006",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100022",
 														"comment": "nss-devel is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -190,11 +308,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100007",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100023",
 														"comment": "nss-pkcs11-devel is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100008",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100024",
 														"comment": "nss-pkcs11-devel is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -203,11 +321,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100009",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100025",
 														"comment": "nss-sysinit is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100010",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100026",
 														"comment": "nss-sysinit is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -216,11 +334,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100011",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100027",
 														"comment": "nss-tools is earlier than 0:3.28.4-1.0.1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100012",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100028",
 														"comment": "nss-tools is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -229,11 +347,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100013",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100029",
 														"comment": "nss-util is earlier than 0:3.28.4-1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100014",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100030",
 														"comment": "nss-util is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -242,11 +360,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100015",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100031",
 														"comment": "nss-util-devel is earlier than 0:3.28.4-1.el6_9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:20171100016",
+														"test_ref": "oval:com.oracle.elsa:tst:20171100032",
 														"comment": "nss-util-devel is signed with the Oracle Linux 6 key"
 													}
 												]
@@ -256,7 +374,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20171100017",
+										"test_ref": "oval:com.oracle.elsa:tst:20171100033",
 										"comment": "Oracle Linux arch is i686"
 									}
 								]
@@ -266,126 +384,8 @@
 				],
 				"criterions": [
 					{
-						"test_ref": "oval:com.oracle.elsa:tst:20171100001",
+						"test_ref": "oval:com.oracle.elsa:tst:20171100017",
 						"comment": "Oracle Linux 6 is installed"
-					}
-				]
-			},
-			{
-				"operator": "AND",
-				"criterias": [
-					{
-						"operator": "AND",
-						"criterias": [
-							{
-								"operator": "OR",
-								"criterias": [
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100020",
-												"comment": "nss is earlier than 0:3.28.4-1.0.0.1.el7_3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100021",
-												"comment": "nss is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100022",
-												"comment": "nss-devel is earlier than 0:3.28.4-1.0.0.1.el7_3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100023",
-												"comment": "nss-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100024",
-												"comment": "nss-sysinit is earlier than 0:3.28.4-1.0.0.1.el7_3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100025",
-												"comment": "nss-sysinit is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100026",
-												"comment": "nss-tools is earlier than 0:3.28.4-1.0.0.1.el7_3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100027",
-												"comment": "nss-tools is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100028",
-												"comment": "nss-util is earlier than 0:3.28.4-1.0.el7_3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100029",
-												"comment": "nss-util is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100030",
-												"comment": "nss-util-devel is earlier than 0:3.28.4-1.0.el7_3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100031",
-												"comment": "nss-util-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100032",
-												"comment": "nss-pkcs11-devel is earlier than 0:3.28.4-1.0.0.1.el7_3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20171100033",
-												"comment": "nss-pkcs11-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									}
-								]
-							}
-						],
-						"criterions": [
-							{
-								"test_ref": "oval:com.oracle.elsa:tst:20171100019",
-								"comment": "Oracle Linux arch is x86_64"
-							}
-						]
-					}
-				],
-				"criterions": [
-					{
-						"test_ref": "oval:com.oracle.elsa:tst:20171100018",
-						"comment": "Oracle Linux 7 is installed"
 					}
 				]
 			}
