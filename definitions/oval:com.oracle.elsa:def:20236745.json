@@ -14,17 +14,17 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2023-6745",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-6745.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2023-6745.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-38546",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2023-38546.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-38546.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-38545",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2023-38545.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-38545.html"
 			}
 		],
 		"description": "\n[7.76.1-26.el9_3.2]\n- fix cookie injection with none file (CVE-2023-38546)\n\n[7.76.1-26.el9_3.1]\n- socks: return error if hostname too long for remote resolve (CVE-2023-38545)\n",
@@ -37,11 +37,11 @@
 			"cve": [
 				{
 					"text": "CVE-2023-38546",
-					"href": "https://linux.oracle.com/cve/CVE-2023-38546.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2023-38546.html"
 				},
 				{
 					"text": "CVE-2023-38545",
-					"href": "https://linux.oracle.com/cve/CVE-2023-38545.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2023-38545.html"
 				}
 			]
 		}
@@ -102,11 +102,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20236745009",
-												"comment": "libcurl-devel is earlier than 0:7.76.1-26.el9_3.2"
+												"comment": "libcurl-minimal is earlier than 0:7.76.1-26.el9_3.2"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20236745010",
-												"comment": "libcurl-devel is signed with the Oracle Linux 9 key"
+												"comment": "libcurl-minimal is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -115,11 +115,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20236745011",
-												"comment": "libcurl-minimal is earlier than 0:7.76.1-26.el9_3.2"
+												"comment": "libcurl-devel is earlier than 0:7.76.1-26.el9_3.2"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20236745012",
-												"comment": "libcurl-minimal is signed with the Oracle Linux 9 key"
+												"comment": "libcurl-devel is signed with the Oracle Linux 9 key"
 											}
 										]
 									}
@@ -139,6 +139,19 @@
 							{
 								"operator": "OR",
 								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20236745011",
+												"comment": "libcurl-devel is earlier than 0:7.76.1-26.el9_3.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20236745012",
+												"comment": "libcurl-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
 									{
 										"operator": "AND",
 										"criterions": [
@@ -183,23 +196,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20236745009",
-												"comment": "libcurl-devel is earlier than 0:7.76.1-26.el9_3.2"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20236745010",
-												"comment": "libcurl-devel is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20236745011",
 												"comment": "libcurl-minimal is earlier than 0:7.76.1-26.el9_3.2"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20236745012",
+												"test_ref": "oval:com.oracle.elsa:tst:20236745010",
 												"comment": "libcurl-minimal is signed with the Oracle Linux 9 key"
 											}
 										]

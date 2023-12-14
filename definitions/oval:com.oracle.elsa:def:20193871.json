@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2019-3871",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-3871.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2019-3871.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-0155",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2019-0155.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-0155.html"
 			}
 		],
 		"description": "\n[4.18.0-147.0.3_1.OL8]\n- Oracle Linux certificates (Alexey Petrenko)\n- Oracle Linux RHCK Module Signing Key was added to the kernel trusted keys list (olkmod_signing_key.pem) [Orabug: 29539237]\n- Update x509.genkey [Orabug: 24817676]\n\n[4.18.0-147.0.3_1]\n- [drm] drm/i915/cmdparser: Fix jump whitelist clearing (Dave Airlie) [1756871 1756873] {CVE-2019-0155}\n\n",
@@ -32,7 +32,7 @@
 			"cve": [
 				{
 					"text": "CVE-2019-0155",
-					"href": "https://linux.oracle.com/cve/CVE-2019-0155.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2019-0155.html"
 				}
 			]
 		}
@@ -73,6 +73,19 @@
 							{
 								"operator": "OR",
 								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193871003",
+												"comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-147.0.3.el8_1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193871004",
+												"comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
 									{
 										"operator": "AND",
 										"criterions": [
@@ -291,19 +304,6 @@
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193871039",
 												"comment": "kernel-tools-libs is signed with the Oracle Linux 8 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193871003",
-												"comment": "kernel-tools-libs-devel is earlier than 0:4.18.0-147.0.3.el8_1"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193871004",
-												"comment": "kernel-tools-libs-devel is signed with the Oracle Linux 8 key"
 											}
 										]
 									},

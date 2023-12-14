@@ -14,22 +14,22 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2018-0998",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-0998.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2018-0998.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2017-3736",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2017-3736.html"
-			},
-			{
-				"source": "CVE",
-				"ref_id": "CVE-2017-3737",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2017-3737.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2017-3736.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2017-3738",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2017-3738.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2017-3738.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-3737",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2017-3737.html"
 			}
 		],
 		"description": "\n[1.0.2k-12.0.1]\n- sha256 is used for the RSA pairwise consistency test instead of sha1\n\n[1.0.2k-12]\n- fix CVE-2017-3737 - incorrect handling of fatal error state\n- fix CVE-2017-3738 - AVX2 Montgomery multiplication bug with 1024 bit modulus\n\n[1.0.2k-11]\n- fix deadlock in RNG in the FIPS mode in mariadb\n\n[1.0.2k-9]\n- fix CVE-2017-3736 - carry propagation bug in Montgomery multiplication\n",
@@ -37,20 +37,20 @@
 			"severity": "MODERATE",
 			"rights": "Copyright 2018 Oracle, Inc.",
 			"issued": {
-				"date": "2018-04-16"
+				"date": "2018-04-12"
 			},
 			"cve": [
 				{
 					"text": "CVE-2017-3736",
-					"href": "https://linux.oracle.com/cve/CVE-2017-3736.html"
-				},
-				{
-					"text": "CVE-2017-3737",
-					"href": "https://linux.oracle.com/cve/CVE-2017-3737.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2017-3736.html"
 				},
 				{
 					"text": "CVE-2017-3738",
-					"href": "https://linux.oracle.com/cve/CVE-2017-3738.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2017-3738.html"
+				},
+				{
+					"text": "CVE-2017-3737",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2017-3737.html"
 				}
 			]
 		}
@@ -152,6 +152,32 @@
 										"operator": "AND",
 										"criterions": [
 											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180998009",
+												"comment": "openssl-perl is earlier than 1:1.0.2k-12.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180998010",
+												"comment": "openssl-perl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180998011",
+												"comment": "openssl-static is earlier than 1:1.0.2k-12.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180998012",
+												"comment": "openssl-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180998003",
 												"comment": "openssl is earlier than 1:1.0.2k-12.0.1.el7"
 											},
@@ -184,32 +210,6 @@
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180998008",
 												"comment": "openssl-libs is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180998009",
-												"comment": "openssl-perl is earlier than 1:1.0.2k-12.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180998010",
-												"comment": "openssl-perl is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180998011",
-												"comment": "openssl-static is earlier than 1:1.0.2k-12.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180998012",
-												"comment": "openssl-static is signed with the Oracle Linux 7 key"
 											}
 										]
 									}

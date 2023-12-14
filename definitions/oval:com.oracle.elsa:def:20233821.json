@@ -14,43 +14,43 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2023-3821",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-3821.html"
-			},
-			{
-				"source": "CVE",
-				"ref_id": "CVE-2023-28755",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2023-28755.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2023-3821.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-28756",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2023-28756.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-28756.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-28755",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-28755.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2021-33621",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2021-33621.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2021-33621.html"
 			}
 		],
-		"description": "\nruby\n[2.7.8-139]\n- Upgrade to Ruby 2.7.8.\n  Resolves: rhbz#2149262\n- Fix HTTP response splitting in CGI.\n  Resolves: CVE-2021-33621\n- Fix ReDoS vulnerability in URI.\n  Resolves: CVE-2023-28755\n- Fix ReDoS vulnerability in Time.\n  Resolves: CVE-2023-28756\n\nrubygem-abrt\n[0.4.0-1]\n- Update to abrt 0.4.0.\n  Resolves: rhbz#1842476\n\nrubygem-bson\n[4.8.1-1]\n- Update to bson 4.8.1 by merging Fedora master branch (commit: 0741dbc)\n  Resolves: rhbz#1817135\n\nrubygem-mongo\n[2.11.3-1]\n- Update to mongo 2.11.3 by merging Fedora master branch (commit: c3f83c2)\n  Resolves: rhbz#1817135\n\nrubygem-mysql2\n[0.5.3-2]\n- Update by merging Fedora rawhide branch (commit: 81e2cc9)\n- Fix Mysql2::Result test for Ruby 3.1.\n- Remove gem_make.out and mkmf.log files from the binary RPM package.\n- Fix test assertion for mariadb-connector-c.\n  Related: rhbz#2063772\n\n[0.5.3-1]\n- New upstream release 0.5.3 by merging Fedora master branch (commit: 674d475)\n  Resolves: rhbz#1817135\n\n[0.5.2-1]\n- New upstream release 0.5.2 by merging Fedora master branch (commit: cc15309)\n  Resolves: rhbz#1672575\n\nrubygem-pg\n[1.2.3-1]\n- Update to pg 1.2.3 by merging Fedora master branch (commit: 5db4d26)\n  Resolves: rhbz#1817135\n",
+		"description": "\n  \n",
 		"advisory": {
 			"severity": "MODERATE",
 			"rights": "Copyright 2023 Oracle, Inc.",
 			"issued": {
-				"date": "2023-07-08"
+				"date": "2023-07-04"
 			},
 			"cve": [
 				{
-					"text": "CVE-2023-28755",
-					"href": "https://linux.oracle.com/cve/CVE-2023-28755.html"
+					"text": "CVE-2023-28756",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2023-28756.html"
 				},
 				{
-					"text": "CVE-2023-28756",
-					"href": "https://linux.oracle.com/cve/CVE-2023-28756.html"
+					"text": "CVE-2023-28755",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2023-28755.html"
 				},
 				{
 					"text": "CVE-2021-33621",
-					"href": "https://linux.oracle.com/cve/CVE-2021-33621.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2021-33621.html"
 				}
 			]
 		}
@@ -538,6 +538,19 @@
 														"operator": "AND",
 														"criterions": [
 															{
+																"test_ref": "oval:com.oracle.elsa:tst:20233821008",
+																"comment": "rubygem-bson is earlier than 0:4.8.1-1.module+el8.4.0+20239+cbf59dc8"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20233821009",
+																"comment": "rubygem-bson is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
 																"test_ref": "oval:com.oracle.elsa:tst:20233821010",
 																"comment": "rubygem-bson-doc is earlier than 0:4.8.1-1.module+el8.4.0+20239+cbf59dc8"
 															},
@@ -577,45 +590,6 @@
 														"operator": "AND",
 														"criterions": [
 															{
-																"test_ref": "oval:com.oracle.elsa:tst:20233821020",
-																"comment": "rubygem-pg is earlier than 0:1.2.3-1.module+el8.4.0+20239+cbf59dc8"
-															},
-															{
-																"test_ref": "oval:com.oracle.elsa:tst:20233821021",
-																"comment": "rubygem-pg is signed with the Oracle Linux 8 key"
-															}
-														]
-													},
-													{
-														"operator": "AND",
-														"criterions": [
-															{
-																"test_ref": "oval:com.oracle.elsa:tst:20233821022",
-																"comment": "rubygem-pg-doc is earlier than 0:1.2.3-1.module+el8.4.0+20239+cbf59dc8"
-															},
-															{
-																"test_ref": "oval:com.oracle.elsa:tst:20233821023",
-																"comment": "rubygem-pg-doc is signed with the Oracle Linux 8 key"
-															}
-														]
-													},
-													{
-														"operator": "AND",
-														"criterions": [
-															{
-																"test_ref": "oval:com.oracle.elsa:tst:20233821008",
-																"comment": "rubygem-bson is earlier than 0:4.8.1-1.module+el8.4.0+20239+cbf59dc8"
-															},
-															{
-																"test_ref": "oval:com.oracle.elsa:tst:20233821009",
-																"comment": "rubygem-bson is signed with the Oracle Linux 8 key"
-															}
-														]
-													},
-													{
-														"operator": "AND",
-														"criterions": [
-															{
 																"test_ref": "oval:com.oracle.elsa:tst:20233821016",
 																"comment": "rubygem-mysql2 is earlier than 0:0.5.3-1.module+el8.4.0+20239+cbf59dc8"
 															},
@@ -635,6 +609,32 @@
 															{
 																"test_ref": "oval:com.oracle.elsa:tst:20233821019",
 																"comment": "rubygem-mysql2-doc is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20233821020",
+																"comment": "rubygem-pg is earlier than 0:1.2.3-1.module+el8.4.0+20239+cbf59dc8"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20233821021",
+																"comment": "rubygem-pg is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20233821022",
+																"comment": "rubygem-pg-doc is earlier than 0:1.2.3-1.module+el8.4.0+20239+cbf59dc8"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20233821023",
+																"comment": "rubygem-pg-doc is signed with the Oracle Linux 8 key"
 															}
 														]
 													}

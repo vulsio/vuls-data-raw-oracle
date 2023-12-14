@@ -15,15 +15,15 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2023-28765",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-28765.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2023-28765.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-4039",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2023-4039.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-4039.html"
 			}
 		],
-		"description": "\n[12.1.1-2.0.4]\n- CVE-2023-4039 mitigation.\n  Orabug 35752028.\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n",
+		"description": "\n[12.1.1-2.0.4]\n- CVE-2023-4039 mitigation.\n  Orabug 35752028.\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[12.1.1-2.0.2]\n- Bundle libisl to avoid dependency issues.\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[12.1.1-2.0.1]\n- Upgrade to GCC 12.1.1, match EPEL version and patch level.\n- Enable all crosses.\n- Backport BPF and BTF patches since GCC 12.1, upstream commits:\n  + 2df74a891ee bpf: facilitate constant propagation of function addresses\n  + ddbe163295b bpf: define __bpf__ as well as __BPF__ as a target macro\n  + 8d66fc30fa9 bpf: handle anonymous members in CO-RE reloc [PR106745]\n  + 91985be7c2d bpf: remove unused variables from bpf_expand_{prologue,epilogue}\n  + dddda0dd3d8 bpf: add preserve_field_info builtin\n  + e2468573832 bpf: cleanup missed refactor\n  + ba9fd168753 bpf: Use enum for resolved overloaded builtins\n  + cc2df4391b8 bpf: avoid possible use of uninitialized variable\n  + cdc00c84859 bpf: add define_insn for bswap\n  + f7111d5d55d bpf: correct bpf_print_operand for floats [PR108293]\n  + 7f748531f65 bpf: disable -fstack-protector in BPF\n  + 08b30c74bd2 btf: emit linkage information in BTF_KIND_FUNC entries\n  + 380f07fe68e btf: do not use the CHAR encoding' bit for BTF\n  + c42410400c9 btf: Add support to BTF_KIND_ENUM64 type\n  + 58580f5093e btf: add 'extern' linkage for variables [PR106773]\n  + 1fc2ef20480 btf: fix 'extern const void' variables [PR106773]\n  + 73e7495846e btf: correct generation for extern funcs [PR106773]\n  + c348a717213 bpf: fix memory constraint of ldx/stx instructions [PR108790]\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.5.0-5.0.1]\n- Update to GCC 8.5.0-15 release\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.5.0-4.0.1]\n- Add fix for Orabug 34066706 from native GCC:\n  + Report error when PROGRAM_SUMMARY section missing in .gcda file.\n- Reviewed-by: Qing Zhao <qing.zhao@oracle.com>\n\n[8.5.0-3.0.1]\n- Update to GCC 8.5.0-10 release\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.5.0-2.0.1]\n- Update to GCC 8.5.0-4 release\n- add -Wbidirectional patch (#2008391)\n- Reviewed-by: Jose E. Machesi <jose.marchesi@oracle.com>\n\n[8.5.0-1.0.1]\n- Forward-port to gcc 8.5.0\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.4.1-1.0.3]\n- Backport the following fixes from upstream:\n  + 1848fbf0546 ctfc: Free CTF container elements in ctfc_delete_container ()\n  + ae2df1a347f ctf: Do not warn for CTF not supported for GNU GIMPLE\n  + d6a87d96d74 debug/102507: ICE in btf_finalize when compiling with -gbtf\n- Remove BPF CO-RE support.\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.4.1-1.0.2]\n- Add BPF atomic instructions\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.4.1-1.0.1]\n- Forward-port to gcc 8.4.1\n- Fix ICE reported in Orabug 33249606 by backporting fix for upstream PR85401\n- Add CTF/BTF support to match OL8 GCC\n- Backport the following BPF bug-fixes from upstream:\n  + 0a662e103e9 bpf: align function entry point to 64 bits\n  + 886b6c1e8af bpf: allow BSS symbols to be global symbols\n  + c3a0f537391 bpf: generate indirect calls for xBPF\n  + 7c8ba5da80d bpf: use xBPF signed div,mod insns when available\n  + 4f0f696fea1 bpf: correct zero_extend output_templates\n- Add BPF CO-RE support\n- Add BPF -mcpu and related feature options\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\n[8.3.1-1.0.7]\n- Backport of upstream patch:\n  5bcc0fa05ef713594f6c6d55d5c837e13a9c9803 - Use expected insn for BPFNOP.\n- Reviewed-by: David Faust <david.faust@oracle.com>\n\n[8.3.1-1.0.6]\n- Backports of upstream patches:\n  + c9d44022359 bpf: use elfos.h\n  + e87c540fe43 bpf: remove trailing whitespaces from source files\n  + af30b83b509 bpf: more flexible support for kernel helpers\n- Reviewed-by: Qing Zhao <qing.zhao@oracle.com>\n\n[8.3.1-1.0.5]\n- Support for the -mxbpf command line option.\n- Do not save/restore callee-saved registers in function\n  prologues/epilogues unless generating xBPF.\n- Reviewed-by: Elena Zannoni <elena.zannoni@oracle.com>\n\n[8.3.1-1.0.4]\n- Avoid generation of funcalls for one_cmpl{si,di}2 insns in BPF.\n- Reviewed-by: Egeyar Bagcioglu <egeyar.bagcioglu@oracle.com>\n\n[8.3.1-1.0.3]\n- Fix changelog format.\n- Ready for errata release.\n- OraBug 30640260.\n- Reviewed-by: Elena Zannoni <elena.zannoni@oracle.com>\n\n* Wed Nov 20 2019 Jose E. marchesi <jose.marchesi@oracle.com - 8.3.1-1.0.2\n- Updated to match OL8 gcc.\n- Support for bpf-unknown-none targets.\n\n[8.2.1-1.2]\n- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild\n\n[8.2.1-1]\n- update to 8.2.1\n\n[8.1.1-3.1]\n- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild\n\n[8.1.1-3]\n- Change ARC to multilib (#1600183).\n- Fix arc700 cpu type (#1600183).\n\n[8.1.1-3]\n- Switch ARC to arc-linux-gnu and use hs38 not arc700 (#1600183).\n\n[8.1.1-2]\n- Sync with gcc-8.1.1-4.\n- Add support for the ARC arch (#1599744).\n\n[8.1.1-1]\n- Sync with gcc-8.1.1-1.\n\n[8.0.1-0.1]\n- Move to gcc-8 (#1580076).\n",
 		"advisory": {
 			"severity": "LOW",
 			"rights": "Copyright 2023 Oracle, Inc.",
@@ -33,7 +33,7 @@
 			"cve": [
 				{
 					"text": "CVE-2023-4039",
-					"href": "https://linux.oracle.com/cve/CVE-2023-4039.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2023-4039.html"
 				}
 			]
 		}
@@ -58,7 +58,7 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765003",
-														"comment": "cross-gcc-common is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "cross-gcc-common is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765004",
@@ -71,11 +71,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765005",
-														"comment": "gcc-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "cross-gcc-common is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765006",
-														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "cross-gcc-common is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -84,11 +84,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765007",
-														"comment": "gcc-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-aarch64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765008",
-														"comment": "gcc-alpha-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -97,11 +97,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765009",
-														"comment": "gcc-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765010",
-														"comment": "gcc-arc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -110,11 +110,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765011",
-														"comment": "gcc-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765012",
-														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-alpha-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -123,11 +123,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765013",
-														"comment": "gcc-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765014",
-														"comment": "gcc-avr32-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-arc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -136,11 +136,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765015",
-														"comment": "gcc-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-arm-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765016",
-														"comment": "gcc-bfin-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -149,11 +149,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765017",
-														"comment": "gcc-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765018",
-														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 8 key"
+														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -162,11 +162,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765019",
-														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765020",
-														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-avr32-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -175,11 +175,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765021",
-														"comment": "gcc-c++-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765022",
-														"comment": "gcc-c++-alpha-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-bfin-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -188,11 +188,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765023",
-														"comment": "gcc-c++-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-bpf-unknown-none is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765024",
-														"comment": "gcc-c++-arc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -201,11 +201,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765025",
-														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765026",
-														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -214,11 +214,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765027",
-														"comment": "gcc-c++-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765028",
-														"comment": "gcc-c++-avr32-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -227,11 +227,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765029",
-														"comment": "gcc-c++-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765030",
-														"comment": "gcc-c++-bfin-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -240,11 +240,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765031",
-														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765032",
-														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-alpha-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -253,11 +253,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765033",
-														"comment": "gcc-c++-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765034",
-														"comment": "gcc-c++-c6x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-arc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -266,11 +266,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765035",
-														"comment": "gcc-c++-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765036",
-														"comment": "gcc-c++-frv-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -279,11 +279,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765037",
-														"comment": "gcc-c++-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765038",
-														"comment": "gcc-c++-h8300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -292,11 +292,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765039",
-														"comment": "gcc-c++-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765040",
-														"comment": "gcc-c++-hppa-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-avr32-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -305,11 +305,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765041",
-														"comment": "gcc-c++-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765042",
-														"comment": "gcc-c++-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-bfin-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -318,11 +318,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765043",
-														"comment": "gcc-c++-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765044",
-														"comment": "gcc-c++-ia64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -331,11 +331,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765045",
-														"comment": "gcc-c++-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765046",
-														"comment": "gcc-c++-m68k-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -344,11 +344,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765047",
-														"comment": "gcc-c++-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765048",
-														"comment": "gcc-c++-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-c6x-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -357,11 +357,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765049",
-														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765050",
-														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-frv-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -370,11 +370,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765051",
-														"comment": "gcc-c++-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765052",
-														"comment": "gcc-c++-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-h8300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -383,11 +383,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765053",
-														"comment": "gcc-c++-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765054",
-														"comment": "gcc-c++-nios2-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-hppa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -396,11 +396,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765055",
-														"comment": "gcc-c++-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765056",
-														"comment": "gcc-c++-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -409,11 +409,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765057",
-														"comment": "gcc-c++-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765058",
-														"comment": "gcc-c++-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-ia64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -422,11 +422,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765059",
-														"comment": "gcc-c++-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765060",
-														"comment": "gcc-c++-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-m68k-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -435,11 +435,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765061",
-														"comment": "gcc-c++-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765062",
-														"comment": "gcc-c++-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -448,11 +448,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765063",
-														"comment": "gcc-c++-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765064",
-														"comment": "gcc-c++-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -461,11 +461,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765065",
-														"comment": "gcc-c++-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765066",
-														"comment": "gcc-c++-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -474,11 +474,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765067",
-														"comment": "gcc-c++-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765068",
-														"comment": "gcc-c++-s390x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -487,11 +487,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765069",
-														"comment": "gcc-c++-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765070",
-														"comment": "gcc-c++-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-nios2-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -500,11 +500,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765071",
-														"comment": "gcc-c++-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765072",
-														"comment": "gcc-c++-tile-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -513,11 +513,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765073",
-														"comment": "gcc-c++-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765074",
-														"comment": "gcc-c++-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -526,11 +526,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765075",
-														"comment": "gcc-c++-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765076",
-														"comment": "gcc-c++-xtensa-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -539,11 +539,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765077",
-														"comment": "gcc-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765078",
-														"comment": "gcc-c6x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -552,11 +552,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765079",
-														"comment": "gcc-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765080",
-														"comment": "gcc-frv-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -565,11 +565,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765081",
-														"comment": "gcc-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765082",
-														"comment": "gcc-h8300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -578,11 +578,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765083",
-														"comment": "gcc-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765084",
-														"comment": "gcc-hppa-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-s390x-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -591,11 +591,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765085",
-														"comment": "gcc-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765086",
-														"comment": "gcc-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -604,11 +604,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765087",
-														"comment": "gcc-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765088",
-														"comment": "gcc-ia64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-tile-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -617,11 +617,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765089",
-														"comment": "gcc-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765090",
-														"comment": "gcc-m68k-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -630,11 +630,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765091",
-														"comment": "gcc-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765092",
-														"comment": "gcc-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-xtensa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -643,11 +643,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765093",
-														"comment": "gcc-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765094",
-														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c6x-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -656,11 +656,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765095",
-														"comment": "gcc-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765096",
-														"comment": "gcc-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-frv-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -669,11 +669,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765097",
-														"comment": "gcc-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765098",
-														"comment": "gcc-nios2-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-h8300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -682,11 +682,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765099",
-														"comment": "gcc-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765100",
-														"comment": "gcc-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-hppa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -695,11 +695,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765101",
-														"comment": "gcc-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765102",
-														"comment": "gcc-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -708,11 +708,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765103",
-														"comment": "gcc-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765104",
-														"comment": "gcc-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-ia64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -721,11 +721,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765105",
-														"comment": "gcc-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765106",
-														"comment": "gcc-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-m68k-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -734,11 +734,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765107",
-														"comment": "gcc-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765108",
-														"comment": "gcc-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -747,11 +747,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765109",
-														"comment": "gcc-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-mips64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765110",
-														"comment": "gcc-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -760,11 +760,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765111",
-														"comment": "gcc-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765112",
-														"comment": "gcc-s390x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -773,11 +773,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765113",
-														"comment": "gcc-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765114",
-														"comment": "gcc-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -786,11 +786,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765115",
-														"comment": "gcc-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765116",
-														"comment": "gcc-tile-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-nios2-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -799,11 +799,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765117",
-														"comment": "gcc-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765118",
-														"comment": "gcc-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -812,10 +812,127 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765119",
-														"comment": "gcc-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765120",
+														"comment": "gcc-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765121",
+														"comment": "gcc-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765122",
+														"comment": "gcc-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765123",
+														"comment": "gcc-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765124",
+														"comment": "gcc-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765125",
+														"comment": "gcc-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765126",
+														"comment": "gcc-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765127",
+														"comment": "gcc-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765128",
+														"comment": "gcc-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765129",
+														"comment": "gcc-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765130",
+														"comment": "gcc-s390x-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765131",
+														"comment": "gcc-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765132",
+														"comment": "gcc-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765133",
+														"comment": "gcc-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765134",
+														"comment": "gcc-tile-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765135",
+														"comment": "gcc-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765136",
+														"comment": "gcc-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765137",
+														"comment": "gcc-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765138",
 														"comment": "gcc-xtensa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -841,7 +958,7 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765003",
-														"comment": "cross-gcc-common is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "cross-gcc-common is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765004",
@@ -854,11 +971,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765005",
-														"comment": "gcc-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "cross-gcc-common is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765006",
-														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "cross-gcc-common is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -867,11 +984,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765007",
-														"comment": "gcc-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-aarch64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765008",
-														"comment": "gcc-alpha-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -880,11 +997,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765009",
-														"comment": "gcc-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765010",
-														"comment": "gcc-arc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -893,11 +1010,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765011",
-														"comment": "gcc-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765012",
-														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-alpha-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -906,11 +1023,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765013",
-														"comment": "gcc-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765014",
-														"comment": "gcc-avr32-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-arc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -919,11 +1036,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765015",
-														"comment": "gcc-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-arm-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765016",
-														"comment": "gcc-bfin-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -932,11 +1049,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765017",
-														"comment": "gcc-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765018",
-														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 8 key"
+														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -945,11 +1062,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765019",
-														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765020",
-														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-avr32-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -958,11 +1075,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765021",
-														"comment": "gcc-c++-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765022",
-														"comment": "gcc-c++-alpha-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-bfin-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -971,11 +1088,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765023",
-														"comment": "gcc-c++-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-bpf-unknown-none is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765024",
-														"comment": "gcc-c++-arc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -984,11 +1101,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765025",
-														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765026",
-														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -997,11 +1114,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765027",
-														"comment": "gcc-c++-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765028",
-														"comment": "gcc-c++-avr32-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1010,11 +1127,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765029",
-														"comment": "gcc-c++-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765030",
-														"comment": "gcc-c++-bfin-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1023,11 +1140,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765031",
-														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765032",
-														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-alpha-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1036,11 +1153,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765033",
-														"comment": "gcc-c++-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765034",
-														"comment": "gcc-c++-c6x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-arc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1049,11 +1166,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765035",
-														"comment": "gcc-c++-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765036",
-														"comment": "gcc-c++-frv-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1062,11 +1179,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765037",
-														"comment": "gcc-c++-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765038",
-														"comment": "gcc-c++-h8300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1075,11 +1192,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765039",
-														"comment": "gcc-c++-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765040",
-														"comment": "gcc-c++-hppa-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-avr32-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1088,11 +1205,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765041",
-														"comment": "gcc-c++-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765042",
-														"comment": "gcc-c++-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-bfin-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1101,11 +1218,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765043",
-														"comment": "gcc-c++-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765044",
-														"comment": "gcc-c++-ia64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1114,11 +1231,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765045",
-														"comment": "gcc-c++-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765046",
-														"comment": "gcc-c++-m68k-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1127,11 +1244,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765047",
-														"comment": "gcc-c++-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765048",
-														"comment": "gcc-c++-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-c6x-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1140,11 +1257,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765049",
-														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765050",
-														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-frv-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1153,11 +1270,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765051",
-														"comment": "gcc-c++-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765052",
-														"comment": "gcc-c++-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-h8300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1166,11 +1283,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765053",
-														"comment": "gcc-c++-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765054",
-														"comment": "gcc-c++-nios2-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-hppa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1179,11 +1296,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765055",
-														"comment": "gcc-c++-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765056",
-														"comment": "gcc-c++-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1192,11 +1309,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765057",
-														"comment": "gcc-c++-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765058",
-														"comment": "gcc-c++-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-ia64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1205,11 +1322,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765059",
-														"comment": "gcc-c++-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765060",
-														"comment": "gcc-c++-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-m68k-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1218,11 +1335,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765061",
-														"comment": "gcc-c++-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765062",
-														"comment": "gcc-c++-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1231,11 +1348,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765063",
-														"comment": "gcc-c++-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765064",
-														"comment": "gcc-c++-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1244,11 +1361,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765065",
-														"comment": "gcc-c++-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765066",
-														"comment": "gcc-c++-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1257,11 +1374,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765067",
-														"comment": "gcc-c++-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765068",
-														"comment": "gcc-c++-s390x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1270,11 +1387,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765069",
-														"comment": "gcc-c++-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765070",
-														"comment": "gcc-c++-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-nios2-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1283,11 +1400,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765071",
-														"comment": "gcc-c++-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765072",
-														"comment": "gcc-c++-tile-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1296,11 +1413,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765073",
-														"comment": "gcc-c++-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765074",
-														"comment": "gcc-c++-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1309,11 +1426,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765075",
-														"comment": "gcc-c++-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765076",
-														"comment": "gcc-c++-xtensa-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1322,11 +1439,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765077",
-														"comment": "gcc-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765078",
-														"comment": "gcc-c6x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1335,11 +1452,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765079",
-														"comment": "gcc-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765080",
-														"comment": "gcc-frv-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1348,11 +1465,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765081",
-														"comment": "gcc-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765082",
-														"comment": "gcc-h8300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1361,11 +1478,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765083",
-														"comment": "gcc-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765084",
-														"comment": "gcc-hppa-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-s390x-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1374,11 +1491,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765085",
-														"comment": "gcc-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765086",
-														"comment": "gcc-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1387,11 +1504,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765087",
-														"comment": "gcc-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765088",
-														"comment": "gcc-ia64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-tile-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1400,11 +1517,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765089",
-														"comment": "gcc-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765090",
-														"comment": "gcc-m68k-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1413,11 +1530,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765091",
-														"comment": "gcc-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c++-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765092",
-														"comment": "gcc-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c++-xtensa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1426,11 +1543,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765093",
-														"comment": "gcc-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765094",
-														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-c6x-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1439,11 +1556,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765095",
-														"comment": "gcc-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765096",
-														"comment": "gcc-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-frv-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1452,11 +1569,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765097",
-														"comment": "gcc-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765098",
-														"comment": "gcc-nios2-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-h8300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1465,11 +1582,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765099",
-														"comment": "gcc-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765100",
-														"comment": "gcc-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-hppa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1478,11 +1595,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765101",
-														"comment": "gcc-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765102",
-														"comment": "gcc-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-hppa64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1491,11 +1608,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765103",
-														"comment": "gcc-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765104",
-														"comment": "gcc-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-ia64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1504,11 +1621,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765105",
-														"comment": "gcc-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765106",
-														"comment": "gcc-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-m68k-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1517,11 +1634,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765107",
-														"comment": "gcc-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765108",
-														"comment": "gcc-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-microblaze-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1530,11 +1647,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765109",
-														"comment": "gcc-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-mips64-linux-gnu is earlier than 0:11.2.1-5.0.2.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765110",
-														"comment": "gcc-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1543,11 +1660,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765111",
-														"comment": "gcc-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765112",
-														"comment": "gcc-s390x-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1556,11 +1673,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765113",
-														"comment": "gcc-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765114",
-														"comment": "gcc-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-mn10300-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1569,11 +1686,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765115",
-														"comment": "gcc-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765116",
-														"comment": "gcc-tile-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-nios2-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1582,11 +1699,11 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765117",
-														"comment": "gcc-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765118",
-														"comment": "gcc-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
+														"comment": "gcc-openrisc-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
 											},
@@ -1595,10 +1712,127 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765119",
-														"comment": "gcc-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+														"comment": "gcc-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
 													},
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202328765120",
+														"comment": "gcc-powerpc64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765121",
+														"comment": "gcc-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765122",
+														"comment": "gcc-powerpc64le-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765123",
+														"comment": "gcc-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765124",
+														"comment": "gcc-ppc64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765125",
+														"comment": "gcc-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765126",
+														"comment": "gcc-ppc64le-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765127",
+														"comment": "gcc-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765128",
+														"comment": "gcc-riscv64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765129",
+														"comment": "gcc-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765130",
+														"comment": "gcc-s390x-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765131",
+														"comment": "gcc-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765132",
+														"comment": "gcc-sparc64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765133",
+														"comment": "gcc-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765134",
+														"comment": "gcc-tile-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765135",
+														"comment": "gcc-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765136",
+														"comment": "gcc-x86_64-linux-gnu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765137",
+														"comment": "gcc-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202328765138",
 														"comment": "gcc-xtensa-linux-gnu is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1608,7 +1842,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:202328765121",
+										"test_ref": "oval:com.oracle.elsa:tst:202328765139",
 										"comment": "Oracle Linux arch is x86_64"
 									}
 								]
@@ -1639,11 +1873,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765124",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765142",
 														"comment": "cross-gcc-common is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765125",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765143",
 														"comment": "cross-gcc-common is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1652,11 +1886,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765126",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765144",
 														"comment": "gcc-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765127",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765145",
 														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1665,11 +1899,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765128",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765146",
 														"comment": "gcc-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765129",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765147",
 														"comment": "gcc-alpha-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1678,11 +1912,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765130",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765148",
 														"comment": "gcc-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765131",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765149",
 														"comment": "gcc-arc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1691,11 +1925,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765132",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765150",
 														"comment": "gcc-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765133",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765151",
 														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1704,11 +1938,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765134",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765152",
 														"comment": "gcc-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765135",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765153",
 														"comment": "gcc-avr32-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1717,11 +1951,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765136",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765154",
 														"comment": "gcc-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765137",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765155",
 														"comment": "gcc-bfin-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1730,11 +1964,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765138",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765156",
 														"comment": "gcc-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765139",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765157",
 														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1743,11 +1977,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765140",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765158",
 														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765141",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765159",
 														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1756,11 +1990,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765142",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765160",
 														"comment": "gcc-c++-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765143",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765161",
 														"comment": "gcc-c++-alpha-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1769,11 +2003,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765144",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765162",
 														"comment": "gcc-c++-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765145",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765163",
 														"comment": "gcc-c++-arc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1782,11 +2016,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765146",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765164",
 														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765147",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765165",
 														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1795,11 +2029,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765148",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765166",
 														"comment": "gcc-c++-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765149",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765167",
 														"comment": "gcc-c++-avr32-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1808,11 +2042,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765150",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765168",
 														"comment": "gcc-c++-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765151",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765169",
 														"comment": "gcc-c++-bfin-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1821,11 +2055,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765152",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765170",
 														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765153",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765171",
 														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1834,11 +2068,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765154",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765172",
 														"comment": "gcc-c++-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765155",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765173",
 														"comment": "gcc-c++-c6x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1847,11 +2081,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765156",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765174",
 														"comment": "gcc-c++-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765157",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765175",
 														"comment": "gcc-c++-frv-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1860,11 +2094,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765158",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765176",
 														"comment": "gcc-c++-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765159",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765177",
 														"comment": "gcc-c++-h8300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1873,11 +2107,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765160",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765178",
 														"comment": "gcc-c++-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765161",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765179",
 														"comment": "gcc-c++-hppa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1886,11 +2120,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765162",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765180",
 														"comment": "gcc-c++-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765163",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765181",
 														"comment": "gcc-c++-hppa64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1899,11 +2133,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765164",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765182",
 														"comment": "gcc-c++-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765165",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765183",
 														"comment": "gcc-c++-ia64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1912,11 +2146,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765166",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765184",
 														"comment": "gcc-c++-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765167",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765185",
 														"comment": "gcc-c++-m68k-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1925,11 +2159,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765168",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765186",
 														"comment": "gcc-c++-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765169",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765187",
 														"comment": "gcc-c++-microblaze-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1938,11 +2172,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765170",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765188",
 														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765171",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765189",
 														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1951,11 +2185,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765172",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765190",
 														"comment": "gcc-c++-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765173",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765191",
 														"comment": "gcc-c++-mn10300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1964,11 +2198,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765174",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765192",
 														"comment": "gcc-c++-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765175",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765193",
 														"comment": "gcc-c++-nios2-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1977,11 +2211,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765176",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765194",
 														"comment": "gcc-c++-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765177",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765195",
 														"comment": "gcc-c++-openrisc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -1990,11 +2224,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765178",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765196",
 														"comment": "gcc-c++-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765179",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765197",
 														"comment": "gcc-c++-powerpc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2003,11 +2237,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765180",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765198",
 														"comment": "gcc-c++-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765181",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765199",
 														"comment": "gcc-c++-powerpc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2016,11 +2250,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765182",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765200",
 														"comment": "gcc-c++-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765183",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765201",
 														"comment": "gcc-c++-ppc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2029,11 +2263,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765184",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765202",
 														"comment": "gcc-c++-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765185",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765203",
 														"comment": "gcc-c++-ppc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2042,11 +2276,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765186",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765204",
 														"comment": "gcc-c++-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765187",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765205",
 														"comment": "gcc-c++-riscv64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2055,11 +2289,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765188",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765206",
 														"comment": "gcc-c++-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765189",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765207",
 														"comment": "gcc-c++-s390x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2068,11 +2302,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765190",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765208",
 														"comment": "gcc-c++-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765191",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765209",
 														"comment": "gcc-c++-sparc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2081,11 +2315,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765192",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765210",
 														"comment": "gcc-c++-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765193",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765211",
 														"comment": "gcc-c++-tile-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2094,11 +2328,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765194",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765212",
 														"comment": "gcc-c++-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765195",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765213",
 														"comment": "gcc-c++-x86_64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2107,11 +2341,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765196",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765214",
 														"comment": "gcc-c++-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765197",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765215",
 														"comment": "gcc-c++-xtensa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2120,11 +2354,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765198",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765216",
 														"comment": "gcc-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765199",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765217",
 														"comment": "gcc-c6x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2133,11 +2367,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765200",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765218",
 														"comment": "gcc-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765201",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765219",
 														"comment": "gcc-frv-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2146,11 +2380,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765202",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765220",
 														"comment": "gcc-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765203",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765221",
 														"comment": "gcc-h8300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2159,11 +2393,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765204",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765222",
 														"comment": "gcc-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765205",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765223",
 														"comment": "gcc-hppa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2172,11 +2406,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765206",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765224",
 														"comment": "gcc-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765207",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765225",
 														"comment": "gcc-hppa64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2185,11 +2419,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765208",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765226",
 														"comment": "gcc-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765209",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765227",
 														"comment": "gcc-ia64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2198,11 +2432,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765210",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765228",
 														"comment": "gcc-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765211",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765229",
 														"comment": "gcc-m68k-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2211,11 +2445,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765212",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765230",
 														"comment": "gcc-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765213",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765231",
 														"comment": "gcc-microblaze-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2224,11 +2458,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765214",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765232",
 														"comment": "gcc-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765215",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765233",
 														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2237,11 +2471,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765216",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765234",
 														"comment": "gcc-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765217",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765235",
 														"comment": "gcc-mn10300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2250,11 +2484,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765218",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765236",
 														"comment": "gcc-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765219",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765237",
 														"comment": "gcc-nios2-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2263,11 +2497,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765220",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765238",
 														"comment": "gcc-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765221",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765239",
 														"comment": "gcc-openrisc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2276,11 +2510,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765222",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765240",
 														"comment": "gcc-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765223",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765241",
 														"comment": "gcc-powerpc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2289,11 +2523,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765224",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765242",
 														"comment": "gcc-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765225",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765243",
 														"comment": "gcc-powerpc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2302,11 +2536,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765226",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765244",
 														"comment": "gcc-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765227",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765245",
 														"comment": "gcc-ppc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2315,11 +2549,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765228",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765246",
 														"comment": "gcc-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765229",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765247",
 														"comment": "gcc-ppc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2328,11 +2562,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765230",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765248",
 														"comment": "gcc-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765231",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765249",
 														"comment": "gcc-riscv64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2341,11 +2575,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765232",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765250",
 														"comment": "gcc-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765233",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765251",
 														"comment": "gcc-s390x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2354,11 +2588,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765234",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765252",
 														"comment": "gcc-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765235",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765253",
 														"comment": "gcc-sparc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2367,11 +2601,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765236",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765254",
 														"comment": "gcc-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765237",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765255",
 														"comment": "gcc-tile-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2380,11 +2614,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765238",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765256",
 														"comment": "gcc-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765239",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765257",
 														"comment": "gcc-x86_64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2393,11 +2627,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765240",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765258",
 														"comment": "gcc-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765241",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765259",
 														"comment": "gcc-xtensa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2407,7 +2641,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:202328765123",
+										"test_ref": "oval:com.oracle.elsa:tst:202328765141",
 										"comment": "Oracle Linux arch is aarch64"
 									}
 								]
@@ -2422,11 +2656,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765124",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765142",
 														"comment": "cross-gcc-common is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765125",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765143",
 														"comment": "cross-gcc-common is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2435,11 +2669,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765126",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765144",
 														"comment": "gcc-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765127",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765145",
 														"comment": "gcc-aarch64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2448,11 +2682,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765128",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765146",
 														"comment": "gcc-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765129",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765147",
 														"comment": "gcc-alpha-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2461,11 +2695,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765130",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765148",
 														"comment": "gcc-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765131",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765149",
 														"comment": "gcc-arc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2474,11 +2708,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765132",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765150",
 														"comment": "gcc-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765133",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765151",
 														"comment": "gcc-arm-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2487,11 +2721,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765134",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765152",
 														"comment": "gcc-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765135",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765153",
 														"comment": "gcc-avr32-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2500,11 +2734,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765136",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765154",
 														"comment": "gcc-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765137",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765155",
 														"comment": "gcc-bfin-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2513,11 +2747,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765138",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765156",
 														"comment": "gcc-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765139",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765157",
 														"comment": "gcc-bpf-unknown-none is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2526,11 +2760,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765140",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765158",
 														"comment": "gcc-c++-aarch64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765141",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765159",
 														"comment": "gcc-c++-aarch64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2539,11 +2773,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765142",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765160",
 														"comment": "gcc-c++-alpha-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765143",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765161",
 														"comment": "gcc-c++-alpha-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2552,11 +2786,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765144",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765162",
 														"comment": "gcc-c++-arc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765145",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765163",
 														"comment": "gcc-c++-arc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2565,11 +2799,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765146",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765164",
 														"comment": "gcc-c++-arm-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765147",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765165",
 														"comment": "gcc-c++-arm-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2578,11 +2812,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765148",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765166",
 														"comment": "gcc-c++-avr32-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765149",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765167",
 														"comment": "gcc-c++-avr32-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2591,11 +2825,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765150",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765168",
 														"comment": "gcc-c++-bfin-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765151",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765169",
 														"comment": "gcc-c++-bfin-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2604,11 +2838,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765152",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765170",
 														"comment": "gcc-c++-bpf-unknown-none is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765153",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765171",
 														"comment": "gcc-c++-bpf-unknown-none is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2617,11 +2851,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765154",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765172",
 														"comment": "gcc-c++-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765155",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765173",
 														"comment": "gcc-c++-c6x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2630,11 +2864,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765156",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765174",
 														"comment": "gcc-c++-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765157",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765175",
 														"comment": "gcc-c++-frv-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2643,11 +2877,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765158",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765176",
 														"comment": "gcc-c++-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765159",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765177",
 														"comment": "gcc-c++-h8300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2656,11 +2890,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765160",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765178",
 														"comment": "gcc-c++-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765161",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765179",
 														"comment": "gcc-c++-hppa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2669,11 +2903,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765162",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765180",
 														"comment": "gcc-c++-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765163",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765181",
 														"comment": "gcc-c++-hppa64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2682,11 +2916,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765164",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765182",
 														"comment": "gcc-c++-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765165",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765183",
 														"comment": "gcc-c++-ia64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2695,11 +2929,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765166",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765184",
 														"comment": "gcc-c++-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765167",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765185",
 														"comment": "gcc-c++-m68k-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2708,11 +2942,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765168",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765186",
 														"comment": "gcc-c++-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765169",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765187",
 														"comment": "gcc-c++-microblaze-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2721,11 +2955,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765170",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765188",
 														"comment": "gcc-c++-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765171",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765189",
 														"comment": "gcc-c++-mips64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2734,11 +2968,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765172",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765190",
 														"comment": "gcc-c++-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765173",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765191",
 														"comment": "gcc-c++-mn10300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2747,11 +2981,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765174",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765192",
 														"comment": "gcc-c++-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765175",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765193",
 														"comment": "gcc-c++-nios2-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2760,11 +2994,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765176",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765194",
 														"comment": "gcc-c++-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765177",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765195",
 														"comment": "gcc-c++-openrisc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2773,11 +3007,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765178",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765196",
 														"comment": "gcc-c++-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765179",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765197",
 														"comment": "gcc-c++-powerpc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2786,11 +3020,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765180",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765198",
 														"comment": "gcc-c++-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765181",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765199",
 														"comment": "gcc-c++-powerpc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2799,11 +3033,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765182",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765200",
 														"comment": "gcc-c++-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765183",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765201",
 														"comment": "gcc-c++-ppc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2812,11 +3046,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765184",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765202",
 														"comment": "gcc-c++-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765185",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765203",
 														"comment": "gcc-c++-ppc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2825,11 +3059,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765186",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765204",
 														"comment": "gcc-c++-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765187",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765205",
 														"comment": "gcc-c++-riscv64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2838,11 +3072,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765188",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765206",
 														"comment": "gcc-c++-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765189",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765207",
 														"comment": "gcc-c++-s390x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2851,11 +3085,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765190",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765208",
 														"comment": "gcc-c++-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765191",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765209",
 														"comment": "gcc-c++-sparc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2864,11 +3098,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765192",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765210",
 														"comment": "gcc-c++-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765193",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765211",
 														"comment": "gcc-c++-tile-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2877,11 +3111,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765194",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765212",
 														"comment": "gcc-c++-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765195",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765213",
 														"comment": "gcc-c++-x86_64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2890,11 +3124,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765196",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765214",
 														"comment": "gcc-c++-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765197",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765215",
 														"comment": "gcc-c++-xtensa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2903,11 +3137,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765198",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765216",
 														"comment": "gcc-c6x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765199",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765217",
 														"comment": "gcc-c6x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2916,11 +3150,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765200",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765218",
 														"comment": "gcc-frv-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765201",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765219",
 														"comment": "gcc-frv-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2929,11 +3163,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765202",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765220",
 														"comment": "gcc-h8300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765203",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765221",
 														"comment": "gcc-h8300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2942,11 +3176,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765204",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765222",
 														"comment": "gcc-hppa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765205",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765223",
 														"comment": "gcc-hppa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2955,11 +3189,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765206",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765224",
 														"comment": "gcc-hppa64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765207",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765225",
 														"comment": "gcc-hppa64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2968,11 +3202,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765208",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765226",
 														"comment": "gcc-ia64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765209",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765227",
 														"comment": "gcc-ia64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2981,11 +3215,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765210",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765228",
 														"comment": "gcc-m68k-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765211",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765229",
 														"comment": "gcc-m68k-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2994,11 +3228,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765212",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765230",
 														"comment": "gcc-microblaze-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765213",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765231",
 														"comment": "gcc-microblaze-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3007,11 +3241,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765214",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765232",
 														"comment": "gcc-mips64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765215",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765233",
 														"comment": "gcc-mips64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3020,11 +3254,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765216",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765234",
 														"comment": "gcc-mn10300-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765217",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765235",
 														"comment": "gcc-mn10300-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3033,11 +3267,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765218",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765236",
 														"comment": "gcc-nios2-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765219",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765237",
 														"comment": "gcc-nios2-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3046,11 +3280,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765220",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765238",
 														"comment": "gcc-openrisc-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765221",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765239",
 														"comment": "gcc-openrisc-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3059,11 +3293,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765222",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765240",
 														"comment": "gcc-powerpc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765223",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765241",
 														"comment": "gcc-powerpc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3072,11 +3306,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765224",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765242",
 														"comment": "gcc-powerpc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765225",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765243",
 														"comment": "gcc-powerpc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3085,11 +3319,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765226",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765244",
 														"comment": "gcc-ppc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765227",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765245",
 														"comment": "gcc-ppc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3098,11 +3332,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765228",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765246",
 														"comment": "gcc-ppc64le-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765229",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765247",
 														"comment": "gcc-ppc64le-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3111,11 +3345,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765230",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765248",
 														"comment": "gcc-riscv64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765231",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765249",
 														"comment": "gcc-riscv64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3124,11 +3358,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765232",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765250",
 														"comment": "gcc-s390x-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765233",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765251",
 														"comment": "gcc-s390x-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3137,11 +3371,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765234",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765252",
 														"comment": "gcc-sparc64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765235",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765253",
 														"comment": "gcc-sparc64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3150,11 +3384,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765236",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765254",
 														"comment": "gcc-tile-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765237",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765255",
 														"comment": "gcc-tile-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3163,11 +3397,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765238",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765256",
 														"comment": "gcc-x86_64-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765239",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765257",
 														"comment": "gcc-x86_64-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3176,11 +3410,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765240",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765258",
 														"comment": "gcc-xtensa-linux-gnu is earlier than 0:12.1.1-2.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202328765241",
+														"test_ref": "oval:com.oracle.elsa:tst:202328765259",
 														"comment": "gcc-xtensa-linux-gnu is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -3190,7 +3424,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:202328765242",
+										"test_ref": "oval:com.oracle.elsa:tst:202328765260",
 										"comment": "Oracle Linux arch is x86_64"
 									}
 								]
@@ -3200,7 +3434,7 @@
 				],
 				"criterions": [
 					{
-						"test_ref": "oval:com.oracle.elsa:tst:202328765122",
+						"test_ref": "oval:com.oracle.elsa:tst:202328765140",
 						"comment": "Oracle Linux 9 is installed"
 					}
 				]

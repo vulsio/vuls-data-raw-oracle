@@ -14,17 +14,17 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2020-1062",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-1062.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2020-1062.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-3814",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2019-3814.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-3814.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-7524",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2019-7524.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-7524.html"
 			}
 		],
 		"description": "\n[1:2.2.36-6]\n- fix CVE-2019-11500: IMAP protocol parser does not properly handle NUL byte\n  when scanning data in quoted strings, leading to out of bounds heap\n  memory writes (#1741787)\n\n[1:2.2.36-5]\n- fix CVE-2019-3814: improper certificate validation (#1674369)\n- fix CVE-2019-7524: buffer overflow in indexer-worker process resulting in privilege\n  escalation (#1700398)\n\n[1:2.2.36-4]\n- use portreserve to avoid port conflicts(#1270283)\n",
@@ -32,16 +32,16 @@
 			"severity": "MODERATE",
 			"rights": "Copyright 2020 Oracle, Inc.",
 			"issued": {
-				"date": "2020-04-06"
+				"date": "2020-04-08"
 			},
 			"cve": [
 				{
 					"text": "CVE-2019-3814",
-					"href": "https://linux.oracle.com/cve/CVE-2019-3814.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2019-3814.html"
 				},
 				{
 					"text": "CVE-2019-7524",
-					"href": "https://linux.oracle.com/cve/CVE-2019-7524.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2019-7524.html"
 				}
 			]
 		}
@@ -76,23 +76,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20201062005",
-												"comment": "dovecot-devel is earlier than 1:2.2.36-6.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062006",
-												"comment": "dovecot-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062007",
 												"comment": "dovecot-mysql is earlier than 1:2.2.36-6.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062008",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062006",
 												"comment": "dovecot-mysql is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -101,11 +88,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062009",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062007",
 												"comment": "dovecot-pgsql is earlier than 1:2.2.36-6.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062010",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062008",
 												"comment": "dovecot-pgsql is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -114,12 +101,25 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062011",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062009",
 												"comment": "dovecot-pigeonhole is earlier than 1:2.2.36-6.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062012",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062010",
 												"comment": "dovecot-pigeonhole is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201062011",
+												"comment": "dovecot-devel is earlier than 1:2.2.36-6.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201062012",
+												"comment": "dovecot-devel is signed with the Oracle Linux 7 key"
 											}
 										]
 									}
@@ -143,6 +143,19 @@
 										"operator": "AND",
 										"criterions": [
 											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201062011",
+												"comment": "dovecot-devel is earlier than 1:2.2.36-6.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201062012",
+												"comment": "dovecot-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
 												"test_ref": "oval:com.oracle.elsa:tst:20201062003",
 												"comment": "dovecot is earlier than 1:2.2.36-6.el7"
 											},
@@ -157,23 +170,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20201062005",
-												"comment": "dovecot-devel is earlier than 1:2.2.36-6.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062006",
-												"comment": "dovecot-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062007",
 												"comment": "dovecot-mysql is earlier than 1:2.2.36-6.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062008",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062006",
 												"comment": "dovecot-mysql is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -182,11 +182,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062009",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062007",
 												"comment": "dovecot-pgsql is earlier than 1:2.2.36-6.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062010",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062008",
 												"comment": "dovecot-pgsql is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -195,11 +195,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062011",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062009",
 												"comment": "dovecot-pigeonhole is earlier than 1:2.2.36-6.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20201062012",
+												"test_ref": "oval:com.oracle.elsa:tst:20201062010",
 												"comment": "dovecot-pigeonhole is signed with the Oracle Linux 7 key"
 											}
 										]

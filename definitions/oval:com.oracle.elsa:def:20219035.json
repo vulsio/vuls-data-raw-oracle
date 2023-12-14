@@ -14,22 +14,22 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2021-9035",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-9035.html"
-			},
-			{
-				"source": "CVE",
-				"ref_id": "CVE-2020-28374",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2020-28374.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2021-9035.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2020-29660",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2020-29660.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-29660.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-28374",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-28374.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2020-36158",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2020-36158.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-36158.html"
 			}
 		],
 		"description": "\n[4.14.35-2025.405.3]\n- Revert 'rds: Deregister all FRWR mr with free_mr' (aru kolappan)  [Orabug: 32426280]\n\n[4.14.35-2025.405.2]\n- nfs: Fix security label length not being reset (Jeffrey Mitchell)  [Orabug: 32350995]\n\n[4.14.35-2025.405.1]\n- net/rds: Fix gfp_t parameter (Hans Westgaard Ry)  [Orabug: 32372162] \n- uek-rpm: update kABI lists for new symbol (Dan Duval)  [Orabug: 32378208] \n- sysctl: handle overflow in proc_get_long (Christian Brauner)  [Orabug: 32382641] \n- net/mlx5: Use a single MSIX vector for all control EQs in VFs (Ariel Levkovich)  [Orabug: 31785275] \n- net/mlx5: Fix available EQs FW used to reserve (Denis Drozdov)  [Orabug: 31785275] \n- net/mlx5: Use max_num_eqs for calculation of required MSIX vectors (Denis Drozdov)  [Orabug: 31785275] \n- net/mlx5: Expose DEVX specification (Yishai Hadas)  [Orabug: 31785275] \n- x86/process: Mark cpu inactive before offlining (Mridula Shastry)  [Orabug: 32245085] \n- target: fix XCOPY NAA identifier lookup (David Disseldorp)  [Orabug: 32248040]  {CVE-2020-28374}\n\n[4.14.35-2025.405.0]\n- KVM: x86: clflushopt should be treated as a no-op by emulation (David Edmondson)  [Orabug: 32251913] \n- tty: Fix ->session locking (Jann Horn)  [Orabug: 32266681]  {CVE-2020-29660}\n- tty: Fix ->pgrp locking in tiocspgrp() (Jann Horn)  [Orabug: 32266681]  {CVE-2020-29660}\n- lockd: don't use interval-based rebinding over TCP (Calum Mackay)  [Orabug: 32337718] \n- mwifiex: Fix possible buffer overflows in mwifiex_cmd_802_11_ad_hoc_start (Zhang Xiaohui)  [Orabug: 32349207]  {CVE-2020-36158}\n- add license checking to kABI checker (Dan Duval)  [Orabug: 32355210]\n",
@@ -37,20 +37,20 @@
 			"severity": "IMPORTANT",
 			"rights": "Copyright 2021 Oracle, Inc.",
 			"issued": {
-				"date": "2021-02-08"
+				"date": "2021-02-06"
 			},
 			"cve": [
 				{
-					"text": "CVE-2020-28374",
-					"href": "https://linux.oracle.com/cve/CVE-2020-28374.html"
+					"text": "CVE-2020-29660",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-29660.html"
 				},
 				{
-					"text": "CVE-2020-29660",
-					"href": "https://linux.oracle.com/cve/CVE-2020-29660.html"
+					"text": "CVE-2020-28374",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-28374.html"
 				},
 				{
 					"text": "CVE-2020-36158",
-					"href": "https://linux.oracle.com/cve/CVE-2020-36158.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-36158.html"
 				}
 			]
 		}
@@ -230,6 +230,19 @@
 										"operator": "AND",
 										"criterions": [
 											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219035009",
+												"comment": "kernel-uek-devel is earlier than 0:4.14.35-2025.405.3.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219035010",
+												"comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
 												"test_ref": "oval:com.oracle.elsa:tst:20219035005",
 												"comment": "kernel-uek-debug is earlier than 0:4.14.35-2025.405.3.el7uek"
 											},
@@ -249,19 +262,6 @@
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20219035008",
 												"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20219035009",
-												"comment": "kernel-uek-devel is earlier than 0:4.14.35-2025.405.3.el7uek"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20219035010",
-												"comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
 											}
 										]
 									},

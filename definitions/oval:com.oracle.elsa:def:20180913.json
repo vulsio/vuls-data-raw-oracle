@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2018-0913",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-0913.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2018-0913.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2018-1063",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2018-1063.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2018-1063.html"
 			}
 		],
 		"description": "\n[2.5-22.0.1]\n- Lazy unmount private, shared entry (Joe Jin) [orabug 12560705]\n\n[2.5-22]\n- semanage: Fix fcontext help message (#1499259)\n- semanage: Improve semanage-user.8 man page (#1079946)\n- semodule: Improve man page (#1337192)\n\n[2.5-21]\n- Update translations\n\n[2.5-20]\n- setfiles: Mention customizable types in restorecon man page (#1260238)\n- sepolicy: do not fail when file_contexts.local or .subs do not exist (#1512590)\n- semanage: Fix export of ibendport entries (#1471809)\n\n[2.5-19]\n- semanage: Call semanage_set_reload only if -N is used (#1421160)\n\n[2.5-18]\n- semanage: Enable listing file_contexts.homedirs\n- semanage: Fix manpage author for ibpkey and ibendport pages.\n- semanage: Update man pages for infiniband\n- semanage: Update semanage to allow runtime labeling of ibendports\n- semanage: Update semanage to allow runtime labeling of Infiniband Pkeys\n- semanage: Improve semanage-port man page\n- fixfiles: do not dereference link files in tmp\n",
@@ -27,12 +27,12 @@
 			"severity": "LOW",
 			"rights": "Copyright 2018 Oracle, Inc.",
 			"issued": {
-				"date": "2018-04-16"
+				"date": "2018-04-12"
 			},
 			"cve": [
 				{
 					"text": "CVE-2018-1063",
-					"href": "https://linux.oracle.com/cve/CVE-2018-1063.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2018-1063.html"
 				}
 			]
 		}
@@ -119,11 +119,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180913013",
-												"comment": "policycoreutils-restorecond is earlier than 0:2.5-22.0.1.el7"
+												"comment": "policycoreutils-sandbox is earlier than 0:2.5-22.0.1.el7"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180913014",
-												"comment": "policycoreutils-restorecond is signed with the Oracle Linux 7 key"
+												"comment": "policycoreutils-sandbox is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -132,11 +132,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180913015",
-												"comment": "policycoreutils-sandbox is earlier than 0:2.5-22.0.1.el7"
+												"comment": "policycoreutils-restorecond is earlier than 0:2.5-22.0.1.el7"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180913016",
-												"comment": "policycoreutils-sandbox is signed with the Oracle Linux 7 key"
+												"comment": "policycoreutils-restorecond is signed with the Oracle Linux 7 key"
 											}
 										]
 									}
@@ -156,6 +156,19 @@
 							{
 								"operator": "OR",
 								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180913015",
+												"comment": "policycoreutils-restorecond is earlier than 0:2.5-22.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180913016",
+												"comment": "policycoreutils-restorecond is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
 									{
 										"operator": "AND",
 										"criterions": [
@@ -226,23 +239,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180913013",
-												"comment": "policycoreutils-restorecond is earlier than 0:2.5-22.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180913014",
-												"comment": "policycoreutils-restorecond is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180913015",
 												"comment": "policycoreutils-sandbox is earlier than 0:2.5-22.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180913016",
+												"test_ref": "oval:com.oracle.elsa:tst:20180913014",
 												"comment": "policycoreutils-sandbox is signed with the Oracle Linux 7 key"
 											}
 										]

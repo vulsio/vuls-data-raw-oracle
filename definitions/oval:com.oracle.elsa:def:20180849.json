@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2018-0849",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-0849.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2018-0849.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2017-11671",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2017-11671.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2017-11671.html"
 			}
 		],
 		"description": "\n[4.8.5-28.0.1]\n- [Orabug: 27557686] (Egeyar Bagcioglu)\n- Introduce 'oracle_release' into .spec file. Echo it to gcc/DEV-PHASE.\n\n[4.8.5-28]\n- Minor testsuite fixes to clean up test results (#1469697)\n- retpoline support for spectre mitigation (#1535655)\n\n[4.8.5-27]\n- bump for rebuild with RELRO enabled even for ppc64/ppc64le\n\n[4.8.5-26]\n- Avoid red zone probing for zero residual dynamic allocation (#1469697)\n- Avoid bogus CFIs for probes in noreturn fucntions on x86/x86_64 (#1469697)\n\n[4.8.5-25]\n- Avoid red zone probe on aarch64 (#1469697)\n\n[4.8.5-24]\n- Sync gcc48-rh1469697-13 patch to upstream (#1469697)\n- Avoid probing in the red zone for noreturn functions (#1507980, #1469697)\n- Avoid infinite loop if probing interval is less than guard size (#1469697)\n- Fix debug information for large probing interval on aarch64 (#1469697)\n- Fix ICE on ppc port with large probing interval (#1469697)\n\n- rebuild to remove static relocations not known to older linkers (#1508968)\n\n[4.8.5-23]\n- rebuild to remove static relocations not known to older linkers (#1508968)\n\n[4.8.5-22]\n- fix gcc.c-torture/execute/pr80692.x\n- fix divmod expansion (PR middle-end/78416)\n\n[4.8.5-21]\n- fix 27_io/basic_fstream/53984.cc\n- fix for classes with bases with mutable members (PR c++/77375)\n- fix handling side-effects of parameters (PR c/77767)\n- fix combine's make_extraction (PR rtl-optimization/78378)\n- fix gimplification of const var initialization from COND_EXPR (PR c++/80129)\n- fix -A / -B to A / B folding (PR middle-end/80362)\n- fix comparison of decimal float zeroes (PR middle-end/80692)\n- fix __mulv[dt]i3 and expand_mul_overflow (PR target/82274)\n\n[4.8.5-20]\n- handle exceptions in basic_istream::sentry (#1469384)\n- don't run pr63354.c on ppc (#1468546)\n- ensure proxy privatization safety (#1491395)\n- fix incorrect codegen from rdseed intrinsic use (#1482762, CVE-2017-11671)\n- on aarch64, remove libatomic.so (#1465510)\n\n[4.8.5-19]\n- Backport stack clash protection from upstream (#1469697)\n\n[4.8.5-18]\n- backport several -mprofile-kernel fixes (#1468546)\n\n[4.8.5-17]\n- fix -mcpu=power8 atomic expansion (#1437220, PR target/69644)\n- fix .toc alignment (#1487434)\n",
@@ -27,12 +27,12 @@
 			"severity": "LOW",
 			"rights": "Copyright 2018 Oracle, Inc.",
 			"issued": {
-				"date": "2018-04-16"
+				"date": "2018-04-12"
 			},
 			"cve": [
 				{
 					"text": "CVE-2017-11671",
-					"href": "https://linux.oracle.com/cve/CVE-2017-11671.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2017-11671.html"
 				}
 			]
 		}
@@ -145,23 +145,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180849017",
-												"comment": "gcc-plugin-devel is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849018",
-												"comment": "gcc-plugin-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849019",
 												"comment": "libgcc is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849020",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849018",
 												"comment": "libgcc is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -170,11 +157,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849021",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849019",
 												"comment": "libgfortran is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849022",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849020",
 												"comment": "libgfortran is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -183,24 +170,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849023",
-												"comment": "libgfortran-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849024",
-												"comment": "libgfortran-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849025",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849021",
 												"comment": "libgnat is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849026",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849022",
 												"comment": "libgnat is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -209,11 +183,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849027",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849023",
 												"comment": "libgnat-devel is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849028",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849024",
 												"comment": "libgnat-devel is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -222,24 +196,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849029",
-												"comment": "libgnat-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849030",
-												"comment": "libgnat-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849031",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849025",
 												"comment": "libgomp is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849032",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849026",
 												"comment": "libgomp is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -248,11 +209,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849033",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849027",
 												"comment": "libitm is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849034",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849028",
 												"comment": "libitm is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -261,11 +222,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849035",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849029",
 												"comment": "libitm-devel is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849036",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849030",
 												"comment": "libitm-devel is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -274,63 +235,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849037",
-												"comment": "libitm-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849038",
-												"comment": "libitm-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849039",
-												"comment": "libmudflap is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849040",
-												"comment": "libmudflap is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849041",
-												"comment": "libmudflap-devel is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849042",
-												"comment": "libmudflap-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849043",
-												"comment": "libmudflap-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849044",
-												"comment": "libmudflap-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849045",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849031",
 												"comment": "libobjc is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849046",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849032",
 												"comment": "libobjc is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -339,11 +248,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849047",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849033",
 												"comment": "libstdc++ is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849048",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849034",
 												"comment": "libstdc++ is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -352,11 +261,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849049",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849035",
 												"comment": "libstdc++-devel is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849050",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849036",
 												"comment": "libstdc++-devel is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -365,12 +274,103 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849051",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849037",
 												"comment": "libstdc++-docs is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849052",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849038",
 												"comment": "libstdc++-docs is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849039",
+												"comment": "gcc-plugin-devel is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849040",
+												"comment": "gcc-plugin-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849041",
+												"comment": "libgfortran-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849042",
+												"comment": "libgfortran-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849043",
+												"comment": "libgnat-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849044",
+												"comment": "libgnat-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849045",
+												"comment": "libitm-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849046",
+												"comment": "libitm-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849047",
+												"comment": "libmudflap is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849048",
+												"comment": "libmudflap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849049",
+												"comment": "libmudflap-devel is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849050",
+												"comment": "libmudflap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849051",
+												"comment": "libmudflap-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849052",
+												"comment": "libmudflap-static is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -403,6 +403,227 @@
 							{
 								"operator": "OR",
 								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849056",
+												"comment": "gcc-go is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849057",
+												"comment": "gcc-go is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849039",
+												"comment": "gcc-plugin-devel is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849040",
+												"comment": "gcc-plugin-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849058",
+												"comment": "libasan is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849059",
+												"comment": "libasan is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849060",
+												"comment": "libasan-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849061",
+												"comment": "libasan-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849041",
+												"comment": "libgfortran-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849042",
+												"comment": "libgfortran-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849043",
+												"comment": "libgnat-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849044",
+												"comment": "libgnat-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849062",
+												"comment": "libgo is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849063",
+												"comment": "libgo is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849064",
+												"comment": "libgo-devel is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849065",
+												"comment": "libgo-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849066",
+												"comment": "libgo-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849067",
+												"comment": "libgo-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849045",
+												"comment": "libitm-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849046",
+												"comment": "libitm-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849047",
+												"comment": "libmudflap is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849048",
+												"comment": "libmudflap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849049",
+												"comment": "libmudflap-devel is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849050",
+												"comment": "libmudflap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849051",
+												"comment": "libmudflap-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849052",
+												"comment": "libmudflap-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849068",
+												"comment": "libquadmath-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849069",
+												"comment": "libquadmath-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849053",
+												"comment": "libstdc++-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849054",
+												"comment": "libstdc++-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849070",
+												"comment": "libtsan is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849071",
+												"comment": "libtsan is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849072",
+												"comment": "libtsan-static is earlier than 0:4.8.5-28.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20180849073",
+												"comment": "libtsan-static is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
 									{
 										"operator": "AND",
 										"criterions": [
@@ -472,19 +693,6 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849056",
-												"comment": "gcc-go is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849057",
-												"comment": "gcc-go is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
 												"test_ref": "oval:com.oracle.elsa:tst:20180849013",
 												"comment": "gcc-objc is earlier than 0:4.8.5-28.0.1.el7"
 											},
@@ -511,50 +719,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849017",
-												"comment": "gcc-plugin-devel is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849018",
-												"comment": "gcc-plugin-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849058",
-												"comment": "libasan is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849059",
-												"comment": "libasan is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849060",
-												"comment": "libasan-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849061",
-												"comment": "libasan-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849062",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849074",
 												"comment": "libatomic is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849063",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849075",
 												"comment": "libatomic is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -563,11 +732,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849064",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849076",
 												"comment": "libatomic-static is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849065",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849077",
 												"comment": "libatomic-static is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -576,11 +745,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849019",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849017",
 												"comment": "libgcc is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849020",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849018",
 												"comment": "libgcc is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -589,11 +758,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849021",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849019",
 												"comment": "libgfortran is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849022",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849020",
 												"comment": "libgfortran is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -602,24 +771,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849023",
-												"comment": "libgfortran-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849024",
-												"comment": "libgfortran-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849025",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849021",
 												"comment": "libgnat is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849026",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849022",
 												"comment": "libgnat is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -628,11 +784,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849027",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849023",
 												"comment": "libgnat-devel is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849028",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849024",
 												"comment": "libgnat-devel is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -641,63 +797,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849029",
-												"comment": "libgnat-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849030",
-												"comment": "libgnat-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849066",
-												"comment": "libgo is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849067",
-												"comment": "libgo is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849068",
-												"comment": "libgo-devel is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849069",
-												"comment": "libgo-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849070",
-												"comment": "libgo-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849071",
-												"comment": "libgo-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849031",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849025",
 												"comment": "libgomp is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849032",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849026",
 												"comment": "libgomp is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -706,11 +810,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849033",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849027",
 												"comment": "libitm is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849034",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849028",
 												"comment": "libitm is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -719,11 +823,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849035",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849029",
 												"comment": "libitm-devel is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849036",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849030",
 												"comment": "libitm-devel is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -732,63 +836,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849037",
-												"comment": "libitm-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849038",
-												"comment": "libitm-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849039",
-												"comment": "libmudflap is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849040",
-												"comment": "libmudflap is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849041",
-												"comment": "libmudflap-devel is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849042",
-												"comment": "libmudflap-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849043",
-												"comment": "libmudflap-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849044",
-												"comment": "libmudflap-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849045",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849031",
 												"comment": "libobjc is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849046",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849032",
 												"comment": "libobjc is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -797,11 +849,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849072",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849078",
 												"comment": "libquadmath is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849073",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849079",
 												"comment": "libquadmath is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -810,11 +862,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849074",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849080",
 												"comment": "libquadmath-devel is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849075",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849081",
 												"comment": "libquadmath-devel is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -823,24 +875,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849076",
-												"comment": "libquadmath-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849077",
-												"comment": "libquadmath-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849047",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849033",
 												"comment": "libstdc++ is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849048",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849034",
 												"comment": "libstdc++ is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -849,11 +888,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849049",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849035",
 												"comment": "libstdc++-devel is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849050",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849036",
 												"comment": "libstdc++-devel is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -862,51 +901,12 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849051",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849037",
 												"comment": "libstdc++-docs is earlier than 0:4.8.5-28.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849052",
+												"test_ref": "oval:com.oracle.elsa:tst:20180849038",
 												"comment": "libstdc++-docs is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849053",
-												"comment": "libstdc++-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849054",
-												"comment": "libstdc++-static is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849078",
-												"comment": "libtsan is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849079",
-												"comment": "libtsan is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849080",
-												"comment": "libtsan-static is earlier than 0:4.8.5-28.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20180849081",
-												"comment": "libtsan-static is signed with the Oracle Linux 7 key"
 											}
 										]
 									}

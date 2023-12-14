@@ -14,22 +14,22 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2013-0520",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-0520.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2013-0520.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2011-2166",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2011-2166.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2011-2166.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2011-2167",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2011-2167.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2011-2167.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2011-4318",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2011-4318.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2011-4318.html"
 			}
 		],
 		"description": "\n[1:2.0.9-5]\n- script-login did not drop privileges correctly (#709095)\n- fix directory traversal due to not obeying chroot directive (#709097)\n- check proxy destination host against SSL certificate name (#754980)\n\n[1:2.0.9-4]\n- dovecot may not set correct premissions for mail folder (#697620)\n\n[1:2.0.9-3]\n- fix potential crash when parsing header names that contain NUL characters (#728673)\n",
@@ -42,15 +42,15 @@
 			"cve": [
 				{
 					"text": "CVE-2011-2166",
-					"href": "https://linux.oracle.com/cve/CVE-2011-2166.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2011-2166.html"
 				},
 				{
 					"text": "CVE-2011-2167",
-					"href": "https://linux.oracle.com/cve/CVE-2011-2167.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2011-2167.html"
 				},
 				{
 					"text": "CVE-2011-4318",
-					"href": "https://linux.oracle.com/cve/CVE-2011-4318.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2011-4318.html"
 				}
 			]
 		}
@@ -220,6 +220,74 @@
 							{
 								"test_ref": "oval:com.oracle.elsa:tst:20130520013",
 								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520003",
+												"comment": "dovecot is earlier than 1:2.0.9-5.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520004",
+												"comment": "dovecot is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520007",
+												"comment": "dovecot-mysql is earlier than 1:2.0.9-5.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520008",
+												"comment": "dovecot-mysql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520009",
+												"comment": "dovecot-pgsql is earlier than 1:2.0.9-5.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520010",
+												"comment": "dovecot-pgsql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520011",
+												"comment": "dovecot-pigeonhole is earlier than 1:2.0.9-5.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130520012",
+												"comment": "dovecot-pigeonhole is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20130520014",
+								"comment": "Oracle Linux arch is sparc64"
 							}
 						]
 					}

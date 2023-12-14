@@ -8,35 +8,35 @@
 			"family": "unix",
 			"platform": [
 				"Oracle Linux 5",
-				"Oracle Linux 6",
-				"Oracle Linux 7"
+				"Oracle Linux 7",
+				"Oracle Linux 6"
 			]
 		},
 		"reference": [
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2015-0046",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2015-0046.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2015-0046.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2014-8634",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2014-8634.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2014-8634.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2014-8638",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2014-8638.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2014-8638.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2014-8639",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2014-8639.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2014-8639.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2014-8641",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2014-8641.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2014-8641.html"
 			}
 		],
 		"description": "\n[31.4.0-1.0.1]\n- Add firefox-oracle-default-prefs.js and firefox-oracle-default-bookmarks.html\n  and remove the corresponding Red Hat files\n\n[31.4.0-1]\n- Update to 31.4.0 ESR\n\n[31.3.0-9]\n- Fixed problems with dictionaries (mozbz#1097550)\n- Fixed rhbz#1164855 - firefox.desktop is missing\n  x-scheme-handler MimeType entries\n\n[31.3.0-7]\n- Added Python 2.7 to build Firefox\n\n[31.3.0-6]\n- ia64 fix (mozbz#1093278)\n",
@@ -49,19 +49,19 @@
 			"cve": [
 				{
 					"text": "CVE-2014-8634",
-					"href": "https://linux.oracle.com/cve/CVE-2014-8634.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2014-8634.html"
 				},
 				{
 					"text": "CVE-2014-8638",
-					"href": "https://linux.oracle.com/cve/CVE-2014-8638.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2014-8638.html"
 				},
 				{
 					"text": "CVE-2014-8639",
-					"href": "https://linux.oracle.com/cve/CVE-2014-8639.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2014-8639.html"
 				},
 				{
 					"text": "CVE-2014-8641",
-					"href": "https://linux.oracle.com/cve/CVE-2014-8641.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2014-8641.html"
 				}
 			]
 		}
@@ -137,6 +137,72 @@
 				"operator": "AND",
 				"criterias": [
 					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20150046008",
+												"comment": "firefox is earlier than 0:31.4.0-1.0.1.el7_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20150046009",
+												"comment": "firefox is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20150046010",
+												"comment": "xulrunner is earlier than 0:31.4.0-1.0.1.el7_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20150046011",
+												"comment": "xulrunner is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20150046012",
+												"comment": "xulrunner-devel is earlier than 0:31.4.0-1.0.1.el7_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20150046013",
+												"comment": "xulrunner-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20150046007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20150046006",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
 						"operator": "OR",
 						"criterias": [
 							{
@@ -146,11 +212,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046008",
+												"test_ref": "oval:com.oracle.elsa:tst:20150046016",
 												"comment": "firefox is earlier than 0:31.4.0-1.0.1.el6_6"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046009",
+												"test_ref": "oval:com.oracle.elsa:tst:20150046017",
 												"comment": "firefox is signed with the Oracle Linux 6 key"
 											}
 										]
@@ -158,7 +224,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20150046007",
+										"test_ref": "oval:com.oracle.elsa:tst:20150046015",
 										"comment": "Oracle Linux arch is x86_64"
 									}
 								]
@@ -170,11 +236,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046008",
+												"test_ref": "oval:com.oracle.elsa:tst:20150046016",
 												"comment": "firefox is earlier than 0:31.4.0-1.0.1.el6_6"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046009",
+												"test_ref": "oval:com.oracle.elsa:tst:20150046017",
 												"comment": "firefox is signed with the Oracle Linux 6 key"
 											}
 										]
@@ -182,7 +248,7 @@
 								],
 								"criterions": [
 									{
-										"test_ref": "oval:com.oracle.elsa:tst:20150046010",
+										"test_ref": "oval:com.oracle.elsa:tst:20150046018",
 										"comment": "Oracle Linux arch is i686"
 									}
 								]
@@ -192,74 +258,8 @@
 				],
 				"criterions": [
 					{
-						"test_ref": "oval:com.oracle.elsa:tst:20150046006",
+						"test_ref": "oval:com.oracle.elsa:tst:20150046014",
 						"comment": "Oracle Linux 6 is installed"
-					}
-				]
-			},
-			{
-				"operator": "AND",
-				"criterias": [
-					{
-						"operator": "AND",
-						"criterias": [
-							{
-								"operator": "OR",
-								"criterias": [
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046013",
-												"comment": "firefox is earlier than 0:31.4.0-1.0.1.el7_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046014",
-												"comment": "firefox is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046015",
-												"comment": "xulrunner is earlier than 0:31.4.0-1.0.1.el7_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046016",
-												"comment": "xulrunner is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046017",
-												"comment": "xulrunner-devel is earlier than 0:31.4.0-1.0.1.el7_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20150046018",
-												"comment": "xulrunner-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									}
-								]
-							}
-						],
-						"criterions": [
-							{
-								"test_ref": "oval:com.oracle.elsa:tst:20150046012",
-								"comment": "Oracle Linux arch is x86_64"
-							}
-						]
-					}
-				],
-				"criterions": [
-					{
-						"test_ref": "oval:com.oracle.elsa:tst:20150046011",
-						"comment": "Oracle Linux 7 is installed"
 					}
 				]
 			}

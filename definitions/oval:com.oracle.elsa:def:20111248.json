@@ -14,7 +14,7 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2011-1248",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2011-1248.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2011-1248.html"
 			}
 		],
 		"description": "\n\n[2010.63-3.5]\n- BR java-openjdk\n\n[2010.63-3.4]\n- fix inclusion of code-signing-only certs in .trust.crt\n- Initial build (#448497)\n",
@@ -77,6 +77,30 @@
 							{
 								"test_ref": "oval:com.oracle.elsa:tst:20111248005",
 								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20111248003",
+										"comment": "ca-certificates is earlier than 0:2010.63-3.el6_1.5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20111248004",
+										"comment": "ca-certificates is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20111248006",
+								"comment": "Oracle Linux arch is sparc64"
 							}
 						]
 					}

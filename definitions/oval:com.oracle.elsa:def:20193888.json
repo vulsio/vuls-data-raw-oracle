@@ -14,25 +14,25 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2019-3888",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-3888.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2019-3888.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-14869",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2019-14869.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-14869.html"
 			}
 		],
-		"description": "\n[9.25-2.3]\n- 1769340 - CVE-2019-14869 ghostscript: -dSAFER escape in .charkeys\n",
+		"description": "\n[9.25-2.3]\n- 1769340 - CVE-2019-14869 ghostscript: -dSAFER escape in .charkeys\n\n[9.25-2.2]\n- Resolves: #1744008 - CVE-2019-14811 ghostscript: Safer Mode Bypass by .forceput Exposure in .pdf_hook_DSC_Creator (701445)\n- Resolves: #1744012 - CVE-2019-14812 ghostscript: Safer Mode Bypass by .forceput Exposure in setuserparams (701444)\n- Resolves: #1744003 - CVE-2019-14813 ghostscript: Safer Mode Bypass by .forceput Exposure in setsystemparams (701443)\n- Resolves: #1744228 - CVE-2019-14817 ghostscript: Safer Mode Bypass by .forceput Exposure in .pdfexectoken and other procedures (701450)\n\n[9.25-2.1]\n- Resolves: #1737338 - CVE-2019-10216 ghostscript: -dSAFER escape via .buildfont1 (701394)\n",
 		"advisory": {
 			"severity": "IMPORTANT",
 			"rights": "Copyright 2019 Oracle, Inc.",
 			"issued": {
-				"date": "2019-11-15"
+				"date": "2019-11-14"
 			},
 			"cve": [
 				{
 					"text": "CVE-2019-14869",
-					"href": "https://linux.oracle.com/cve/CVE-2019-14869.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2019-14869.html"
 				}
 			]
 		}
@@ -80,11 +80,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888007",
-												"comment": "ghostscript-doc is earlier than 0:9.25-2.el7_7.3"
+												"comment": "libgs is earlier than 0:9.25-2.el7_7.3"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888008",
-												"comment": "ghostscript-doc is signed with the Oracle Linux 7 key"
+												"comment": "libgs is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -93,11 +93,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888009",
-												"comment": "ghostscript-gtk is earlier than 0:9.25-2.el7_7.3"
+												"comment": "ghostscript-doc is earlier than 0:9.25-2.el7_7.3"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888010",
-												"comment": "ghostscript-gtk is signed with the Oracle Linux 7 key"
+												"comment": "ghostscript-doc is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -106,11 +106,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888011",
-												"comment": "libgs is earlier than 0:9.25-2.el7_7.3"
+												"comment": "ghostscript-gtk is earlier than 0:9.25-2.el7_7.3"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888012",
-												"comment": "libgs is signed with the Oracle Linux 7 key"
+												"comment": "ghostscript-gtk is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -147,6 +147,45 @@
 										"operator": "AND",
 										"criterions": [
 											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193888009",
+												"comment": "ghostscript-doc is earlier than 0:9.25-2.el7_7.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193888010",
+												"comment": "ghostscript-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193888011",
+												"comment": "ghostscript-gtk is earlier than 0:9.25-2.el7_7.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193888012",
+												"comment": "ghostscript-gtk is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193888013",
+												"comment": "libgs-devel is earlier than 0:9.25-2.el7_7.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20193888014",
+												"comment": "libgs-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888003",
 												"comment": "ghostscript is earlier than 0:9.25-2.el7_7.3"
 											},
@@ -174,50 +213,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20193888007",
-												"comment": "ghostscript-doc is earlier than 0:9.25-2.el7_7.3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193888008",
-												"comment": "ghostscript-doc is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193888009",
-												"comment": "ghostscript-gtk is earlier than 0:9.25-2.el7_7.3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193888010",
-												"comment": "ghostscript-gtk is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193888011",
 												"comment": "libgs is earlier than 0:9.25-2.el7_7.3"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193888012",
+												"test_ref": "oval:com.oracle.elsa:tst:20193888008",
 												"comment": "libgs is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193888013",
-												"comment": "libgs-devel is earlier than 0:9.25-2.el7_7.3"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20193888014",
-												"comment": "libgs-devel is signed with the Oracle Linux 7 key"
 											}
 										]
 									}

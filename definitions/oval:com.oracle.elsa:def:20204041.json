@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2020-4041",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-4041.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2020-4041.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2020-12243",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12243.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-12243.html"
 			}
 		],
 		"description": "\n[2.4.44-22]\n- Fix CVE-2020-12243 openldap: denial of service via nested boolean expressions in LDAP search filters (#1838405)\n",
@@ -32,7 +32,7 @@
 			"cve": [
 				{
 					"text": "CVE-2020-12243",
-					"href": "https://linux.oracle.com/cve/CVE-2020-12243.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-12243.html"
 				}
 			]
 		}
@@ -134,6 +134,19 @@
 										"operator": "AND",
 										"criterions": [
 											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204041011",
+												"comment": "openldap-servers-sql is earlier than 0:2.4.44-22.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204041012",
+												"comment": "openldap-servers-sql is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
 												"test_ref": "oval:com.oracle.elsa:tst:20204041003",
 												"comment": "openldap is earlier than 0:2.4.44-22.el7"
 											},
@@ -181,19 +194,6 @@
 												"comment": "openldap-servers is signed with the Oracle Linux 7 key"
 											}
 										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20204041011",
-												"comment": "openldap-servers-sql is earlier than 0:2.4.44-22.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20204041012",
-												"comment": "openldap-servers-sql is signed with the Oracle Linux 7 key"
-											}
-										]
 									}
 								]
 							}
@@ -202,6 +202,30 @@
 							{
 								"test_ref": "oval:com.oracle.elsa:tst:20204041013",
 								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204041003",
+										"comment": "openldap is earlier than 0:2.4.44-22.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204041004",
+										"comment": "openldap is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204041014",
+								"comment": "Oracle Linux arch is sparc64"
 							}
 						]
 					}

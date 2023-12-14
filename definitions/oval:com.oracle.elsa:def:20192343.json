@@ -14,17 +14,17 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2019-2343",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-2343.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2019-2343.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-0217",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2019-0217.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-0217.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2019-0220",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2019-0220.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2019-0220.html"
 			}
 		],
 		"description": "\n[2.4.6-90.0.1]\n- replace index.html with Oracles index page oracle_index.html\n Resolves: #1566317 - CVE-2018-1312 httpd: Weak Digest auth nonce generation\n  in mod_auth_digest\n- Resolves: #1696141 - CVE-2019-0217 httpd: mod_auth_digest: access control\n  bypass due to race condition\n- Resolves: #1696096 - CVE-2019-0220 httpd: URL normalization inconsistency\n",
@@ -32,16 +32,16 @@
 			"severity": "MODERATE",
 			"rights": "Copyright 2019 Oracle, Inc.",
 			"issued": {
-				"date": "2019-08-13"
+				"date": "2019-08-11"
 			},
 			"cve": [
 				{
 					"text": "CVE-2019-0217",
-					"href": "https://linux.oracle.com/cve/CVE-2019-0217.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2019-0217.html"
 				},
 				{
 					"text": "CVE-2019-0220",
-					"href": "https://linux.oracle.com/cve/CVE-2019-0220.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2019-0220.html"
 				}
 			]
 		}
@@ -115,36 +115,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20192343011",
-												"comment": "mod_ldap is earlier than 0:2.4.6-90.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343012",
-												"comment": "mod_ldap is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343013",
-												"comment": "mod_proxy_html is earlier than 1:2.4.6-90.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343014",
-												"comment": "mod_proxy_html is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343015",
 												"comment": "mod_session is earlier than 0:2.4.6-90.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343016",
+												"test_ref": "oval:com.oracle.elsa:tst:20192343012",
 												"comment": "mod_session is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -153,12 +127,38 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343017",
+												"test_ref": "oval:com.oracle.elsa:tst:20192343013",
 												"comment": "mod_ssl is earlier than 1:2.4.6-90.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343018",
+												"test_ref": "oval:com.oracle.elsa:tst:20192343014",
 												"comment": "mod_ssl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343015",
+												"comment": "mod_ldap is earlier than 0:2.4.6-90.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343016",
+												"comment": "mod_ldap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343017",
+												"comment": "mod_proxy_html is earlier than 1:2.4.6-90.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343018",
+												"comment": "mod_proxy_html is signed with the Oracle Linux 7 key"
 											}
 										]
 									}
@@ -178,6 +178,32 @@
 							{
 								"operator": "OR",
 								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343015",
+												"comment": "mod_ldap is earlier than 0:2.4.6-90.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343016",
+												"comment": "mod_ldap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343017",
+												"comment": "mod_proxy_html is earlier than 1:2.4.6-90.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192343018",
+												"comment": "mod_proxy_html is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
 									{
 										"operator": "AND",
 										"criterions": [
@@ -235,36 +261,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20192343011",
-												"comment": "mod_ldap is earlier than 0:2.4.6-90.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343012",
-												"comment": "mod_ldap is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343013",
-												"comment": "mod_proxy_html is earlier than 1:2.4.6-90.0.1.el7"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343014",
-												"comment": "mod_proxy_html is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343015",
 												"comment": "mod_session is earlier than 0:2.4.6-90.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343016",
+												"test_ref": "oval:com.oracle.elsa:tst:20192343012",
 												"comment": "mod_session is signed with the Oracle Linux 7 key"
 											}
 										]
@@ -273,11 +273,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343017",
+												"test_ref": "oval:com.oracle.elsa:tst:20192343013",
 												"comment": "mod_ssl is earlier than 1:2.4.6-90.0.1.el7"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20192343018",
+												"test_ref": "oval:com.oracle.elsa:tst:20192343014",
 												"comment": "mod_ssl is signed with the Oracle Linux 7 key"
 											}
 										]

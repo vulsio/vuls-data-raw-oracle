@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2013-0499",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-0499.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2013-0499.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2012-0862",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2012-0862.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2012-0862.html"
 			}
 		],
 		"description": "\n[2:2.3.14-38]\n- CVE-2012-0862 xinetd: enables unintentional services over tcpmux port\n- Resolves: #883653\n\n[2:2.3.14-37]\n- Fix changelog entry\n- Related: #809271\n\n[2:2.3.14-36]\n- Fix: Service disabled due to bind failure\n- Resolves: #809271\n",
@@ -32,7 +32,7 @@
 			"cve": [
 				{
 					"text": "CVE-2012-0862",
-					"href": "https://linux.oracle.com/cve/CVE-2012-0862.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2012-0862.html"
 				}
 			]
 		}
@@ -88,6 +88,30 @@
 							{
 								"test_ref": "oval:com.oracle.elsa:tst:20130499005",
 								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20130499003",
+										"comment": "xinetd is earlier than 2:2.3.14-38.el6"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20130499004",
+										"comment": "xinetd is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20130499006",
+								"comment": "Oracle Linux arch is sparc64"
 							}
 						]
 					}

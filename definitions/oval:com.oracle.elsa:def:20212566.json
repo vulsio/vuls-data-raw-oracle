@@ -1,0 +1,158 @@
+{
+	"id": "oval:com.oracle.elsa:def:20212566",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-2566:  fwupd security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-2566",
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2021-2566.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-14372",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-14372.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-25632",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-25632.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-27749",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-27749.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-20225",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2021-20225.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-25647",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-25647.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-27779",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2020-27779.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-20233",
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2021-20233.html"
+			}
+		],
+		"description": "\n[1.5.9-1.0.1]\n- Build with the updated Oracle certificate\n- Use oraclesecureboot301 as certdir [Orabug: 29881368]\n- Use new signing certificate (Alex Burmashev)\n\n[1.5.9-1]\n- Rebase to include the SBAT metadata section to allow fixing BootHole\n- Resolves: rhbz#1933010\n- Resolves: rhbz#1932951\n- Resolves: rhbz#1932907\n- Resolves: rhbz#1932880\n- Resolves: rhbz#1932578\n- Resolves: rhbz#1932552\n- Resolves: rhbz#1932422\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-06-29"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-14372",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-14372.html"
+				},
+				{
+					"text": "CVE-2020-25632",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-25632.html"
+				},
+				{
+					"text": "CVE-2020-27749",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-27749.html"
+				},
+				{
+					"text": "CVE-2021-20225",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2021-20225.html"
+				},
+				{
+					"text": "CVE-2020-25647",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-25647.html"
+				},
+				{
+					"text": "CVE-2020-27779",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2020-27779.html"
+				},
+				{
+					"text": "CVE-2021-20233",
+					"href": "https://linux-qa.oracle.com/cve/CVE-2021-20233.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20212566003",
+										"comment": "fwupd is earlier than 0:1.5.9-1.0.1.el8_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20212566004",
+										"comment": "fwupd is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20212566002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20212566003",
+										"comment": "fwupd is earlier than 0:1.5.9-1.0.1.el8_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20212566004",
+										"comment": "fwupd is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20212566005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20212566001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

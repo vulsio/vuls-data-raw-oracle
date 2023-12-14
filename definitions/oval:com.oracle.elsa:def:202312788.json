@@ -15,20 +15,20 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2023-12788",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-12788.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2023-12788.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-4039",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2023-4039.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-4039.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2022-40982",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2022-40982.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2022-40982.html"
 			}
 		],
-		"description": "\ngcc [el8]\n[8.5.0-18.0.5]\n- CVE-2023-4039 GCC mitigation.\n  Orabug 35751743.\n  Includes removal of aarch64-preserve-args.patch. \n- CVE-2022-40982 'Intel Downfall' mitigation.\n  Orabug 35751810.\n  Add two patches originally from GCC upstream releases/gcc-11 branch.\n  with major adjustment.\n  gcc11-downfall-disable-gather-in-vec.patch\n  gcc11-downfall-support-mno-gather.patch\n  Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\ngcc [el9]\n[11.3.1-4.3.0.4]\n- CVE-2023-4039 GCC mitigation.\n  Orabug 35751837.\n- CVE-2022-40982 'Intel Downfall' mitigation.\n  Orabug 35751842.\n  Add two patches originally from GCC upstream releases/gcc-11 branch.\n  gcc11-downfall-disable-gather-in-vec.patch\n  gcc11-downfall-support-mno-gather.patch\nReviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\ngcc-toolset-11-gcc [el8]\n[11.2.1-9.1.0.6]\n- CVE-2023-4039 GCC mitigation.\n  Orabug 35751885.\n- CVE-2022-40982 'Intel Downfall' mitigation.\n  Orabug 35751901.\n  Add two patches originally from GCC upstream releases/gcc-11 branch.\n  gcc11-downfall-disable-gather-in-vec.patch\n  gcc11-downfall-support-mno-gather.patch\n  Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\ngcc-toolset-12-gcc [el8/el9]\n[12.2.1-7.4.0.2]\n- CVE-2023-4039 GCC mitigation.\n  Orabug 35751931.\n- CVE-2022-40982 'Intel Downfall' mitigation.\n  Orabug 35751938.\n  Add two patches originally from GCC upstream releases/gcc-11 branch.\n  gcc12-downfall-disable-gather-in-vec.patch\n  gcc12-downfall-support-mno-gather.patch\n- Introduce 'oracle_release' into .spec file. Echo it to gcc/DEV-PHASE.\n",
+		"description": "\ngcc\n[8.5.0-18.0.5]\n- CVE-2023-4039 GCC mitigation.\n  Orabug 35751743.\n  Includes removal of aarch64-preserve-args.patch. \n- CVE-2022-40982 'Intel Downfall' mitigation.\n  Orabug 35751810.\n  Add two patches originally from GCC upstream releases/gcc-11 branch.\n  with major adjustment.\n  gcc11-downfall-disable-gather-in-vec.patch\n  gcc11-downfall-support-mno-gather.patch\nReviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\ngcc-toolset-11-gcc\n[11.2.1-9.1.0.6]\n- CVE-2023-4039 GCC mitigation.\n  Orabug 35751885.\n- CVE-2022-40982 'Intel Downfall' mitigation.\n  Orabug 35751901.\n  Add two patches originally from GCC upstream releases/gcc-11 branch.\n  gcc11-downfall-disable-gather-in-vec.patch\n  gcc11-downfall-support-mno-gather.patch\n  Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n\ngcc-toolset-12-gcc\n[12.2.1-7.4.0.2]\n- CVE-2023-4039 GCC mitigation.\n  Orabug 35751931.\n- CVE-2022-40982 'Intel Downfall' mitigation.\n  Orabug 35751938.\n  Add two patches originally from GCC upstream releases/gcc-11 branch.\n  gcc12-downfall-disable-gather-in-vec.patch\n  gcc12-downfall-support-mno-gather.patch\n- Introduce 'oracle_release' into .spec file. Echo it to gcc/DEV-PHASE.\n",
 		"advisory": {
 			"severity": "LOW",
 			"rights": "Copyright 2023 Oracle, Inc.",
@@ -38,11 +38,11 @@
 			"cve": [
 				{
 					"text": "CVE-2023-4039",
-					"href": "https://linux.oracle.com/cve/CVE-2023-4039.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2023-4039.html"
 				},
 				{
 					"text": "CVE-2022-40982",
-					"href": "https://linux.oracle.com/cve/CVE-2022-40982.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2022-40982.html"
 				}
 			]
 		}
@@ -93,582 +93,10 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202312788007",
-														"comment": "cpp is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788008",
-														"comment": "cpp is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788009",
-														"comment": "gcc is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788010",
-														"comment": "gcc is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788011",
-														"comment": "gcc-c++ is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788012",
-														"comment": "gcc-c++ is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788013",
-														"comment": "gcc-gdb-plugin is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788014",
-														"comment": "gcc-gdb-plugin is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788015",
-														"comment": "gcc-gfortran is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788016",
-														"comment": "gcc-gfortran is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788017",
-														"comment": "gcc-plugin-annobin is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788018",
-														"comment": "gcc-plugin-annobin is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788019",
-														"comment": "gcc-toolset-11-gcc is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788020",
-														"comment": "gcc-toolset-11-gcc is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788021",
-														"comment": "gcc-toolset-11-gcc-c++ is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788022",
-														"comment": "gcc-toolset-11-gcc-c++ is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788023",
-														"comment": "gcc-toolset-11-gcc-gdb-plugin is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788024",
-														"comment": "gcc-toolset-11-gcc-gdb-plugin is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788025",
-														"comment": "gcc-toolset-11-gcc-gfortran is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788026",
-														"comment": "gcc-toolset-11-gcc-gfortran is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788027",
-														"comment": "gcc-toolset-11-gcc-plugin-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788028",
-														"comment": "gcc-toolset-11-gcc-plugin-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788029",
-														"comment": "gcc-toolset-11-libasan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788030",
-														"comment": "gcc-toolset-11-libasan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788031",
-														"comment": "gcc-toolset-11-libatomic-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788032",
-														"comment": "gcc-toolset-11-libatomic-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788033",
-														"comment": "gcc-toolset-11-libgccjit is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788034",
-														"comment": "gcc-toolset-11-libgccjit is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788035",
-														"comment": "gcc-toolset-11-libgccjit-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788036",
-														"comment": "gcc-toolset-11-libgccjit-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788037",
-														"comment": "gcc-toolset-11-libgccjit-docs is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788038",
-														"comment": "gcc-toolset-11-libgccjit-docs is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788039",
-														"comment": "gcc-toolset-11-libitm-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788040",
-														"comment": "gcc-toolset-11-libitm-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788041",
-														"comment": "gcc-toolset-11-liblsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788042",
-														"comment": "gcc-toolset-11-liblsan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788043",
-														"comment": "gcc-toolset-11-libstdc++-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788044",
-														"comment": "gcc-toolset-11-libstdc++-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788045",
-														"comment": "gcc-toolset-11-libstdc++-docs is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788046",
-														"comment": "gcc-toolset-11-libstdc++-docs is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788047",
-														"comment": "gcc-toolset-11-libtsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788048",
-														"comment": "gcc-toolset-11-libtsan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788049",
-														"comment": "gcc-toolset-11-libubsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788050",
-														"comment": "gcc-toolset-11-libubsan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788051",
-														"comment": "gcc-toolset-12-gcc is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788052",
-														"comment": "gcc-toolset-12-gcc is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788053",
-														"comment": "gcc-toolset-12-gcc-c++ is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788054",
-														"comment": "gcc-toolset-12-gcc-c++ is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788055",
-														"comment": "gcc-toolset-12-gcc-gfortran is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788056",
-														"comment": "gcc-toolset-12-gcc-gfortran is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788057",
-														"comment": "gcc-toolset-12-gcc-plugin-annobin is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788058",
-														"comment": "gcc-toolset-12-gcc-plugin-annobin is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788059",
-														"comment": "gcc-toolset-12-gcc-plugin-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788060",
-														"comment": "gcc-toolset-12-gcc-plugin-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788061",
-														"comment": "gcc-toolset-12-libasan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788062",
-														"comment": "gcc-toolset-12-libasan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788063",
-														"comment": "gcc-toolset-12-libatomic-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788064",
-														"comment": "gcc-toolset-12-libatomic-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788065",
-														"comment": "gcc-toolset-12-libgccjit is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788066",
-														"comment": "gcc-toolset-12-libgccjit is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788067",
-														"comment": "gcc-toolset-12-libgccjit-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788068",
-														"comment": "gcc-toolset-12-libgccjit-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788069",
-														"comment": "gcc-toolset-12-libgccjit-docs is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788070",
-														"comment": "gcc-toolset-12-libgccjit-docs is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788071",
-														"comment": "gcc-toolset-12-libitm-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788072",
-														"comment": "gcc-toolset-12-libitm-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788073",
-														"comment": "gcc-toolset-12-liblsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788074",
-														"comment": "gcc-toolset-12-liblsan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788075",
-														"comment": "gcc-toolset-12-libstdc++-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788076",
-														"comment": "gcc-toolset-12-libstdc++-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788077",
-														"comment": "gcc-toolset-12-libstdc++-docs is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788078",
-														"comment": "gcc-toolset-12-libstdc++-docs is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788079",
-														"comment": "gcc-toolset-12-libtsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788080",
-														"comment": "gcc-toolset-12-libtsan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788081",
-														"comment": "gcc-toolset-12-libubsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788082",
-														"comment": "gcc-toolset-12-libubsan-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788083",
-														"comment": "libasan6 is earlier than 0:11.2.1-9.1.0.6.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788084",
-														"comment": "libasan6 is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788085",
-														"comment": "libasan8 is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788086",
-														"comment": "libasan8 is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788087",
-														"comment": "libitm-devel is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788088",
-														"comment": "libitm-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788089",
-														"comment": "libstdc++-devel is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788090",
-														"comment": "libstdc++-devel is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788091",
-														"comment": "libstdc++-docs is earlier than 0:8.5.0-18.0.5.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788092",
-														"comment": "libstdc++-docs is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788093",
-														"comment": "libtsan2 is earlier than 0:12.2.1-7.4.0.2.el8"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788094",
-														"comment": "libtsan2 is signed with the Oracle Linux 8 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788095",
 														"comment": "libasan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788096",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788008",
 														"comment": "libasan is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -677,11 +105,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788097",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788009",
 														"comment": "libatomic is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788098",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788010",
 														"comment": "libatomic is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -690,11 +118,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788099",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788011",
 														"comment": "libatomic-static is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788100",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788012",
 														"comment": "libatomic-static is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -703,11 +131,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788101",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788013",
 														"comment": "libgcc is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788102",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788014",
 														"comment": "libgcc is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -716,11 +144,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788103",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788015",
 														"comment": "libgfortran is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788104",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788016",
 														"comment": "libgfortran is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -729,11 +157,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788105",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788017",
 														"comment": "libgomp is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788106",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788018",
 														"comment": "libgomp is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -742,11 +170,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788107",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788019",
 														"comment": "libitm is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788108",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788020",
 														"comment": "libitm is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -755,11 +183,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788109",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788021",
 														"comment": "liblsan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788110",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788022",
 														"comment": "liblsan is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -768,11 +196,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788111",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788023",
 														"comment": "libstdc++ is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788112",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788024",
 														"comment": "libstdc++ is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -781,11 +209,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788113",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788025",
 														"comment": "libtsan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788114",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788026",
 														"comment": "libtsan is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -794,12 +222,584 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788115",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788027",
 														"comment": "libubsan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788116",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788028",
 														"comment": "libubsan is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788029",
+														"comment": "cpp is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788030",
+														"comment": "cpp is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788031",
+														"comment": "gcc is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788032",
+														"comment": "gcc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788033",
+														"comment": "gcc-c++ is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788034",
+														"comment": "gcc-c++ is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788035",
+														"comment": "gcc-gdb-plugin is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788036",
+														"comment": "gcc-gdb-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788037",
+														"comment": "gcc-gfortran is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788038",
+														"comment": "gcc-gfortran is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788039",
+														"comment": "gcc-plugin-annobin is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788040",
+														"comment": "gcc-plugin-annobin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788041",
+														"comment": "gcc-toolset-11-gcc is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788042",
+														"comment": "gcc-toolset-11-gcc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788043",
+														"comment": "gcc-toolset-11-gcc-c++ is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788044",
+														"comment": "gcc-toolset-11-gcc-c++ is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788045",
+														"comment": "gcc-toolset-11-gcc-gdb-plugin is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788046",
+														"comment": "gcc-toolset-11-gcc-gdb-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788047",
+														"comment": "gcc-toolset-11-gcc-gfortran is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788048",
+														"comment": "gcc-toolset-11-gcc-gfortran is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788049",
+														"comment": "gcc-toolset-11-gcc-plugin-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788050",
+														"comment": "gcc-toolset-11-gcc-plugin-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788051",
+														"comment": "gcc-toolset-11-libasan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788052",
+														"comment": "gcc-toolset-11-libasan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788053",
+														"comment": "gcc-toolset-11-libatomic-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788054",
+														"comment": "gcc-toolset-11-libatomic-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788055",
+														"comment": "gcc-toolset-11-libgccjit is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788056",
+														"comment": "gcc-toolset-11-libgccjit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788057",
+														"comment": "gcc-toolset-11-libgccjit-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788058",
+														"comment": "gcc-toolset-11-libgccjit-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788059",
+														"comment": "gcc-toolset-11-libgccjit-docs is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788060",
+														"comment": "gcc-toolset-11-libgccjit-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788061",
+														"comment": "gcc-toolset-11-libitm-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788062",
+														"comment": "gcc-toolset-11-libitm-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788063",
+														"comment": "gcc-toolset-11-liblsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788064",
+														"comment": "gcc-toolset-11-liblsan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788065",
+														"comment": "gcc-toolset-11-libstdc++-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788066",
+														"comment": "gcc-toolset-11-libstdc++-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788067",
+														"comment": "gcc-toolset-11-libstdc++-docs is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788068",
+														"comment": "gcc-toolset-11-libstdc++-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788069",
+														"comment": "gcc-toolset-11-libtsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788070",
+														"comment": "gcc-toolset-11-libtsan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788071",
+														"comment": "gcc-toolset-11-libubsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788072",
+														"comment": "gcc-toolset-11-libubsan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788073",
+														"comment": "gcc-toolset-12-gcc is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788074",
+														"comment": "gcc-toolset-12-gcc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788075",
+														"comment": "gcc-toolset-12-gcc-c++ is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788076",
+														"comment": "gcc-toolset-12-gcc-c++ is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788077",
+														"comment": "gcc-toolset-12-gcc-gfortran is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788078",
+														"comment": "gcc-toolset-12-gcc-gfortran is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788079",
+														"comment": "gcc-toolset-12-gcc-plugin-annobin is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788080",
+														"comment": "gcc-toolset-12-gcc-plugin-annobin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788081",
+														"comment": "gcc-toolset-12-gcc-plugin-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788082",
+														"comment": "gcc-toolset-12-gcc-plugin-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788083",
+														"comment": "gcc-toolset-12-libasan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788084",
+														"comment": "gcc-toolset-12-libasan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788085",
+														"comment": "gcc-toolset-12-libatomic-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788086",
+														"comment": "gcc-toolset-12-libatomic-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788087",
+														"comment": "gcc-toolset-12-libgccjit is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788088",
+														"comment": "gcc-toolset-12-libgccjit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788089",
+														"comment": "gcc-toolset-12-libgccjit-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788090",
+														"comment": "gcc-toolset-12-libgccjit-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788091",
+														"comment": "gcc-toolset-12-libgccjit-docs is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788092",
+														"comment": "gcc-toolset-12-libgccjit-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788093",
+														"comment": "gcc-toolset-12-libitm-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788094",
+														"comment": "gcc-toolset-12-libitm-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788095",
+														"comment": "gcc-toolset-12-liblsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788096",
+														"comment": "gcc-toolset-12-liblsan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788097",
+														"comment": "gcc-toolset-12-libstdc++-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788098",
+														"comment": "gcc-toolset-12-libstdc++-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788099",
+														"comment": "gcc-toolset-12-libstdc++-docs is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788100",
+														"comment": "gcc-toolset-12-libstdc++-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788101",
+														"comment": "gcc-toolset-12-libtsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788102",
+														"comment": "gcc-toolset-12-libtsan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788103",
+														"comment": "gcc-toolset-12-libubsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788104",
+														"comment": "gcc-toolset-12-libubsan-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788105",
+														"comment": "libasan6 is earlier than 0:11.2.1-9.1.0.6.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788106",
+														"comment": "libasan6 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788107",
+														"comment": "libasan8 is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788108",
+														"comment": "libasan8 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788109",
+														"comment": "libitm-devel is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788110",
+														"comment": "libitm-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788111",
+														"comment": "libstdc++-devel is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788112",
+														"comment": "libstdc++-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788113",
+														"comment": "libstdc++-docs is earlier than 0:8.5.0-18.0.5.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788114",
+														"comment": "libstdc++-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788115",
+														"comment": "libtsan2 is earlier than 0:12.2.1-7.4.0.2.el8"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788116",
+														"comment": "libtsan2 is signed with the Oracle Linux 8 key"
 													}
 												]
 											}
@@ -849,11 +849,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788095",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788007",
 														"comment": "libasan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788096",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788008",
 														"comment": "libasan is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -862,11 +862,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788097",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788009",
 														"comment": "libatomic is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788098",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788010",
 														"comment": "libatomic is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -875,11 +875,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788099",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788011",
 														"comment": "libatomic-static is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788100",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788012",
 														"comment": "libatomic-static is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -888,11 +888,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788101",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788013",
 														"comment": "libgcc is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788102",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788014",
 														"comment": "libgcc is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -901,11 +901,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788103",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788015",
 														"comment": "libgfortran is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788104",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788016",
 														"comment": "libgfortran is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -914,11 +914,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788105",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788017",
 														"comment": "libgomp is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788106",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788018",
 														"comment": "libgomp is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -940,11 +940,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788107",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788019",
 														"comment": "libitm is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788108",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788020",
 														"comment": "libitm is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -953,11 +953,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788109",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788021",
 														"comment": "liblsan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788110",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788022",
 														"comment": "liblsan is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -979,11 +979,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788111",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788023",
 														"comment": "libstdc++ is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788112",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788024",
 														"comment": "libstdc++ is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -992,11 +992,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788113",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788025",
 														"comment": "libtsan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788114",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788026",
 														"comment": "libtsan is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1005,11 +1005,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788115",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788027",
 														"comment": "libubsan is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788116",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788028",
 														"comment": "libubsan is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1018,11 +1018,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788007",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788029",
 														"comment": "cpp is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788008",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788030",
 														"comment": "cpp is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1031,11 +1031,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788009",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788031",
 														"comment": "gcc is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788010",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788032",
 														"comment": "gcc is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1044,11 +1044,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788011",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788033",
 														"comment": "gcc-c++ is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788012",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788034",
 														"comment": "gcc-c++ is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1057,11 +1057,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788013",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788035",
 														"comment": "gcc-gdb-plugin is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788014",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788036",
 														"comment": "gcc-gdb-plugin is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1070,11 +1070,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788015",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788037",
 														"comment": "gcc-gfortran is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788016",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788038",
 														"comment": "gcc-gfortran is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1096,11 +1096,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788017",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788039",
 														"comment": "gcc-plugin-annobin is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788018",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788040",
 														"comment": "gcc-plugin-annobin is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1109,11 +1109,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788019",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788041",
 														"comment": "gcc-toolset-11-gcc is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788020",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788042",
 														"comment": "gcc-toolset-11-gcc is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1122,11 +1122,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788021",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788043",
 														"comment": "gcc-toolset-11-gcc-c++ is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788022",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788044",
 														"comment": "gcc-toolset-11-gcc-c++ is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1135,11 +1135,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788023",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788045",
 														"comment": "gcc-toolset-11-gcc-gdb-plugin is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788024",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788046",
 														"comment": "gcc-toolset-11-gcc-gdb-plugin is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1148,11 +1148,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788025",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788047",
 														"comment": "gcc-toolset-11-gcc-gfortran is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788026",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788048",
 														"comment": "gcc-toolset-11-gcc-gfortran is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1161,11 +1161,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788027",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788049",
 														"comment": "gcc-toolset-11-gcc-plugin-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788028",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788050",
 														"comment": "gcc-toolset-11-gcc-plugin-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1174,11 +1174,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788029",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788051",
 														"comment": "gcc-toolset-11-libasan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788030",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788052",
 														"comment": "gcc-toolset-11-libasan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1187,11 +1187,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788031",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788053",
 														"comment": "gcc-toolset-11-libatomic-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788032",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788054",
 														"comment": "gcc-toolset-11-libatomic-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1200,11 +1200,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788033",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788055",
 														"comment": "gcc-toolset-11-libgccjit is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788034",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788056",
 														"comment": "gcc-toolset-11-libgccjit is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1213,11 +1213,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788035",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788057",
 														"comment": "gcc-toolset-11-libgccjit-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788036",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788058",
 														"comment": "gcc-toolset-11-libgccjit-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1226,11 +1226,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788037",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788059",
 														"comment": "gcc-toolset-11-libgccjit-docs is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788038",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788060",
 														"comment": "gcc-toolset-11-libgccjit-docs is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1239,11 +1239,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788039",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788061",
 														"comment": "gcc-toolset-11-libitm-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788040",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788062",
 														"comment": "gcc-toolset-11-libitm-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1252,11 +1252,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788041",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788063",
 														"comment": "gcc-toolset-11-liblsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788042",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788064",
 														"comment": "gcc-toolset-11-liblsan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1278,11 +1278,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788043",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788065",
 														"comment": "gcc-toolset-11-libstdc++-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788044",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788066",
 														"comment": "gcc-toolset-11-libstdc++-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1291,11 +1291,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788045",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788067",
 														"comment": "gcc-toolset-11-libstdc++-docs is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788046",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788068",
 														"comment": "gcc-toolset-11-libstdc++-docs is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1304,11 +1304,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788047",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788069",
 														"comment": "gcc-toolset-11-libtsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788048",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788070",
 														"comment": "gcc-toolset-11-libtsan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1317,11 +1317,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788049",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788071",
 														"comment": "gcc-toolset-11-libubsan-devel is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788050",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788072",
 														"comment": "gcc-toolset-11-libubsan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1330,11 +1330,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788051",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788073",
 														"comment": "gcc-toolset-12-gcc is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788052",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788074",
 														"comment": "gcc-toolset-12-gcc is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1343,11 +1343,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788053",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788075",
 														"comment": "gcc-toolset-12-gcc-c++ is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788054",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788076",
 														"comment": "gcc-toolset-12-gcc-c++ is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1356,11 +1356,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788055",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788077",
 														"comment": "gcc-toolset-12-gcc-gfortran is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788056",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788078",
 														"comment": "gcc-toolset-12-gcc-gfortran is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1369,11 +1369,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788057",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788079",
 														"comment": "gcc-toolset-12-gcc-plugin-annobin is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788058",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788080",
 														"comment": "gcc-toolset-12-gcc-plugin-annobin is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1382,11 +1382,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788059",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788081",
 														"comment": "gcc-toolset-12-gcc-plugin-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788060",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788082",
 														"comment": "gcc-toolset-12-gcc-plugin-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1395,11 +1395,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788061",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788083",
 														"comment": "gcc-toolset-12-libasan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788062",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788084",
 														"comment": "gcc-toolset-12-libasan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1408,11 +1408,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788063",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788085",
 														"comment": "gcc-toolset-12-libatomic-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788064",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788086",
 														"comment": "gcc-toolset-12-libatomic-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1421,11 +1421,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788065",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788087",
 														"comment": "gcc-toolset-12-libgccjit is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788066",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788088",
 														"comment": "gcc-toolset-12-libgccjit is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1434,11 +1434,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788067",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788089",
 														"comment": "gcc-toolset-12-libgccjit-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788068",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788090",
 														"comment": "gcc-toolset-12-libgccjit-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1447,11 +1447,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788069",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788091",
 														"comment": "gcc-toolset-12-libgccjit-docs is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788070",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788092",
 														"comment": "gcc-toolset-12-libgccjit-docs is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1460,11 +1460,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788071",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788093",
 														"comment": "gcc-toolset-12-libitm-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788072",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788094",
 														"comment": "gcc-toolset-12-libitm-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1473,11 +1473,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788073",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788095",
 														"comment": "gcc-toolset-12-liblsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788074",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788096",
 														"comment": "gcc-toolset-12-liblsan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1499,11 +1499,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788075",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788097",
 														"comment": "gcc-toolset-12-libstdc++-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788076",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788098",
 														"comment": "gcc-toolset-12-libstdc++-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1512,11 +1512,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788077",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788099",
 														"comment": "gcc-toolset-12-libstdc++-docs is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788078",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788100",
 														"comment": "gcc-toolset-12-libstdc++-docs is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1525,11 +1525,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788079",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788101",
 														"comment": "gcc-toolset-12-libtsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788080",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788102",
 														"comment": "gcc-toolset-12-libtsan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1538,11 +1538,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788081",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788103",
 														"comment": "gcc-toolset-12-libubsan-devel is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788082",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788104",
 														"comment": "gcc-toolset-12-libubsan-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1564,11 +1564,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788083",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788105",
 														"comment": "libasan6 is earlier than 0:11.2.1-9.1.0.6.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788084",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788106",
 														"comment": "libasan6 is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1577,11 +1577,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788085",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788107",
 														"comment": "libasan8 is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788086",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788108",
 														"comment": "libasan8 is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1590,11 +1590,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788087",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788109",
 														"comment": "libitm-devel is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788088",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788110",
 														"comment": "libitm-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1616,11 +1616,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788089",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788111",
 														"comment": "libstdc++-devel is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788090",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788112",
 														"comment": "libstdc++-devel is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1629,11 +1629,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788091",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788113",
 														"comment": "libstdc++-docs is earlier than 0:8.5.0-18.0.5.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788092",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788114",
 														"comment": "libstdc++-docs is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1642,11 +1642,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788093",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788115",
 														"comment": "libtsan2 is earlier than 0:12.2.1-7.4.0.2.el8"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788094",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788116",
 														"comment": "libtsan2 is signed with the Oracle Linux 8 key"
 													}
 												]
@@ -1688,465 +1688,10 @@
 												"criterions": [
 													{
 														"test_ref": "oval:com.oracle.elsa:tst:202312788134",
-														"comment": "gcc-plugin-devel is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788135",
-														"comment": "gcc-plugin-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788136",
-														"comment": "libstdc++-static is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788137",
-														"comment": "libstdc++-static is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788138",
-														"comment": "cpp is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788139",
-														"comment": "cpp is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788140",
-														"comment": "gcc is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788141",
-														"comment": "gcc is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788142",
-														"comment": "gcc-c++ is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788143",
-														"comment": "gcc-c++ is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788144",
-														"comment": "gcc-gfortran is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788145",
-														"comment": "gcc-gfortran is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788146",
-														"comment": "gcc-plugin-annobin is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788147",
-														"comment": "gcc-plugin-annobin is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788148",
-														"comment": "gcc-toolset-12-gcc is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788149",
-														"comment": "gcc-toolset-12-gcc is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788150",
-														"comment": "gcc-toolset-12-gcc-c++ is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788151",
-														"comment": "gcc-toolset-12-gcc-c++ is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788152",
-														"comment": "gcc-toolset-12-gcc-gfortran is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788153",
-														"comment": "gcc-toolset-12-gcc-gfortran is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788154",
-														"comment": "gcc-toolset-12-gcc-plugin-annobin is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788155",
-														"comment": "gcc-toolset-12-gcc-plugin-annobin is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788156",
-														"comment": "gcc-toolset-12-gcc-plugin-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788157",
-														"comment": "gcc-toolset-12-gcc-plugin-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788158",
-														"comment": "gcc-toolset-12-libasan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788159",
-														"comment": "gcc-toolset-12-libasan-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788160",
-														"comment": "gcc-toolset-12-libatomic-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788161",
-														"comment": "gcc-toolset-12-libatomic-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788162",
-														"comment": "gcc-toolset-12-libgccjit is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788163",
-														"comment": "gcc-toolset-12-libgccjit is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788164",
-														"comment": "gcc-toolset-12-libgccjit-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788165",
-														"comment": "gcc-toolset-12-libgccjit-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788166",
-														"comment": "gcc-toolset-12-libgccjit-docs is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788167",
-														"comment": "gcc-toolset-12-libgccjit-docs is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788168",
-														"comment": "gcc-toolset-12-libitm-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788169",
-														"comment": "gcc-toolset-12-libitm-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788170",
-														"comment": "gcc-toolset-12-liblsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788171",
-														"comment": "gcc-toolset-12-liblsan-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788172",
-														"comment": "gcc-toolset-12-libstdc++-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788173",
-														"comment": "gcc-toolset-12-libstdc++-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788174",
-														"comment": "gcc-toolset-12-libstdc++-docs is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788175",
-														"comment": "gcc-toolset-12-libstdc++-docs is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788176",
-														"comment": "gcc-toolset-12-libtsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788177",
-														"comment": "gcc-toolset-12-libtsan-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788178",
-														"comment": "gcc-toolset-12-libubsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788179",
-														"comment": "gcc-toolset-12-libubsan-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788180",
-														"comment": "libasan is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788181",
-														"comment": "libasan is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788182",
-														"comment": "libasan8 is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788183",
-														"comment": "libasan8 is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788184",
-														"comment": "libgccjit is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788185",
-														"comment": "libgccjit is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788186",
-														"comment": "libgccjit-devel is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788187",
-														"comment": "libgccjit-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788188",
-														"comment": "libitm is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788189",
-														"comment": "libitm is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788190",
-														"comment": "libitm-devel is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788191",
-														"comment": "libitm-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788192",
-														"comment": "liblsan is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788193",
-														"comment": "liblsan is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788194",
-														"comment": "libstdc++-devel is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788195",
-														"comment": "libstdc++-devel is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788196",
-														"comment": "libstdc++-docs is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788197",
-														"comment": "libstdc++-docs is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788198",
-														"comment": "libtsan is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788199",
-														"comment": "libtsan is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788200",
-														"comment": "libtsan2 is earlier than 0:12.2.1-7.4.0.2.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788201",
-														"comment": "libtsan2 is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788202",
-														"comment": "libubsan is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788203",
-														"comment": "libubsan is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788204",
 														"comment": "libatomic is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788205",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788135",
 														"comment": "libatomic is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2155,11 +1700,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788206",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788136",
 														"comment": "libgcc is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788207",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788137",
 														"comment": "libgcc is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2168,11 +1713,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788208",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788138",
 														"comment": "libgfortran is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788209",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788139",
 														"comment": "libgfortran is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2181,11 +1726,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788210",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788140",
 														"comment": "libgomp is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788211",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788141",
 														"comment": "libgomp is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2194,12 +1739,467 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788212",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788142",
 														"comment": "libstdc++ is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788213",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788143",
 														"comment": "libstdc++ is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788144",
+														"comment": "gcc-plugin-devel is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788145",
+														"comment": "gcc-plugin-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788146",
+														"comment": "libstdc++-static is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788147",
+														"comment": "libstdc++-static is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788148",
+														"comment": "cpp is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788149",
+														"comment": "cpp is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788150",
+														"comment": "gcc is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788151",
+														"comment": "gcc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788152",
+														"comment": "gcc-c++ is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788153",
+														"comment": "gcc-c++ is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788154",
+														"comment": "gcc-gfortran is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788155",
+														"comment": "gcc-gfortran is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788156",
+														"comment": "gcc-plugin-annobin is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788157",
+														"comment": "gcc-plugin-annobin is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788158",
+														"comment": "gcc-toolset-12-gcc is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788159",
+														"comment": "gcc-toolset-12-gcc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788160",
+														"comment": "gcc-toolset-12-gcc-c++ is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788161",
+														"comment": "gcc-toolset-12-gcc-c++ is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788162",
+														"comment": "gcc-toolset-12-gcc-gfortran is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788163",
+														"comment": "gcc-toolset-12-gcc-gfortran is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788164",
+														"comment": "gcc-toolset-12-gcc-plugin-annobin is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788165",
+														"comment": "gcc-toolset-12-gcc-plugin-annobin is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788166",
+														"comment": "gcc-toolset-12-gcc-plugin-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788167",
+														"comment": "gcc-toolset-12-gcc-plugin-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788168",
+														"comment": "gcc-toolset-12-libasan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788169",
+														"comment": "gcc-toolset-12-libasan-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788170",
+														"comment": "gcc-toolset-12-libatomic-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788171",
+														"comment": "gcc-toolset-12-libatomic-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788172",
+														"comment": "gcc-toolset-12-libgccjit is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788173",
+														"comment": "gcc-toolset-12-libgccjit is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788174",
+														"comment": "gcc-toolset-12-libgccjit-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788175",
+														"comment": "gcc-toolset-12-libgccjit-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788176",
+														"comment": "gcc-toolset-12-libgccjit-docs is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788177",
+														"comment": "gcc-toolset-12-libgccjit-docs is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788178",
+														"comment": "gcc-toolset-12-libitm-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788179",
+														"comment": "gcc-toolset-12-libitm-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788180",
+														"comment": "gcc-toolset-12-liblsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788181",
+														"comment": "gcc-toolset-12-liblsan-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788182",
+														"comment": "gcc-toolset-12-libstdc++-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788183",
+														"comment": "gcc-toolset-12-libstdc++-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788184",
+														"comment": "gcc-toolset-12-libstdc++-docs is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788185",
+														"comment": "gcc-toolset-12-libstdc++-docs is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788186",
+														"comment": "gcc-toolset-12-libtsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788187",
+														"comment": "gcc-toolset-12-libtsan-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788188",
+														"comment": "gcc-toolset-12-libubsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788189",
+														"comment": "gcc-toolset-12-libubsan-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788190",
+														"comment": "libasan is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788191",
+														"comment": "libasan is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788192",
+														"comment": "libasan8 is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788193",
+														"comment": "libasan8 is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788194",
+														"comment": "libgccjit is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788195",
+														"comment": "libgccjit is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788196",
+														"comment": "libgccjit-devel is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788197",
+														"comment": "libgccjit-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788198",
+														"comment": "libitm is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788199",
+														"comment": "libitm is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788200",
+														"comment": "libitm-devel is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788201",
+														"comment": "libitm-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788202",
+														"comment": "liblsan is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788203",
+														"comment": "liblsan is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788204",
+														"comment": "libstdc++-devel is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788205",
+														"comment": "libstdc++-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788206",
+														"comment": "libstdc++-docs is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788207",
+														"comment": "libstdc++-docs is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788208",
+														"comment": "libtsan is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788209",
+														"comment": "libtsan is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788210",
+														"comment": "libtsan2 is earlier than 0:12.2.1-7.4.0.2.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788211",
+														"comment": "libtsan2 is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788212",
+														"comment": "libubsan is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788213",
+														"comment": "libubsan is signed with the Oracle Linux 9 key"
 													}
 												]
 											}
@@ -2223,89 +2223,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788204",
-														"comment": "libatomic is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788205",
-														"comment": "libatomic is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788206",
-														"comment": "libgcc is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788207",
-														"comment": "libgcc is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788208",
-														"comment": "libgfortran is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788209",
-														"comment": "libgfortran is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788210",
-														"comment": "libgomp is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788211",
-														"comment": "libgomp is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788215",
-														"comment": "libquadmath is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788216",
-														"comment": "libquadmath is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788212",
-														"comment": "libstdc++ is earlier than 0:11.3.1-4.3.0.4.el9"
-													},
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788213",
-														"comment": "libstdc++ is signed with the Oracle Linux 9 key"
-													}
-												]
-											},
-											{
-												"operator": "AND",
-												"criterions": [
-													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788138",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788148",
 														"comment": "cpp is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788139",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788149",
 														"comment": "cpp is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2314,11 +2236,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788140",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788150",
 														"comment": "gcc is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788141",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788151",
 														"comment": "gcc is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2327,11 +2249,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788142",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788152",
 														"comment": "gcc-c++ is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788143",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788153",
 														"comment": "gcc-c++ is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2340,11 +2262,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788144",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788154",
 														"comment": "gcc-gfortran is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788145",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788155",
 														"comment": "gcc-gfortran is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2353,11 +2275,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788217",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788215",
 														"comment": "gcc-offload-nvptx is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788218",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788216",
 														"comment": "gcc-offload-nvptx is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2366,11 +2288,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788146",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788156",
 														"comment": "gcc-plugin-annobin is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788147",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788157",
 														"comment": "gcc-plugin-annobin is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2379,11 +2301,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788148",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788158",
 														"comment": "gcc-toolset-12-gcc is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788149",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788159",
 														"comment": "gcc-toolset-12-gcc is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2392,11 +2314,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788150",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788160",
 														"comment": "gcc-toolset-12-gcc-c++ is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788151",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788161",
 														"comment": "gcc-toolset-12-gcc-c++ is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2405,11 +2327,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788152",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788162",
 														"comment": "gcc-toolset-12-gcc-gfortran is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788153",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788163",
 														"comment": "gcc-toolset-12-gcc-gfortran is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2418,11 +2340,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788154",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788164",
 														"comment": "gcc-toolset-12-gcc-plugin-annobin is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788155",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788165",
 														"comment": "gcc-toolset-12-gcc-plugin-annobin is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2431,11 +2353,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788156",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788166",
 														"comment": "gcc-toolset-12-gcc-plugin-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788157",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788167",
 														"comment": "gcc-toolset-12-gcc-plugin-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2444,11 +2366,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788158",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788168",
 														"comment": "gcc-toolset-12-libasan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788159",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788169",
 														"comment": "gcc-toolset-12-libasan-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2457,11 +2379,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788160",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788170",
 														"comment": "gcc-toolset-12-libatomic-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788161",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788171",
 														"comment": "gcc-toolset-12-libatomic-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2470,11 +2392,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788162",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788172",
 														"comment": "gcc-toolset-12-libgccjit is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788163",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788173",
 														"comment": "gcc-toolset-12-libgccjit is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2483,11 +2405,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788164",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788174",
 														"comment": "gcc-toolset-12-libgccjit-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788165",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788175",
 														"comment": "gcc-toolset-12-libgccjit-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2496,11 +2418,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788166",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788176",
 														"comment": "gcc-toolset-12-libgccjit-docs is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788167",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788177",
 														"comment": "gcc-toolset-12-libgccjit-docs is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2509,11 +2431,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788168",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788178",
 														"comment": "gcc-toolset-12-libitm-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788169",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788179",
 														"comment": "gcc-toolset-12-libitm-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2522,11 +2444,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788170",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788180",
 														"comment": "gcc-toolset-12-liblsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788171",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788181",
 														"comment": "gcc-toolset-12-liblsan-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2535,11 +2457,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788219",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788217",
 														"comment": "gcc-toolset-12-libquadmath-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788220",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788218",
 														"comment": "gcc-toolset-12-libquadmath-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2548,11 +2470,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788172",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788182",
 														"comment": "gcc-toolset-12-libstdc++-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788173",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788183",
 														"comment": "gcc-toolset-12-libstdc++-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2561,11 +2483,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788174",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788184",
 														"comment": "gcc-toolset-12-libstdc++-docs is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788175",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788185",
 														"comment": "gcc-toolset-12-libstdc++-docs is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2574,11 +2496,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788176",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788186",
 														"comment": "gcc-toolset-12-libtsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788177",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788187",
 														"comment": "gcc-toolset-12-libtsan-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2587,11 +2509,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788178",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788188",
 														"comment": "gcc-toolset-12-libubsan-devel is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788179",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788189",
 														"comment": "gcc-toolset-12-libubsan-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2600,11 +2522,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788221",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788219",
 														"comment": "gcc-toolset-12-offload-nvptx is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788222",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788220",
 														"comment": "gcc-toolset-12-offload-nvptx is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2613,11 +2535,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788180",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788190",
 														"comment": "libasan is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788181",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788191",
 														"comment": "libasan is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2626,11 +2548,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788182",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788192",
 														"comment": "libasan8 is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788183",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788193",
 														"comment": "libasan8 is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2639,11 +2561,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788184",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788194",
 														"comment": "libgccjit is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788185",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788195",
 														"comment": "libgccjit is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2652,11 +2574,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788186",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788196",
 														"comment": "libgccjit-devel is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788187",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788197",
 														"comment": "libgccjit-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2665,11 +2587,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788223",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788221",
 														"comment": "libgomp-offload-nvptx is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788224",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788222",
 														"comment": "libgomp-offload-nvptx is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2678,11 +2600,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788188",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788198",
 														"comment": "libitm is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788189",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788199",
 														"comment": "libitm is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2691,11 +2613,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788190",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788200",
 														"comment": "libitm-devel is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788191",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788201",
 														"comment": "libitm-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2704,11 +2626,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788192",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788202",
 														"comment": "liblsan is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788193",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788203",
 														"comment": "liblsan is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2717,11 +2639,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788225",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788223",
 														"comment": "libquadmath-devel is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788226",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788224",
 														"comment": "libquadmath-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2730,11 +2652,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788194",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788204",
 														"comment": "libstdc++-devel is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788195",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788205",
 														"comment": "libstdc++-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2743,11 +2665,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788196",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788206",
 														"comment": "libstdc++-docs is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788197",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788207",
 														"comment": "libstdc++-docs is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2756,11 +2678,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788198",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788208",
 														"comment": "libtsan is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788199",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788209",
 														"comment": "libtsan is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2769,11 +2691,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788200",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788210",
 														"comment": "libtsan2 is earlier than 0:12.2.1-7.4.0.2.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788201",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788211",
 														"comment": "libtsan2 is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2782,11 +2704,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788202",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788212",
 														"comment": "libubsan is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788203",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788213",
 														"comment": "libubsan is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2795,11 +2717,11 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788134",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788144",
 														"comment": "gcc-plugin-devel is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788135",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788145",
 														"comment": "gcc-plugin-devel is signed with the Oracle Linux 9 key"
 													}
 												]
@@ -2808,12 +2730,90 @@
 												"operator": "AND",
 												"criterions": [
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788136",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788146",
 														"comment": "libstdc++-static is earlier than 0:11.3.1-4.3.0.4.el9"
 													},
 													{
-														"test_ref": "oval:com.oracle.elsa:tst:202312788137",
+														"test_ref": "oval:com.oracle.elsa:tst:202312788147",
 														"comment": "libstdc++-static is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788134",
+														"comment": "libatomic is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788135",
+														"comment": "libatomic is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788136",
+														"comment": "libgcc is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788137",
+														"comment": "libgcc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788138",
+														"comment": "libgfortran is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788139",
+														"comment": "libgfortran is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788140",
+														"comment": "libgomp is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788141",
+														"comment": "libgomp is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788225",
+														"comment": "libquadmath is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788226",
+														"comment": "libquadmath is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788142",
+														"comment": "libstdc++ is earlier than 0:11.3.1-4.3.0.4.el9"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202312788143",
+														"comment": "libstdc++ is signed with the Oracle Linux 9 key"
 													}
 												]
 											}

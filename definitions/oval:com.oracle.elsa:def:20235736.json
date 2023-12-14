@@ -14,12 +14,12 @@
 			{
 				"source": "elsa",
 				"ref_id": "ELSA-2023-5736",
-				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-5736.html"
+				"ref_url": "https://linux-qa.oracle.com/errata/ELSA-2023-5736.html"
 			},
 			{
 				"source": "CVE",
 				"ref_id": "CVE-2023-22081",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2023-22081.html"
+				"ref_url": "https://linux-qa.oracle.com/cve/CVE-2023-22081.html"
 			}
 		],
 		"description": "\n[1:11.0.21.0.9-1.0.1]\n- link atomic for ix86 build\n\n[1:11.0.21.0.9-1]\n- Update to jdk-11.0.21+9 (GA)\n- Update release notes to 11.0.21+9\n- Remove system crypto policy patch which doesn't belong on RHEL 7 with no system policies\n- Update generate_tarball.sh to be closer to upstream vanilla script inc. no more ECC removal\n- Update bug URL for RHEL to point to the Red Hat customer portal\n- Change top_level_dir_name to use the VCS tag, matching new upstream release style tarball\n- Apply all patches using -p1\n- Drop local backport of JDK-8243210 which is upstream from 11.0.21+2\n- Add missing JFR alternative ghost\n- Move jcmd to the headless package\n- Replace -mstackrealign with -mincoming-stack-boundary=2 -mpreferred-stack-boundary=4 on x86_32 for stack alignment\n- Disable the serviceability agent on Zero architectures even when the architecture itself is supported\n- ** This tarball is embargoed until 2023-10-17 @ 1pm PT. **\n- Resolves: RHEL-12217\n- Resolves: RHEL-12910\n- Resolves: RHEL-12913\n- Resolves: RHEL-11320\n- Resolves: RHEL-13227\n- Resolves: RHEL-13217\n\n[1:11.0.21.0.9-1]\n- For non debug subpackages, ghosted all alternatives (rhbz1649776)\n- For non system JDKs, if-outed versionless provides.\n- Aligned versions to be %{epoch}:%{version}-%{release} instead of chaotic\n- Related: RHEL-11320\n\n[1:11.0.20.1.1-1]\n- Update to jdk-11.0.20.1+1 (GA)\n- Update release notes to 11.0.20.1+1\n- Add backport of JDK-8312489 already upstream in 11.0.22 (see OPENJDK-2095)\n- Add backport of JDK-8243210 already upstream in 11.0.21 (see RH2229269)\n- Update openjdk_news script to specify subdirectory last\n- Add missing discover_trees script required by openjdk_news\n- Synchronise runtime and buildtime tzdata requirements\n- Update README.md to match the version in later RHEL releases\n- Resolves: rhbz#2236229\n",
@@ -27,12 +27,12 @@
 			"severity": "MODERATE",
 			"rights": "Copyright 2023 Oracle, Inc.",
 			"issued": {
-				"date": "2023-10-19"
+				"date": "2023-10-18"
 			},
 			"cve": [
 				{
 					"text": "CVE-2023-22081",
-					"href": "https://linux.oracle.com/cve/CVE-2023-22081.html"
+					"href": "https://linux-qa.oracle.com/cve/CVE-2023-22081.html"
 				}
 			]
 		}
@@ -173,51 +173,12 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235736003",
-												"comment": "java-11-openjdk is earlier than 1:11.0.21.0.9-1.0.1.el7_9"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235736004",
-												"comment": "java-11-openjdk is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
 												"test_ref": "oval:com.oracle.elsa:tst:20235736009",
 												"comment": "java-11-openjdk-demo is earlier than 1:11.0.21.0.9-1.0.1.el7_9"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20235736010",
 												"comment": "java-11-openjdk-demo is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235736005",
-												"comment": "java-11-openjdk-devel is earlier than 1:11.0.21.0.9-1.0.1.el7_9"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235736006",
-												"comment": "java-11-openjdk-devel is signed with the Oracle Linux 7 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235736007",
-												"comment": "java-11-openjdk-headless is earlier than 1:11.0.21.0.9-1.0.1.el7_9"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20235736008",
-												"comment": "java-11-openjdk-headless is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
@@ -270,6 +231,45 @@
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20235736018",
 												"comment": "java-11-openjdk-src is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235736003",
+												"comment": "java-11-openjdk is earlier than 1:11.0.21.0.9-1.0.1.el7_9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235736004",
+												"comment": "java-11-openjdk is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235736005",
+												"comment": "java-11-openjdk-devel is earlier than 1:11.0.21.0.9-1.0.1.el7_9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235736006",
+												"comment": "java-11-openjdk-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235736007",
+												"comment": "java-11-openjdk-headless is earlier than 1:11.0.21.0.9-1.0.1.el7_9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20235736008",
+												"comment": "java-11-openjdk-headless is signed with the Oracle Linux 7 key"
 											}
 										]
 									},
