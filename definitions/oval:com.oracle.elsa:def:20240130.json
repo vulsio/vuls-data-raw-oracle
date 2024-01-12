@@ -1,0 +1,167 @@
+{
+	"id": "oval:com.oracle.elsa:def:20240130",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-0130:  frr security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-0130",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-0130.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-38407",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-38407.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-47234",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-47234.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-47235",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-47235.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-38406",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-38406.html"
+			}
+		],
+		"description": "\n[7.5.1-13.3]\n- Resolves: RHEL-15916 - Flowspec overflow in bgpd/bgp_flowspec.c\n- Resolves: RHEL-15919 - Out of bounds read in bgpd/bgp_label.c\n- Resolves: RHEL-15869 - crash from specially crafted MP_UNREACH_NLRI-containing BGP UPDATE message\n- Resolves: RHEL-15868 - crash from malformed EOR-containing BGP UPDATE message\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-01-12"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-38407",
+					"href": "https://linux.oracle.com/cve/CVE-2023-38407.html"
+				},
+				{
+					"text": "CVE-2023-47234",
+					"href": "https://linux.oracle.com/cve/CVE-2023-47234.html"
+				},
+				{
+					"text": "CVE-2023-47235",
+					"href": "https://linux.oracle.com/cve/CVE-2023-47235.html"
+				},
+				{
+					"text": "CVE-2023-38406",
+					"href": "https://linux.oracle.com/cve/CVE-2023-38406.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130003",
+												"comment": "frr is earlier than 0:7.5.1-13.el8_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130004",
+												"comment": "frr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130005",
+												"comment": "frr-selinux is earlier than 0:7.5.1-13.el8_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130006",
+												"comment": "frr-selinux is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20240130002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130003",
+												"comment": "frr is earlier than 0:7.5.1-13.el8_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130004",
+												"comment": "frr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130005",
+												"comment": "frr-selinux is earlier than 0:7.5.1-13.el8_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20240130006",
+												"comment": "frr-selinux is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20240130007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20240130001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
