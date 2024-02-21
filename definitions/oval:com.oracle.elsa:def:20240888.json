@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20240888",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-0888:  edk2 security update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-0888",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-0888.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-3446",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-3446.html"
+			}
+		],
+		"description": "\n[20220126gitbb1bba3d77-6.el8_9.3]\n- edk2-Bumped-openssl-submodule-version-to-cf317b2bb227.patch [RHEL-7560]\n- Resolves: RHEL-7560\n  (CVE-2023-3446 edk2: openssl: Excessive time spent checking DH keys and parameters [rhel-8])\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-02-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-3446",
+					"href": "https://linux.oracle.com/cve/CVE-2023-3446.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240888003",
+										"comment": "edk2-aarch64 is earlier than 0:20220126gitbb1bba3d77-6.el8_9.3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240888004",
+										"comment": "edk2-aarch64 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20240888002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240888006",
+										"comment": "edk2-ovmf is earlier than 0:20220126gitbb1bba3d77-6.el8_9.3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240888007",
+										"comment": "edk2-ovmf is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20240888005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20240888001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
