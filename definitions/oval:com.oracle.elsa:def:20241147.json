@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241147",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1147:  rear security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1147",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1147.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-23301",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-23301.html"
+			}
+		],
+		"description": "\n[2.6-21.0.1]\n- rear: creates a world-readable initrd (CVE-2024-23301)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-03-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-23301",
+					"href": "https://linux.oracle.com/cve/CVE-2024-23301.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241147003",
+								"comment": "rear is earlier than 0:2.6-21.0.1.el9_3"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241147004",
+								"comment": "rear is signed with the Oracle Linux 9 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20241147002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241147001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
