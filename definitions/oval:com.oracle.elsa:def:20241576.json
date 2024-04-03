@@ -1,0 +1,839 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241576",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1576:  ruby:3.1 security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1576",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1576.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-28755",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-28755.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-28756",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-28756.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-36617",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-36617.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33621",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-33621.html"
+			}
+		],
+		"description": "\nruby\n[3.1.4-143]\n- Upgrade to Ruby 3.1.4.\n  Resolves: RHEL-5586\n- Fix HTTP response splitting in CGI.\n  Resolves: RHEL-5591\n- Fix ReDos vulnerability in URI.\n  Resolves: RHEL-28919\n  Resolves: RHEL-5612\n- Fix ReDos vulnerability in Time.\n  Resolves: RHEL-28920\n- Make RDoc soft dependency in IRB.\n  Resolves: RHEL-5613\n\n[3.1.2-142]\n- Bypass git submodule test failure on Git >= 2.38.1.\n- Fix tests with Europe/Amsterdam pre-1970 time on tzdata version 2022b.\n- Fix for tzdata-2022g.\n- Fix OpenSSL.fips_mode and OpenSSL::PKey.read in OpenSSL 3 FIPS.\n  Resolves: RHEL-5590\n- ssl: use ffdhe2048 from RFC 7919 as the default DH group parameters\n  Related: RHEL-5590\n- Disable fiddle tests that use FFI closures.\n  Related: RHEL-5590\n\nrubygem-mysql2\n[0.5.4-1]\n- New upstream release 0.5.4 by merging Fedora rawhide branch (commit: e21b5b9)\n  Resolves: rhbz#2063773\n\n[0.5.3-1]\n- New upstream release 0.5.3 by merging Fedora master branch (commit: 674d475)\n  Resolves: rhbz#1817135\n\nrubygem-pg\n[1.3.5-1]\n- Update to pg 1.3.5\n  Related: rhbz#2063773\n\n[1.2.3-1]\n- Update to pg 1.2.3 by merging Fedora master branch (commit: 5db4d26)\n  Resolves: rhbz#1817135\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-04-02"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-28755",
+					"href": "https://linux.oracle.com/cve/CVE-2023-28755.html"
+				},
+				{
+					"text": "CVE-2023-28756",
+					"href": "https://linux.oracle.com/cve/CVE-2023-28756.html"
+				},
+				{
+					"text": "CVE-2023-36617",
+					"href": "https://linux.oracle.com/cve/CVE-2023-36617.html"
+				},
+				{
+					"text": "CVE-2021-33621",
+					"href": "https://linux.oracle.com/cve/CVE-2021-33621.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576004",
+														"comment": "rubygem-mysql2 is earlier than 0:0.5.4-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576005",
+														"comment": "rubygem-mysql2 is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576006",
+														"comment": "rubygem-mysql2-doc is earlier than 0:0.5.4-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576007",
+														"comment": "rubygem-mysql2-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576008",
+														"comment": "rubygem-pg is earlier than 0:1.3.5-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576009",
+														"comment": "rubygem-pg is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576010",
+														"comment": "rubygem-pg-doc is earlier than 0:1.3.5-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576011",
+														"comment": "rubygem-pg-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576012",
+														"comment": "ruby is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576013",
+														"comment": "ruby is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576014",
+														"comment": "ruby-bundled-gems is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576015",
+														"comment": "ruby-bundled-gems is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576016",
+														"comment": "ruby-default-gems is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576017",
+														"comment": "ruby-default-gems is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576018",
+														"comment": "ruby-devel is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576019",
+														"comment": "ruby-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576020",
+														"comment": "ruby-doc is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576021",
+														"comment": "ruby-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576022",
+														"comment": "ruby-libs is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576023",
+														"comment": "ruby-libs is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576024",
+														"comment": "rubygem-bigdecimal is earlier than 0:3.1.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576025",
+														"comment": "rubygem-bigdecimal is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576026",
+														"comment": "rubygem-bundler is earlier than 0:2.3.26-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576027",
+														"comment": "rubygem-bundler is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576028",
+														"comment": "rubygem-io-console is earlier than 0:0.5.11-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576029",
+														"comment": "rubygem-io-console is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576030",
+														"comment": "rubygem-irb is earlier than 0:1.4.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576031",
+														"comment": "rubygem-irb is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576032",
+														"comment": "rubygem-json is earlier than 0:2.6.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576033",
+														"comment": "rubygem-json is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576034",
+														"comment": "rubygem-minitest is earlier than 0:5.15.0-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576035",
+														"comment": "rubygem-minitest is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576036",
+														"comment": "rubygem-power_assert is earlier than 0:2.0.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576037",
+														"comment": "rubygem-power_assert is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576038",
+														"comment": "rubygem-psych is earlier than 0:4.0.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576039",
+														"comment": "rubygem-psych is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576040",
+														"comment": "rubygem-rake is earlier than 0:13.0.6-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576041",
+														"comment": "rubygem-rake is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576042",
+														"comment": "rubygem-rbs is earlier than 0:2.7.0-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576043",
+														"comment": "rubygem-rbs is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576044",
+														"comment": "rubygem-rdoc is earlier than 0:6.4.0-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576045",
+														"comment": "rubygem-rdoc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576046",
+														"comment": "rubygem-rexml is earlier than 0:3.2.5-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576047",
+														"comment": "rubygem-rexml is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576048",
+														"comment": "rubygem-rss is earlier than 0:0.2.9-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576049",
+														"comment": "rubygem-rss is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576050",
+														"comment": "rubygem-test-unit is earlier than 0:3.5.3-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576051",
+														"comment": "rubygem-test-unit is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576052",
+														"comment": "rubygem-typeprof is earlier than 0:0.21.3-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576053",
+														"comment": "rubygem-typeprof is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576054",
+														"comment": "rubygems is earlier than 0:3.3.26-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576055",
+														"comment": "rubygems is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576056",
+														"comment": "rubygems-devel is earlier than 0:3.3.26-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576057",
+														"comment": "rubygems-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241576003",
+										"comment": "Module ruby:3.1 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241576002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576012",
+														"comment": "ruby is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576013",
+														"comment": "ruby is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576014",
+														"comment": "ruby-bundled-gems is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576015",
+														"comment": "ruby-bundled-gems is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576016",
+														"comment": "ruby-default-gems is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576017",
+														"comment": "ruby-default-gems is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576018",
+														"comment": "ruby-devel is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576019",
+														"comment": "ruby-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576020",
+														"comment": "ruby-doc is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576021",
+														"comment": "ruby-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576022",
+														"comment": "ruby-libs is earlier than 0:3.1.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576023",
+														"comment": "ruby-libs is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576024",
+														"comment": "rubygem-bigdecimal is earlier than 0:3.1.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576025",
+														"comment": "rubygem-bigdecimal is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576026",
+														"comment": "rubygem-bundler is earlier than 0:2.3.26-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576027",
+														"comment": "rubygem-bundler is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576028",
+														"comment": "rubygem-io-console is earlier than 0:0.5.11-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576029",
+														"comment": "rubygem-io-console is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576030",
+														"comment": "rubygem-irb is earlier than 0:1.4.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576031",
+														"comment": "rubygem-irb is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576032",
+														"comment": "rubygem-json is earlier than 0:2.6.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576033",
+														"comment": "rubygem-json is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576034",
+														"comment": "rubygem-minitest is earlier than 0:5.15.0-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576035",
+														"comment": "rubygem-minitest is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576036",
+														"comment": "rubygem-power_assert is earlier than 0:2.0.1-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576037",
+														"comment": "rubygem-power_assert is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576038",
+														"comment": "rubygem-psych is earlier than 0:4.0.4-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576039",
+														"comment": "rubygem-psych is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576040",
+														"comment": "rubygem-rake is earlier than 0:13.0.6-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576041",
+														"comment": "rubygem-rake is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576042",
+														"comment": "rubygem-rbs is earlier than 0:2.7.0-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576043",
+														"comment": "rubygem-rbs is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576044",
+														"comment": "rubygem-rdoc is earlier than 0:6.4.0-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576045",
+														"comment": "rubygem-rdoc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576046",
+														"comment": "rubygem-rexml is earlier than 0:3.2.5-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576047",
+														"comment": "rubygem-rexml is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576048",
+														"comment": "rubygem-rss is earlier than 0:0.2.9-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576049",
+														"comment": "rubygem-rss is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576050",
+														"comment": "rubygem-test-unit is earlier than 0:3.5.3-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576051",
+														"comment": "rubygem-test-unit is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576052",
+														"comment": "rubygem-typeprof is earlier than 0:0.21.3-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576053",
+														"comment": "rubygem-typeprof is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576054",
+														"comment": "rubygems is earlier than 0:3.3.26-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576055",
+														"comment": "rubygems is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576056",
+														"comment": "rubygems-devel is earlier than 0:3.3.26-143.module+el9.3.0+90207+bf8fadcb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576057",
+														"comment": "rubygems-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576004",
+														"comment": "rubygem-mysql2 is earlier than 0:0.5.4-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576005",
+														"comment": "rubygem-mysql2 is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576006",
+														"comment": "rubygem-mysql2-doc is earlier than 0:0.5.4-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576007",
+														"comment": "rubygem-mysql2-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576008",
+														"comment": "rubygem-pg is earlier than 0:1.3.5-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576009",
+														"comment": "rubygem-pg is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576010",
+														"comment": "rubygem-pg-doc is earlier than 0:1.3.5-1.module+el9.1.0+20815+286161bd"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241576011",
+														"comment": "rubygem-pg-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241576003",
+										"comment": "Module ruby:3.1 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241576058",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241576001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
