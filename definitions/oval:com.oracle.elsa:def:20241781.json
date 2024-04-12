@@ -1,0 +1,367 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241781",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1781:  bind9.16 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1781",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1781.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50868",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-50868.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-6516",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-6516.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50387",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-50387.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-5679",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-5679.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-5517",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-5517.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-4408",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-4408.html"
+			}
+		],
+		"description": "\n[32:9.16.23-0.16.2]\n- Prevent crashing at masterformat system test (CVE-2023-6516)\n\n[32:9.16.23-0.16.1]\n- Prevent increased CPU load on large DNS messages (CVE-2023-4408)\n- Prevent assertion failure when nxdomain-redirect is used with\n RFC 1918 reverse zones (CVE-2023-5517)\n- Prevent assertion failure if DNS64 and serve-stale is used (CVE-2023-5679)\n- Specific recursive query patterns may lead to an out-of-memory\n  condition (CVE-2023-6516)\n- Prevent increased CPU consumption in DNSSEC validator (CVE-2023-50387\n  CVE-2023-50868)\n- Import tests for large DNS messages fix\n- Add downstream change complementing CVE-2023-50387\n\n[32:9.16.23-0.16]\n- Limit the amount of recursion possible in control channel (CVE-2023-3341)\n\n[32:9.16.23-0.15]\n- Strengten cache cleaning to prevent overflowing configured limit\n  (CVE-2023-2828)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-04-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-50868",
+					"href": "https://linux.oracle.com/cve/CVE-2023-50868.html"
+				},
+				{
+					"text": "CVE-2023-6516",
+					"href": "https://linux.oracle.com/cve/CVE-2023-6516.html"
+				},
+				{
+					"text": "CVE-2023-50387",
+					"href": "https://linux.oracle.com/cve/CVE-2023-50387.html"
+				},
+				{
+					"text": "CVE-2023-5679",
+					"href": "https://linux.oracle.com/cve/CVE-2023-5679.html"
+				},
+				{
+					"text": "CVE-2023-5517",
+					"href": "https://linux.oracle.com/cve/CVE-2023-5517.html"
+				},
+				{
+					"text": "CVE-2023-4408",
+					"href": "https://linux.oracle.com/cve/CVE-2023-4408.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781003",
+												"comment": "bind9.16-devel is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781004",
+												"comment": "bind9.16-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781005",
+												"comment": "bind9.16-doc is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781006",
+												"comment": "bind9.16-doc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781007",
+												"comment": "bind9.16 is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781008",
+												"comment": "bind9.16 is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781009",
+												"comment": "bind9.16-chroot is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781010",
+												"comment": "bind9.16-chroot is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781011",
+												"comment": "bind9.16-dnssec-utils is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781012",
+												"comment": "bind9.16-dnssec-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781013",
+												"comment": "bind9.16-libs is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781014",
+												"comment": "bind9.16-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781015",
+												"comment": "bind9.16-license is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781016",
+												"comment": "bind9.16-license is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781017",
+												"comment": "bind9.16-utils is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781018",
+												"comment": "bind9.16-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781019",
+												"comment": "python3-bind9.16 is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781020",
+												"comment": "python3-bind9.16 is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241781002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781003",
+												"comment": "bind9.16-devel is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781004",
+												"comment": "bind9.16-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781005",
+												"comment": "bind9.16-doc is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781006",
+												"comment": "bind9.16-doc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781007",
+												"comment": "bind9.16 is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781008",
+												"comment": "bind9.16 is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781009",
+												"comment": "bind9.16-chroot is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781010",
+												"comment": "bind9.16-chroot is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781011",
+												"comment": "bind9.16-dnssec-utils is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781012",
+												"comment": "bind9.16-dnssec-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781013",
+												"comment": "bind9.16-libs is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781014",
+												"comment": "bind9.16-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781015",
+												"comment": "bind9.16-license is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781016",
+												"comment": "bind9.16-license is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781017",
+												"comment": "bind9.16-utils is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781018",
+												"comment": "bind9.16-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781019",
+												"comment": "python3-bind9.16 is earlier than 32:9.16.23-0.16.el8_9.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241781020",
+												"comment": "python3-bind9.16 is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241781021",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241781001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
