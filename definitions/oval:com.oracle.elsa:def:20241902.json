@@ -1,0 +1,167 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241902",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1902:  shim security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1902",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1902.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40546",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-40546.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40549",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-40549.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40548",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-40548.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40547",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-40547.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40550",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-40550.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-40551",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-40551.html"
+			}
+		],
+		"description": "\n[15.8-4.0.1]\n- Add support for Oracle signed shim [Orabug: 36540084]\n- Add shim binaries signed with Oracle Secure Boot Signing (key 1) [Orabug: 36540084]\n\n[15.8-1.0.3]\n- Update shimx64.efi, shimia32.efi and shimaa64.efi v15.8 signed by Microsoft [Orabug: 36072863]\n\n[15.8-1.0.2]\n- Use binaries with correct shim.ol generation [Orabug: 36072863]\n- Set SBAT_AUTOMATIC_DATE=2021030218 [Orabug: 36072863]\n\n[15.8-1.0.1]\n- Update to 15.8 [Orabug: 36072863]\n- fix CVE-2023-40546, CVE-2023-40547, CVE-2023-40548, CVE-2023-40549, CVE-2023-40550, CVE-2023-40551 [Orabug: 36072863]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-04-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-40546",
+					"href": "https://linux.oracle.com/cve/CVE-2023-40546.html"
+				},
+				{
+					"text": "CVE-2023-40549",
+					"href": "https://linux.oracle.com/cve/CVE-2023-40549.html"
+				},
+				{
+					"text": "CVE-2023-40548",
+					"href": "https://linux.oracle.com/cve/CVE-2023-40548.html"
+				},
+				{
+					"text": "CVE-2023-40547",
+					"href": "https://linux.oracle.com/cve/CVE-2023-40547.html"
+				},
+				{
+					"text": "CVE-2023-40550",
+					"href": "https://linux.oracle.com/cve/CVE-2023-40550.html"
+				},
+				{
+					"text": "CVE-2023-40551",
+					"href": "https://linux.oracle.com/cve/CVE-2023-40551.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241902003",
+										"comment": "shim-aa64 is earlier than 0:15.8-4.0.1.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241902004",
+										"comment": "shim-aa64 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241902002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241902006",
+												"comment": "shim-ia32 is earlier than 0:15.8-4.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241902007",
+												"comment": "shim-ia32 is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241902008",
+												"comment": "shim-x64 is earlier than 0:15.8-4.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241902009",
+												"comment": "shim-x64 is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241902005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241902001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
