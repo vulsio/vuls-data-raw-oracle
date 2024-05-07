@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:20242559",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-2559:  python-jwcrypto security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-2559",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-2559.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28102",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-28102.html"
+			}
+		],
+		"description": "\n[0.8-5]\n- Address potential DoS with high compression ratio\n  Resolves: RHEL-28698\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-28102",
+					"href": "https://linux.oracle.com/cve/CVE-2024-28102.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242559003",
+								"comment": "python3-jwcrypto is earlier than 0:0.8-5.el9_4"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242559004",
+								"comment": "python3-jwcrypto is signed with the Oracle Linux 9 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20242559002",
+						"comment": "Oracle Linux arch is aarch64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20242559001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
