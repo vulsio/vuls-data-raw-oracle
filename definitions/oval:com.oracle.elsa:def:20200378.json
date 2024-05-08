@@ -1,0 +1,383 @@
+{
+	"id": "oval:com.oracle.elsa:def:20200378",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-0378:  ipa security and bug fix update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-0378",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-0378.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-10195",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-10195.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-14867",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-14867.html"
+			}
+		],
+		"description": "\n[4.6.5-11.0.1]\n- Blank out header-logo.png product-name.png\n- Replace login-screen-logo.png [Orabug: 20362818]\n\n[4.6.5-11.el7_7.4]\n- Resolves: #1781153 - After upgrade AD Trust Agents were removed from LDAP\n  - trust upgrade: ensure that host is member of adtrust agents\n- Resolves: #1777303 - CVE-2019-10195 ipa: batch API logging user passwords to /var/log/httpd/error_log\n  - CVE-2019-10195: Don't log passwords embedded in commands in calls using batch\n- Resolves: #1773953 - User incorrectly added to negative cache when backend is reconnecting to IPA service / timed out: error code 32 'No such object'\n  - extdom: unify error code handling especially LDAP_NO_SUCH_OBJECT\n  - ipa-extdom-extop: test timed out getgrgid_r\n- Resolves: #1770728 - Issue with adding multiple RHEL 7 IPA replica to RHEL 6 IPA master\n  - DL0 replica install: fix nsDS5ReplicaBindDN config\n- Resolves: #1767300 - CVE-2019-14867 ipa: Denial of service in IPA server due to wrong use of ber_scanf()\n  - Make sure to have storage space for tag\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-02-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-10195",
+					"href": "https://linux.oracle.com/cve/CVE-2019-10195.html"
+				},
+				{
+					"text": "CVE-2019-14867",
+					"href": "https://linux.oracle.com/cve/CVE-2019-14867.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378003",
+												"comment": "ipa-client is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378004",
+												"comment": "ipa-client is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378005",
+												"comment": "ipa-client-common is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378006",
+												"comment": "ipa-client-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378007",
+												"comment": "ipa-common is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378008",
+												"comment": "ipa-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378009",
+												"comment": "ipa-python-compat is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378010",
+												"comment": "ipa-python-compat is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378011",
+												"comment": "ipa-server is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378012",
+												"comment": "ipa-server is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378013",
+												"comment": "ipa-server-common is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378014",
+												"comment": "ipa-server-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378015",
+												"comment": "ipa-server-dns is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378016",
+												"comment": "ipa-server-dns is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378017",
+												"comment": "ipa-server-trust-ad is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378018",
+												"comment": "ipa-server-trust-ad is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378019",
+												"comment": "python2-ipaclient is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378020",
+												"comment": "python2-ipaclient is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378021",
+												"comment": "python2-ipalib is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378022",
+												"comment": "python2-ipalib is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378023",
+												"comment": "python2-ipaserver is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378024",
+												"comment": "python2-ipaserver is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20200378002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378003",
+												"comment": "ipa-client is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378004",
+												"comment": "ipa-client is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378005",
+												"comment": "ipa-client-common is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378006",
+												"comment": "ipa-client-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378007",
+												"comment": "ipa-common is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378008",
+												"comment": "ipa-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378009",
+												"comment": "ipa-python-compat is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378010",
+												"comment": "ipa-python-compat is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378011",
+												"comment": "ipa-server is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378012",
+												"comment": "ipa-server is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378013",
+												"comment": "ipa-server-common is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378014",
+												"comment": "ipa-server-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378015",
+												"comment": "ipa-server-dns is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378016",
+												"comment": "ipa-server-dns is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378017",
+												"comment": "ipa-server-trust-ad is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378018",
+												"comment": "ipa-server-trust-ad is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378019",
+												"comment": "python2-ipaclient is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378020",
+												"comment": "python2-ipaclient is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378021",
+												"comment": "python2-ipalib is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378022",
+												"comment": "python2-ipalib is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378023",
+												"comment": "python2-ipaserver is earlier than 0:4.6.5-11.0.1.el7_7.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20200378024",
+												"comment": "python2-ipaserver is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20200378025",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20200378001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

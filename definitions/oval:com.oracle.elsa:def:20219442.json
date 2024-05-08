@@ -1,0 +1,319 @@
+{
+	"id": "oval:com.oracle.elsa:def:20219442",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-9442: Unbreakable Enterprise kernel security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6",
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-9442",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-9442.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-9458",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-9458.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-0305",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-0305.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-9456",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-9456.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-27068",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-27068.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-0429",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-0429.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-28097",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-28097.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-34693",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-34693.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-3609",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-3609.html"
+			}
+		],
+		"description": "\n[4.1.12-124.54.6]\n- xen-netback: do not kfree_skb() when irq is disabled (Dongli Zhang)  [Orabug: 33282046]\n\n[4.1.12-124.54.5]\n- l2tp: fix race between l2tp_session_delete() and l2tp_tunnel_closeall() (Guillaume Nault)  [Orabug: 33113975]  {CVE-2020-0429}\n- l2tp: ensure sessions are freed after their PPPOL2TP socket (Guillaume Nault)  [Orabug: 33113975]  {CVE-2020-0429}\n- l2tp: Refactor the codes with existing macros instead of literal number (Gao Feng)  [Orabug: 33113975]  {CVE-2020-0429}\n- l2tp: fix duplicate session creation (Guillaume Nault)  [Orabug: 33113975]  {CVE-2020-0429}\n- l2tp: ensure session can't get removed during pppol2tp_session_ioctl() (Guillaume Nault)  [Orabug: 33113975]  {CVE-2020-0429}\n- l2tp: fix race in l2tp_recv_common() (Guillaume Nault)  [Orabug: 33113975]  {CVE-2020-0429}\n- net: l2tp: Make l2tp_ip6 namespace aware (Shmulik Ladkani)  [Orabug: 33113975]  {CVE-2020-0429}\n- l2tp: Correctly return -EBADF from pppol2tp_getname. (phil.turnbull@oracle.com)  [Orabug: 33113975]  {CVE-2020-0429}\n\n[4.1.12-124.54.4]\n- USB: mon: Use scnprintf() for avoiding potential buffer overflow (Takashi Iwai)  [Orabug: 33113260]  {CVE-2019-9456}\n- usb: usbmon: Read text within supplied buffer size (Pete Zaitcev)  [Orabug: 33113260]  {CVE-2019-9456}\n\n[4.1.12-124.54.3]\n- uek-rpm: mark /etc/ld.so.conf.d/ files as %config (Stephen Brennan)  [Orabug: 32060376] \n- config: remove CONFIG_VGACON_SOFT_SCROLLBACK from kernel configs (Brian Maly)  [Orabug: 33047770]  {CVE-2020-28097} {CVE-2020-28097}\n- vgacon: remove software scrollback support (Linus Torvalds)  [Orabug: 33047770]  {CVE-2020-28097}\n- can: bcm: delay release of struct bcm_op after synchronize_rcu() (Thadeu Lima de Souza Cascardo)  [Orabug: 33114649]  {CVE-2021-3609}\n- iommu/vt-d: Use plain writeq() for dmar_writeq() where available (David Woodhouse)  [Orabug: 33199774]\n\n[4.1.12-124.54.2]\n- qla2xxx: update version to 9.00.00.00.42.0-k1-v6 (Quinn Tran)  [Orabug: 33196002] \n- qla2xxx: add heartbeat check (Quinn Tran)  [Orabug: 33196002]\n\n[4.1.12-124.54.1]\n- can: bcm: fix infoleak in struct bcm_msg_head (Norbert Slusarek)  [Orabug: 33030701]  {CVE-2021-34693}\n- CIFS: 511c54a2f691 adds a check for session expiry (Aruna Ramakrishna)  [Orabug: 33063858] \n- CIFS: Reconnect expired SMB sessions (Pavel Shilovsky)  [Orabug: 33063858] \n- media: v4l: event: Add subscription to list before calling 'add' operation (Sakari Ailus)  [Orabug: 33113344]  {CVE-2019-9458}\n- media: v4l: event: Prevent freeing event subscriptions while accessed (Sakari Ailus)  [Orabug: 33113344]  {CVE-2019-9458}\n- chardev: Avoid potential use-after-free in 'chrdev_open()' (Will Deacon)  [Orabug: 33113412]  {CVE-2020-0305}\n- kobject: Export kobject_get_unless_zero() (Jan Kara)  [Orabug: 33113412]  {CVE-2020-0305}\n- cfg80211: add missing policy for NL80211_ATTR_STATUS_CODE (Sergey Matyukevich)  [Orabug: 33114443]  {CVE-2020-27068}\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-09-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-9458",
+					"href": "https://linux.oracle.com/cve/CVE-2019-9458.html"
+				},
+				{
+					"text": "CVE-2020-0305",
+					"href": "https://linux.oracle.com/cve/CVE-2020-0305.html"
+				},
+				{
+					"text": "CVE-2019-9456",
+					"href": "https://linux.oracle.com/cve/CVE-2019-9456.html"
+				},
+				{
+					"text": "CVE-2020-27068",
+					"href": "https://linux.oracle.com/cve/CVE-2020-27068.html"
+				},
+				{
+					"text": "CVE-2020-0429",
+					"href": "https://linux.oracle.com/cve/CVE-2020-0429.html"
+				},
+				{
+					"text": "CVE-2020-28097",
+					"href": "https://linux.oracle.com/cve/CVE-2020-28097.html"
+				},
+				{
+					"text": "CVE-2021-34693",
+					"href": "https://linux.oracle.com/cve/CVE-2021-34693.html"
+				},
+				{
+					"text": "CVE-2021-3609",
+					"href": "https://linux.oracle.com/cve/CVE-2021-3609.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442003",
+												"comment": "kernel-uek is earlier than 0:4.1.12-124.54.6.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442004",
+												"comment": "kernel-uek is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442005",
+												"comment": "kernel-uek-debug is earlier than 0:4.1.12-124.54.6.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442006",
+												"comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442007",
+												"comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-124.54.6.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442008",
+												"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442009",
+												"comment": "kernel-uek-devel is earlier than 0:4.1.12-124.54.6.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442010",
+												"comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442011",
+												"comment": "kernel-uek-doc is earlier than 0:4.1.12-124.54.6.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442012",
+												"comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442013",
+												"comment": "kernel-uek-firmware is earlier than 0:4.1.12-124.54.6.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442014",
+												"comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20219442002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20219442001",
+						"comment": "Oracle Linux 6 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442017",
+												"comment": "kernel-uek is earlier than 0:4.1.12-124.54.6.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442018",
+												"comment": "kernel-uek is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442019",
+												"comment": "kernel-uek-debug is earlier than 0:4.1.12-124.54.6.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442020",
+												"comment": "kernel-uek-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442021",
+												"comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-124.54.6.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442022",
+												"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442023",
+												"comment": "kernel-uek-devel is earlier than 0:4.1.12-124.54.6.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442024",
+												"comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442025",
+												"comment": "kernel-uek-doc is earlier than 0:4.1.12-124.54.6.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442026",
+												"comment": "kernel-uek-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442027",
+												"comment": "kernel-uek-firmware is earlier than 0:4.1.12-124.54.6.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219442028",
+												"comment": "kernel-uek-firmware is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20219442016",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20219442015",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			}
+		]
+	}
+}

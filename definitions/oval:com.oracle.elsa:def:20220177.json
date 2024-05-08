@@ -1,0 +1,93 @@
+{
+	"id": "oval:com.oracle.elsa:def:20220177",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-0177:  gegl04 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-0177",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-0177.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-45463",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-45463.html"
+			}
+		],
+		"description": "\n[0.4.4-6.2]\n- spec bump because of build pipeline issues\n\n[0.4.4-6.1]\n- Fix CVE-2021-45463 (#2035423)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-01-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-45463",
+					"href": "https://linux.oracle.com/cve/CVE-2021-45463.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220177003",
+										"comment": "gegl04 is earlier than 0:0.4.4-6.el8_5.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220177004",
+										"comment": "gegl04 is signed with the Oracle Linux 8 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220177005",
+										"comment": "gegl04-devel is earlier than 0:0.4.4-6.el8_5.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220177006",
+										"comment": "gegl04-devel is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20220177002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20220177001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

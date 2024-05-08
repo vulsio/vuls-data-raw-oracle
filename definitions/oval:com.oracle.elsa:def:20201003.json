@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20201003",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-1003:  mod_auth_mellon security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-1003",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-1003.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-13038",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-13038.html"
+			}
+		],
+		"description": "\n[0.14.0-8]\n- Resolves: rhbz#1731052 - CVE-2019-13038 mod_auth_mellon: an Open Redirect via\n                           the login?ReturnTo= substring which could facilitate\n                           information theft [rhel-7]\n\n[0.14.0-7]\n- Resolves: rhbz#1727789 - mod_auth_mellon fix for AJAX header name\n                           X-Requested-With\n\n[0.14.0-6]\n- Apply the patch from the previous commit\n- Resolves: rhbz#1692470 - CVE-2019-3877 mod_auth_mellon: open redirect\n                           in logout url when using URLs with backslashes\n                           [rhel-7]\n\n[0.14.0-5]\n- Resolves: rhbz#1692470 - CVE-2019-3877 mod_auth_mellon: open redirect\n                           in logout url when using URLs with backslashes\n                           [rhel-7]\n\n[0.14.0-4]\n- Resolves: rhbz#1576719 - ECP flow not triggering, instead client access\n                           secured resources without ECP authentication\n\n[0.14.0-3]\n- Resolves: rhbz#1652980 - mod_auth_mellon Cert files name wrong when\n                           hostname contains a number\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-04-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-13038",
+					"href": "https://linux.oracle.com/cve/CVE-2019-13038.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003003",
+												"comment": "mod_auth_mellon is earlier than 0:0.14.0-8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003004",
+												"comment": "mod_auth_mellon is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003005",
+												"comment": "mod_auth_mellon-diagnostics is earlier than 0:0.14.0-8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003006",
+												"comment": "mod_auth_mellon-diagnostics is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201003002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003003",
+												"comment": "mod_auth_mellon is earlier than 0:0.14.0-8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003004",
+												"comment": "mod_auth_mellon is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003005",
+												"comment": "mod_auth_mellon-diagnostics is earlier than 0:0.14.0-8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201003006",
+												"comment": "mod_auth_mellon-diagnostics is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201003007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20201003001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

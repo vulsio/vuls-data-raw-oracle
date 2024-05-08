@@ -1,0 +1,454 @@
+{
+	"id": "oval:com.oracle.elsa:def:20160050",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2016-0050:  java-1.8.0-openjdk security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2016-0050",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-0050.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-7575",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-7575.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-0402",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-0402.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-0448",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-0448.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-0466",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-0466.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-0475",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-0475.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-0483",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-0483.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-0494",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-0494.html"
+			}
+		],
+		"description": "\n[1:1.8.0.71-1.b15]\n- Add patch to turn off strict overflow on IndicRearrangementProcessor{,2}.cpp\n- Resolves: rhbz#1295751\n\n[1:1.8.0.71-0.b15]\n- January 2016 security update to u71b15.\n- Improve verbosity and helpfulness of tarball generation script.\n- Update patch documentation using version originally written for Fedora.\n- Drop prelink requirement as we no longer use execstack.\n- Drop ifdefbugfix patch as this is fixed upstream.\n- Provide optional boostrap build and turn it off by default.\n- Add patch for size_t formatting on s390 as size_t != intptr_t there.\n- Resolves: rhbz#1295751\n\n[1:1.8.0.65-4.b17]\n- Add flag logic back to spec file but disable for now.\n- Restore system-lcms.patch as used in October CPU.\n- Resolves: rhbz#1295751\n\n[1:1.8.0.65-3.b17]\n- moved to integration forest\n- sync with rhel7\n- Resolves: rhbz#1295751\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2016 Oracle, Inc.",
+			"issued": {
+				"date": "2016-01-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2015-7575",
+					"href": "https://linux.oracle.com/cve/CVE-2015-7575.html"
+				},
+				{
+					"text": "CVE-2016-0402",
+					"href": "https://linux.oracle.com/cve/CVE-2016-0402.html"
+				},
+				{
+					"text": "CVE-2016-0448",
+					"href": "https://linux.oracle.com/cve/CVE-2016-0448.html"
+				},
+				{
+					"text": "CVE-2016-0466",
+					"href": "https://linux.oracle.com/cve/CVE-2016-0466.html"
+				},
+				{
+					"text": "CVE-2016-0475",
+					"href": "https://linux.oracle.com/cve/CVE-2016-0475.html"
+				},
+				{
+					"text": "CVE-2016-0483",
+					"href": "https://linux.oracle.com/cve/CVE-2016-0483.html"
+				},
+				{
+					"text": "CVE-2016-0494",
+					"href": "https://linux.oracle.com/cve/CVE-2016-0494.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050003",
+												"comment": "java-1.8.0-openjdk is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050004",
+												"comment": "java-1.8.0-openjdk is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050005",
+												"comment": "java-1.8.0-openjdk-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050006",
+												"comment": "java-1.8.0-openjdk-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050007",
+												"comment": "java-1.8.0-openjdk-demo is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050008",
+												"comment": "java-1.8.0-openjdk-demo is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050009",
+												"comment": "java-1.8.0-openjdk-demo-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050010",
+												"comment": "java-1.8.0-openjdk-demo-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050011",
+												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050012",
+												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050013",
+												"comment": "java-1.8.0-openjdk-devel-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050014",
+												"comment": "java-1.8.0-openjdk-devel-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050015",
+												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050016",
+												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050017",
+												"comment": "java-1.8.0-openjdk-headless-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050018",
+												"comment": "java-1.8.0-openjdk-headless-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050019",
+												"comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050020",
+												"comment": "java-1.8.0-openjdk-javadoc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050021",
+												"comment": "java-1.8.0-openjdk-javadoc-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050022",
+												"comment": "java-1.8.0-openjdk-javadoc-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050023",
+												"comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050024",
+												"comment": "java-1.8.0-openjdk-src is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050025",
+												"comment": "java-1.8.0-openjdk-src-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050026",
+												"comment": "java-1.8.0-openjdk-src-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20160050002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050003",
+												"comment": "java-1.8.0-openjdk is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050004",
+												"comment": "java-1.8.0-openjdk is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050005",
+												"comment": "java-1.8.0-openjdk-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050006",
+												"comment": "java-1.8.0-openjdk-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050007",
+												"comment": "java-1.8.0-openjdk-demo is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050008",
+												"comment": "java-1.8.0-openjdk-demo is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050009",
+												"comment": "java-1.8.0-openjdk-demo-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050010",
+												"comment": "java-1.8.0-openjdk-demo-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050011",
+												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050012",
+												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050013",
+												"comment": "java-1.8.0-openjdk-devel-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050014",
+												"comment": "java-1.8.0-openjdk-devel-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050015",
+												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050016",
+												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050017",
+												"comment": "java-1.8.0-openjdk-headless-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050018",
+												"comment": "java-1.8.0-openjdk-headless-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050019",
+												"comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050020",
+												"comment": "java-1.8.0-openjdk-javadoc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050021",
+												"comment": "java-1.8.0-openjdk-javadoc-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050022",
+												"comment": "java-1.8.0-openjdk-javadoc-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050023",
+												"comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050024",
+												"comment": "java-1.8.0-openjdk-src is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050025",
+												"comment": "java-1.8.0-openjdk-src-debug is earlier than 1:1.8.0.71-1.b15.el6_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20160050026",
+												"comment": "java-1.8.0-openjdk-src-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20160050027",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20160050001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

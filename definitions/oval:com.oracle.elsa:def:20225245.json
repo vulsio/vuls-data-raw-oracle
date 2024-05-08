@@ -1,0 +1,245 @@
+{
+	"id": "oval:com.oracle.elsa:def:20225245",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-5245:  curl security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-5245",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-5245.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-22576",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-22576.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27774",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-27774.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27776",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-27776.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27782",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-27782.html"
+			}
+		],
+		"description": "\n[7.76.1-14.el9_0.4]\n- fix too eager reuse of TLS and SSH connections (CVE-2022-27782)\n\n[7.76.1-14.el9_0.3]\n- fix leak of SRP credentials in redirects (CVE-2022-27774)\n\n[7.76.1-14.el9_0.2]\n- add missing tests to Makefile\n\n[7.76.1-14.el9_0.1]\n- fix credential leak on redirect (CVE-2022-27774)\n- fix auth/cookie leak on redirect (CVE-2022-27776)\n- fix OAUTH2 bearer bypass in connection re-use (CVE-2022-22576)\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-06-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-22576",
+					"href": "https://linux.oracle.com/cve/CVE-2022-22576.html"
+				},
+				{
+					"text": "CVE-2022-27774",
+					"href": "https://linux.oracle.com/cve/CVE-2022-27774.html"
+				},
+				{
+					"text": "CVE-2022-27776",
+					"href": "https://linux.oracle.com/cve/CVE-2022-27776.html"
+				},
+				{
+					"text": "CVE-2022-27782",
+					"href": "https://linux.oracle.com/cve/CVE-2022-27782.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245003",
+												"comment": "curl is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245004",
+												"comment": "curl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245005",
+												"comment": "curl-minimal is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245006",
+												"comment": "curl-minimal is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245007",
+												"comment": "libcurl is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245008",
+												"comment": "libcurl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245009",
+												"comment": "libcurl-devel is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245010",
+												"comment": "libcurl-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245011",
+												"comment": "libcurl-minimal is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245012",
+												"comment": "libcurl-minimal is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20225245002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245003",
+												"comment": "curl is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245004",
+												"comment": "curl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245005",
+												"comment": "curl-minimal is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245006",
+												"comment": "curl-minimal is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245007",
+												"comment": "libcurl is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245008",
+												"comment": "libcurl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245009",
+												"comment": "libcurl-devel is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245010",
+												"comment": "libcurl-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245011",
+												"comment": "libcurl-minimal is earlier than 0:7.76.1-14.el9_0.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225245012",
+												"comment": "libcurl-minimal is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20225245013",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20225245001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

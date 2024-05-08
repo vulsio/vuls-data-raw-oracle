@@ -1,0 +1,122 @@
+{
+	"id": "oval:com.oracle.elsa:def:20201420",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-1420:  firefox security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-1420",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-1420.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-6821",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-6821.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-6822",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-6822.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-6825",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-6825.html"
+			}
+		],
+		"description": "\n[68.7.0-2.0.1]\n- Remove upstream references [Orabug: 30143292]\n- Update distribution for Oracle Linux [Orabug: 30143292]\n- Add firefox-oracle-default-prefs.js and remove the corresponding Red Hat file\n\n[68.7.0-2]\n- Update to 68.7.0 build3\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-04-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-6821",
+					"href": "https://linux.oracle.com/cve/CVE-2020-6821.html"
+				},
+				{
+					"text": "CVE-2020-6822",
+					"href": "https://linux.oracle.com/cve/CVE-2020-6822.html"
+				},
+				{
+					"text": "CVE-2020-6825",
+					"href": "https://linux.oracle.com/cve/CVE-2020-6825.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20201420003",
+										"comment": "firefox is earlier than 0:68.7.0-2.0.1.el7_8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20201420004",
+										"comment": "firefox is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201420002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20201420003",
+										"comment": "firefox is earlier than 0:68.7.0-2.0.1.el7_8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20201420004",
+										"comment": "firefox is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201420005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20201420001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20193497",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-3497:  http-parser security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-3497",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-3497.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-12121",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-12121.html"
+			}
+		],
+		"description": "\n[2.8.0-5]\n- Resolves: rhbz#1686488: 'make test' fails with stringop-overflow error\n\n[2.8.0-4]\n- Resolves: rhbz#1666382: CVE-2018-12121 http-parser: nodejs: Denial of\n                          Service with large HTTP headers [rhel-8]\n\n[2.8.0-3]\n- spec: make the check phase conditional\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-11-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-12121",
+					"href": "https://linux.oracle.com/cve/CVE-2018-12121.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20193497003",
+										"comment": "http-parser is earlier than 0:2.8.0-5.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20193497004",
+										"comment": "http-parser is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20193497002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20193497003",
+										"comment": "http-parser is earlier than 0:2.8.0-5.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20193497004",
+										"comment": "http-parser is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20193497005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20193497001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

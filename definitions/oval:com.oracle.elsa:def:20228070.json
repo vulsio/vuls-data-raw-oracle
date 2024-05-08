@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20228070",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-8070:  dnsmasq security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-8070",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-8070.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-0934",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-0934.html"
+			}
+		],
+		"description": "\n[2.85-5]\n- Prevent endless loop in forward_query (#2120711)\n\n[2.85-4]\n- Prevent use after free in dhcp6_no_relay (CVE-2022-0934)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-11-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-0934",
+					"href": "https://linux.oracle.com/cve/CVE-2022-0934.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070003",
+												"comment": "dnsmasq is earlier than 0:2.85-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070004",
+												"comment": "dnsmasq is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070005",
+												"comment": "dnsmasq-utils is earlier than 0:2.85-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070006",
+												"comment": "dnsmasq-utils is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228070002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070003",
+												"comment": "dnsmasq is earlier than 0:2.85-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070004",
+												"comment": "dnsmasq is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070005",
+												"comment": "dnsmasq-utils is earlier than 0:2.85-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228070006",
+												"comment": "dnsmasq-utils is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228070007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20228070001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

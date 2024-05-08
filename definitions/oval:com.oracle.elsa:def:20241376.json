@@ -1,0 +1,122 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241376",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1376:  squid security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1376",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1376.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50269",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-50269.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-25111",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-25111.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-25617",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-25617.html"
+			}
+		],
+		"description": "\n[7:5.5-6.0.1.8]\n- Rebuild with release bump\n\n[7:5.5-6.8]\n- Resolves: RHEL-19555 - squid: denial of service in HTTP request\n  parsing (CVE-2023-50269)\n\n[7:5.5-6.7]\n- Resolves: RHEL-28614 - squid: Denial of Service in HTTP Chunked\n  Decoding (CVE-2024-25111)\n\n[7:5.5-6.6]\n- Resolves: RHEL-26091 - squid: denial of service in HTTP header\n  parser (CVE-2024-25617)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-50269",
+					"href": "https://linux.oracle.com/cve/CVE-2023-50269.html"
+				},
+				{
+					"text": "CVE-2024-25111",
+					"href": "https://linux.oracle.com/cve/CVE-2024-25111.html"
+				},
+				{
+					"text": "CVE-2024-25617",
+					"href": "https://linux.oracle.com/cve/CVE-2024-25617.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241376003",
+										"comment": "squid is earlier than 7:5.5-6.0.1.el9_3.8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241376004",
+										"comment": "squid is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241376002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241376003",
+										"comment": "squid is earlier than 7:5.5-6.0.1.el9_3.8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241376004",
+										"comment": "squid is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241376005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241376001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

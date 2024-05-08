@@ -1,0 +1,141 @@
+{
+	"id": "oval:com.oracle.elsa:def:20120051",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2012-0051:  kvm security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2012-0051",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2012-0051.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2012-0029",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2012-0029.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-4622",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-4622.html"
+			}
+		],
+		"description": "\n[kvm-83-239.0.1.el5_7.1]\n- Added kvm-add-oracle-workaround-for-libvirt-bug.patch\n- Added kvm-Introduce-oel-machine-type.patch\n\n[kvm-83-239.el5_7.1]\n- kvm-e1000-prevent-buffer-overflow-when-processing-legacy.patch [bz#772079]\n- Resolves: bz#772079\n  (EMBARGOED CVE-2012-0029 qemu-kvm: e1000: process_tx_desc legacy mode packets heap overflow [rhel-5.7.z])\n- kvm-Fix-external-module-compat.c-not-to-use-unsupported-.patch [bz#753860]\n  (build fix)\n- kvm-kernel-KVM-x86-Prevent-starting-PIT-timers-in-the-absence-o.patch [bz#770100]\n- Resolves: bz#770100\n  (CVE-2011-4622 kernel: kvm: pit timer with no irqchip crashes the system [rhel-5.7.z])\n\n[kvm-83-239.el5_7.1]\n- Updated kversion to 2.6.18-274.17.1.el5 to match build root\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2012 Oracle, Inc.",
+			"issued": {
+				"date": "2012-01-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2012-0029",
+					"href": "https://linux.oracle.com/cve/CVE-2012-0029.html"
+				},
+				{
+					"text": "CVE-2011-4622",
+					"href": "https://linux.oracle.com/cve/CVE-2011-4622.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051003",
+										"comment": "kmod-kvm is earlier than 0:83-239.0.1.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051004",
+										"comment": "kmod-kvm is signed with the Oracle Linux 5 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051005",
+										"comment": "kmod-kvm-debug is earlier than 0:83-239.0.1.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051006",
+										"comment": "kmod-kvm-debug is signed with the Oracle Linux 5 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051007",
+										"comment": "kvm is earlier than 0:83-239.0.1.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051008",
+										"comment": "kvm is signed with the Oracle Linux 5 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051009",
+										"comment": "kvm-qemu-img is earlier than 0:83-239.0.1.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051010",
+										"comment": "kvm-qemu-img is signed with the Oracle Linux 5 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051011",
+										"comment": "kvm-tools is earlier than 0:83-239.0.1.el5_7.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20120051012",
+										"comment": "kvm-tools is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20120051002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20120051001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20214413",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-4413:  tpm2-tools security and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-4413",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-4413.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-3565",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-3565.html"
+			}
+		],
+		"description": "\n[4.1.1-5]\n- Bump nvr to trigger osci.\nresolves: rhbz#1965981\n\n[4.1.1-4]\n- Fix CVE-2021-3565\nresolves: rhbz#1965981\n\n[4.1.1-3]\n- Fix resource leak.\n- Fix to restrict policy digest size.\n- Fix incompatible pointer cast.\n- Fix error message in files_load_##name\n- Fix issue where execution couldnt reach function return.\nresolves: rhbz#1920821\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-11-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-3565",
+					"href": "https://linux.oracle.com/cve/CVE-2021-3565.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214413003",
+										"comment": "tpm2-tools is earlier than 0:4.1.1-5.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214413004",
+										"comment": "tpm2-tools is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214413002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214413003",
+										"comment": "tpm2-tools is earlier than 0:4.1.1-5.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214413004",
+										"comment": "tpm2-tools is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214413005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20214413001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

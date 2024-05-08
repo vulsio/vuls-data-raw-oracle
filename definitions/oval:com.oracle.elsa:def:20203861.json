@@ -1,0 +1,158 @@
+{
+	"id": "oval:com.oracle.elsa:def:20203861",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-3861:  glibc security, bug fix, and enhancement update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-3861",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-3861.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-19126",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-19126.html"
+			}
+		],
+		"description": "\n[2.17-317.0.1]\n- Merge RH el7 u8 patches with Oracle patches\nReview-exception: Simple merge\n- Adding Mike Fabians C.utf-8 patch (C.utf-8 is a unicode-aware version\n  of the C locale)\n  Orabug 29784239.\nReviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n- Remove glibc-ora28641867.patch as duplicate of glibc-rh1705899-4.patch\n- Make _IO_funlockfile match __funlockfile and _IO_flockfile match __flockfile\n  Both should test\n    if ((stream->_flags & _IO_USER_LOCK) == 0)\n      _IO_lock_lock (*stream->_lock);\n  OraBug 28481550.\n  Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n- Modify glibc-ora28849085.patch so it works with RHCK kernels.\n  Orabug 28849085.\n- Reviewed-by: Egeyar Bagcioglu <egeyar.bagcioglu@oracle.com>\n- Use NLM_F_SKIP_STATS in uek2 and RTEXT_FILTER_SKIP_STATS in uek4 in getifaddrs.\n- Orabug 28849085\n- Reviewed-by: Patrick McGehearty <patrick.mcgehearty@oracle.com>\n- Mention CVE numbers in the .spec file for CVE-2015-8983 and CVE-2015-8984.\n- Orabug 25558067.\n- Reviewed-by: Egeyar Bagcioglu <egeyar.bagcioglu@oracle.com>\n- Regenerate plural.c\n- OraBug 28806294.\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n- intl: Port to Bison 3.0\n- Backport of upstream gettext commit 19f23e290a5e4a82b9edf9f5a4f8ab6192871be9\n- OraBug 28806294.\n- Reviewed-by: Patrick McGehearty <patrick.mcgehearty@oracle.com>\n- Fix dbl-64/wordsize-64 remquo (bug 17569).\n- Backport of upstream d9afe48d55a412e76b0dcb28335fd4b390fe07ae\n- OraBug 19570749.\n- Reviewed-by: Jose E. Marchesi <jose.marchesi@oracle.com>\n- libio: Disable vtable validation in case of interposition.\n- Backport of upstream c402355dfa7807b8e0adb27c009135a7e2b9f1b0.\n- OraBug 28641867.\n- Reviewed-by: Egeyar Bagcioglu <egeyar.bagcioglu@oracle.com>\n- Include-linux-falloc.h-in-bits-fcntl-linux.h\n- Defines FALLOC_FL_PUNSH_HOLE, FALLOC_FL_KEEP_SIZE,\n  FALLOC_FL_COLLAPSE_RANGE, and FALLOC_FL_ZERO_RANGE\n- OraBug 28483336\n- Add MAP_SHARED_VALIDATE and MAP_SYNC flags to\n- sysdeps/unix/sysv/linux/x86/bits/mman.h\n- OraBug 28389572\n- Update bits/siginfo.h with Linux hwpoison SIGBUS changes.\n- Adds new SIGBUS error codes for hardware poison signals, syncing with\n  the current kernel headers (v3.9).\n- It also adds si_trapno field for alpha.\n- New values: BUS_MCEERR_AR, BUS_MCEERR_AO\n- OraBug 28124569\n\n[2.17-317]\n- Do not clobber errno in nss_compat (#1834816)\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-10-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-19126",
+					"href": "https://linux.oracle.com/cve/CVE-2019-19126.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861003",
+										"comment": "glibc is earlier than 0:2.17-317.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861004",
+										"comment": "glibc is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861005",
+										"comment": "glibc-common is earlier than 0:2.17-317.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861006",
+										"comment": "glibc-common is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861007",
+										"comment": "glibc-devel is earlier than 0:2.17-317.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861008",
+										"comment": "glibc-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861009",
+										"comment": "glibc-headers is earlier than 0:2.17-317.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861010",
+										"comment": "glibc-headers is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861011",
+										"comment": "glibc-static is earlier than 0:2.17-317.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861012",
+										"comment": "glibc-static is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861013",
+										"comment": "glibc-utils is earlier than 0:2.17-317.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861014",
+										"comment": "glibc-utils is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861015",
+										"comment": "nscd is earlier than 0:2.17-317.0.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203861016",
+										"comment": "nscd is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20203861002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20203861001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

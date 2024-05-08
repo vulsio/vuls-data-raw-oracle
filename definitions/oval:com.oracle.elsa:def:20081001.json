@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:20081001",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2008-1001:  tog-pegasus security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2008-1001",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2008-1001.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2008-4313",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2008-4313.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2008-4315",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2008-4315.html"
+			}
+		],
+		"description": "\n\n[2.7.0-2.0.1.el5_2.1]\n- Added pegasus-enterprise.patch to allow detection of enterprise-release\n\n[2.7.0-2.el5_2.1]\n- Fix local-or-remote-auth patch and enhance PAM security settings\n  Resolves: #471370\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2008 Oracle, Inc.",
+			"issued": {
+				"date": "2008-11-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2008-4313",
+					"href": "https://linux.oracle.com/cve/CVE-2008-4313.html"
+				},
+				{
+					"text": "CVE-2008-4315",
+					"href": "https://linux.oracle.com/cve/CVE-2008-4315.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001003",
+												"comment": "tog-pegasus is earlier than 2:2.7.0-2.0.1.el5_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001004",
+												"comment": "tog-pegasus is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001005",
+												"comment": "tog-pegasus-devel is earlier than 2:2.7.0-2.0.1.el5_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001006",
+												"comment": "tog-pegasus-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20081001002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001003",
+												"comment": "tog-pegasus is earlier than 2:2.7.0-2.0.1.el5_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001004",
+												"comment": "tog-pegasus is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001005",
+												"comment": "tog-pegasus-devel is earlier than 2:2.7.0-2.0.1.el5_2.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20081001006",
+												"comment": "tog-pegasus-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20081001007",
+								"comment": "Oracle Linux arch is i386"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20081001001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
+}

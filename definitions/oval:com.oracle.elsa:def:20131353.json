@@ -1,0 +1,146 @@
+{
+	"id": "oval:com.oracle.elsa:def:20131353",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2013-1353:  sudo security and bug fix update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2013-1353",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-1353.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-1775",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-1775.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-1776",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-1776.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-2776",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-2776.html"
+			}
+		],
+		"description": "\n[1.7.2p1-28]\n- backported fixes for CVE-2013-1775 CVE-2013-1776 CVE-2013-2776 CVE-2013-2777\n  Resolves: rhbz#968221\n\n[1.7.2p1-27]\n- visudo: fixed incorrect warning and parse error regarding\n  undefined aliases which were in fact defined\n  Resolves: rhbz#849679\n  Resolves: rhbz#905624\n\n[1.7.2p1-26]\n- updated sudoers man-page to clarify the behavior of the user\n  negation operator and the behavior of wildcard matching in command\n  specifications\n  Resolves: rhbz#846118\n  Resolves: rhbz#856902\n\n[1.7.2p1-25]\n- fixed regression in escaping of sudo -i arguments\n  Resolves: rhbz#853203\n\n[1.7.2p1-24]\n- bump release number\n\n[1.7.2p1-23]\n- Fixed caching of user and group names\n- Backported RFC 4515 escaping of LDAP queries\n  Resolves: rhbz#855836\n  Resolves: rhbz#869287\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2013 Oracle, Inc.",
+			"issued": {
+				"date": "2013-10-02"
+			},
+			"cve": [
+				{
+					"text": "CVE-2013-1775",
+					"href": "https://linux.oracle.com/cve/CVE-2013-1775.html"
+				},
+				{
+					"text": "CVE-2013-1776",
+					"href": "https://linux.oracle.com/cve/CVE-2013-1776.html"
+				},
+				{
+					"text": "CVE-2013-2776",
+					"href": "https://linux.oracle.com/cve/CVE-2013-2776.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20131353003",
+										"comment": "sudo is earlier than 0:1.7.2p1-28.el5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20131353004",
+										"comment": "sudo is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20131353002",
+								"comment": "Oracle Linux arch is ia64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20131353003",
+										"comment": "sudo is earlier than 0:1.7.2p1-28.el5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20131353004",
+										"comment": "sudo is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20131353005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20131353003",
+										"comment": "sudo is earlier than 0:1.7.2p1-28.el5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20131353004",
+										"comment": "sudo is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20131353006",
+								"comment": "Oracle Linux arch is i386"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20131353001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
+}

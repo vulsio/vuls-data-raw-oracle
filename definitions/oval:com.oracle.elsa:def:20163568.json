@@ -1,0 +1,134 @@
+{
+	"id": "oval:com.oracle.elsa:def:20163568",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2016-3568:  docker-engine security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6",
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2016-3568",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-3568.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-3697",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-3697.html"
+			}
+		],
+		"description": "\n[1.10.3-1.0.3]\n- CVE-2016-3697: docker: Potential privilege escalation via confusion of usernames and UIDs [orabug 23279003]\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2016 Oracle, Inc.",
+			"issued": {
+				"date": "2016-05-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-3697",
+					"href": "https://linux.oracle.com/cve/CVE-2016-3697.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20163568003",
+										"comment": "docker-engine is earlier than 0:1.10.3-1.0.3.el6"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20163568004",
+										"comment": "docker-engine is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20163568002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20163568001",
+						"comment": "Oracle Linux 6 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20163568007",
+												"comment": "docker-engine is earlier than 0:1.10.3-1.0.3.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20163568008",
+												"comment": "docker-engine is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20163568009",
+												"comment": "docker-engine-selinux is earlier than 0:1.10.3-1.0.3.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20163568010",
+												"comment": "docker-engine-selinux is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20163568006",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20163568005",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			}
+		]
+	}
+}

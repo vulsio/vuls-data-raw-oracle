@@ -1,0 +1,232 @@
+{
+	"id": "oval:com.oracle.elsa:def:20219029",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-9029:  olcne security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-9029",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-9029.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-28914",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-28914.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-8554",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-8554.html"
+			}
+		],
+		"description": "\nkata-runtime\n[1.7.3-1.0.7]\n- Address CVE-2020-28914\n\nkata\n[1.7.3-1.0.12]\n- UEKR6 guest kernel support\n\n[1.7.3-1.0.11]\n- Address CVE-2020-28914\n\nkubernetes\n[1.17.9-1.0.6]\n- Kata CVE-2020-28914\n\nolcne\n[1.1.10-1]\n- Address CVE-2020-28914: An improper file permissions vulnerability affects Kata Containers prior to 1.11.5\n\n[1.1.9-1]\n- Enhance the Kubernetes module to restrict the usage of external IPs\n- Address CVE-2020-8554: man-in-the-middle vulnerability using Kubernetes service External IPs\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-02-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-28914",
+					"href": "https://linux.oracle.com/cve/CVE-2020-28914.html"
+				},
+				{
+					"text": "CVE-2020-8554",
+					"href": "https://linux.oracle.com/cve/CVE-2020-8554.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029003",
+										"comment": "kata is earlier than 0:1.7.3-1.0.12.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029004",
+										"comment": "kata is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029005",
+										"comment": "kata-runtime is earlier than 0:1.7.3-1.0.7.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029006",
+										"comment": "kata-runtime is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029007",
+										"comment": "kubeadm is earlier than 0:1.17.9-1.0.6.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029008",
+										"comment": "kubeadm is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029009",
+										"comment": "kubectl is earlier than 0:1.17.9-1.0.6.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029010",
+										"comment": "kubectl is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029011",
+										"comment": "kubelet is earlier than 0:1.17.9-1.0.6.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029012",
+										"comment": "kubelet is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029013",
+										"comment": "olcne-agent is earlier than 0:1.1.10-1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029014",
+										"comment": "olcne-agent is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029015",
+										"comment": "olcne-api-server is earlier than 0:1.1.10-1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029016",
+										"comment": "olcne-api-server is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029017",
+										"comment": "olcne-istio-chart is earlier than 0:1.1.10-1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029018",
+										"comment": "olcne-istio-chart is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029019",
+										"comment": "olcne-nginx is earlier than 0:1.1.10-1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029020",
+										"comment": "olcne-nginx is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029021",
+										"comment": "olcne-prometheus-chart is earlier than 0:1.1.10-1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029022",
+										"comment": "olcne-prometheus-chart is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029023",
+										"comment": "olcne-utils is earlier than 0:1.1.10-1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029024",
+										"comment": "olcne-utils is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029025",
+										"comment": "olcnectl is earlier than 0:1.1.10-1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20219029026",
+										"comment": "olcnectl is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20219029002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20219029001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

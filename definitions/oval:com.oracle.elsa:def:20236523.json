@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20236523",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-6523:  python-tornado security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-6523",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-6523.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-28370",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-28370.html"
+			}
+		],
+		"description": "\n[6.1.0-9]\n- Fix an open redirect in StaticFileHandler\n  Resolves: CVE-2023-28370\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-11-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-28370",
+					"href": "https://linux.oracle.com/cve/CVE-2023-28370.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20236523003",
+										"comment": "python3-tornado is earlier than 0:6.1.0-9.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20236523004",
+										"comment": "python3-tornado is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20236523002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20236523003",
+										"comment": "python3-tornado is earlier than 0:6.1.0-9.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20236523004",
+										"comment": "python3-tornado is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20236523005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20236523001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

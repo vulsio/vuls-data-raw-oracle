@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20211686",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-1686:  wpa_supplicant security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-1686",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-1686.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-0326",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-0326.html"
+			}
+		],
+		"description": "\n[1:2.9-5]\n- P2P: Fix a corner case in peer addition based on PD Request (CVE-2021-27803)\n- Fix buffer overflow when processing P2P group information (CVE-2021-0326)\n\n[1:2.9-4]\n- enable WPA-EAP-SUITE-B-192 (rh #1916394)\n\n[1:2.9-3]\n- fix p2p_listen unexpectedly stopped after 5 seconds (rh #1693684)\n- allow changing 'bridge' via D-Bus (rh #1888050)\n- expose OWE configurability via D-Bus (rh #1888718)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-05-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-0326",
+					"href": "https://linux.oracle.com/cve/CVE-2021-0326.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20211686003",
+										"comment": "wpa_supplicant is earlier than 1:2.9-5.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20211686004",
+										"comment": "wpa_supplicant is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20211686002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20211686003",
+										"comment": "wpa_supplicant is earlier than 1:2.9-5.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20211686004",
+										"comment": "wpa_supplicant is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20211686005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20211686001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

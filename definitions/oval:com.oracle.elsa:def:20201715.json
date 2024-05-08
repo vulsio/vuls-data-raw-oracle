@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20201715",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-1715:  dnsmasq security, bug fix, and enhancement update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-1715",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-1715.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-14834",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-14834.html"
+			}
+		],
+		"description": "\n[2.79-11]\n- Support multiple static leases for single mac on IPv6 (#1779187)\n\n[2.79-10]\n- Fix memory leak in helper.c (#1795370)\n\n[2.79-9]\n- Fix replies to non-recursive queries (#1700916)\n\n[2.79-8]\n- Fix dhcp_lease_time (#1746411)\n\n[2.79-7]\n- Fix TCP queries after interface recreation (#1728698)\n\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-05-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-14834",
+					"href": "https://linux.oracle.com/cve/CVE-2019-14834.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715003",
+												"comment": "dnsmasq is earlier than 0:2.79-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715004",
+												"comment": "dnsmasq is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715005",
+												"comment": "dnsmasq-utils is earlier than 0:2.79-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715006",
+												"comment": "dnsmasq-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201715002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715003",
+												"comment": "dnsmasq is earlier than 0:2.79-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715004",
+												"comment": "dnsmasq is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715005",
+												"comment": "dnsmasq-utils is earlier than 0:2.79-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201715006",
+												"comment": "dnsmasq-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201715007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20201715001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

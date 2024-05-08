@@ -1,0 +1,348 @@
+{
+	"id": "oval:com.oracle.elsa:def:20190368",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-0368:  systemd security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-0368",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-0368.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-6454",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-6454.html"
+			}
+		],
+		"description": "\n[219-62.0.4]\n- do not create utmp update symlinks for reboot and poweroff [Orabug: 27854896]\n- OL7 udev rule for virtio net standby interface [Orabug: 28826743]\n- fix _netdev is missing for iscsi entry in /etc/fstab [Orabug: 25897792] (tony.l.lam@oracle.com)\n- set 'RemoveIPC=no' in logind.conf as default for OL7.2 [22224874]\n- allow dm remove ioctl to co-operate with UEK3 (Vaughan Cao) [Orabug: 18467469]\n- add hv dynamic memory support (Jerry Snitselaar) [Orabug: 18621475]\n\n[219-62.5]\n- sd-bus: if we receive an invalid dbus message, ignore and proceeed (#1667871)\n\n[219-62.4]\n- Refuse dbus message paths longer than BUS_PATH_SIZE_MAX limit. (#1667870)\n- Allocate temporary strings to hold dbus paths on the heap (#1667870)\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-02-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-6454",
+					"href": "https://linux.oracle.com/cve/CVE-2019-6454.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368003",
+												"comment": "libgudev1 is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368004",
+												"comment": "libgudev1 is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368005",
+												"comment": "libgudev1-devel is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368006",
+												"comment": "libgudev1-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368007",
+												"comment": "systemd is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368008",
+												"comment": "systemd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368009",
+												"comment": "systemd-devel is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368010",
+												"comment": "systemd-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368011",
+												"comment": "systemd-journal-gateway is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368012",
+												"comment": "systemd-journal-gateway is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368013",
+												"comment": "systemd-libs is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368014",
+												"comment": "systemd-libs is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368015",
+												"comment": "systemd-networkd is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368016",
+												"comment": "systemd-networkd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368017",
+												"comment": "systemd-python is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368018",
+												"comment": "systemd-python is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368019",
+												"comment": "systemd-resolved is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368020",
+												"comment": "systemd-resolved is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368021",
+												"comment": "systemd-sysv is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368022",
+												"comment": "systemd-sysv is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20190368002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368003",
+												"comment": "libgudev1 is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368004",
+												"comment": "libgudev1 is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368005",
+												"comment": "libgudev1-devel is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368006",
+												"comment": "libgudev1-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368007",
+												"comment": "systemd is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368008",
+												"comment": "systemd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368009",
+												"comment": "systemd-devel is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368010",
+												"comment": "systemd-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368011",
+												"comment": "systemd-journal-gateway is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368012",
+												"comment": "systemd-journal-gateway is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368013",
+												"comment": "systemd-libs is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368014",
+												"comment": "systemd-libs is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368015",
+												"comment": "systemd-networkd is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368016",
+												"comment": "systemd-networkd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368017",
+												"comment": "systemd-python is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368018",
+												"comment": "systemd-python is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368019",
+												"comment": "systemd-resolved is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368020",
+												"comment": "systemd-resolved is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368021",
+												"comment": "systemd-sysv is earlier than 0:219-62.0.4.el7_6.5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20190368022",
+												"comment": "systemd-sysv is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20190368023",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20190368001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

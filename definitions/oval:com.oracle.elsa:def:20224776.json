@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20224776",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-4776:  firefox security update (CRITICAL)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-4776",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-4776.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-1802",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-1802.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-1529",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-1529.html"
+			}
+		],
+		"description": "\n[91.9.1-1.0.1]\n- Removed Upstream references\n- Add firefox-oracle-default-prefs.js and remove the corresponding Red Hat file\n\n[91.9.1-1]\n- Update to 91.9.1 build1\n",
+		"advisory": {
+			"severity": "CRITICAL",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-05-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-1802",
+					"href": "https://linux.oracle.com/cve/CVE-2022-1802.html"
+				},
+				{
+					"text": "CVE-2022-1529",
+					"href": "https://linux.oracle.com/cve/CVE-2022-1529.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224776003",
+										"comment": "firefox is earlier than 0:91.9.1-1.0.1.el8_6"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224776004",
+										"comment": "firefox is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20224776002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224776003",
+										"comment": "firefox is earlier than 0:91.9.1-1.0.1.el8_6"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224776004",
+										"comment": "firefox is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20224776005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20224776001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

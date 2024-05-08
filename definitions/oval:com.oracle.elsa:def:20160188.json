@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:20160188",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2016-0188:  sos security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2016-0188",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-0188.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-7529",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-7529.html"
+			}
+		],
+		"description": "\n[3.2-35.0.1.3]\n- Recreated patch for [orabug 18913115]\n- Make the selinux plugin fixfiles option useful (John Haxby) [orabug 18913115]\n- Added remove_gpgstring.patch  [Bug 18313898]\n- Added sos-oracle-enterprise.patch\n- Added sos-oraclelinux-vendor-vendorurl.patch\n\n[= 3.2-37]\n- [sosreport] prepare report in a private subdirectory (updated)\n  Resolves: bz1290954\n\n[= 3.2-35.2]\n- [sosreport] prepare report in a private subdirectory (updated)\n  Resolves: bz1290954\n\n[= 3.2-35.1]\n- [ceph] collect /var/lib/ceph and /var/run/ceph\n  Resolves: bz1291347\n- [sosreport] prepare report in a private subdirectory\n  Resolves: bz1290954\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2016 Oracle, Inc.",
+			"issued": {
+				"date": "2016-02-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2015-7529",
+					"href": "https://linux.oracle.com/cve/CVE-2015-7529.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20160188003",
+								"comment": "sos is earlier than 0:3.2-35.0.1.el7_2.3"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20160188004",
+								"comment": "sos is signed with the Oracle Linux 7 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20160188002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20160188001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,166 @@
+{
+	"id": "oval:com.oracle.elsa:def:20237112",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-7112:  shadow-utils security and bug fix update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-7112",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-7112.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-4641",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-4641.html"
+			}
+		],
+		"description": "\n[2:4.6-19]\n- gpasswd: fix password leak. Resolves: #2215947\n\n[2:4.6-18]\n- Update patch to close label to reset libselinux state. Resolves: #1984740\n- useradd: check if subid range exists for user. Resolves: #2012929\n- find_new_[gu]id: Skip over IDs that are reserved for legacy reasons. Resolves: #1994269\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-11-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-4641",
+					"href": "https://linux.oracle.com/cve/CVE-2023-4641.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112003",
+												"comment": "shadow-utils-subid-devel is earlier than 2:4.6-19.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112004",
+												"comment": "shadow-utils-subid-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112005",
+												"comment": "shadow-utils is earlier than 2:4.6-19.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112006",
+												"comment": "shadow-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112007",
+												"comment": "shadow-utils-subid is earlier than 2:4.6-19.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112008",
+												"comment": "shadow-utils-subid is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20237112002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112003",
+												"comment": "shadow-utils-subid-devel is earlier than 2:4.6-19.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112004",
+												"comment": "shadow-utils-subid-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112005",
+												"comment": "shadow-utils is earlier than 2:4.6-19.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112006",
+												"comment": "shadow-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112007",
+												"comment": "shadow-utils-subid is earlier than 2:4.6-19.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20237112008",
+												"comment": "shadow-utils-subid is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20237112009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20237112001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

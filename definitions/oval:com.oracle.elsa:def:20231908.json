@@ -1,0 +1,662 @@
+{
+	"id": "oval:com.oracle.elsa:def:20231908",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-1908:  java-1.8.0-openjdk security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-1908",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-1908.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-21939",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-21939.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-21968",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-21968.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-21954",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-21954.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-21930",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-21930.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-21938",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-21938.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-21967",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-21967.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-21937",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-21937.html"
+			}
+		],
+		"description": "\n[1:1.8.0.372.b07-1]\n- Update to shenandoah-jdk8u372-b07 (GA)\n- Update release notes for shenandoah-8u372-b07.\n- Require tzdata 2023c due to inclusion of JDK-8305113 in 8u372-b07\n- Update generate_tarball.sh to add support for passing a boot JDK to the configure run\n- Add POSIX-friendly error codes to generate_tarball.sh and fix whitespace\n- Remove .jcheck and GitHub support when generating tarballs, as done in upstream release tarballs\n- Drop JDK-8275535/RH2053256 patch which is now upstream\n- Include JDK-8271199 backport early ahead of 8u382 (RH2175317)\n- ** This tarball is embargoed until 2023-04-18 @ 1pm PT. **\n- Resolves: rhbz#2185182\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-04-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-21939",
+					"href": "https://linux.oracle.com/cve/CVE-2023-21939.html"
+				},
+				{
+					"text": "CVE-2023-21968",
+					"href": "https://linux.oracle.com/cve/CVE-2023-21968.html"
+				},
+				{
+					"text": "CVE-2023-21954",
+					"href": "https://linux.oracle.com/cve/CVE-2023-21954.html"
+				},
+				{
+					"text": "CVE-2023-21930",
+					"href": "https://linux.oracle.com/cve/CVE-2023-21930.html"
+				},
+				{
+					"text": "CVE-2023-21938",
+					"href": "https://linux.oracle.com/cve/CVE-2023-21938.html"
+				},
+				{
+					"text": "CVE-2023-21967",
+					"href": "https://linux.oracle.com/cve/CVE-2023-21967.html"
+				},
+				{
+					"text": "CVE-2023-21937",
+					"href": "https://linux.oracle.com/cve/CVE-2023-21937.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908003",
+												"comment": "java-1.8.0-openjdk-accessibility-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908004",
+												"comment": "java-1.8.0-openjdk-accessibility-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908005",
+												"comment": "java-1.8.0-openjdk-accessibility-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908006",
+												"comment": "java-1.8.0-openjdk-accessibility-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908007",
+												"comment": "java-1.8.0-openjdk-demo-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908008",
+												"comment": "java-1.8.0-openjdk-demo-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908009",
+												"comment": "java-1.8.0-openjdk-demo-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908010",
+												"comment": "java-1.8.0-openjdk-demo-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908011",
+												"comment": "java-1.8.0-openjdk-devel-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908012",
+												"comment": "java-1.8.0-openjdk-devel-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908013",
+												"comment": "java-1.8.0-openjdk-devel-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908014",
+												"comment": "java-1.8.0-openjdk-devel-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908015",
+												"comment": "java-1.8.0-openjdk-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908016",
+												"comment": "java-1.8.0-openjdk-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908017",
+												"comment": "java-1.8.0-openjdk-headless-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908018",
+												"comment": "java-1.8.0-openjdk-headless-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908019",
+												"comment": "java-1.8.0-openjdk-headless-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908020",
+												"comment": "java-1.8.0-openjdk-headless-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908021",
+												"comment": "java-1.8.0-openjdk-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908022",
+												"comment": "java-1.8.0-openjdk-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908023",
+												"comment": "java-1.8.0-openjdk-src-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908024",
+												"comment": "java-1.8.0-openjdk-src-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908025",
+												"comment": "java-1.8.0-openjdk-src-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908026",
+												"comment": "java-1.8.0-openjdk-src-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908027",
+												"comment": "java-1.8.0-openjdk is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908028",
+												"comment": "java-1.8.0-openjdk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908029",
+												"comment": "java-1.8.0-openjdk-accessibility is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908030",
+												"comment": "java-1.8.0-openjdk-accessibility is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908031",
+												"comment": "java-1.8.0-openjdk-demo is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908032",
+												"comment": "java-1.8.0-openjdk-demo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908033",
+												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908034",
+												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908035",
+												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908036",
+												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908037",
+												"comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908038",
+												"comment": "java-1.8.0-openjdk-javadoc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908039",
+												"comment": "java-1.8.0-openjdk-javadoc-zip is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908040",
+												"comment": "java-1.8.0-openjdk-javadoc-zip is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908041",
+												"comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908042",
+												"comment": "java-1.8.0-openjdk-src is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20231908002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908003",
+												"comment": "java-1.8.0-openjdk-accessibility-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908004",
+												"comment": "java-1.8.0-openjdk-accessibility-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908005",
+												"comment": "java-1.8.0-openjdk-accessibility-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908006",
+												"comment": "java-1.8.0-openjdk-accessibility-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908007",
+												"comment": "java-1.8.0-openjdk-demo-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908008",
+												"comment": "java-1.8.0-openjdk-demo-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908009",
+												"comment": "java-1.8.0-openjdk-demo-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908010",
+												"comment": "java-1.8.0-openjdk-demo-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908011",
+												"comment": "java-1.8.0-openjdk-devel-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908012",
+												"comment": "java-1.8.0-openjdk-devel-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908013",
+												"comment": "java-1.8.0-openjdk-devel-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908014",
+												"comment": "java-1.8.0-openjdk-devel-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908015",
+												"comment": "java-1.8.0-openjdk-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908016",
+												"comment": "java-1.8.0-openjdk-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908017",
+												"comment": "java-1.8.0-openjdk-headless-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908018",
+												"comment": "java-1.8.0-openjdk-headless-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908019",
+												"comment": "java-1.8.0-openjdk-headless-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908020",
+												"comment": "java-1.8.0-openjdk-headless-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908021",
+												"comment": "java-1.8.0-openjdk-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908022",
+												"comment": "java-1.8.0-openjdk-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908023",
+												"comment": "java-1.8.0-openjdk-src-fastdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908024",
+												"comment": "java-1.8.0-openjdk-src-fastdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908025",
+												"comment": "java-1.8.0-openjdk-src-slowdebug is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908026",
+												"comment": "java-1.8.0-openjdk-src-slowdebug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908027",
+												"comment": "java-1.8.0-openjdk is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908028",
+												"comment": "java-1.8.0-openjdk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908029",
+												"comment": "java-1.8.0-openjdk-accessibility is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908030",
+												"comment": "java-1.8.0-openjdk-accessibility is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908031",
+												"comment": "java-1.8.0-openjdk-demo is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908032",
+												"comment": "java-1.8.0-openjdk-demo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908033",
+												"comment": "java-1.8.0-openjdk-devel is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908034",
+												"comment": "java-1.8.0-openjdk-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908035",
+												"comment": "java-1.8.0-openjdk-headless is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908036",
+												"comment": "java-1.8.0-openjdk-headless is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908037",
+												"comment": "java-1.8.0-openjdk-javadoc is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908038",
+												"comment": "java-1.8.0-openjdk-javadoc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908039",
+												"comment": "java-1.8.0-openjdk-javadoc-zip is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908040",
+												"comment": "java-1.8.0-openjdk-javadoc-zip is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908041",
+												"comment": "java-1.8.0-openjdk-src is earlier than 1:1.8.0.372.b07-1.el8_7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20231908042",
+												"comment": "java-1.8.0-openjdk-src is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20231908043",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20231908001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

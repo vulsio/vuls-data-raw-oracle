@@ -1,0 +1,124 @@
+{
+	"id": "oval:com.oracle.elsa:def:20162575",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2016-2575:  curl security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2016-2575",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-2575.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-5420",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-5420.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-7141",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-7141.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-5419",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-5419.html"
+			}
+		],
+		"description": "\n[7.29.0-35]\n- fix incorrect use of a previously loaded certificate from file\n  (related to CVE-2016-5420)\n\n[7.29.0-34]\n- acknowledge the --no-sessionid/CURLOPT_SSL_SESSIONID_CACHE option\n  (required by the fix for CVE-2016-5419)\n\n[7.29.0-33]\n- fix re-using connections with wrong client cert (CVE-2016-5420)\n- fix TLS session resumption client cert bypass (CVE-2016-5419)\n\n[7.29.0-32]\n- configure: improve detection of GCC's -fvisibility= flag\n\n[7.29.0-31]\n- prevent curl_multi_wait() from missing an event (#1347904)\n\n[7.29.0-30]\n- curl.1: --disable-{eprt,epsv} are ignored for IPv6 hosts (#1305974)\n\n[7.29.0-29]\n- SSH: make CURLOPT_SSH_PUBLIC_KEYFILE treat '' as NULL (#1275769)\n\n[7.29.0-28]\n- prevent NSS from incorrectly re-using a session (#1269855)\n- call PR_Cleanup() in the upstream test-suite if NSPR is used (#1243324)\n- disable unreliable upstream test-case 2032 (#1241168)\n\n[7.29.0-27]\n- SSH: do not require public key file for user authentication (#1275769)\n\n[7.29.0-26]\n- implement 'curl --unix-socket' and CURLOPT_UNIX_SOCKET_PATH (#1263318)\n- improve parsing of URL-encoded user name and password (#1260178)\n- prevent test46 from failing due to expired cookie (#1258834)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2016 Oracle, Inc.",
+			"issued": {
+				"date": "2016-11-09"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-5420",
+					"href": "https://linux.oracle.com/cve/CVE-2016-5420.html"
+				},
+				{
+					"text": "CVE-2016-7141",
+					"href": "https://linux.oracle.com/cve/CVE-2016-7141.html"
+				},
+				{
+					"text": "CVE-2016-5419",
+					"href": "https://linux.oracle.com/cve/CVE-2016-5419.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20162575003",
+										"comment": "curl is earlier than 0:7.29.0-35.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20162575004",
+										"comment": "curl is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20162575005",
+										"comment": "libcurl is earlier than 0:7.29.0-35.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20162575006",
+										"comment": "libcurl is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20162575007",
+										"comment": "libcurl-devel is earlier than 0:7.29.0-35.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20162575008",
+										"comment": "libcurl-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20162575002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20162575001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

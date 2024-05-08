@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20242033",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-2033:  libreswan security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-2033",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-2033.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-2357",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-2357.html"
+			}
+		],
+		"description": "\n[4.12-1.0.1.1]\n- Add libreswan-oracle.patch to detect Oracle Linux distro\n\n[4.12-1.1]\n- Fix CVE-2024-2357 (RHEL-29734)\n- x509: unpack IPv6 general names based on length (RHEL-32719)\n\n[4.12-1]\n- Update to 4.12 to fix CVE-2023-38710, CVE-2023-38711, CVE-2023-38712\n- Resolves: rhbz#2215956\n\n[4.9-5]\n- Just bumping up the version to include bugs for CVE-2023-2295. There is no\n  code fix for it. Fix for it is including the code fix for CVE-2023-30570.\n- Fix CVE-2023-2295 Regression of CVE-2023-30570 fixes in the\n  Red Hat Enterprise Linux\n- Resolves: rhbz#2189777, rhbz#2190148\n\n[4.9-4]\n- Just bumping up the version as an incorrect 9.3 build was created.\n- Related: rhbz#2187171\n\n[4.9-3]\n- Fix CVE-2023-30570:Malicious IKEv1 Aggressive Mode packets can crash\n  libreswan\n- Resolves: rhbz#2187171\n\n[4.9-2]\n- Fix CVE-2023-23009: remote DoS via crafted TS payload with an\n  incorrect selector length (rhbz#2173674)\n\n[4.9-1]\n- Update to 4.9. Resolves: rhbz#2128669\n- Switch to using %autopatch as in Fedora\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-04-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-2357",
+					"href": "https://linux.oracle.com/cve/CVE-2024-2357.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20242033003",
+										"comment": "libreswan is earlier than 0:4.12-1.0.1.el9_3.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20242033004",
+										"comment": "libreswan is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242033002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20242033003",
+										"comment": "libreswan is earlier than 0:4.12-1.0.1.el9_3.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20242033004",
+										"comment": "libreswan is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242033005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20242033001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

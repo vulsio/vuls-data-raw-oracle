@@ -1,0 +1,211 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241787",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1787:  squid security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1787",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1787.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-25617",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-25617.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-49286",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-49286.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46724",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-46724.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-49285",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-49285.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46728",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-46728.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50269",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-50269.html"
+			}
+		],
+		"description": "\n[7:3.5.20-17.0.1]\n- Mutiple CVE fixes for squid [Orabug: 33146289]\n- Resolves: CVE-2021-28651 squid: Bug 5104: Memory leak in RFC 2169 response parsing (#778)\n- Resolves: CVE-2021-28652 squid: Bug 5106: Broken cache manager URL parsing (#788)\n- Resolves: CVE-2021-31806,31807,31808 squid: Handle more Range requests (#790)\n- Resolves: CVE-2021-33620 squid: Handle more partial responses (#791)\n\n[7:3.5.20-17.10]\n- Resolves: RHEL-16779 - squid: NULL pointer dereference in the gopher protocol\n  code -- Remove support for Gopher protocol (CVE-2023-46728)\n- Resolves: RHEL-18176 - squid: Buffer over-read in the HTTP Message processing\n  feature (CVE-2023-49285)\n- Resolves: RHEL-18171 - squid: Incorrect Check of Function Return Value In\n  Helper Process management (CVE-2023-49286)\n- Resolves: RHEL-16758 - squid: Denial of Service in SSL Certificate validation\n  (CVE-2023-46724)\n- Resolves: RHEL-19557 - squid: denial of service in HTTP request parsing\n  (CVE-2023-50269)\n- Resolves: RHEL-26082 - squid: denial of service in HTTP header parser\n  (CVE-2024-25617)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-04-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-25617",
+					"href": "https://linux.oracle.com/cve/CVE-2024-25617.html"
+				},
+				{
+					"text": "CVE-2023-49286",
+					"href": "https://linux.oracle.com/cve/CVE-2023-49286.html"
+				},
+				{
+					"text": "CVE-2023-46724",
+					"href": "https://linux.oracle.com/cve/CVE-2023-46724.html"
+				},
+				{
+					"text": "CVE-2023-49285",
+					"href": "https://linux.oracle.com/cve/CVE-2023-49285.html"
+				},
+				{
+					"text": "CVE-2023-46728",
+					"href": "https://linux.oracle.com/cve/CVE-2023-46728.html"
+				},
+				{
+					"text": "CVE-2023-50269",
+					"href": "https://linux.oracle.com/cve/CVE-2023-50269.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787003",
+												"comment": "squid is earlier than 7:3.5.20-17.0.1.el7_9.10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787004",
+												"comment": "squid is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787005",
+												"comment": "squid-migration-script is earlier than 7:3.5.20-17.0.1.el7_9.10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787006",
+												"comment": "squid-migration-script is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787007",
+												"comment": "squid-sysvinit is earlier than 7:3.5.20-17.0.1.el7_9.10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787008",
+												"comment": "squid-sysvinit is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241787002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787003",
+												"comment": "squid is earlier than 7:3.5.20-17.0.1.el7_9.10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787004",
+												"comment": "squid is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787005",
+												"comment": "squid-migration-script is earlier than 7:3.5.20-17.0.1.el7_9.10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787006",
+												"comment": "squid-migration-script is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787007",
+												"comment": "squid-sysvinit is earlier than 7:3.5.20-17.0.1.el7_9.10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241787008",
+												"comment": "squid-sysvinit is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241787009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241787001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,305 @@
+{
+	"id": "oval:com.oracle.elsa:def:20205526",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-5526: Unbreakable Enterprise kernel security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-5526",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-5526.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-15917",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-15917.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-3016",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-3016.html"
+			}
+		],
+		"description": "\n[4.14.35-1902.10.4.el7uek]  \n- kvm: Don't reference vcpu->arch.st in arch-independent code (Boris Ostrovsky)  [Orabug: 30489861]\n- kvm: fix compile on s390 part 2 (Christian Borntraeger)  [Orabug: 30489861]\n- kvm: fix compilation on s390 (Paolo Bonzini)  [Orabug: 30489861]\n- kvm: fix compilation on aarch64 (Paolo Bonzini)  [Orabug: 30489861]\n\n[4.14.35-1902.10.3.el7uek] \n- x86/KVM: Clean up host's steal time structure (Boris Ostrovsky)  [Orabug: 30489861]  {CVE-2019-3016} {CVE-2019-3016}\n- x86/KVM: Make sure KVM_VCPU_FLUSH_TLB flag is not missed (Boris Ostrovsky)  [Orabug: 30489861]  {CVE-2019-3016} {CVE-2019-3016}  \n- x86/kvm: Cache gfn to pfn translation (Boris Ostrovsky)  [Orabug: 30489861]  {CVE-2019-3016} {CVE-2019-3016} \n- x86/kvm: Introduce kvm_(un)map_gfn() (Boris Ostrovsky)  [Orabug: 30489861]  {CVE-2019-3016} {CVE-2019-3016} \n- x86/kvm: Be careful not to clear KVM_VCPU_FLUSH_TLB bit (Boris Ostrovsky)  [Orabug: 30489861]  {CVE-2019-3016} {CVE-2019-3016}  \n- KVM: Properly check if page is valid in kvm_vcpu_unmap (KarimAllah Ahmed)  [Orabug: 30489861]\n- KVM: Introduce a new guest mapping API (KarimAllah Ahmed)  [Orabug: 30489861]\n- KVM: x86: svm: make sure NMI is injected after nmi_singlestep (Vitaly Kuznetsov)  [Orabug: 30714532]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-01-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-15917",
+					"href": "https://linux.oracle.com/cve/CVE-2019-15917.html"
+				},
+				{
+					"text": "CVE-2019-3016",
+					"href": "https://linux.oracle.com/cve/CVE-2019-3016.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526003",
+												"comment": "kernel-uek is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526004",
+												"comment": "kernel-uek is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526005",
+												"comment": "kernel-uek-debug is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526006",
+												"comment": "kernel-uek-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526007",
+												"comment": "kernel-uek-debug-devel is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526008",
+												"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526009",
+												"comment": "kernel-uek-devel is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526010",
+												"comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526011",
+												"comment": "kernel-uek-headers is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526012",
+												"comment": "kernel-uek-headers is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526013",
+												"comment": "kernel-uek-tools is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526014",
+												"comment": "kernel-uek-tools is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526015",
+												"comment": "kernel-uek-tools-libs is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526016",
+												"comment": "kernel-uek-tools-libs is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526017",
+												"comment": "kernel-uek-tools-libs-devel is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526018",
+												"comment": "kernel-uek-tools-libs-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526019",
+												"comment": "perf is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526020",
+												"comment": "perf is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526021",
+												"comment": "python-perf is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526022",
+												"comment": "python-perf is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20205526002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526003",
+												"comment": "kernel-uek is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526004",
+												"comment": "kernel-uek is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526005",
+												"comment": "kernel-uek-debug is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526006",
+												"comment": "kernel-uek-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526007",
+												"comment": "kernel-uek-debug-devel is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526008",
+												"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526009",
+												"comment": "kernel-uek-devel is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526010",
+												"comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526024",
+												"comment": "kernel-uek-doc is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526025",
+												"comment": "kernel-uek-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526013",
+												"comment": "kernel-uek-tools is earlier than 0:4.14.35-1902.10.4.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205526014",
+												"comment": "kernel-uek-tools is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20205526023",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20205526001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

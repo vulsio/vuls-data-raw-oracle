@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20220473",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-0473:  aide security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-0473",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-0473.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-45417",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-45417.html"
+			}
+		],
+		"description": "\n[0.15.1-13.0.1]\n- Fix sha256 and sha512 output length [Orabug: 30820565]\n\n[0.15.1.1]\n- backported fix for CVE-2021-45417\n  resolves: rhbz#2041952\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-02-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-45417",
+					"href": "https://linux.oracle.com/cve/CVE-2021-45417.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220473003",
+										"comment": "aide is earlier than 0:0.15.1-13.0.1.el7_9.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220473004",
+										"comment": "aide is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20220473002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220473003",
+										"comment": "aide is earlier than 0:0.15.1-13.0.1.el7_9.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20220473004",
+										"comment": "aide is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20220473005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20220473001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

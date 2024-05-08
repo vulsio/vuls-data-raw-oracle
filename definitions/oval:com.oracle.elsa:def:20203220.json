@@ -1,0 +1,263 @@
+{
+	"id": "oval:com.oracle.elsa:def:20203220",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-3220:  kernel security and bug fix update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-3220",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-3220.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-19527",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-19527.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12654",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12654.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12653",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12653.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-10757",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-10757.html"
+			}
+		],
+		"description": "\n[3.10.0-1127.18.2.OL7]\n- Oracle Linux certificates (Ilya Okomin)\n- Oracle Linux RHCK Module Signing Key was compiled into kernel (olkmod_signing_key.x509)(alexey.petrenko@oracle.com)\n- Update x509.genkey [Orabug: 24817676]\n- Conflict with shim-ia32 and shim-x64 <= 15-2.0.3\n\n[3.10.0-1127.18.2]\n- [crypto] pefile: Tolerate other pefile signatures after first (Lenny Szubowicz) [1837429 1837430] {CVE-2020-10713}\n- [kernel] Move to dual-signing to split signing keys up better (pjones) [1837429 1837430] {CVE-2020-10713}\n\n[3.10.0-1127.18.1]\n- [fs] locks: allow filesystems to request that ->setlease be called without i_lock (Jeff Layton) [1838602 1830606]\n- [fs] locks: move fasync setup into generic_add_lease (Jeff Layton) [1838602 1830606]\n\n[3.10.0-1127.17.1]\n- [vfio] vfio/pci: Fix SR-IOV VF handling with MMIO blocking (Alex Williamson) [1852245 1820632]\n- [fs] aio: fix inconsistent ring state (Jeff Moyer) [1850055 1845326]\n- [wireless] mwifiex: Fix possible buffer overflows in mwifiex_ret_wmm_get_status() (Jarod Wilson) [1844069 1844070] {CVE-2020-12654}\n- [wireless] mwifiex: Fix possible buffer overflows in mwifiex_cmd_append_vsie_tlv() (Jarod Wilson) [1844025 1844026] {CVE-2020-12653}\n- [x86] mm: Fix mremap not considering huge pmd devmap (Rafael Aquini) [1843436 1843437] {CVE-2020-10757}\n- [mm] mm, dax: check for pmd_none() after split_huge_pmd() (Rafael Aquini) [1843436 1843437] {CVE-2020-10757}\n- [mm] mm: mremap: streamline move_page_tables()'s move_huge_pmd() corner case (Rafael Aquini) [1843436 1843437] {CVE-2020-10757}\n- [mm] mm: mremap: validate input before taking lock (Rafael Aquini) [1843436 1843437] {CVE-2020-10757}\n\n[3.10.0-1127.16.1]\n- [kernel] sched/fair: Scale bandwidth quota and period without losing quota/period ratio precision (Artem Savkov) [1850500 1752067]\n- [block] virtio-blk: improve virtqueue error to BLK_STS (Philipp Rudo) [1842994 1818001]\n- [block] virtio-blk: fix hw_queue stopped on arbitrary error (Philipp Rudo) [1842994 1818001]\n\n[3.10.0-1127.15.1]\n- [fs] ext4: fix setting of referenced bit in ext4_es_lookup_extent() (Lukas Czerner) [1847343 1663720]\n- [fs] ext4: introduce aging to extent status tree (Lukas Czerner) [1847343 1663720]\n- [fs] ext4: cleanup flag definitions for extent status tree (Lukas Czerner) [1847343 1663720]\n- [fs] ext4: limit number of scanned extents in status tree shrinker (Lukas Czerner) [1847343 1663720]\n- [fs] ext4: move handling of list of shrinkable inodes into extent status code (Lukas Czerner) [1847343 1663720]\n- [fs] ext4: change LRU to round-robin in extent status tree shrinker (Lukas Czerner) [1847343 1663720]\n- [net] netfilter: nat: never update the UDP checksum when it's 0 (Guillaume Nault) [1847333 1834278]\n- [char] ipmi_si: Only schedule continuously in the thread in maintenance mode (Alexey Klimov) [1841825 1837127]\n- [scsi] scsi: ibmvfc: Fix NULL return compiler warning (Steve Best) [1830889 1810643]\n- [scsi] scsi: ibmvfc: Avoid loss of all paths during SVC node reboot (Steve Best) [1830889 1810643]\n- [hid] HID: hiddev: do cleanup in failure of opening a device (Torez Smith) [1803448 1814257] {CVE-2019-19527}\n- [hid] HID: hiddev: avoid opening a disconnected device (Torez Smith) [1803448 1814257] {CVE-2019-19527}\n\n[3.10.0-1127.14.1]\n- [fs] NFS: Fix a race between mmap() and O_DIRECT (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Remove a redundant call to unmap_mapping_range() (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Remove redundant waits for O_DIRECT in fsync() and write_begin() (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Cleanup nfs_direct_complete() (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Do not serialise O_DIRECT reads and writes (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Move buffered I/O locking into nfs_file_write() (Benjamin Coddington) [1845520 1813803]\n- [fs] bdi: make inode_to_bdi() inline (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Remove racy size manipulations in O_DIRECT (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Don't hold the inode lock across fsync() (Benjamin Coddington) [1845520 1813803]\n- [fs] nfs: remove nfs_inode_dio_wait (Benjamin Coddington) [1845520 1813803]\n- [fs] nfs: remove nfs4_file_fsync (Benjamin Coddington) [1845520 1813803]\n- [fs] NFS: Kill NFS_INO_NFS_INO_FLUSHING: it is a performance killer (Benjamin Coddington) [1845520 1813803]\n- [infiniband] RDMA/bnxt_re: Fix chip number validation Broadcom's Gen P5 series (Jonathan Toppins) [1834190 1823679]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-07-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-19527",
+					"href": "https://linux.oracle.com/cve/CVE-2019-19527.html"
+				},
+				{
+					"text": "CVE-2020-12654",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12654.html"
+				},
+				{
+					"text": "CVE-2020-12653",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12653.html"
+				},
+				{
+					"text": "CVE-2020-10757",
+					"href": "https://linux.oracle.com/cve/CVE-2020-10757.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220003",
+										"comment": "bpftool is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220004",
+										"comment": "bpftool is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220005",
+										"comment": "kernel is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220006",
+										"comment": "kernel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220007",
+										"comment": "kernel-abi-whitelists is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220008",
+										"comment": "kernel-abi-whitelists is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220009",
+										"comment": "kernel-debug is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220010",
+										"comment": "kernel-debug is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220011",
+										"comment": "kernel-debug-devel is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220012",
+										"comment": "kernel-debug-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220013",
+										"comment": "kernel-devel is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220014",
+										"comment": "kernel-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220015",
+										"comment": "kernel-doc is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220016",
+										"comment": "kernel-doc is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220017",
+										"comment": "kernel-headers is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220018",
+										"comment": "kernel-headers is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220019",
+										"comment": "kernel-tools is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220020",
+										"comment": "kernel-tools is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220021",
+										"comment": "kernel-tools-libs is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220022",
+										"comment": "kernel-tools-libs is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220023",
+										"comment": "kernel-tools-libs-devel is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220024",
+										"comment": "kernel-tools-libs-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220025",
+										"comment": "perf is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220026",
+										"comment": "perf is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220027",
+										"comment": "python-perf is earlier than 0:3.10.0-1127.18.2.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203220028",
+										"comment": "python-perf is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20203220002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20203220001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

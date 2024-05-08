@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20194360",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-4360:  libyang security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-4360",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-4360.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-19333",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-19333.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-19334",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-19334.html"
+			}
+		],
+		"description": "\n[0.16.105-3.2]\n- Related: #1779573 - Fixing a few covscan issues\n\n[0.16.105-3.1]\n- Resolves: #1779573 - CVE-2019-19333 libyang: stack-based buffer overflow in make_canonical when bits leaf type is used\n- Resolves: #1779576 - CVE-2019-19334 libyang: stack-based buffer overflow in make_canonical when identityref leaf type is used\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-12-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-19333",
+					"href": "https://linux.oracle.com/cve/CVE-2019-19333.html"
+				},
+				{
+					"text": "CVE-2019-19334",
+					"href": "https://linux.oracle.com/cve/CVE-2019-19334.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194360003",
+										"comment": "libyang is earlier than 0:0.16.105-3.el8_1.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194360004",
+										"comment": "libyang is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194360002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194360003",
+										"comment": "libyang is earlier than 0:0.16.105-3.el8_1.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194360004",
+										"comment": "libyang is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194360005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20194360001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

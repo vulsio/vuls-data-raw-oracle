@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20110308",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2011-0308:  mailman security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2011-0308",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2011-0308.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2010-3089",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2010-3089.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-0707",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-0707.html"
+			}
+		],
+		"description": "\n\n[3:2.1.12-14.2]\n- fix #677848 - fixed build problem without brew\n\n[3:2.1.12-14.1]\n- fix #677848 - fixed CVE-2010-3089 and CVE-2011-0707\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2011 Oracle, Inc.",
+			"issued": {
+				"date": "2011-03-01"
+			},
+			"cve": [
+				{
+					"text": "CVE-2010-3089",
+					"href": "https://linux.oracle.com/cve/CVE-2010-3089.html"
+				},
+				{
+					"text": "CVE-2011-0707",
+					"href": "https://linux.oracle.com/cve/CVE-2011-0707.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20110308003",
+										"comment": "mailman is earlier than 3:2.1.12-14.el6_0.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20110308004",
+										"comment": "mailman is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20110308002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20110308003",
+										"comment": "mailman is earlier than 3:2.1.12-14.el6_0.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20110308004",
+										"comment": "mailman is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20110308005",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20110308001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,156 @@
+{
+	"id": "oval:com.oracle.elsa:def:20229564",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-9564:  libgcrypt security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-9564",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-9564.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-40528",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-40528.html"
+			}
+		],
+		"description": "\n[ 1.8.5-7_fips]\n- Add API to provide hash calculation in RSA/DSA/ECDSA signature\n  operations [Orabug: 33081130]\n- Change Epoch from 1 to 10\n\n[1.8.5-7]\n- Fix CVE-2021-33560 (#2018525)\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-07-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-40528",
+					"href": "https://linux.oracle.com/cve/CVE-2021-40528.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564003",
+												"comment": "libgcrypt is earlier than 10:1.8.5-7.el8_6_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564004",
+												"comment": "libgcrypt is signed with the Oracle Linux 8 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564005",
+												"comment": "libgcrypt is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564006",
+												"comment": "libgcrypt-devel is earlier than 10:1.8.5-7.el8_6_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564007",
+												"comment": "libgcrypt-devel is signed with the Oracle Linux 8 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564008",
+												"comment": "libgcrypt-devel is fips patched"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229564002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564003",
+												"comment": "libgcrypt is earlier than 10:1.8.5-7.el8_6_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564004",
+												"comment": "libgcrypt is signed with the Oracle Linux 8 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564005",
+												"comment": "libgcrypt is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564006",
+												"comment": "libgcrypt-devel is earlier than 10:1.8.5-7.el8_6_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564007",
+												"comment": "libgcrypt-devel is signed with the Oracle Linux 8 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229564008",
+												"comment": "libgcrypt-devel is fips patched"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229564009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20229564001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

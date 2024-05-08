@@ -1,0 +1,315 @@
+{
+	"id": "oval:com.oracle.elsa:def:20232257",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-2257:  tigervnc security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-2257",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-2257.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-46340",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-46340.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-4283",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-4283.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-46341",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-46341.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-46343",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-46343.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-46344",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-46344.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-46342",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-46342.html"
+			}
+		],
+		"description": "\n[1.12.0-13]\n- xorg-x11-server: X.Org Server Overlay Window Use-After-Free Local Privilege Escalation Vulnerability\n  Resolves: bz#2180309\n\n[1.12.0-12]\n- SELinux: allow vncsession create .vnc directory\n  Resolves: bz#2164703\n\n[1.12.0-11]\n- Add sanity check when cleaning up keymap changes\n  Resolves: bz#2169965\n\n[1.12.0-10]\n- xorg-x11-server: DeepCopyPointerClasses use-after-free leads to privilege elevation\n  Resolves: bz#2167061\n\n[1.12.0-9]\n- Rebuild for xorg-x11-server CVE-2022-46340 follow up fix\n\n[1.12.0-8]\n- Rebuild for xorg-x11-server CVEs\n  Resolves: CVE-2022-4283 (bz#2154234)\n  Resolves: CVE-2022-46340 (bz#2154221)\n  Resolves: CVE-2022-46341 (bz#2154224)\n  Resolves: CVE-2022-46342 (bz#2154226)\n  Resolves: CVE-2022-46343 (bz#2154228)\n  Resolves: CVE-2022-46344 (bz#2154230)\n\n[1.12.0-7]\n- x0vncserver: add new keysym in case we don't find matching keycode\n  + actually apply the patch\n  Resolves: bz#2119017\n\n[1.12.0-6]\n- x0vncserver: add new keysym in case we don't find matching keycode\n  Resolves: bz#2119017\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-05-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-46340",
+					"href": "https://linux.oracle.com/cve/CVE-2022-46340.html"
+				},
+				{
+					"text": "CVE-2022-4283",
+					"href": "https://linux.oracle.com/cve/CVE-2022-4283.html"
+				},
+				{
+					"text": "CVE-2022-46341",
+					"href": "https://linux.oracle.com/cve/CVE-2022-46341.html"
+				},
+				{
+					"text": "CVE-2022-46343",
+					"href": "https://linux.oracle.com/cve/CVE-2022-46343.html"
+				},
+				{
+					"text": "CVE-2022-46344",
+					"href": "https://linux.oracle.com/cve/CVE-2022-46344.html"
+				},
+				{
+					"text": "CVE-2022-46342",
+					"href": "https://linux.oracle.com/cve/CVE-2022-46342.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257003",
+												"comment": "tigervnc is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257004",
+												"comment": "tigervnc is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257005",
+												"comment": "tigervnc-icons is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257006",
+												"comment": "tigervnc-icons is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257007",
+												"comment": "tigervnc-license is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257008",
+												"comment": "tigervnc-license is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257009",
+												"comment": "tigervnc-selinux is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257010",
+												"comment": "tigervnc-selinux is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257011",
+												"comment": "tigervnc-server is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257012",
+												"comment": "tigervnc-server is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257013",
+												"comment": "tigervnc-server-minimal is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257014",
+												"comment": "tigervnc-server-minimal is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257015",
+												"comment": "tigervnc-server-module is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257016",
+												"comment": "tigervnc-server-module is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20232257002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257003",
+												"comment": "tigervnc is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257004",
+												"comment": "tigervnc is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257005",
+												"comment": "tigervnc-icons is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257006",
+												"comment": "tigervnc-icons is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257007",
+												"comment": "tigervnc-license is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257008",
+												"comment": "tigervnc-license is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257009",
+												"comment": "tigervnc-selinux is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257010",
+												"comment": "tigervnc-selinux is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257011",
+												"comment": "tigervnc-server is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257012",
+												"comment": "tigervnc-server is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257013",
+												"comment": "tigervnc-server-minimal is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257014",
+												"comment": "tigervnc-server-minimal is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257015",
+												"comment": "tigervnc-server-module is earlier than 0:1.12.0-13.el9_2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232257016",
+												"comment": "tigervnc-server-module is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20232257017",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20232257001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

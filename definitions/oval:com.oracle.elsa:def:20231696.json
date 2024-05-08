@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20231696",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-1696:  haproxy security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-1696",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-1696.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-25725",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-25725.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-0056",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-0056.html"
+			}
+		],
+		"description": "\n[2.4.17-3.2]\n- Reject empty http header field names (CVE-2023-25725, #2174174)\n\n[2.4.17-3.1]\n- Refuse interim responses with end-stream flag set (CVE-2023-0056, #2174172)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-04-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-25725",
+					"href": "https://linux.oracle.com/cve/CVE-2023-25725.html"
+				},
+				{
+					"text": "CVE-2023-0056",
+					"href": "https://linux.oracle.com/cve/CVE-2023-0056.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20231696003",
+										"comment": "haproxy is earlier than 0:2.4.17-3.el9_1.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20231696004",
+										"comment": "haproxy is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20231696002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20231696003",
+										"comment": "haproxy is earlier than 0:2.4.17-3.el9_1.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20231696004",
+										"comment": "haproxy is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20231696005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20231696001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

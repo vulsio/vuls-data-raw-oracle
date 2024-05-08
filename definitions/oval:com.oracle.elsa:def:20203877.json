@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:20203877",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-3877:  audiofile security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-3877",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-3877.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-17095",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-17095.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-13440",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-13440.html"
+			}
+		],
+		"description": "\n[1:0.3.6-9]\n- Apply security patches. CVE-2018-17095, CVE-2018-13440\n- Resolves: rhbz#1600369, rhbz#1601014, rhbz#1637128\n\n[1:0.3.6-8]\n- Escape macros in %changelog\n\n[1:0.3.6-7]\n- Merge upstream pull requests #42,#43,#44 from Agostino Sarubbo to fix\n  security issues.  CVE-2017-6827, CVE-2017-6828,\n  CVE-2017-6829, CVE-2017-6830, CVE-2017-6831,\n  CVE-2017-6832, CVE-2017-6833, CVE-2017-6834, CVE-2017-6835,\n  CVE-2017-6836, CVE-2017-6837, CVE-2017-6838, CVE-2017-6839\n\n[1:0.3.6-6]\n- patch to compile with GCC 6\n\n[1:0.3.6-5]\n- Merge fix from upstream pull request #25 for CVE-2015-7747.\n  Test conversion from e.g. 16-bit LE stereo to 8-bit LE mono\n  no longer causes corruption.\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-10-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-17095",
+					"href": "https://linux.oracle.com/cve/CVE-2018-17095.html"
+				},
+				{
+					"text": "CVE-2018-13440",
+					"href": "https://linux.oracle.com/cve/CVE-2018-13440.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877003",
+												"comment": "audiofile is earlier than 1:0.3.6-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877004",
+												"comment": "audiofile is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877005",
+												"comment": "audiofile-devel is earlier than 1:0.3.6-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877006",
+												"comment": "audiofile-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20203877002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877003",
+												"comment": "audiofile is earlier than 1:0.3.6-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877004",
+												"comment": "audiofile is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877005",
+												"comment": "audiofile-devel is earlier than 1:0.3.6-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20203877006",
+												"comment": "audiofile-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20203877007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20203877001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,141 @@
+{
+	"id": "oval:com.oracle.elsa:def:20184077",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2018-4077:  openssl security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2018-4077",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-4077.html"
+			}
+		],
+		"description": "\n[1.0.2k-12.0.1]\n- sha256 is used for the RSA pairwise consistency test instead of sha1\n\n[1.0.2k-12]\n- fix CVE-2017-3737 - incorrect handling of fatal error state\n- fix CVE-2017-3738 - AVX2 Montgomery multiplication bug with 1024 bit modulus\n\n[1.0.2k-11]\n- fix deadlock in RNG in the FIPS mode in mariadb\n\n[1.0.2k-9]\n- fix CVE-2017-3736 - carry propagation bug in Montgomery multiplication\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2018 Oracle, Inc.",
+			"issued": {
+				"date": "2018-04-18"
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077003",
+										"comment": "openssl is earlier than 2:1.0.2k-12.0.1.ksplice1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077004",
+										"comment": "openssl is signed with the Oracle Linux 7 key"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077005",
+										"comment": "openssl is ksplice-based"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077006",
+										"comment": "openssl-devel is earlier than 2:1.0.2k-12.0.1.ksplice1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077007",
+										"comment": "openssl-devel is signed with the Oracle Linux 7 key"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077008",
+										"comment": "openssl-devel is ksplice-based"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077009",
+										"comment": "openssl-libs is earlier than 2:1.0.2k-12.0.1.ksplice1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077010",
+										"comment": "openssl-libs is signed with the Oracle Linux 7 key"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077011",
+										"comment": "openssl-libs is ksplice-based"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077012",
+										"comment": "openssl-perl is earlier than 2:1.0.2k-12.0.1.ksplice1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077013",
+										"comment": "openssl-perl is signed with the Oracle Linux 7 key"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077014",
+										"comment": "openssl-perl is ksplice-based"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077015",
+										"comment": "openssl-static is earlier than 2:1.0.2k-12.0.1.ksplice1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077016",
+										"comment": "openssl-static is signed with the Oracle Linux 7 key"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20184077017",
+										"comment": "openssl-static is ksplice-based"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20184077002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20184077001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

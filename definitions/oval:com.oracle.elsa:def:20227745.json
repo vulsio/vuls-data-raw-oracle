@@ -1,0 +1,158 @@
+{
+	"id": "oval:com.oracle.elsa:def:20227745",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-7745:  freetype security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-7745",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-7745.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27404",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-27404.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27406",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-27406.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27405",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-27405.html"
+			}
+		],
+		"description": "\n[2.9.1-9]\n- Guard face->size\n- Resolves: #2079279\n\n[2.9.1-8]\n- Properly guard face_index\n- Resolves: #2079261\n\n[2.9.1-7]\n- Do not search for windres\n- Resolves: #2079270\n\n[2.9.1-6]\n- Avoid invalid face index\n- Resolves: #2079270\n\n[2.9.1-5]\n- Test bitmap size earlier for PNGs\n- Fix memory leak in pngshim.c\n- Resolves: #1891906\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-11-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-27404",
+					"href": "https://linux.oracle.com/cve/CVE-2022-27404.html"
+				},
+				{
+					"text": "CVE-2022-27406",
+					"href": "https://linux.oracle.com/cve/CVE-2022-27406.html"
+				},
+				{
+					"text": "CVE-2022-27405",
+					"href": "https://linux.oracle.com/cve/CVE-2022-27405.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745003",
+												"comment": "freetype is earlier than 0:2.9.1-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745004",
+												"comment": "freetype is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745005",
+												"comment": "freetype-devel is earlier than 0:2.9.1-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745006",
+												"comment": "freetype-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20227745002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745003",
+												"comment": "freetype is earlier than 0:2.9.1-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745004",
+												"comment": "freetype is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745005",
+												"comment": "freetype-devel is earlier than 0:2.9.1-9.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20227745006",
+												"comment": "freetype-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20227745007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20227745001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

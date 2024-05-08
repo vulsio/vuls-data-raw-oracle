@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20214236",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-4236:  tcpdump security and bug fix update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-4236",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-4236.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-8037",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-8037.html"
+			}
+		],
+		"description": "\n[14:4.9.3-2]\n- Resolves: #1860216 - tcpdump can not parse mptcp options\n- Resolves: #1901635 - ppp decapsulator can be convinced to allocate a large amount of memory\n- Adding tedude test to gating\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-11-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-8037",
+					"href": "https://linux.oracle.com/cve/CVE-2020-8037.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214236003",
+										"comment": "tcpdump is earlier than 14:4.9.3-2.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214236004",
+										"comment": "tcpdump is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214236002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214236003",
+										"comment": "tcpdump is earlier than 14:4.9.3-2.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214236004",
+										"comment": "tcpdump is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214236005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20214236001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

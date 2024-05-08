@@ -1,0 +1,489 @@
+{
+	"id": "oval:com.oracle.elsa:def:20204682",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-4682:  grafana security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-4682",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-4682.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-19499",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-19499.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12052",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12052.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12245",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12245.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12458",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12458.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12459",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12459.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-18624",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-18624.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-11110",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-11110.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-13430",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-13430.html"
+			}
+		],
+		"description": "\n[6.7.4-3]\n- apply patch for CVE-2020-13430 also to sources, not only to compiled webpack\n\n[6.7.4-2]\n- security fix for CVE-2020-13430\n\n[6.7.4-1]\n- update to 6.7.4 tagged upstream community sources, see CHANGELOG\n- security fix for CVE-2020-13379\n\n[6.7.3-1]\n- update to 6.7.3 tagged upstream community sources, see CHANGELOG\n- add scripts to list Go dependencies and bundled npmjs dependencies\n- set Grafana version in Grafana UI and grafana-cli --version\n- declare README.md as documentation of datasource plugins\n- create grafana.db on first installation (fixes RH BZ #1805472)\n- change permissions of /var/lib/grafana to 750 (CVE-2020-12458)\n- change permissions of /var/lib/grafana/grafana.db to 640 and\n  user/group grafana:grafana (CVE-2020-12458)\n- change permissions of grafana.ini and ldap.toml to 640 (CVE-2020-12459)\n\n[6.6.2-1]\n- added patch0 to set the version string correctly\n- removed patch 004-xerrors.patch, its now upstream\n- added several patches for golang vendored vrs build dep differences\n- added patch to move grafana-cli binary to libexec dir\n- update to 6.6.2 tagged upstream community sources, see CHANGELOG\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-11-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-19499",
+					"href": "https://linux.oracle.com/cve/CVE-2019-19499.html"
+				},
+				{
+					"text": "CVE-2020-12052",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12052.html"
+				},
+				{
+					"text": "CVE-2020-12245",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12245.html"
+				},
+				{
+					"text": "CVE-2020-12458",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12458.html"
+				},
+				{
+					"text": "CVE-2020-12459",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12459.html"
+				},
+				{
+					"text": "CVE-2018-18624",
+					"href": "https://linux.oracle.com/cve/CVE-2018-18624.html"
+				},
+				{
+					"text": "CVE-2020-11110",
+					"href": "https://linux.oracle.com/cve/CVE-2020-11110.html"
+				},
+				{
+					"text": "CVE-2020-13430",
+					"href": "https://linux.oracle.com/cve/CVE-2020-13430.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682003",
+												"comment": "grafana is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682004",
+												"comment": "grafana is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682005",
+												"comment": "grafana-azure-monitor is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682006",
+												"comment": "grafana-azure-monitor is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682007",
+												"comment": "grafana-cloudwatch is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682008",
+												"comment": "grafana-cloudwatch is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682009",
+												"comment": "grafana-elasticsearch is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682010",
+												"comment": "grafana-elasticsearch is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682011",
+												"comment": "grafana-graphite is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682012",
+												"comment": "grafana-graphite is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682013",
+												"comment": "grafana-influxdb is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682014",
+												"comment": "grafana-influxdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682015",
+												"comment": "grafana-loki is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682016",
+												"comment": "grafana-loki is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682017",
+												"comment": "grafana-mssql is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682018",
+												"comment": "grafana-mssql is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682019",
+												"comment": "grafana-mysql is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682020",
+												"comment": "grafana-mysql is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682021",
+												"comment": "grafana-opentsdb is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682022",
+												"comment": "grafana-opentsdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682023",
+												"comment": "grafana-postgres is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682024",
+												"comment": "grafana-postgres is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682025",
+												"comment": "grafana-prometheus is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682026",
+												"comment": "grafana-prometheus is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682027",
+												"comment": "grafana-stackdriver is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682028",
+												"comment": "grafana-stackdriver is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204682002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682003",
+												"comment": "grafana is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682004",
+												"comment": "grafana is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682005",
+												"comment": "grafana-azure-monitor is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682006",
+												"comment": "grafana-azure-monitor is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682007",
+												"comment": "grafana-cloudwatch is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682008",
+												"comment": "grafana-cloudwatch is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682009",
+												"comment": "grafana-elasticsearch is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682010",
+												"comment": "grafana-elasticsearch is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682011",
+												"comment": "grafana-graphite is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682012",
+												"comment": "grafana-graphite is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682013",
+												"comment": "grafana-influxdb is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682014",
+												"comment": "grafana-influxdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682015",
+												"comment": "grafana-loki is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682016",
+												"comment": "grafana-loki is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682017",
+												"comment": "grafana-mssql is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682018",
+												"comment": "grafana-mssql is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682019",
+												"comment": "grafana-mysql is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682020",
+												"comment": "grafana-mysql is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682021",
+												"comment": "grafana-opentsdb is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682022",
+												"comment": "grafana-opentsdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682023",
+												"comment": "grafana-postgres is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682024",
+												"comment": "grafana-postgres is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682025",
+												"comment": "grafana-prometheus is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682026",
+												"comment": "grafana-prometheus is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682027",
+												"comment": "grafana-stackdriver is earlier than 0:6.7.4-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204682028",
+												"comment": "grafana-stackdriver is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204682029",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20204682001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:202312723",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-12723: microcode_ctl security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-12723",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-12723.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-40982",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-40982.html"
+			}
+		],
+		"description": "\n[4:20230214-2.0.3]\n- update 06-55-04 to 0x2007006\n- update 06-55-06 to 0x4003604\n- update 06-55-07 to 0x5003604\n- update 06-6a-06 to 0xd0003a5\n- Resolves for Oracle hardware: {CVE-2022-40982} [Orabug: 35692741]\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-08-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-40982",
+					"href": "https://linux.oracle.com/cve/CVE-2022-40982.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312723003",
+								"comment": "microcode_ctl is earlier than 4:20230214-2.0.3.el8"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312723004",
+								"comment": "microcode_ctl is signed with the Oracle Linux 8 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:202312723002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202312723001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

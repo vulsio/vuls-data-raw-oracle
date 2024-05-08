@@ -1,0 +1,296 @@
+{
+	"id": "oval:com.oracle.elsa:def:20212717",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-2717:  systemd security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-2717",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-2717.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33910",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-33910.html"
+			}
+		],
+		"description": "\n[239-45.0.2]\n- Disable unprivileged BPF by default [Orabug: 32870980]\n- backport upstream pstore tmpfiles patch [Orabug: 31420486]\n- udev rules: fix memory hot add and remove [Orabug: 31310273]\n- fix to enable systemd-pstore.service [Orabug: 30951066]\n- journal: change support URL shown in the catalog entries [Orabug: 30853009]\n- fix to generate systemd-pstore.service file [Orabug: 30230056]\n- fix _netdev is missing for iscsi entry in /etc/fstab (tony.l.lam@oracle.com) [Orabug: 25897792]\n- set 'RemoveIPC=no' in logind.conf as default for OL7.2 [Orabug: 22224874]\n- allow dm remove ioctl to co-operate with UEK3 (Vaughan Cao) [Orabug: 18467469]\n- add hv dynamic memory support (Jerry Snitselaar) [Orabug: 18621475]\n- Backport upstream patches for the new systemd-pstore tool (Eric DeVolder) [OraBug: 30230056]\n\n[239-45.2]\n- basic/unit-name: do not use strdupa() on a path (CVE-2021-33910, #1974699)\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-07-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-33910",
+					"href": "https://linux.oracle.com/cve/CVE-2021-33910.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717003",
+												"comment": "systemd is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717004",
+												"comment": "systemd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717005",
+												"comment": "systemd-container is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717006",
+												"comment": "systemd-container is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717007",
+												"comment": "systemd-devel is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717008",
+												"comment": "systemd-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717009",
+												"comment": "systemd-journal-remote is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717010",
+												"comment": "systemd-journal-remote is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717011",
+												"comment": "systemd-libs is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717012",
+												"comment": "systemd-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717013",
+												"comment": "systemd-pam is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717014",
+												"comment": "systemd-pam is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717015",
+												"comment": "systemd-tests is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717016",
+												"comment": "systemd-tests is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717017",
+												"comment": "systemd-udev is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717018",
+												"comment": "systemd-udev is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20212717002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717003",
+												"comment": "systemd is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717004",
+												"comment": "systemd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717005",
+												"comment": "systemd-container is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717006",
+												"comment": "systemd-container is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717007",
+												"comment": "systemd-devel is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717008",
+												"comment": "systemd-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717009",
+												"comment": "systemd-journal-remote is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717010",
+												"comment": "systemd-journal-remote is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717011",
+												"comment": "systemd-libs is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717012",
+												"comment": "systemd-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717013",
+												"comment": "systemd-pam is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717014",
+												"comment": "systemd-pam is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717015",
+												"comment": "systemd-tests is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717016",
+												"comment": "systemd-tests is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717017",
+												"comment": "systemd-udev is earlier than 0:239-45.0.2.el8_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20212717018",
+												"comment": "systemd-udev is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20212717019",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20212717001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

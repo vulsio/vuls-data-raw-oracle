@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20228139",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-8139:  wavpack security update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-8139",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-8139.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-44269",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-44269.html"
+			}
+		],
+		"description": "\n[5.4.0-5]\n- CVE-2021-44269 wavpack: heap Out-of-bounds Read\n- Resolves: CVE-2021-44269\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-11-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-44269",
+					"href": "https://linux.oracle.com/cve/CVE-2021-44269.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139003",
+												"comment": "wavpack is earlier than 0:5.4.0-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139004",
+												"comment": "wavpack is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139005",
+												"comment": "wavpack-devel is earlier than 0:5.4.0-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139006",
+												"comment": "wavpack-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228139002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139003",
+												"comment": "wavpack is earlier than 0:5.4.0-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139004",
+												"comment": "wavpack is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139005",
+												"comment": "wavpack-devel is earlier than 0:5.4.0-5.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228139006",
+												"comment": "wavpack-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228139007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20228139001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

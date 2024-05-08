@@ -1,0 +1,5618 @@
+{
+	"id": "oval:com.oracle.elsa:def:20204444",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-4444:  glibc security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-4444",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-4444.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-1752",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-1752.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-1751",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-1751.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-10029",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-10029.html"
+			}
+		],
+		"description": "\n[2.28-127.0.1]\n- add Ampere emag  to tunable cpu list (Patrick McGehearty)\n- add optimized memset for emag\n- add an ASIMD variant of strlen for falkor\n- Orabug: 2700101.\n- Modify glibc-ora28849085.patch so it works with RHCK kernels.\n- Orabug: 28849085.\n- Make _IO_funlockfile match __funlockfile and _IO_flockfile match __flockfile\n- Both should test\n-   if (stream->_flags & _IO_USER_LOCK) == 0)\n-     _IO_lock_lock (*stream->_lock);\n- OraBug: 28481550.\nReviewed-by: Qing Zhao <qing.zhao@oracle.com>\n\n[2.28-127]\n- Improve performance of library strstr() function (#1821531)\n\n[2.28-126]\n- Do not clobber errno in nss_compat (#1836867)\n\n[2.28-125]\n- Support building rpm under newer versions of Coverity Scan (#1835999)\n\n[2.28-124]\n- Enhance memory protection key support on ppc64le (#1642150)\n\n[2.28-123]\n- Reduce IFUNC resolver usage in libpthread and librt (#1748197)\n\n[2.28-122]\n- Math library optimizations for IBM Z (#1780204)\n- Additional patch for s_nearbyint.c\n\n[2.28-121]\n- elf: Assign TLS modid later during dlopen (#1774115)\n\n[2.28-120]\n- x86-64: Automatically install nss_db.i686 for 32-bit environments (#1807824)\n\n[2.28-119]\n- ppc64le: Enable protection key support (#1642150)\n\n[2.28-118]\n- ppc64le: floating-point status and exception optimizations (#1783303)\n\n[2.28-117]\n- Update to Linux 5.6 syscall-names.list. (#1810224)\n\n[2.28-116]\n- CVE-2020-1751: Fix an array overflow in backtrace on PowerPC. (#1813399)\n\n[2.28-115]\n- CVE:2020-1752: Fix a use after free in glob when expanding ~user. (#1813398)\n\n[2.28-114]\n- CVE-2020-10029: Prevent stack corruption from crafted input in cosl, sinl,\n  sincosl, and tanl function. (#1811796)\n\n[2.28-113]\n- Improve elf/ and nptl/ testsuites (#1810223)\n\n[2.28-112]\n- Fix resource leak in getaddrinfo (#1810146)\n\n[2.28-111]\n- Protect locale archive against corruption (#1784525)\n\n[2.28-110]\n- Properly handle signed vs. unsigned values in mallopt (#1784520)\n\n[2.28-109]\n- Update and harmonize locale names with CLDR (#1757354)\n\n[2.28-108]\n- Fix filter and auxiliary filter implementation (#1812756)\n\n[2.28-107]\n- Handle .dynstr located in separate segment (#1774114)\n\n[2.28-106]\n- Disable vtable validation for pre-2.1 interposed handles (#1775819)\n\n[2.28-105]\n- Define __CORRECT_ISO_CPP_STRING_H_PROTO for Clang. (#1784519)\n\n[2.28-104]\n- Math library optimizations for IBM Z (#1780204)\n\n[2.28-103]\n- Filter 'ignore' autofs mount entries in getmntent (#1743445)\n\n[2.28-102]\n- Fix /etc/resolv.conf reloading defects (#1810142)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-11-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-1752",
+					"href": "https://linux.oracle.com/cve/CVE-2020-1752.html"
+				},
+				{
+					"text": "CVE-2020-1751",
+					"href": "https://linux.oracle.com/cve/CVE-2020-1751.html"
+				},
+				{
+					"text": "CVE-2020-10029",
+					"href": "https://linux.oracle.com/cve/CVE-2020-10029.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444003",
+												"comment": "compat-libpthread-nonshared is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444004",
+												"comment": "compat-libpthread-nonshared is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444005",
+												"comment": "glibc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444006",
+												"comment": "glibc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444007",
+												"comment": "glibc-all-langpacks is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444008",
+												"comment": "glibc-all-langpacks is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444009",
+												"comment": "glibc-benchtests is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444010",
+												"comment": "glibc-benchtests is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444011",
+												"comment": "glibc-common is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444012",
+												"comment": "glibc-common is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444013",
+												"comment": "glibc-devel is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444014",
+												"comment": "glibc-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444015",
+												"comment": "glibc-headers is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444016",
+												"comment": "glibc-headers is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444017",
+												"comment": "glibc-langpack-aa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444018",
+												"comment": "glibc-langpack-aa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444019",
+												"comment": "glibc-langpack-af is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444020",
+												"comment": "glibc-langpack-af is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444021",
+												"comment": "glibc-langpack-agr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444022",
+												"comment": "glibc-langpack-agr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444023",
+												"comment": "glibc-langpack-ak is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444024",
+												"comment": "glibc-langpack-ak is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444025",
+												"comment": "glibc-langpack-am is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444026",
+												"comment": "glibc-langpack-am is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444027",
+												"comment": "glibc-langpack-an is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444028",
+												"comment": "glibc-langpack-an is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444029",
+												"comment": "glibc-langpack-anp is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444030",
+												"comment": "glibc-langpack-anp is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444031",
+												"comment": "glibc-langpack-ar is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444032",
+												"comment": "glibc-langpack-ar is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444033",
+												"comment": "glibc-langpack-as is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444034",
+												"comment": "glibc-langpack-as is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444035",
+												"comment": "glibc-langpack-ast is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444036",
+												"comment": "glibc-langpack-ast is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444037",
+												"comment": "glibc-langpack-ayc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444038",
+												"comment": "glibc-langpack-ayc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444039",
+												"comment": "glibc-langpack-az is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444040",
+												"comment": "glibc-langpack-az is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444041",
+												"comment": "glibc-langpack-be is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444042",
+												"comment": "glibc-langpack-be is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444043",
+												"comment": "glibc-langpack-bem is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444044",
+												"comment": "glibc-langpack-bem is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444045",
+												"comment": "glibc-langpack-ber is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444046",
+												"comment": "glibc-langpack-ber is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444047",
+												"comment": "glibc-langpack-bg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444048",
+												"comment": "glibc-langpack-bg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444049",
+												"comment": "glibc-langpack-bhb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444050",
+												"comment": "glibc-langpack-bhb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444051",
+												"comment": "glibc-langpack-bho is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444052",
+												"comment": "glibc-langpack-bho is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444053",
+												"comment": "glibc-langpack-bi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444054",
+												"comment": "glibc-langpack-bi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444055",
+												"comment": "glibc-langpack-bn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444056",
+												"comment": "glibc-langpack-bn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444057",
+												"comment": "glibc-langpack-bo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444058",
+												"comment": "glibc-langpack-bo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444059",
+												"comment": "glibc-langpack-br is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444060",
+												"comment": "glibc-langpack-br is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444061",
+												"comment": "glibc-langpack-brx is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444062",
+												"comment": "glibc-langpack-brx is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444063",
+												"comment": "glibc-langpack-bs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444064",
+												"comment": "glibc-langpack-bs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444065",
+												"comment": "glibc-langpack-byn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444066",
+												"comment": "glibc-langpack-byn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444067",
+												"comment": "glibc-langpack-ca is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444068",
+												"comment": "glibc-langpack-ca is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444069",
+												"comment": "glibc-langpack-ce is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444070",
+												"comment": "glibc-langpack-ce is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444071",
+												"comment": "glibc-langpack-chr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444072",
+												"comment": "glibc-langpack-chr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444073",
+												"comment": "glibc-langpack-cmn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444074",
+												"comment": "glibc-langpack-cmn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444075",
+												"comment": "glibc-langpack-crh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444076",
+												"comment": "glibc-langpack-crh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444077",
+												"comment": "glibc-langpack-cs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444078",
+												"comment": "glibc-langpack-cs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444079",
+												"comment": "glibc-langpack-csb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444080",
+												"comment": "glibc-langpack-csb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444081",
+												"comment": "glibc-langpack-cv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444082",
+												"comment": "glibc-langpack-cv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444083",
+												"comment": "glibc-langpack-cy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444084",
+												"comment": "glibc-langpack-cy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444085",
+												"comment": "glibc-langpack-da is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444086",
+												"comment": "glibc-langpack-da is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444087",
+												"comment": "glibc-langpack-de is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444088",
+												"comment": "glibc-langpack-de is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444089",
+												"comment": "glibc-langpack-doi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444090",
+												"comment": "glibc-langpack-doi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444091",
+												"comment": "glibc-langpack-dsb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444092",
+												"comment": "glibc-langpack-dsb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444093",
+												"comment": "glibc-langpack-dv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444094",
+												"comment": "glibc-langpack-dv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444095",
+												"comment": "glibc-langpack-dz is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444096",
+												"comment": "glibc-langpack-dz is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444097",
+												"comment": "glibc-langpack-el is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444098",
+												"comment": "glibc-langpack-el is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444099",
+												"comment": "glibc-langpack-en is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444100",
+												"comment": "glibc-langpack-en is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444101",
+												"comment": "glibc-langpack-eo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444102",
+												"comment": "glibc-langpack-eo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444103",
+												"comment": "glibc-langpack-es is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444104",
+												"comment": "glibc-langpack-es is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444105",
+												"comment": "glibc-langpack-et is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444106",
+												"comment": "glibc-langpack-et is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444107",
+												"comment": "glibc-langpack-eu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444108",
+												"comment": "glibc-langpack-eu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444109",
+												"comment": "glibc-langpack-fa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444110",
+												"comment": "glibc-langpack-fa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444111",
+												"comment": "glibc-langpack-ff is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444112",
+												"comment": "glibc-langpack-ff is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444113",
+												"comment": "glibc-langpack-fi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444114",
+												"comment": "glibc-langpack-fi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444115",
+												"comment": "glibc-langpack-fil is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444116",
+												"comment": "glibc-langpack-fil is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444117",
+												"comment": "glibc-langpack-fo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444118",
+												"comment": "glibc-langpack-fo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444119",
+												"comment": "glibc-langpack-fr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444120",
+												"comment": "glibc-langpack-fr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444121",
+												"comment": "glibc-langpack-fur is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444122",
+												"comment": "glibc-langpack-fur is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444123",
+												"comment": "glibc-langpack-fy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444124",
+												"comment": "glibc-langpack-fy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444125",
+												"comment": "glibc-langpack-ga is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444126",
+												"comment": "glibc-langpack-ga is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444127",
+												"comment": "glibc-langpack-gd is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444128",
+												"comment": "glibc-langpack-gd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444129",
+												"comment": "glibc-langpack-gez is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444130",
+												"comment": "glibc-langpack-gez is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444131",
+												"comment": "glibc-langpack-gl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444132",
+												"comment": "glibc-langpack-gl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444133",
+												"comment": "glibc-langpack-gu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444134",
+												"comment": "glibc-langpack-gu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444135",
+												"comment": "glibc-langpack-gv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444136",
+												"comment": "glibc-langpack-gv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444137",
+												"comment": "glibc-langpack-ha is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444138",
+												"comment": "glibc-langpack-ha is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444139",
+												"comment": "glibc-langpack-hak is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444140",
+												"comment": "glibc-langpack-hak is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444141",
+												"comment": "glibc-langpack-he is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444142",
+												"comment": "glibc-langpack-he is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444143",
+												"comment": "glibc-langpack-hi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444144",
+												"comment": "glibc-langpack-hi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444145",
+												"comment": "glibc-langpack-hif is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444146",
+												"comment": "glibc-langpack-hif is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444147",
+												"comment": "glibc-langpack-hne is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444148",
+												"comment": "glibc-langpack-hne is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444149",
+												"comment": "glibc-langpack-hr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444150",
+												"comment": "glibc-langpack-hr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444151",
+												"comment": "glibc-langpack-hsb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444152",
+												"comment": "glibc-langpack-hsb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444153",
+												"comment": "glibc-langpack-ht is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444154",
+												"comment": "glibc-langpack-ht is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444155",
+												"comment": "glibc-langpack-hu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444156",
+												"comment": "glibc-langpack-hu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444157",
+												"comment": "glibc-langpack-hy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444158",
+												"comment": "glibc-langpack-hy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444159",
+												"comment": "glibc-langpack-ia is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444160",
+												"comment": "glibc-langpack-ia is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444161",
+												"comment": "glibc-langpack-id is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444162",
+												"comment": "glibc-langpack-id is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444163",
+												"comment": "glibc-langpack-ig is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444164",
+												"comment": "glibc-langpack-ig is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444165",
+												"comment": "glibc-langpack-ik is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444166",
+												"comment": "glibc-langpack-ik is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444167",
+												"comment": "glibc-langpack-is is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444168",
+												"comment": "glibc-langpack-is is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444169",
+												"comment": "glibc-langpack-it is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444170",
+												"comment": "glibc-langpack-it is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444171",
+												"comment": "glibc-langpack-iu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444172",
+												"comment": "glibc-langpack-iu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444173",
+												"comment": "glibc-langpack-ja is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444174",
+												"comment": "glibc-langpack-ja is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444175",
+												"comment": "glibc-langpack-ka is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444176",
+												"comment": "glibc-langpack-ka is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444177",
+												"comment": "glibc-langpack-kab is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444178",
+												"comment": "glibc-langpack-kab is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444179",
+												"comment": "glibc-langpack-kk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444180",
+												"comment": "glibc-langpack-kk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444181",
+												"comment": "glibc-langpack-kl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444182",
+												"comment": "glibc-langpack-kl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444183",
+												"comment": "glibc-langpack-km is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444184",
+												"comment": "glibc-langpack-km is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444185",
+												"comment": "glibc-langpack-kn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444186",
+												"comment": "glibc-langpack-kn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444187",
+												"comment": "glibc-langpack-ko is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444188",
+												"comment": "glibc-langpack-ko is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444189",
+												"comment": "glibc-langpack-kok is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444190",
+												"comment": "glibc-langpack-kok is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444191",
+												"comment": "glibc-langpack-ks is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444192",
+												"comment": "glibc-langpack-ks is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444193",
+												"comment": "glibc-langpack-ku is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444194",
+												"comment": "glibc-langpack-ku is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444195",
+												"comment": "glibc-langpack-kw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444196",
+												"comment": "glibc-langpack-kw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444197",
+												"comment": "glibc-langpack-ky is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444198",
+												"comment": "glibc-langpack-ky is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444199",
+												"comment": "glibc-langpack-lb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444200",
+												"comment": "glibc-langpack-lb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444201",
+												"comment": "glibc-langpack-lg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444202",
+												"comment": "glibc-langpack-lg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444203",
+												"comment": "glibc-langpack-li is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444204",
+												"comment": "glibc-langpack-li is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444205",
+												"comment": "glibc-langpack-lij is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444206",
+												"comment": "glibc-langpack-lij is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444207",
+												"comment": "glibc-langpack-ln is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444208",
+												"comment": "glibc-langpack-ln is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444209",
+												"comment": "glibc-langpack-lo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444210",
+												"comment": "glibc-langpack-lo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444211",
+												"comment": "glibc-langpack-lt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444212",
+												"comment": "glibc-langpack-lt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444213",
+												"comment": "glibc-langpack-lv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444214",
+												"comment": "glibc-langpack-lv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444215",
+												"comment": "glibc-langpack-lzh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444216",
+												"comment": "glibc-langpack-lzh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444217",
+												"comment": "glibc-langpack-mag is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444218",
+												"comment": "glibc-langpack-mag is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444219",
+												"comment": "glibc-langpack-mai is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444220",
+												"comment": "glibc-langpack-mai is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444221",
+												"comment": "glibc-langpack-mfe is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444222",
+												"comment": "glibc-langpack-mfe is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444223",
+												"comment": "glibc-langpack-mg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444224",
+												"comment": "glibc-langpack-mg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444225",
+												"comment": "glibc-langpack-mhr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444226",
+												"comment": "glibc-langpack-mhr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444227",
+												"comment": "glibc-langpack-mi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444228",
+												"comment": "glibc-langpack-mi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444229",
+												"comment": "glibc-langpack-miq is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444230",
+												"comment": "glibc-langpack-miq is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444231",
+												"comment": "glibc-langpack-mjw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444232",
+												"comment": "glibc-langpack-mjw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444233",
+												"comment": "glibc-langpack-mk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444234",
+												"comment": "glibc-langpack-mk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444235",
+												"comment": "glibc-langpack-ml is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444236",
+												"comment": "glibc-langpack-ml is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444237",
+												"comment": "glibc-langpack-mn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444238",
+												"comment": "glibc-langpack-mn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444239",
+												"comment": "glibc-langpack-mni is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444240",
+												"comment": "glibc-langpack-mni is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444241",
+												"comment": "glibc-langpack-mr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444242",
+												"comment": "glibc-langpack-mr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444243",
+												"comment": "glibc-langpack-ms is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444244",
+												"comment": "glibc-langpack-ms is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444245",
+												"comment": "glibc-langpack-mt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444246",
+												"comment": "glibc-langpack-mt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444247",
+												"comment": "glibc-langpack-my is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444248",
+												"comment": "glibc-langpack-my is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444249",
+												"comment": "glibc-langpack-nan is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444250",
+												"comment": "glibc-langpack-nan is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444251",
+												"comment": "glibc-langpack-nb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444252",
+												"comment": "glibc-langpack-nb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444253",
+												"comment": "glibc-langpack-nds is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444254",
+												"comment": "glibc-langpack-nds is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444255",
+												"comment": "glibc-langpack-ne is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444256",
+												"comment": "glibc-langpack-ne is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444257",
+												"comment": "glibc-langpack-nhn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444258",
+												"comment": "glibc-langpack-nhn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444259",
+												"comment": "glibc-langpack-niu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444260",
+												"comment": "glibc-langpack-niu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444261",
+												"comment": "glibc-langpack-nl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444262",
+												"comment": "glibc-langpack-nl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444263",
+												"comment": "glibc-langpack-nn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444264",
+												"comment": "glibc-langpack-nn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444265",
+												"comment": "glibc-langpack-nr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444266",
+												"comment": "glibc-langpack-nr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444267",
+												"comment": "glibc-langpack-nso is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444268",
+												"comment": "glibc-langpack-nso is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444269",
+												"comment": "glibc-langpack-oc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444270",
+												"comment": "glibc-langpack-oc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444271",
+												"comment": "glibc-langpack-om is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444272",
+												"comment": "glibc-langpack-om is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444273",
+												"comment": "glibc-langpack-or is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444274",
+												"comment": "glibc-langpack-or is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444275",
+												"comment": "glibc-langpack-os is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444276",
+												"comment": "glibc-langpack-os is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444277",
+												"comment": "glibc-langpack-pa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444278",
+												"comment": "glibc-langpack-pa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444279",
+												"comment": "glibc-langpack-pap is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444280",
+												"comment": "glibc-langpack-pap is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444281",
+												"comment": "glibc-langpack-pl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444282",
+												"comment": "glibc-langpack-pl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444283",
+												"comment": "glibc-langpack-ps is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444284",
+												"comment": "glibc-langpack-ps is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444285",
+												"comment": "glibc-langpack-pt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444286",
+												"comment": "glibc-langpack-pt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444287",
+												"comment": "glibc-langpack-quz is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444288",
+												"comment": "glibc-langpack-quz is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444289",
+												"comment": "glibc-langpack-raj is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444290",
+												"comment": "glibc-langpack-raj is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444291",
+												"comment": "glibc-langpack-ro is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444292",
+												"comment": "glibc-langpack-ro is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444293",
+												"comment": "glibc-langpack-ru is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444294",
+												"comment": "glibc-langpack-ru is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444295",
+												"comment": "glibc-langpack-rw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444296",
+												"comment": "glibc-langpack-rw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444297",
+												"comment": "glibc-langpack-sa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444298",
+												"comment": "glibc-langpack-sa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444299",
+												"comment": "glibc-langpack-sah is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444300",
+												"comment": "glibc-langpack-sah is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444301",
+												"comment": "glibc-langpack-sat is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444302",
+												"comment": "glibc-langpack-sat is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444303",
+												"comment": "glibc-langpack-sc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444304",
+												"comment": "glibc-langpack-sc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444305",
+												"comment": "glibc-langpack-sd is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444306",
+												"comment": "glibc-langpack-sd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444307",
+												"comment": "glibc-langpack-se is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444308",
+												"comment": "glibc-langpack-se is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444309",
+												"comment": "glibc-langpack-sgs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444310",
+												"comment": "glibc-langpack-sgs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444311",
+												"comment": "glibc-langpack-shn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444312",
+												"comment": "glibc-langpack-shn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444313",
+												"comment": "glibc-langpack-shs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444314",
+												"comment": "glibc-langpack-shs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444315",
+												"comment": "glibc-langpack-si is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444316",
+												"comment": "glibc-langpack-si is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444317",
+												"comment": "glibc-langpack-sid is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444318",
+												"comment": "glibc-langpack-sid is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444319",
+												"comment": "glibc-langpack-sk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444320",
+												"comment": "glibc-langpack-sk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444321",
+												"comment": "glibc-langpack-sl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444322",
+												"comment": "glibc-langpack-sl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444323",
+												"comment": "glibc-langpack-sm is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444324",
+												"comment": "glibc-langpack-sm is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444325",
+												"comment": "glibc-langpack-so is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444326",
+												"comment": "glibc-langpack-so is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444327",
+												"comment": "glibc-langpack-sq is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444328",
+												"comment": "glibc-langpack-sq is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444329",
+												"comment": "glibc-langpack-sr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444330",
+												"comment": "glibc-langpack-sr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444331",
+												"comment": "glibc-langpack-ss is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444332",
+												"comment": "glibc-langpack-ss is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444333",
+												"comment": "glibc-langpack-st is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444334",
+												"comment": "glibc-langpack-st is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444335",
+												"comment": "glibc-langpack-sv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444336",
+												"comment": "glibc-langpack-sv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444337",
+												"comment": "glibc-langpack-sw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444338",
+												"comment": "glibc-langpack-sw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444339",
+												"comment": "glibc-langpack-szl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444340",
+												"comment": "glibc-langpack-szl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444341",
+												"comment": "glibc-langpack-ta is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444342",
+												"comment": "glibc-langpack-ta is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444343",
+												"comment": "glibc-langpack-tcy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444344",
+												"comment": "glibc-langpack-tcy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444345",
+												"comment": "glibc-langpack-te is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444346",
+												"comment": "glibc-langpack-te is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444347",
+												"comment": "glibc-langpack-tg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444348",
+												"comment": "glibc-langpack-tg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444349",
+												"comment": "glibc-langpack-th is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444350",
+												"comment": "glibc-langpack-th is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444351",
+												"comment": "glibc-langpack-the is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444352",
+												"comment": "glibc-langpack-the is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444353",
+												"comment": "glibc-langpack-ti is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444354",
+												"comment": "glibc-langpack-ti is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444355",
+												"comment": "glibc-langpack-tig is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444356",
+												"comment": "glibc-langpack-tig is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444357",
+												"comment": "glibc-langpack-tk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444358",
+												"comment": "glibc-langpack-tk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444359",
+												"comment": "glibc-langpack-tl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444360",
+												"comment": "glibc-langpack-tl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444361",
+												"comment": "glibc-langpack-tn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444362",
+												"comment": "glibc-langpack-tn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444363",
+												"comment": "glibc-langpack-to is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444364",
+												"comment": "glibc-langpack-to is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444365",
+												"comment": "glibc-langpack-tpi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444366",
+												"comment": "glibc-langpack-tpi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444367",
+												"comment": "glibc-langpack-tr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444368",
+												"comment": "glibc-langpack-tr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444369",
+												"comment": "glibc-langpack-ts is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444370",
+												"comment": "glibc-langpack-ts is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444371",
+												"comment": "glibc-langpack-tt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444372",
+												"comment": "glibc-langpack-tt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444373",
+												"comment": "glibc-langpack-ug is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444374",
+												"comment": "glibc-langpack-ug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444375",
+												"comment": "glibc-langpack-uk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444376",
+												"comment": "glibc-langpack-uk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444377",
+												"comment": "glibc-langpack-unm is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444378",
+												"comment": "glibc-langpack-unm is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444379",
+												"comment": "glibc-langpack-ur is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444380",
+												"comment": "glibc-langpack-ur is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444381",
+												"comment": "glibc-langpack-uz is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444382",
+												"comment": "glibc-langpack-uz is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444383",
+												"comment": "glibc-langpack-ve is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444384",
+												"comment": "glibc-langpack-ve is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444385",
+												"comment": "glibc-langpack-vi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444386",
+												"comment": "glibc-langpack-vi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444387",
+												"comment": "glibc-langpack-wa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444388",
+												"comment": "glibc-langpack-wa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444389",
+												"comment": "glibc-langpack-wae is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444390",
+												"comment": "glibc-langpack-wae is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444391",
+												"comment": "glibc-langpack-wal is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444392",
+												"comment": "glibc-langpack-wal is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444393",
+												"comment": "glibc-langpack-wo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444394",
+												"comment": "glibc-langpack-wo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444395",
+												"comment": "glibc-langpack-xh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444396",
+												"comment": "glibc-langpack-xh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444397",
+												"comment": "glibc-langpack-yi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444398",
+												"comment": "glibc-langpack-yi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444399",
+												"comment": "glibc-langpack-yo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444400",
+												"comment": "glibc-langpack-yo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444401",
+												"comment": "glibc-langpack-yue is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444402",
+												"comment": "glibc-langpack-yue is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444403",
+												"comment": "glibc-langpack-yuw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444404",
+												"comment": "glibc-langpack-yuw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444405",
+												"comment": "glibc-langpack-zh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444406",
+												"comment": "glibc-langpack-zh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444407",
+												"comment": "glibc-langpack-zu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444408",
+												"comment": "glibc-langpack-zu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444409",
+												"comment": "glibc-locale-source is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444410",
+												"comment": "glibc-locale-source is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444411",
+												"comment": "glibc-minimal-langpack is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444412",
+												"comment": "glibc-minimal-langpack is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444413",
+												"comment": "glibc-nss-devel is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444414",
+												"comment": "glibc-nss-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444415",
+												"comment": "glibc-static is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444416",
+												"comment": "glibc-static is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444417",
+												"comment": "glibc-utils is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444418",
+												"comment": "glibc-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444419",
+												"comment": "libnsl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444420",
+												"comment": "libnsl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444421",
+												"comment": "nscd is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444422",
+												"comment": "nscd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444423",
+												"comment": "nss_db is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444424",
+												"comment": "nss_db is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444425",
+												"comment": "nss_hesiod is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444426",
+												"comment": "nss_hesiod is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204444002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444003",
+												"comment": "compat-libpthread-nonshared is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444004",
+												"comment": "compat-libpthread-nonshared is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444005",
+												"comment": "glibc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444006",
+												"comment": "glibc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444007",
+												"comment": "glibc-all-langpacks is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444008",
+												"comment": "glibc-all-langpacks is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444009",
+												"comment": "glibc-benchtests is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444010",
+												"comment": "glibc-benchtests is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444011",
+												"comment": "glibc-common is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444012",
+												"comment": "glibc-common is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444013",
+												"comment": "glibc-devel is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444014",
+												"comment": "glibc-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444015",
+												"comment": "glibc-headers is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444016",
+												"comment": "glibc-headers is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444017",
+												"comment": "glibc-langpack-aa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444018",
+												"comment": "glibc-langpack-aa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444019",
+												"comment": "glibc-langpack-af is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444020",
+												"comment": "glibc-langpack-af is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444021",
+												"comment": "glibc-langpack-agr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444022",
+												"comment": "glibc-langpack-agr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444023",
+												"comment": "glibc-langpack-ak is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444024",
+												"comment": "glibc-langpack-ak is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444025",
+												"comment": "glibc-langpack-am is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444026",
+												"comment": "glibc-langpack-am is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444027",
+												"comment": "glibc-langpack-an is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444028",
+												"comment": "glibc-langpack-an is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444029",
+												"comment": "glibc-langpack-anp is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444030",
+												"comment": "glibc-langpack-anp is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444031",
+												"comment": "glibc-langpack-ar is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444032",
+												"comment": "glibc-langpack-ar is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444033",
+												"comment": "glibc-langpack-as is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444034",
+												"comment": "glibc-langpack-as is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444035",
+												"comment": "glibc-langpack-ast is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444036",
+												"comment": "glibc-langpack-ast is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444037",
+												"comment": "glibc-langpack-ayc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444038",
+												"comment": "glibc-langpack-ayc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444039",
+												"comment": "glibc-langpack-az is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444040",
+												"comment": "glibc-langpack-az is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444041",
+												"comment": "glibc-langpack-be is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444042",
+												"comment": "glibc-langpack-be is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444043",
+												"comment": "glibc-langpack-bem is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444044",
+												"comment": "glibc-langpack-bem is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444045",
+												"comment": "glibc-langpack-ber is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444046",
+												"comment": "glibc-langpack-ber is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444047",
+												"comment": "glibc-langpack-bg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444048",
+												"comment": "glibc-langpack-bg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444049",
+												"comment": "glibc-langpack-bhb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444050",
+												"comment": "glibc-langpack-bhb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444051",
+												"comment": "glibc-langpack-bho is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444052",
+												"comment": "glibc-langpack-bho is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444053",
+												"comment": "glibc-langpack-bi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444054",
+												"comment": "glibc-langpack-bi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444055",
+												"comment": "glibc-langpack-bn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444056",
+												"comment": "glibc-langpack-bn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444057",
+												"comment": "glibc-langpack-bo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444058",
+												"comment": "glibc-langpack-bo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444059",
+												"comment": "glibc-langpack-br is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444060",
+												"comment": "glibc-langpack-br is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444061",
+												"comment": "glibc-langpack-brx is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444062",
+												"comment": "glibc-langpack-brx is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444063",
+												"comment": "glibc-langpack-bs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444064",
+												"comment": "glibc-langpack-bs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444065",
+												"comment": "glibc-langpack-byn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444066",
+												"comment": "glibc-langpack-byn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444067",
+												"comment": "glibc-langpack-ca is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444068",
+												"comment": "glibc-langpack-ca is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444069",
+												"comment": "glibc-langpack-ce is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444070",
+												"comment": "glibc-langpack-ce is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444071",
+												"comment": "glibc-langpack-chr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444072",
+												"comment": "glibc-langpack-chr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444073",
+												"comment": "glibc-langpack-cmn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444074",
+												"comment": "glibc-langpack-cmn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444075",
+												"comment": "glibc-langpack-crh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444076",
+												"comment": "glibc-langpack-crh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444077",
+												"comment": "glibc-langpack-cs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444078",
+												"comment": "glibc-langpack-cs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444079",
+												"comment": "glibc-langpack-csb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444080",
+												"comment": "glibc-langpack-csb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444081",
+												"comment": "glibc-langpack-cv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444082",
+												"comment": "glibc-langpack-cv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444083",
+												"comment": "glibc-langpack-cy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444084",
+												"comment": "glibc-langpack-cy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444085",
+												"comment": "glibc-langpack-da is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444086",
+												"comment": "glibc-langpack-da is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444087",
+												"comment": "glibc-langpack-de is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444088",
+												"comment": "glibc-langpack-de is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444089",
+												"comment": "glibc-langpack-doi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444090",
+												"comment": "glibc-langpack-doi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444091",
+												"comment": "glibc-langpack-dsb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444092",
+												"comment": "glibc-langpack-dsb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444093",
+												"comment": "glibc-langpack-dv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444094",
+												"comment": "glibc-langpack-dv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444095",
+												"comment": "glibc-langpack-dz is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444096",
+												"comment": "glibc-langpack-dz is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444097",
+												"comment": "glibc-langpack-el is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444098",
+												"comment": "glibc-langpack-el is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444099",
+												"comment": "glibc-langpack-en is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444100",
+												"comment": "glibc-langpack-en is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444101",
+												"comment": "glibc-langpack-eo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444102",
+												"comment": "glibc-langpack-eo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444103",
+												"comment": "glibc-langpack-es is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444104",
+												"comment": "glibc-langpack-es is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444105",
+												"comment": "glibc-langpack-et is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444106",
+												"comment": "glibc-langpack-et is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444107",
+												"comment": "glibc-langpack-eu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444108",
+												"comment": "glibc-langpack-eu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444109",
+												"comment": "glibc-langpack-fa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444110",
+												"comment": "glibc-langpack-fa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444111",
+												"comment": "glibc-langpack-ff is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444112",
+												"comment": "glibc-langpack-ff is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444113",
+												"comment": "glibc-langpack-fi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444114",
+												"comment": "glibc-langpack-fi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444115",
+												"comment": "glibc-langpack-fil is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444116",
+												"comment": "glibc-langpack-fil is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444117",
+												"comment": "glibc-langpack-fo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444118",
+												"comment": "glibc-langpack-fo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444119",
+												"comment": "glibc-langpack-fr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444120",
+												"comment": "glibc-langpack-fr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444121",
+												"comment": "glibc-langpack-fur is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444122",
+												"comment": "glibc-langpack-fur is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444123",
+												"comment": "glibc-langpack-fy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444124",
+												"comment": "glibc-langpack-fy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444125",
+												"comment": "glibc-langpack-ga is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444126",
+												"comment": "glibc-langpack-ga is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444127",
+												"comment": "glibc-langpack-gd is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444128",
+												"comment": "glibc-langpack-gd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444129",
+												"comment": "glibc-langpack-gez is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444130",
+												"comment": "glibc-langpack-gez is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444131",
+												"comment": "glibc-langpack-gl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444132",
+												"comment": "glibc-langpack-gl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444133",
+												"comment": "glibc-langpack-gu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444134",
+												"comment": "glibc-langpack-gu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444135",
+												"comment": "glibc-langpack-gv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444136",
+												"comment": "glibc-langpack-gv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444137",
+												"comment": "glibc-langpack-ha is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444138",
+												"comment": "glibc-langpack-ha is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444139",
+												"comment": "glibc-langpack-hak is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444140",
+												"comment": "glibc-langpack-hak is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444141",
+												"comment": "glibc-langpack-he is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444142",
+												"comment": "glibc-langpack-he is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444143",
+												"comment": "glibc-langpack-hi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444144",
+												"comment": "glibc-langpack-hi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444145",
+												"comment": "glibc-langpack-hif is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444146",
+												"comment": "glibc-langpack-hif is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444147",
+												"comment": "glibc-langpack-hne is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444148",
+												"comment": "glibc-langpack-hne is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444149",
+												"comment": "glibc-langpack-hr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444150",
+												"comment": "glibc-langpack-hr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444151",
+												"comment": "glibc-langpack-hsb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444152",
+												"comment": "glibc-langpack-hsb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444153",
+												"comment": "glibc-langpack-ht is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444154",
+												"comment": "glibc-langpack-ht is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444155",
+												"comment": "glibc-langpack-hu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444156",
+												"comment": "glibc-langpack-hu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444157",
+												"comment": "glibc-langpack-hy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444158",
+												"comment": "glibc-langpack-hy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444159",
+												"comment": "glibc-langpack-ia is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444160",
+												"comment": "glibc-langpack-ia is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444161",
+												"comment": "glibc-langpack-id is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444162",
+												"comment": "glibc-langpack-id is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444163",
+												"comment": "glibc-langpack-ig is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444164",
+												"comment": "glibc-langpack-ig is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444165",
+												"comment": "glibc-langpack-ik is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444166",
+												"comment": "glibc-langpack-ik is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444167",
+												"comment": "glibc-langpack-is is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444168",
+												"comment": "glibc-langpack-is is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444169",
+												"comment": "glibc-langpack-it is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444170",
+												"comment": "glibc-langpack-it is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444171",
+												"comment": "glibc-langpack-iu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444172",
+												"comment": "glibc-langpack-iu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444173",
+												"comment": "glibc-langpack-ja is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444174",
+												"comment": "glibc-langpack-ja is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444175",
+												"comment": "glibc-langpack-ka is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444176",
+												"comment": "glibc-langpack-ka is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444177",
+												"comment": "glibc-langpack-kab is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444178",
+												"comment": "glibc-langpack-kab is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444179",
+												"comment": "glibc-langpack-kk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444180",
+												"comment": "glibc-langpack-kk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444181",
+												"comment": "glibc-langpack-kl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444182",
+												"comment": "glibc-langpack-kl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444183",
+												"comment": "glibc-langpack-km is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444184",
+												"comment": "glibc-langpack-km is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444185",
+												"comment": "glibc-langpack-kn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444186",
+												"comment": "glibc-langpack-kn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444187",
+												"comment": "glibc-langpack-ko is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444188",
+												"comment": "glibc-langpack-ko is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444189",
+												"comment": "glibc-langpack-kok is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444190",
+												"comment": "glibc-langpack-kok is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444191",
+												"comment": "glibc-langpack-ks is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444192",
+												"comment": "glibc-langpack-ks is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444193",
+												"comment": "glibc-langpack-ku is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444194",
+												"comment": "glibc-langpack-ku is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444195",
+												"comment": "glibc-langpack-kw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444196",
+												"comment": "glibc-langpack-kw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444197",
+												"comment": "glibc-langpack-ky is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444198",
+												"comment": "glibc-langpack-ky is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444199",
+												"comment": "glibc-langpack-lb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444200",
+												"comment": "glibc-langpack-lb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444201",
+												"comment": "glibc-langpack-lg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444202",
+												"comment": "glibc-langpack-lg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444203",
+												"comment": "glibc-langpack-li is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444204",
+												"comment": "glibc-langpack-li is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444205",
+												"comment": "glibc-langpack-lij is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444206",
+												"comment": "glibc-langpack-lij is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444207",
+												"comment": "glibc-langpack-ln is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444208",
+												"comment": "glibc-langpack-ln is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444209",
+												"comment": "glibc-langpack-lo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444210",
+												"comment": "glibc-langpack-lo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444211",
+												"comment": "glibc-langpack-lt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444212",
+												"comment": "glibc-langpack-lt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444213",
+												"comment": "glibc-langpack-lv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444214",
+												"comment": "glibc-langpack-lv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444215",
+												"comment": "glibc-langpack-lzh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444216",
+												"comment": "glibc-langpack-lzh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444217",
+												"comment": "glibc-langpack-mag is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444218",
+												"comment": "glibc-langpack-mag is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444219",
+												"comment": "glibc-langpack-mai is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444220",
+												"comment": "glibc-langpack-mai is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444221",
+												"comment": "glibc-langpack-mfe is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444222",
+												"comment": "glibc-langpack-mfe is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444223",
+												"comment": "glibc-langpack-mg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444224",
+												"comment": "glibc-langpack-mg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444225",
+												"comment": "glibc-langpack-mhr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444226",
+												"comment": "glibc-langpack-mhr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444227",
+												"comment": "glibc-langpack-mi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444228",
+												"comment": "glibc-langpack-mi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444229",
+												"comment": "glibc-langpack-miq is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444230",
+												"comment": "glibc-langpack-miq is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444231",
+												"comment": "glibc-langpack-mjw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444232",
+												"comment": "glibc-langpack-mjw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444233",
+												"comment": "glibc-langpack-mk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444234",
+												"comment": "glibc-langpack-mk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444235",
+												"comment": "glibc-langpack-ml is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444236",
+												"comment": "glibc-langpack-ml is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444237",
+												"comment": "glibc-langpack-mn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444238",
+												"comment": "glibc-langpack-mn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444239",
+												"comment": "glibc-langpack-mni is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444240",
+												"comment": "glibc-langpack-mni is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444241",
+												"comment": "glibc-langpack-mr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444242",
+												"comment": "glibc-langpack-mr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444243",
+												"comment": "glibc-langpack-ms is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444244",
+												"comment": "glibc-langpack-ms is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444245",
+												"comment": "glibc-langpack-mt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444246",
+												"comment": "glibc-langpack-mt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444247",
+												"comment": "glibc-langpack-my is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444248",
+												"comment": "glibc-langpack-my is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444249",
+												"comment": "glibc-langpack-nan is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444250",
+												"comment": "glibc-langpack-nan is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444251",
+												"comment": "glibc-langpack-nb is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444252",
+												"comment": "glibc-langpack-nb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444253",
+												"comment": "glibc-langpack-nds is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444254",
+												"comment": "glibc-langpack-nds is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444255",
+												"comment": "glibc-langpack-ne is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444256",
+												"comment": "glibc-langpack-ne is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444257",
+												"comment": "glibc-langpack-nhn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444258",
+												"comment": "glibc-langpack-nhn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444259",
+												"comment": "glibc-langpack-niu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444260",
+												"comment": "glibc-langpack-niu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444261",
+												"comment": "glibc-langpack-nl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444262",
+												"comment": "glibc-langpack-nl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444263",
+												"comment": "glibc-langpack-nn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444264",
+												"comment": "glibc-langpack-nn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444265",
+												"comment": "glibc-langpack-nr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444266",
+												"comment": "glibc-langpack-nr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444267",
+												"comment": "glibc-langpack-nso is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444268",
+												"comment": "glibc-langpack-nso is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444269",
+												"comment": "glibc-langpack-oc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444270",
+												"comment": "glibc-langpack-oc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444271",
+												"comment": "glibc-langpack-om is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444272",
+												"comment": "glibc-langpack-om is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444273",
+												"comment": "glibc-langpack-or is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444274",
+												"comment": "glibc-langpack-or is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444275",
+												"comment": "glibc-langpack-os is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444276",
+												"comment": "glibc-langpack-os is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444277",
+												"comment": "glibc-langpack-pa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444278",
+												"comment": "glibc-langpack-pa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444279",
+												"comment": "glibc-langpack-pap is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444280",
+												"comment": "glibc-langpack-pap is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444281",
+												"comment": "glibc-langpack-pl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444282",
+												"comment": "glibc-langpack-pl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444283",
+												"comment": "glibc-langpack-ps is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444284",
+												"comment": "glibc-langpack-ps is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444285",
+												"comment": "glibc-langpack-pt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444286",
+												"comment": "glibc-langpack-pt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444287",
+												"comment": "glibc-langpack-quz is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444288",
+												"comment": "glibc-langpack-quz is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444289",
+												"comment": "glibc-langpack-raj is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444290",
+												"comment": "glibc-langpack-raj is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444291",
+												"comment": "glibc-langpack-ro is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444292",
+												"comment": "glibc-langpack-ro is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444293",
+												"comment": "glibc-langpack-ru is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444294",
+												"comment": "glibc-langpack-ru is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444295",
+												"comment": "glibc-langpack-rw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444296",
+												"comment": "glibc-langpack-rw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444297",
+												"comment": "glibc-langpack-sa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444298",
+												"comment": "glibc-langpack-sa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444299",
+												"comment": "glibc-langpack-sah is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444300",
+												"comment": "glibc-langpack-sah is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444301",
+												"comment": "glibc-langpack-sat is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444302",
+												"comment": "glibc-langpack-sat is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444303",
+												"comment": "glibc-langpack-sc is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444304",
+												"comment": "glibc-langpack-sc is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444305",
+												"comment": "glibc-langpack-sd is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444306",
+												"comment": "glibc-langpack-sd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444307",
+												"comment": "glibc-langpack-se is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444308",
+												"comment": "glibc-langpack-se is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444309",
+												"comment": "glibc-langpack-sgs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444310",
+												"comment": "glibc-langpack-sgs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444311",
+												"comment": "glibc-langpack-shn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444312",
+												"comment": "glibc-langpack-shn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444313",
+												"comment": "glibc-langpack-shs is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444314",
+												"comment": "glibc-langpack-shs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444315",
+												"comment": "glibc-langpack-si is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444316",
+												"comment": "glibc-langpack-si is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444317",
+												"comment": "glibc-langpack-sid is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444318",
+												"comment": "glibc-langpack-sid is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444319",
+												"comment": "glibc-langpack-sk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444320",
+												"comment": "glibc-langpack-sk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444321",
+												"comment": "glibc-langpack-sl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444322",
+												"comment": "glibc-langpack-sl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444323",
+												"comment": "glibc-langpack-sm is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444324",
+												"comment": "glibc-langpack-sm is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444325",
+												"comment": "glibc-langpack-so is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444326",
+												"comment": "glibc-langpack-so is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444327",
+												"comment": "glibc-langpack-sq is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444328",
+												"comment": "glibc-langpack-sq is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444329",
+												"comment": "glibc-langpack-sr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444330",
+												"comment": "glibc-langpack-sr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444331",
+												"comment": "glibc-langpack-ss is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444332",
+												"comment": "glibc-langpack-ss is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444333",
+												"comment": "glibc-langpack-st is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444334",
+												"comment": "glibc-langpack-st is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444335",
+												"comment": "glibc-langpack-sv is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444336",
+												"comment": "glibc-langpack-sv is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444337",
+												"comment": "glibc-langpack-sw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444338",
+												"comment": "glibc-langpack-sw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444339",
+												"comment": "glibc-langpack-szl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444340",
+												"comment": "glibc-langpack-szl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444341",
+												"comment": "glibc-langpack-ta is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444342",
+												"comment": "glibc-langpack-ta is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444343",
+												"comment": "glibc-langpack-tcy is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444344",
+												"comment": "glibc-langpack-tcy is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444345",
+												"comment": "glibc-langpack-te is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444346",
+												"comment": "glibc-langpack-te is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444347",
+												"comment": "glibc-langpack-tg is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444348",
+												"comment": "glibc-langpack-tg is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444349",
+												"comment": "glibc-langpack-th is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444350",
+												"comment": "glibc-langpack-th is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444351",
+												"comment": "glibc-langpack-the is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444352",
+												"comment": "glibc-langpack-the is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444353",
+												"comment": "glibc-langpack-ti is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444354",
+												"comment": "glibc-langpack-ti is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444355",
+												"comment": "glibc-langpack-tig is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444356",
+												"comment": "glibc-langpack-tig is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444357",
+												"comment": "glibc-langpack-tk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444358",
+												"comment": "glibc-langpack-tk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444359",
+												"comment": "glibc-langpack-tl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444360",
+												"comment": "glibc-langpack-tl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444361",
+												"comment": "glibc-langpack-tn is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444362",
+												"comment": "glibc-langpack-tn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444363",
+												"comment": "glibc-langpack-to is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444364",
+												"comment": "glibc-langpack-to is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444365",
+												"comment": "glibc-langpack-tpi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444366",
+												"comment": "glibc-langpack-tpi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444367",
+												"comment": "glibc-langpack-tr is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444368",
+												"comment": "glibc-langpack-tr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444369",
+												"comment": "glibc-langpack-ts is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444370",
+												"comment": "glibc-langpack-ts is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444371",
+												"comment": "glibc-langpack-tt is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444372",
+												"comment": "glibc-langpack-tt is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444373",
+												"comment": "glibc-langpack-ug is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444374",
+												"comment": "glibc-langpack-ug is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444375",
+												"comment": "glibc-langpack-uk is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444376",
+												"comment": "glibc-langpack-uk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444377",
+												"comment": "glibc-langpack-unm is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444378",
+												"comment": "glibc-langpack-unm is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444379",
+												"comment": "glibc-langpack-ur is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444380",
+												"comment": "glibc-langpack-ur is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444381",
+												"comment": "glibc-langpack-uz is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444382",
+												"comment": "glibc-langpack-uz is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444383",
+												"comment": "glibc-langpack-ve is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444384",
+												"comment": "glibc-langpack-ve is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444385",
+												"comment": "glibc-langpack-vi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444386",
+												"comment": "glibc-langpack-vi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444387",
+												"comment": "glibc-langpack-wa is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444388",
+												"comment": "glibc-langpack-wa is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444389",
+												"comment": "glibc-langpack-wae is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444390",
+												"comment": "glibc-langpack-wae is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444391",
+												"comment": "glibc-langpack-wal is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444392",
+												"comment": "glibc-langpack-wal is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444393",
+												"comment": "glibc-langpack-wo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444394",
+												"comment": "glibc-langpack-wo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444395",
+												"comment": "glibc-langpack-xh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444396",
+												"comment": "glibc-langpack-xh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444397",
+												"comment": "glibc-langpack-yi is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444398",
+												"comment": "glibc-langpack-yi is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444399",
+												"comment": "glibc-langpack-yo is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444400",
+												"comment": "glibc-langpack-yo is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444401",
+												"comment": "glibc-langpack-yue is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444402",
+												"comment": "glibc-langpack-yue is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444403",
+												"comment": "glibc-langpack-yuw is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444404",
+												"comment": "glibc-langpack-yuw is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444405",
+												"comment": "glibc-langpack-zh is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444406",
+												"comment": "glibc-langpack-zh is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444407",
+												"comment": "glibc-langpack-zu is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444408",
+												"comment": "glibc-langpack-zu is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444409",
+												"comment": "glibc-locale-source is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444410",
+												"comment": "glibc-locale-source is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444411",
+												"comment": "glibc-minimal-langpack is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444412",
+												"comment": "glibc-minimal-langpack is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444413",
+												"comment": "glibc-nss-devel is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444414",
+												"comment": "glibc-nss-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444415",
+												"comment": "glibc-static is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444416",
+												"comment": "glibc-static is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444417",
+												"comment": "glibc-utils is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444418",
+												"comment": "glibc-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444419",
+												"comment": "libnsl is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444420",
+												"comment": "libnsl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444421",
+												"comment": "nscd is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444422",
+												"comment": "nscd is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444423",
+												"comment": "nss_db is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444424",
+												"comment": "nss_db is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444425",
+												"comment": "nss_hesiod is earlier than 0:2.28-127.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204444426",
+												"comment": "nss_hesiod is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204444427",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20204444001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

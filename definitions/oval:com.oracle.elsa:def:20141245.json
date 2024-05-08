@@ -1,0 +1,326 @@
+{
+	"id": "oval:com.oracle.elsa:def:20141245",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2014-1245:  krb5 security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2014-1245",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2014-1245.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-1418",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-1418.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-6800",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-6800.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2014-4341",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2014-4341.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2014-4344",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2014-4344.html"
+			}
+		],
+		"description": "\n[1.6.1-78.el5]\n- gssapi: pull in upstream fix for a possible NULL dereference in spnego\n  (CVE-2014-4344, #1121509)\n\n[1.6.1-77.el5]\n- fix what appears to be a cosmetic error in the patch for self-tests\n  for CVE-2014-4341\n\n[1.6.1-76.el5]\n- run the backported self-tests, such as they are, for CVE-2014-4341\n\n[1.6.1-75.el5]\n- pull in backported fix for denial of service by injection of malformed\n  GSSAPI tokens (CVE-2014-4341, #1121509)\n\n[1.6.1-74.el5]\n- add patch based on one from Filip Krska to not call poll() with a negative\n  timeout when the caller's intent is for us to just stop calling it (#1089732)\n\n[1.6.1-73.el5]\n- incorporate backported upstream patch for remote crash of KDCs which serve\n  multiple realms simultaneously (RT#7756, CVE-2013-1418/CVE-2013-6800,\n\n[1.6.1-72.el5]\n- add part-backported fix to avoid possible use-after-free when encrypting\n  delegated creds (Jatin Nansi, #1004632)\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2014 Oracle, Inc.",
+			"issued": {
+				"date": "2014-09-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2013-1418",
+					"href": "https://linux.oracle.com/cve/CVE-2013-1418.html"
+				},
+				{
+					"text": "CVE-2013-6800",
+					"href": "https://linux.oracle.com/cve/CVE-2013-6800.html"
+				},
+				{
+					"text": "CVE-2014-4341",
+					"href": "https://linux.oracle.com/cve/CVE-2014-4341.html"
+				},
+				{
+					"text": "CVE-2014-4344",
+					"href": "https://linux.oracle.com/cve/CVE-2014-4344.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245003",
+												"comment": "krb5-devel is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245004",
+												"comment": "krb5-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245005",
+												"comment": "krb5-libs is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245006",
+												"comment": "krb5-libs is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245007",
+												"comment": "krb5-server is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245008",
+												"comment": "krb5-server is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245009",
+												"comment": "krb5-server-ldap is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245010",
+												"comment": "krb5-server-ldap is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245011",
+												"comment": "krb5-workstation is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245012",
+												"comment": "krb5-workstation is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20141245002",
+								"comment": "Oracle Linux arch is ia64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245003",
+												"comment": "krb5-devel is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245004",
+												"comment": "krb5-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245005",
+												"comment": "krb5-libs is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245006",
+												"comment": "krb5-libs is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245007",
+												"comment": "krb5-server is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245008",
+												"comment": "krb5-server is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245009",
+												"comment": "krb5-server-ldap is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245010",
+												"comment": "krb5-server-ldap is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245011",
+												"comment": "krb5-workstation is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245012",
+												"comment": "krb5-workstation is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20141245013",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245003",
+												"comment": "krb5-devel is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245004",
+												"comment": "krb5-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245005",
+												"comment": "krb5-libs is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245006",
+												"comment": "krb5-libs is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245007",
+												"comment": "krb5-server is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245008",
+												"comment": "krb5-server is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245009",
+												"comment": "krb5-server-ldap is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245010",
+												"comment": "krb5-server-ldap is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245011",
+												"comment": "krb5-workstation is earlier than 0:1.6.1-78.el5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20141245012",
+												"comment": "krb5-workstation is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20141245014",
+								"comment": "Oracle Linux arch is i386"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20141245001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
+}

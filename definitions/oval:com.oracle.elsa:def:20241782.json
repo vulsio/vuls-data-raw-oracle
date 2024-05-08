@@ -1,0 +1,678 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241782",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1782:  bind and dhcp security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1782",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1782.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50387",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-50387.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-50868",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-50868.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-4408",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-4408.html"
+			}
+		],
+		"description": "\nbind\n[32:9.11.36-11.1]\n- Speed up parsing of DNS messages with many different names (CVE-2023-4408)\n- Prevent increased CPU consumption in DNSSEC validator (CVE-2023-50387 CVE-2023-50868)\n- Do not use header_prev in expire_lru_headers\n\ndhcp\n[4.3.6]\n- Change bug tracker path\n\n[12:4.3.6-49.1]\n- Rebuild because of bind ABI changes related to CVE-2023-50387\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-04-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-50387",
+					"href": "https://linux.oracle.com/cve/CVE-2023-50387.html"
+				},
+				{
+					"text": "CVE-2023-50868",
+					"href": "https://linux.oracle.com/cve/CVE-2023-50868.html"
+				},
+				{
+					"text": "CVE-2023-4408",
+					"href": "https://linux.oracle.com/cve/CVE-2023-4408.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782003",
+												"comment": "bind is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782004",
+												"comment": "bind is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782005",
+												"comment": "bind-chroot is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782006",
+												"comment": "bind-chroot is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782007",
+												"comment": "bind-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782008",
+												"comment": "bind-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782009",
+												"comment": "bind-export-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782010",
+												"comment": "bind-export-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782011",
+												"comment": "bind-export-libs is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782012",
+												"comment": "bind-export-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782013",
+												"comment": "bind-libs is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782014",
+												"comment": "bind-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782015",
+												"comment": "bind-libs-lite is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782016",
+												"comment": "bind-libs-lite is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782017",
+												"comment": "bind-license is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782018",
+												"comment": "bind-license is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782019",
+												"comment": "bind-lite-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782020",
+												"comment": "bind-lite-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782021",
+												"comment": "bind-pkcs11 is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782022",
+												"comment": "bind-pkcs11 is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782023",
+												"comment": "bind-pkcs11-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782024",
+												"comment": "bind-pkcs11-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782025",
+												"comment": "bind-pkcs11-libs is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782026",
+												"comment": "bind-pkcs11-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782027",
+												"comment": "bind-pkcs11-utils is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782028",
+												"comment": "bind-pkcs11-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782029",
+												"comment": "bind-sdb is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782030",
+												"comment": "bind-sdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782031",
+												"comment": "bind-sdb-chroot is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782032",
+												"comment": "bind-sdb-chroot is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782033",
+												"comment": "bind-utils is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782034",
+												"comment": "bind-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782035",
+												"comment": "dhcp-client is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782036",
+												"comment": "dhcp-client is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782037",
+												"comment": "dhcp-common is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782038",
+												"comment": "dhcp-common is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782039",
+												"comment": "dhcp-libs is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782040",
+												"comment": "dhcp-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782041",
+												"comment": "dhcp-relay is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782042",
+												"comment": "dhcp-relay is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782043",
+												"comment": "dhcp-server is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782044",
+												"comment": "dhcp-server is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782045",
+												"comment": "python3-bind is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782046",
+												"comment": "python3-bind is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241782002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782003",
+												"comment": "bind is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782004",
+												"comment": "bind is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782005",
+												"comment": "bind-chroot is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782006",
+												"comment": "bind-chroot is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782007",
+												"comment": "bind-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782008",
+												"comment": "bind-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782009",
+												"comment": "bind-export-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782010",
+												"comment": "bind-export-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782011",
+												"comment": "bind-export-libs is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782012",
+												"comment": "bind-export-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782013",
+												"comment": "bind-libs is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782014",
+												"comment": "bind-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782015",
+												"comment": "bind-libs-lite is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782016",
+												"comment": "bind-libs-lite is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782017",
+												"comment": "bind-license is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782018",
+												"comment": "bind-license is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782019",
+												"comment": "bind-lite-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782020",
+												"comment": "bind-lite-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782021",
+												"comment": "bind-pkcs11 is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782022",
+												"comment": "bind-pkcs11 is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782023",
+												"comment": "bind-pkcs11-devel is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782024",
+												"comment": "bind-pkcs11-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782025",
+												"comment": "bind-pkcs11-libs is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782026",
+												"comment": "bind-pkcs11-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782027",
+												"comment": "bind-pkcs11-utils is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782028",
+												"comment": "bind-pkcs11-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782029",
+												"comment": "bind-sdb is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782030",
+												"comment": "bind-sdb is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782031",
+												"comment": "bind-sdb-chroot is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782032",
+												"comment": "bind-sdb-chroot is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782033",
+												"comment": "bind-utils is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782034",
+												"comment": "bind-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782035",
+												"comment": "dhcp-client is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782036",
+												"comment": "dhcp-client is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782037",
+												"comment": "dhcp-common is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782038",
+												"comment": "dhcp-common is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782039",
+												"comment": "dhcp-libs is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782040",
+												"comment": "dhcp-libs is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782041",
+												"comment": "dhcp-relay is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782042",
+												"comment": "dhcp-relay is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782043",
+												"comment": "dhcp-server is earlier than 12:4.3.6-49.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782044",
+												"comment": "dhcp-server is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782045",
+												"comment": "python3-bind is earlier than 32:9.11.36-11.el8_9.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20241782046",
+												"comment": "python3-bind is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241782047",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241782001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

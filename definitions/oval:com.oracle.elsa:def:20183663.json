@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20183663",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2018-3663:  sos-collector security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2018-3663",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-3663.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-14650",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-14650.html"
+			}
+		],
+		"description": "\n[1.5-3.0.1]\n- To recognize OL system[OraBug 28807430]\n- import os module to detect /etc/redhat-release [OraBug 28740046]\n\n[1.5-3]\n- Resolve race condition in cluster profile loading\n- Quote all options globally\n- RHBZ#1633515\n- RHBZ#1647955\n\n[1.5-2]\n- Fix cluster option reporting\n\n[1.5-1]\n- Update to version 1.5\n- Resolves CVE-2018-14650\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2018 Oracle, Inc.",
+			"issued": {
+				"date": "2018-11-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-14650",
+					"href": "https://linux.oracle.com/cve/CVE-2018-14650.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20183663003",
+										"comment": "sos-collector is earlier than 0:1.5-3.0.1.el7_6"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20183663004",
+										"comment": "sos-collector is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20183663002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20183663003",
+										"comment": "sos-collector is earlier than 0:1.5-3.0.1.el7_6"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20183663004",
+										"comment": "sos-collector is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20183663005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20183663001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

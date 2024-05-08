@@ -1,0 +1,115 @@
+{
+	"id": "oval:com.oracle.elsa:def:20152360",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2015-2360:  cups-filters security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2015-2360",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2015-2360.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3258",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3258.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3279",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3279.html"
+			}
+		],
+		"description": "\n[1.0.35-21]\n- Fix heap-based buffer overflow in texttopdf filter (bug #1241242,\n  CVE-2015-3258, CVE-2015-3279).\n\n[1.0.35-20]\n- Improvements to cups-browsed efficiency patch (bug #1191691).\n\n[1.0.35-18]\n- Fix segfault in texttopdf filter (bug #1194263).\n- Improve cups-browsed efficiency (bug #1191691).\n- Fetch printer descriptions with cups-browsed (bug #1223719).\n- Fix cups-browsed '_' handling for printer names (bug #1167408).\n\n[1.0.35-17]\n- Build against newer poppler (bug #1217552).\n\n[1.0.35-16]\n- Applied upstream patch to fix BrowseAllow parsing issue\n  (CVE-2014-4338, bug #1091568).\n- Applied upstream patch for cups-browsed DoS via\n  process_browse_data() out-of-bounds read (CVE-2014-4337,\n  bug #1111510).\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2015 Oracle, Inc.",
+			"issued": {
+				"date": "2015-11-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2015-3258",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3258.html"
+				},
+				{
+					"text": "CVE-2015-3279",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3279.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20152360003",
+										"comment": "cups-filters is earlier than 0:1.0.35-21.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20152360004",
+										"comment": "cups-filters is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20152360005",
+										"comment": "cups-filters-devel is earlier than 0:1.0.35-21.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20152360006",
+										"comment": "cups-filters-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20152360007",
+										"comment": "cups-filters-libs is earlier than 0:1.0.35-21.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20152360008",
+										"comment": "cups-filters-libs is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20152360002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20152360001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

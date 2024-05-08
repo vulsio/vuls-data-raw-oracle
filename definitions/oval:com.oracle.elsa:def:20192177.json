@@ -1,0 +1,981 @@
+{
+	"id": "oval:com.oracle.elsa:def:20192177",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-2177:  sssd security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-2177",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-2177.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-16838",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-16838.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-3811",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-3811.html"
+			}
+		],
+		"description": "\n[1.16.4-21]\n- Resolves: rhbz#1714952 - [sssd] RHEL 7.7 Tier 0 Localization\n- Rebuild japanese gmo file explicitly\n\n[1.16.4-20]\n- Resolves: rhbz#1714952 - [sssd] RHEL 7.7 Tier 0 Localization\n\n[1.16.4-19]\n- Resolves: rhbz#1707959 - sssd does not properly check GSS-SPNEGO\n\n[1.16.4-18]\n- Resolves: rhbz#1710286 - The server error message is not returned if\n                           password change fails\n\n[1.16.4-17]\n- Resolves: rhbz#1711832 - The files provider does not handle resetOffline\n                           properly\n\n[1.16.4-16]\n- Resolves: rhbz#1707759 - Error accessing files on samba share randomly\n\n[1.16.4-15]\n- Resolves: rhbz#1685581 - Extend cached_auth_timeout to cover subdomains\n                           /trusts\n\n[1.16.4-14]\n- Resolves: rhbz#1684979 - The HBAC code requires dereference to be enabled\n                           and fails otherwise\n\n[1.16.4-12]\n- Resolves: rhbz#1576524 - RHEL STIG pointing sssd Packaging issue\n                         - This was partially fixed by the rebase, but one\n                           spec file change was missing.\n\n[1.16.4-12]\n- Resolves: rhbz#1524566 - FIPS mode breaks using pysss.so (sss_obfuscate)\n\n[1.16.4-11]\n- Resolves: rhbz#1350012 - kinit / sssd kerberos fail over\n- Resolves: rhbz#720688 - [RFE] return multiple server addresses to the\n                          Kerberos locator plugin\n\n[1.16.4-10]\n- Resolves: rhbz#1402056 - [RFE] Make 2FA prompting configurable\n\n[1.16.4-9]\n- Resolves: rhbz#1666819 - SSSD can trigger a NSS lookup when parsing the\n                           filter_users/groups lists on startup, this can\n                           block the startup\n\n[1.16.4-8]\n- Resolves: rhbz#1645461 - Slow ldb search causes blocking during startup\n                           which might cause the registration to time out\n\n[1.16.4-7]\n- Resolves: rhbz#1685581 - Extend cached_auth_timeout to cover\n                           subdomains / trusts\n\n[1.16.4-6]\n- Resolves: rhbz#1671138 - User is unable to perform sudo as a user on IPA\n                           Server, even though 'sudo -l' shows permissions\n                           to do so\n\n[1.16.4-5]\n- Resolves: rhbz#1657806 - [RFE]: Optionally disable generating auto private\n                           groups for subdomains of an AD provider\n\n[1.16.4-4]\n- Resolves: rhbz#1641131 - [RFE] Need an option in SSSD so that it will skip\n                           GPOs that have groupPolicyContainers, unreadable\n                           by SSSD.\n- Resolves: rhbz#1660874 - CVE-2018-16838 sssd: improper implementation of\n                           GPOs due to too restrictive permissions [rhel-7]\n\n[1.16.4-3]\n- Resolves: rhbz#1631656 - KCM: kinit: Matching credential not found while\n                           getting default ccache\n\n[1.16.4-2]\n- Resolves: rhbz#1406678 - sssd service is starting before network service\n- Resolves: rhbz#1616853 - SSSD always boots in Offline mode\n\n[1.16.4-1]\n- Resolves: rhbz#1658994 - Rebase SSSD to 1.16.x\n\n[1.16.2-17]\n- Resolves: rhbz#1603311 - Enable generating user private groups only for\n                           users with uid == gid where gid does not\n                           correspond to a real LDAP group\n\n[1.16.2-16]\n- Resolves: rhbz#1602172 - SSSDs LDAP authentication provider does not work\n                           if ID provider is authenticated with GSSAPI\n\n[1.16.2-15]\n- Resolves: rhbz#1622109 -  SSSD not fetching all sudo rules from AD\n\n[1.16.2-14]\n- Resolves: rhbz#1619706 - sssd only sets the SELinux login context if it\n                           differs from the default\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-08-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-16838",
+					"href": "https://linux.oracle.com/cve/CVE-2018-16838.html"
+				},
+				{
+					"text": "CVE-2019-3811",
+					"href": "https://linux.oracle.com/cve/CVE-2019-3811.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177003",
+												"comment": "libipa_hbac is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177004",
+												"comment": "libipa_hbac is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177005",
+												"comment": "libipa_hbac-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177006",
+												"comment": "libipa_hbac-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177007",
+												"comment": "libsss_autofs is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177008",
+												"comment": "libsss_autofs is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177009",
+												"comment": "libsss_certmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177010",
+												"comment": "libsss_certmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177011",
+												"comment": "libsss_certmap-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177012",
+												"comment": "libsss_certmap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177013",
+												"comment": "libsss_idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177014",
+												"comment": "libsss_idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177015",
+												"comment": "libsss_idmap-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177016",
+												"comment": "libsss_idmap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177017",
+												"comment": "libsss_nss_idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177018",
+												"comment": "libsss_nss_idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177019",
+												"comment": "libsss_nss_idmap-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177020",
+												"comment": "libsss_nss_idmap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177021",
+												"comment": "libsss_simpleifp is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177022",
+												"comment": "libsss_simpleifp is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177023",
+												"comment": "libsss_simpleifp-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177024",
+												"comment": "libsss_simpleifp-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177025",
+												"comment": "libsss_sudo is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177026",
+												"comment": "libsss_sudo is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177027",
+												"comment": "python-libipa_hbac is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177028",
+												"comment": "python-libipa_hbac is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177029",
+												"comment": "python-libsss_nss_idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177030",
+												"comment": "python-libsss_nss_idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177031",
+												"comment": "python-sss is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177032",
+												"comment": "python-sss is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177033",
+												"comment": "python-sss-murmur is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177034",
+												"comment": "python-sss-murmur is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177035",
+												"comment": "python-sssdconfig is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177036",
+												"comment": "python-sssdconfig is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177037",
+												"comment": "sssd is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177038",
+												"comment": "sssd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177039",
+												"comment": "sssd-ad is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177040",
+												"comment": "sssd-ad is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177041",
+												"comment": "sssd-client is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177042",
+												"comment": "sssd-client is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177043",
+												"comment": "sssd-common is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177044",
+												"comment": "sssd-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177045",
+												"comment": "sssd-common-pac is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177046",
+												"comment": "sssd-common-pac is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177047",
+												"comment": "sssd-dbus is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177048",
+												"comment": "sssd-dbus is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177049",
+												"comment": "sssd-ipa is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177050",
+												"comment": "sssd-ipa is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177051",
+												"comment": "sssd-kcm is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177052",
+												"comment": "sssd-kcm is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177053",
+												"comment": "sssd-krb5 is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177054",
+												"comment": "sssd-krb5 is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177055",
+												"comment": "sssd-krb5-common is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177056",
+												"comment": "sssd-krb5-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177057",
+												"comment": "sssd-ldap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177058",
+												"comment": "sssd-ldap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177059",
+												"comment": "sssd-libwbclient is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177060",
+												"comment": "sssd-libwbclient is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177061",
+												"comment": "sssd-libwbclient-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177062",
+												"comment": "sssd-libwbclient-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177063",
+												"comment": "sssd-polkit-rules is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177064",
+												"comment": "sssd-polkit-rules is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177065",
+												"comment": "sssd-proxy is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177066",
+												"comment": "sssd-proxy is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177067",
+												"comment": "sssd-tools is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177068",
+												"comment": "sssd-tools is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177069",
+												"comment": "sssd-winbind-idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177070",
+												"comment": "sssd-winbind-idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192177002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177003",
+												"comment": "libipa_hbac is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177004",
+												"comment": "libipa_hbac is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177005",
+												"comment": "libipa_hbac-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177006",
+												"comment": "libipa_hbac-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177007",
+												"comment": "libsss_autofs is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177008",
+												"comment": "libsss_autofs is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177009",
+												"comment": "libsss_certmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177010",
+												"comment": "libsss_certmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177011",
+												"comment": "libsss_certmap-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177012",
+												"comment": "libsss_certmap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177013",
+												"comment": "libsss_idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177014",
+												"comment": "libsss_idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177015",
+												"comment": "libsss_idmap-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177016",
+												"comment": "libsss_idmap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177017",
+												"comment": "libsss_nss_idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177018",
+												"comment": "libsss_nss_idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177019",
+												"comment": "libsss_nss_idmap-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177020",
+												"comment": "libsss_nss_idmap-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177021",
+												"comment": "libsss_simpleifp is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177022",
+												"comment": "libsss_simpleifp is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177023",
+												"comment": "libsss_simpleifp-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177024",
+												"comment": "libsss_simpleifp-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177025",
+												"comment": "libsss_sudo is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177026",
+												"comment": "libsss_sudo is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177027",
+												"comment": "python-libipa_hbac is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177028",
+												"comment": "python-libipa_hbac is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177029",
+												"comment": "python-libsss_nss_idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177030",
+												"comment": "python-libsss_nss_idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177031",
+												"comment": "python-sss is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177032",
+												"comment": "python-sss is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177033",
+												"comment": "python-sss-murmur is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177034",
+												"comment": "python-sss-murmur is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177035",
+												"comment": "python-sssdconfig is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177036",
+												"comment": "python-sssdconfig is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177037",
+												"comment": "sssd is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177038",
+												"comment": "sssd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177039",
+												"comment": "sssd-ad is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177040",
+												"comment": "sssd-ad is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177041",
+												"comment": "sssd-client is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177042",
+												"comment": "sssd-client is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177043",
+												"comment": "sssd-common is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177044",
+												"comment": "sssd-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177045",
+												"comment": "sssd-common-pac is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177046",
+												"comment": "sssd-common-pac is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177047",
+												"comment": "sssd-dbus is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177048",
+												"comment": "sssd-dbus is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177049",
+												"comment": "sssd-ipa is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177050",
+												"comment": "sssd-ipa is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177051",
+												"comment": "sssd-kcm is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177052",
+												"comment": "sssd-kcm is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177053",
+												"comment": "sssd-krb5 is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177054",
+												"comment": "sssd-krb5 is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177055",
+												"comment": "sssd-krb5-common is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177056",
+												"comment": "sssd-krb5-common is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177057",
+												"comment": "sssd-ldap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177058",
+												"comment": "sssd-ldap is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177059",
+												"comment": "sssd-libwbclient is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177060",
+												"comment": "sssd-libwbclient is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177061",
+												"comment": "sssd-libwbclient-devel is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177062",
+												"comment": "sssd-libwbclient-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177063",
+												"comment": "sssd-polkit-rules is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177064",
+												"comment": "sssd-polkit-rules is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177065",
+												"comment": "sssd-proxy is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177066",
+												"comment": "sssd-proxy is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177067",
+												"comment": "sssd-tools is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177068",
+												"comment": "sssd-tools is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177069",
+												"comment": "sssd-winbind-idmap is earlier than 0:1.16.4-21.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192177070",
+												"comment": "sssd-winbind-idmap is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192177071",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20192177001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

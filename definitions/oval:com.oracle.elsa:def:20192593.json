@@ -1,0 +1,188 @@
+{
+	"id": "oval:com.oracle.elsa:def:20192593",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-2593:  squid:4 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-2593",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-2593.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-12527",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-12527.html"
+			}
+		],
+		"description": "\nlibecap\n[1.0.1-2]\n- Resolves: #1696354 - Ensure modular RPM upgrade path\n\nsquid\n[7:4.4-5]\n- Resolves: #1744672 - CVE-2019-12527 squid:4/squid: heap-based buffer overflow\n  in HttpHeader::getAuth\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-09-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-12527",
+					"href": "https://linux.oracle.com/cve/CVE-2019-12527.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593004",
+														"comment": "libecap is earlier than 0:1.0.1-2.module+el8.0.0+5324+ea04b9c2"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593005",
+														"comment": "libecap is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593006",
+														"comment": "libecap-devel is earlier than 0:1.0.1-2.module+el8.0.0+5324+ea04b9c2"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593007",
+														"comment": "libecap-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593008",
+														"comment": "squid is earlier than 7:4.4-5.module+el8.0.0+5324+ea04b9c2"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593009",
+														"comment": "squid is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20192593003",
+										"comment": "Module squid:4 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192593002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593004",
+														"comment": "libecap is earlier than 0:1.0.1-2.module+el8.0.0+5324+ea04b9c2"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593005",
+														"comment": "libecap is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593006",
+														"comment": "libecap-devel is earlier than 0:1.0.1-2.module+el8.0.0+5324+ea04b9c2"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593007",
+														"comment": "libecap-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593008",
+														"comment": "squid is earlier than 7:4.4-5.module+el8.0.0+5324+ea04b9c2"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20192593009",
+														"comment": "squid is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20192593003",
+										"comment": "Module squid:4 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192593010",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20192593001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

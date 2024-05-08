@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20194822",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-4822: sudo security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-4822",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-4822.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-14287",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-14287.html"
+			}
+		],
+		"description": "\n[1.8.25-4.0.1.el8.1]\n- Treat an ID of -1 as invalid since that means 'no change' [Orabug: 30421281] {CVE-2019-14287}\n- Add sudo_strtoid() tests for -1 and range errors. [Orabug: 30421281]\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-10-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-14287",
+					"href": "https://linux.oracle.com/cve/CVE-2019-14287.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194822003",
+										"comment": "sudo is earlier than 0:1.8.25p1-4.0.1.el8_0.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194822004",
+										"comment": "sudo is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194822002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194822003",
+										"comment": "sudo is earlier than 0:1.8.25p1-4.0.1.el8_0.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20194822004",
+										"comment": "sudo is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194822005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20194822001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

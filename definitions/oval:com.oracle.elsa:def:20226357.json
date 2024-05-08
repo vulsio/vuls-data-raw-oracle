@@ -1,0 +1,106 @@
+{
+	"id": "oval:com.oracle.elsa:def:20226357",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-6357:  open-vm-tools security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-6357",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-6357.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-31676",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-31676.html"
+			}
+		],
+		"description": "\n[11.3.5-1.0.1.el8_6.1]\n- Fix spaces in vmware udev rule for scsi devices [Orabug: 24461968]\n- Fix vmware udev rule in 99-vmware-scsi-timeout.rules file. [Orabug: 22815019]\n- Increase timeout for scsi devices on VMWare guests by adding a udev rule. [Orabug: 21819156]\n\n[11.3.5-1.el8_6.1]\n- ovt-Properly-check-authorization-on-incoming-guestOps-re.patch [bz#2119283]\n- Resolves: bz#2119283\n  (CVE-2022-31676 open-vm-tools: local root privilege escalation in the virtual machine [rhel-8.6.0.z])\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-09-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-31676",
+					"href": "https://linux.oracle.com/cve/CVE-2022-31676.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20226357003",
+										"comment": "open-vm-tools is earlier than 0:11.3.5-1.0.1.el8_6.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20226357004",
+										"comment": "open-vm-tools is signed with the Oracle Linux 8 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20226357005",
+										"comment": "open-vm-tools-desktop is earlier than 0:11.3.5-1.0.1.el8_6.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20226357006",
+										"comment": "open-vm-tools-desktop is signed with the Oracle Linux 8 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20226357007",
+										"comment": "open-vm-tools-sdmp is earlier than 0:11.3.5-1.0.1.el8_6.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20226357008",
+										"comment": "open-vm-tools-sdmp is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20226357002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20226357001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

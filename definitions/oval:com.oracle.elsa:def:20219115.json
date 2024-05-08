@@ -1,0 +1,170 @@
+{
+	"id": "oval:com.oracle.elsa:def:20219115",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-9115:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7",
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-9115",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-9115.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-27363",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-27363.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-27364",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-27364.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-27365",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-27365.html"
+			}
+		],
+		"description": "\n[5.4.17-2036.104.5.el7]\n- scsi: iscsi: Verify lengths on passthrough PDUs (Chris Leech)  [Orabug: 32603379]  {CVE-2021-27363} {CVE-2021-27364} {CVE-2021-27365}\n- scsi: iscsi: Ensure sysfs attributes are limited to PAGE_SIZE (Chris Leech)  [Orabug: 32603379]  {CVE-2021-27363} {CVE-2021-27364} {CVE-2021-27365}\n- scsi: iscsi: Report connection state in sysfs (Gabriel Krisman Bertazi)  [Orabug: 32603379]  {CVE-2021-27363} {CVE-2021-27364} {CVE-2021-27365}\n- sysfs: Add sysfs_emit and sysfs_emit_at to format sysfs output (Joe Perches)  [Orabug: 32603379]  {CVE-2021-27363} {CVE-2021-27364} {CVE-2021-27365}\n- scsi: iscsi: Restrict sessions and handles to admin capabilities (Lee Duncan)  [Orabug: 32603379]  {CVE-2021-27363} {CVE-2021-27364} {CVE-2021-27365}\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-03-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-27363",
+					"href": "https://linux.oracle.com/cve/CVE-2021-27363.html"
+				},
+				{
+					"text": "CVE-2021-27364",
+					"href": "https://linux.oracle.com/cve/CVE-2021-27364.html"
+				},
+				{
+					"text": "CVE-2021-27365",
+					"href": "https://linux.oracle.com/cve/CVE-2021-27365.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115003",
+												"comment": "kernel-uek-container is earlier than 0:5.4.17-2036.104.5.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115004",
+												"comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115005",
+												"comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2036.104.5.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115006",
+												"comment": "kernel-uek-container-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20219115002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20219115001",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115009",
+												"comment": "kernel-uek-container is earlier than 0:5.4.17-2036.104.5.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115010",
+												"comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115011",
+												"comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2036.104.5.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20219115012",
+												"comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20219115008",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20219115007",
+						"comment": "Oracle Linux 8 is installed"
+					}
+				]
+			}
+		]
+	}
+}

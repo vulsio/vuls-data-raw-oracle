@@ -1,0 +1,210 @@
+{
+	"id": "oval:com.oracle.elsa:def:20090408",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2009-0408:  krb5 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2009-0408",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2009-0408.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2009-0844",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2009-0844.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2009-0845",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2009-0845.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2009-0846",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2009-0846.html"
+			}
+		],
+		"description": "\n\n[1.6.1-31.el5_3.3]\n- update to revised patch for CVE-2009-0844/CVE-2009-0845\n\n[1.6.1-31.el5_3.2]\n- add fix for potential buffer read overrun in the SPNEGO GSSAPI mechanism\n  (#490635, CVE-2009-0844)\n- add fix for NULL pointer dereference when handling certain error cases\n  in the SPNEGO GSSAPI mechanism (#490635, CVE-2009-0845)\n- add fix for attempt to free uninitialized pointer in the ASN.1 decoder\n  (#490635, CVE-2009-0846)\n- add fix for bug in length validation in the ASN.1 decoder (CVE-2009-0847)\n\n[1.6.1-31.el5_3.1]\n- add backport of svn patch to fix a bug in how the gssapi library\n  handles certain error cases in gss_accept_sec_context (CVE-2009-0845, \n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2009 Oracle, Inc.",
+			"issued": {
+				"date": "2009-04-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2009-0844",
+					"href": "https://linux.oracle.com/cve/CVE-2009-0844.html"
+				},
+				{
+					"text": "CVE-2009-0845",
+					"href": "https://linux.oracle.com/cve/CVE-2009-0845.html"
+				},
+				{
+					"text": "CVE-2009-0846",
+					"href": "https://linux.oracle.com/cve/CVE-2009-0846.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408003",
+												"comment": "krb5-devel is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408004",
+												"comment": "krb5-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408005",
+												"comment": "krb5-libs is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408006",
+												"comment": "krb5-libs is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408007",
+												"comment": "krb5-server is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408008",
+												"comment": "krb5-server is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408009",
+												"comment": "krb5-workstation is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408010",
+												"comment": "krb5-workstation is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20090408002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408003",
+												"comment": "krb5-devel is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408004",
+												"comment": "krb5-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408005",
+												"comment": "krb5-libs is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408006",
+												"comment": "krb5-libs is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408007",
+												"comment": "krb5-server is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408008",
+												"comment": "krb5-server is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408009",
+												"comment": "krb5-workstation is earlier than 0:1.6.1-31.el5_3.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20090408010",
+												"comment": "krb5-workstation is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20090408011",
+								"comment": "Oracle Linux arch is i386"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20090408001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
+}

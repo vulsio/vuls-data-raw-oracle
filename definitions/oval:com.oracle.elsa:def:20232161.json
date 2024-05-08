@@ -1,0 +1,322 @@
+{
+	"id": "oval:com.oracle.elsa:def:20232161",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-2161:  fence-agents security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-2161",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-2161.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-36087",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-36087.html"
+			}
+		],
+		"description": "\n[4.10.0-43]\n- fence_vmware_soap: set login_timeout lower than default\n  pcmk_monitor_timeout (20s) to remove tmp dirs\n  Resolves: rhbz#2122944\n\n[4.10.0-42]\n- fencing/fence_wti: add --plug-separator to be able to avoid\n  characters that are in node name(s)\n  Resolves: rhbz#2152107\n\n[4.10.0-41]\n- fence_scsi: skip key generation during validate-all action\n  Resolves: rhbz#2160480\n\n[4.10.0-40]\n- fence_virtd: add info about multiple uuid/ip entries to manpage\n\n  Resolves: rhbz#2149655\n\n[4.10.0-39]\n- fence_virtd: warn if config or key file(s) are not mode 600\n\n  Resolves: rhbz#2144531\n\n[4.10.0-37]\n- Upgrade bundled python-oauthlib\n  Resolves: rhbz#2128564\n\n[4.10.0-36]\n- fence_virtd: add link to uri examples and uri w/socket path\n  example for when VMS are run as non-root user to manpage\n  Resolves: rhbz#2138823\n\n[4.10.0-35]\n- fence_ibm_powervs: improve defaults\n  Resolves: rhbz#2136191\n\n[4.10.0-34]\n- fence_lpar: only output additional output info on DEBUG level\n  Resolves: rhbz#2134015\n\n[4.10.0-33]\n- fence_virt: add note that reboot-action doesnt power on nodes that\n  are powered off\n  Resolves: rhbz#2132008\n\n[4.10.0-32]\n- add azure-identity and dependencies\n  Resolves: rhbz#2121546\n\n[4.10.0-31]\n- fence_ibm_vpc: add token cache support\n  Resolves: rhbz#2111998\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-05-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-36087",
+					"href": "https://linux.oracle.com/cve/CVE-2022-36087.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161003",
+												"comment": "fence-agents-common is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161004",
+												"comment": "fence-agents-common is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161005",
+												"comment": "fence-agents-ibm-powervs is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161006",
+												"comment": "fence-agents-ibm-powervs is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161007",
+												"comment": "fence-agents-ibm-vpc is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161008",
+												"comment": "fence-agents-ibm-vpc is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161009",
+												"comment": "fence-agents-kubevirt is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161010",
+												"comment": "fence-agents-kubevirt is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161011",
+												"comment": "fence-agents-virsh is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161012",
+												"comment": "fence-agents-virsh is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20232161002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161003",
+												"comment": "fence-agents-common is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161004",
+												"comment": "fence-agents-common is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161014",
+												"comment": "fence-agents-compute is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161015",
+												"comment": "fence-agents-compute is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161005",
+												"comment": "fence-agents-ibm-powervs is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161006",
+												"comment": "fence-agents-ibm-powervs is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161007",
+												"comment": "fence-agents-ibm-vpc is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161008",
+												"comment": "fence-agents-ibm-vpc is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161009",
+												"comment": "fence-agents-kubevirt is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161010",
+												"comment": "fence-agents-kubevirt is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161011",
+												"comment": "fence-agents-virsh is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161012",
+												"comment": "fence-agents-virsh is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161016",
+												"comment": "fence-virt is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161017",
+												"comment": "fence-virt is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161018",
+												"comment": "fence-virtd is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161019",
+												"comment": "fence-virtd is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161020",
+												"comment": "fence-virtd-cpg is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161021",
+												"comment": "fence-virtd-cpg is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161022",
+												"comment": "fence-virtd-libvirt is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161023",
+												"comment": "fence-virtd-libvirt is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161024",
+												"comment": "fence-virtd-multicast is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161025",
+												"comment": "fence-virtd-multicast is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161026",
+												"comment": "fence-virtd-serial is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161027",
+												"comment": "fence-virtd-serial is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161028",
+												"comment": "fence-virtd-tcp is earlier than 0:4.10.0-43.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20232161029",
+												"comment": "fence-virtd-tcp is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20232161013",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20232161001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

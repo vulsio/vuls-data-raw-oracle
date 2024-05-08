@@ -1,0 +1,166 @@
+{
+	"id": "oval:com.oracle.elsa:def:20194680",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-4680:  docker-engine security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-4680",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-4680.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-15664",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-15664.html"
+			}
+		],
+		"description": "\ndocker-engine\n[ 18.09.1-1.0.8]\n- cherry-picked fix for CVE-2018-15664 from upstream\n\n[18.09.1-1.0.7]\n- added runc version requirement\n\n[18.09.1-1.0.6]\n- disable kmem accounting for UEKR4\n\ndocker-cli\n[ 18.09.1-1.0.8]\n- rebuild\n\n[18.09.1-1.0.7]\n- rebuild\n\n[18.09.1-1.0.6]\n- disable kmem accounting for UEKR4\n\nrunc\n[1.0.0-19.rc5.git4bb1fe4.0.4.el7]\n- fixing version (Michael Calunod) \n- adding nokem to buildargs in spec file. (Michael Calunod) \n- cgroups: nokmem: error out on explicitly-set kmemcg limits (Aleksa Sarai) \n- libcontainer: ability to compile without kmem (Kir Kolyshkin)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-06-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-15664",
+					"href": "https://linux.oracle.com/cve/CVE-2018-15664.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680003",
+												"comment": "docker-cli is earlier than 0:18.09.1.ol-1.0.8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680004",
+												"comment": "docker-cli is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680005",
+												"comment": "docker-engine is earlier than 0:18.09.1.ol-1.0.8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680006",
+												"comment": "docker-engine is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680007",
+												"comment": "runc is earlier than 0:1.0.0-19.rc5.git4bb1fe4.0.4.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680008",
+												"comment": "runc is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194680002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680003",
+												"comment": "docker-cli is earlier than 0:18.09.1.ol-1.0.8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680004",
+												"comment": "docker-cli is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680005",
+												"comment": "docker-engine is earlier than 0:18.09.1.ol-1.0.8.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680006",
+												"comment": "docker-engine is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680007",
+												"comment": "runc is earlier than 0:1.0.0-19.rc5.git4bb1fe4.0.4.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20194680008",
+												"comment": "runc is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194680009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20194680001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

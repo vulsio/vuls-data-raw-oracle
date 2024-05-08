@@ -1,0 +1,175 @@
+{
+	"id": "oval:com.oracle.elsa:def:20230957",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-0957:  lua security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-0957",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-0957.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-43519",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-43519.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-44964",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-44964.html"
+			}
+		],
+		"description": "\n[5.4.4-2]\n- Resolves CVE-2021-43519\n\n[5.4.4-1]\n- Rebase to lua 5.4.4\n- Resolves CVE-2021-44964\n\n[5.4.2-7]\n- Fix up CVE-2022-33099 patch\n\n[5.4.2-6]\n- Enable gating\n\n[5.4.2-5]\n- apply upstream fix for CVE-2022-33099\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-02-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-43519",
+					"href": "https://linux.oracle.com/cve/CVE-2021-43519.html"
+				},
+				{
+					"text": "CVE-2021-44964",
+					"href": "https://linux.oracle.com/cve/CVE-2021-44964.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957003",
+												"comment": "lua is earlier than 0:5.4.4-2.el9_1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957004",
+												"comment": "lua is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957005",
+												"comment": "lua-devel is earlier than 0:5.4.4-2.el9_1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957006",
+												"comment": "lua-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957007",
+												"comment": "lua-libs is earlier than 0:5.4.4-2.el9_1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957008",
+												"comment": "lua-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20230957002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957003",
+												"comment": "lua is earlier than 0:5.4.4-2.el9_1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957004",
+												"comment": "lua is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957005",
+												"comment": "lua-devel is earlier than 0:5.4.4-2.el9_1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957006",
+												"comment": "lua-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957007",
+												"comment": "lua-libs is earlier than 0:5.4.4-2.el9_1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20230957008",
+												"comment": "lua-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20230957009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20230957001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

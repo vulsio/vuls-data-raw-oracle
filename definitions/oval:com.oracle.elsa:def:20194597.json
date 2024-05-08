@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:20194597",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-4597:  docker-engine security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-4597",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-4597.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-20699",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-20699.html"
+			}
+		],
+		"description": "\n[18.03.1.ol-0.0.14]\n- rebuild\n\n[18.03.1.ol-0.0.13]\n- update for CVE-2018-20699\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-04-02"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-20699",
+					"href": "https://linux.oracle.com/cve/CVE-2018-20699.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194597003",
+								"comment": "docker-engine is earlier than 0:18.03.1.ol-0.0.14.el7"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20194597004",
+								"comment": "docker-engine is signed with the Oracle Linux 7 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20194597002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20194597001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

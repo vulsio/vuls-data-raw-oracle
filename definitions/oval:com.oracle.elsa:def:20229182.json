@@ -1,0 +1,152 @@
+{
+	"id": "oval:com.oracle.elsa:def:20229182",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-9182:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7",
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-9182",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-9182.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-25636",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-25636.html"
+			}
+		],
+		"description": "\n- 5.4.17-2136.304.4.2.el7\n- netfilter: nf_tables_offload: incorrect flow offload action array size (Pablo\n  Neira Ayuso)  [Orabug: 33899500]  {CVE-2022-25636}\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-02-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-25636",
+					"href": "https://linux.oracle.com/cve/CVE-2022-25636.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182003",
+												"comment": "kernel-uek-container is earlier than 0:5.4.17-2136.304.4.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182004",
+												"comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182005",
+												"comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2136.304.4.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182006",
+												"comment": "kernel-uek-container-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229182002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20229182001",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182009",
+												"comment": "kernel-uek-container is earlier than 0:5.4.17-2136.304.4.2.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182010",
+												"comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182011",
+												"comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2136.304.4.2.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229182012",
+												"comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229182008",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20229182007",
+						"comment": "Oracle Linux 8 is installed"
+					}
+				]
+			}
+		]
+	}
+}

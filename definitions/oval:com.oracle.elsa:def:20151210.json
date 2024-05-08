@@ -1,0 +1,835 @@
+{
+	"id": "oval:com.oracle.elsa:def:20151210",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2015-1210:  abrt security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2015-1210",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2015-1210.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-1869",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-1869.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-1870",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-1870.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3142",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3142.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3147",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3147.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3159",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3159.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3315",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3315.html"
+			}
+		],
+		"description": "\nabrt\n[2.0.8-26.0.1.el6_6.1]\n- Add abrt-oracle-enterprise.patch to be product neutral\n- Remove abrt-plugin-rhtsupport dependency for cli and desktop\n- Make abrt Obsoletes/Provides abrt-plugin-rhtsupprot\n\n[2.0.8-26.el6_6.1]\n- remove old dump directories in upgrade\n- remove outdated rmp scriptlets\n- daemon: allow only root to submit CCpp, Koops, VMCore and Xorg problems\n- abrt-action-install-debuginfo-to-abrt-cache: sanitize arguments and umask\n- make the problem directories owned by abrt and the group root\n- validate uploaded problem directories in abrt-handle-upload\n- don't override nor remove files with user core dump files\n- fix symbolic link and race condition flaws\n- Resolves: #1211966\n\nlibreport\n[2.0.9-21.0.1.el6_6.1]\n- Add oracle-enterprise.patch and oracle-enterprise-po.patch\n- Remove libreport-plugin-rhtsupport pkg\n\n[2.0.9-21.el6_6.1]\n- switch dump directory owner from 'abrt:user' to 'user:abrt' (rhbz#1212093)\n- harden against directory traversal, crafted symbolic links (rhbz#1212093)\n- avoid race-conditions in dump dir opening (rhbz#1212093)\n- Resolves: #1211966\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2015 Oracle, Inc.",
+			"issued": {
+				"date": "2015-07-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2015-1869",
+					"href": "https://linux.oracle.com/cve/CVE-2015-1869.html"
+				},
+				{
+					"text": "CVE-2015-1870",
+					"href": "https://linux.oracle.com/cve/CVE-2015-1870.html"
+				},
+				{
+					"text": "CVE-2015-3142",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3142.html"
+				},
+				{
+					"text": "CVE-2015-3147",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3147.html"
+				},
+				{
+					"text": "CVE-2015-3159",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3159.html"
+				},
+				{
+					"text": "CVE-2015-3315",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3315.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210003",
+												"comment": "abrt is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210004",
+												"comment": "abrt is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210005",
+												"comment": "abrt-addon-ccpp is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210006",
+												"comment": "abrt-addon-ccpp is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210007",
+												"comment": "abrt-addon-kerneloops is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210008",
+												"comment": "abrt-addon-kerneloops is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210009",
+												"comment": "abrt-addon-python is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210010",
+												"comment": "abrt-addon-python is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210011",
+												"comment": "abrt-addon-vmcore is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210012",
+												"comment": "abrt-addon-vmcore is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210013",
+												"comment": "abrt-cli is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210014",
+												"comment": "abrt-cli is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210015",
+												"comment": "abrt-console-notification is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210016",
+												"comment": "abrt-console-notification is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210017",
+												"comment": "abrt-desktop is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210018",
+												"comment": "abrt-desktop is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210019",
+												"comment": "abrt-devel is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210020",
+												"comment": "abrt-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210021",
+												"comment": "abrt-gui is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210022",
+												"comment": "abrt-gui is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210023",
+												"comment": "abrt-libs is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210024",
+												"comment": "abrt-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210025",
+												"comment": "abrt-python is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210026",
+												"comment": "abrt-python is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210027",
+												"comment": "abrt-tui is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210028",
+												"comment": "abrt-tui is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210029",
+												"comment": "libreport is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210030",
+												"comment": "libreport is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210031",
+												"comment": "libreport-cli is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210032",
+												"comment": "libreport-cli is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210033",
+												"comment": "libreport-compat is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210034",
+												"comment": "libreport-compat is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210035",
+												"comment": "libreport-devel is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210036",
+												"comment": "libreport-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210037",
+												"comment": "libreport-filesystem is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210038",
+												"comment": "libreport-filesystem is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210039",
+												"comment": "libreport-gtk is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210040",
+												"comment": "libreport-gtk is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210041",
+												"comment": "libreport-gtk-devel is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210042",
+												"comment": "libreport-gtk-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210043",
+												"comment": "libreport-newt is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210044",
+												"comment": "libreport-newt is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210045",
+												"comment": "libreport-plugin-bugzilla is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210046",
+												"comment": "libreport-plugin-bugzilla is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210047",
+												"comment": "libreport-plugin-kerneloops is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210048",
+												"comment": "libreport-plugin-kerneloops is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210049",
+												"comment": "libreport-plugin-logger is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210050",
+												"comment": "libreport-plugin-logger is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210051",
+												"comment": "libreport-plugin-mailx is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210052",
+												"comment": "libreport-plugin-mailx is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210053",
+												"comment": "libreport-plugin-reportuploader is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210054",
+												"comment": "libreport-plugin-reportuploader is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210055",
+												"comment": "libreport-python is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210056",
+												"comment": "libreport-python is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20151210002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210003",
+												"comment": "abrt is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210004",
+												"comment": "abrt is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210005",
+												"comment": "abrt-addon-ccpp is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210006",
+												"comment": "abrt-addon-ccpp is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210007",
+												"comment": "abrt-addon-kerneloops is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210008",
+												"comment": "abrt-addon-kerneloops is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210009",
+												"comment": "abrt-addon-python is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210010",
+												"comment": "abrt-addon-python is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210011",
+												"comment": "abrt-addon-vmcore is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210012",
+												"comment": "abrt-addon-vmcore is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210013",
+												"comment": "abrt-cli is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210014",
+												"comment": "abrt-cli is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210015",
+												"comment": "abrt-console-notification is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210016",
+												"comment": "abrt-console-notification is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210017",
+												"comment": "abrt-desktop is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210018",
+												"comment": "abrt-desktop is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210019",
+												"comment": "abrt-devel is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210020",
+												"comment": "abrt-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210021",
+												"comment": "abrt-gui is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210022",
+												"comment": "abrt-gui is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210023",
+												"comment": "abrt-libs is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210024",
+												"comment": "abrt-libs is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210025",
+												"comment": "abrt-python is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210026",
+												"comment": "abrt-python is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210027",
+												"comment": "abrt-tui is earlier than 0:2.0.8-26.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210028",
+												"comment": "abrt-tui is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210029",
+												"comment": "libreport is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210030",
+												"comment": "libreport is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210031",
+												"comment": "libreport-cli is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210032",
+												"comment": "libreport-cli is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210033",
+												"comment": "libreport-compat is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210034",
+												"comment": "libreport-compat is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210035",
+												"comment": "libreport-devel is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210036",
+												"comment": "libreport-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210037",
+												"comment": "libreport-filesystem is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210038",
+												"comment": "libreport-filesystem is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210039",
+												"comment": "libreport-gtk is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210040",
+												"comment": "libreport-gtk is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210041",
+												"comment": "libreport-gtk-devel is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210042",
+												"comment": "libreport-gtk-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210043",
+												"comment": "libreport-newt is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210044",
+												"comment": "libreport-newt is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210045",
+												"comment": "libreport-plugin-bugzilla is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210046",
+												"comment": "libreport-plugin-bugzilla is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210047",
+												"comment": "libreport-plugin-kerneloops is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210048",
+												"comment": "libreport-plugin-kerneloops is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210049",
+												"comment": "libreport-plugin-logger is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210050",
+												"comment": "libreport-plugin-logger is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210051",
+												"comment": "libreport-plugin-mailx is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210052",
+												"comment": "libreport-plugin-mailx is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210053",
+												"comment": "libreport-plugin-reportuploader is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210054",
+												"comment": "libreport-plugin-reportuploader is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210055",
+												"comment": "libreport-python is earlier than 0:2.0.9-21.0.1.el6_6.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20151210056",
+												"comment": "libreport-python is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20151210057",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20151210001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,131 @@
+{
+	"id": "oval:com.oracle.elsa:def:20172911",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2017-2911:  wpa_supplicant security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2017-2911",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2017-2911.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-13077",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-13077.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-13078",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-13078.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-13080",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-13080.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-13087",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-13087.html"
+			}
+		],
+		"description": "\n[1:0.7.3-9.2]\n- Fix backport errors (CVE-2017-13077, CVE-2017-13080)\n\n[1:0.7.3-9.1]\n- avoid key reinstallation (CVE-2017-13077, CVE-2017-13078, CVE-2017-13079,\n  CVE-2017-13080, CVE-2017-13081, CVE-2017-13082)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2017 Oracle, Inc.",
+			"issued": {
+				"date": "2017-10-18"
+			},
+			"cve": [
+				{
+					"text": "CVE-2017-13077",
+					"href": "https://linux.oracle.com/cve/CVE-2017-13077.html"
+				},
+				{
+					"text": "CVE-2017-13078",
+					"href": "https://linux.oracle.com/cve/CVE-2017-13078.html"
+				},
+				{
+					"text": "CVE-2017-13080",
+					"href": "https://linux.oracle.com/cve/CVE-2017-13080.html"
+				},
+				{
+					"text": "CVE-2017-13087",
+					"href": "https://linux.oracle.com/cve/CVE-2017-13087.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20172911003",
+										"comment": "wpa_supplicant is earlier than 1:0.7.3-9.el6_9.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20172911004",
+										"comment": "wpa_supplicant is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20172911002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20172911003",
+										"comment": "wpa_supplicant is earlier than 1:0.7.3-9.el6_9.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20172911004",
+										"comment": "wpa_supplicant is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20172911005",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20172911001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

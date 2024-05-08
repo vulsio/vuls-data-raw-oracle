@@ -1,0 +1,301 @@
+{
+	"id": "oval:com.oracle.elsa:def:202312109",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2023-12109: Unbreakable Enterprise kernel security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6",
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2023-12109",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2023-12109.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-3628",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-3628.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-3524",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-3524.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-42896",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-42896.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-42895",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-42895.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-4662",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-4662.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-3564",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-3564.html"
+			}
+		],
+		"description": "\n[4.1.12-124.71.3]\n- USB: core: Prevent nested device-reset calls (Alan Stern)  [Orabug: 34951641]  {CVE-2022-4662}\n- Bluetooth: L2CAP: Fix accepting connection request for invalid SPSM (Luiz Augusto von Dentz)  [Orabug: 34833307]  {CVE-2022-42896} {CVE-2022-42896}\n- Bluetooth: L2CAP: Introduce proper defines for PSM ranges (Johan Hedberg)  [Orabug: 34833307] \n- ext4: fix data corruption caused by overlapping unaligned and aligned IO (Lukas Czerner)  [Orabug: 34190035]\n\n[4.1.12-124.71.2]\n- scsi: qla2xxx: Fix use after free in eh_abort path (Quinn Tran)  [Orabug: 34970763] \n- check-kabi provides exception on broken symbols (Alok Tiwari)  [Orabug: 34742865] \n- KABI validation broken on UEK4 for symbols change (Alok Tiwari)  [Orabug: 34742865] \n- Bluetooth: L2CAP: Fix use-after-free caused by l2cap_reassemble_sdu (Maxim Mikityanskiy)  [Orabug: 34719829]  {CVE-2022-3564}\n- Bluetooth: remove unneeded variable in l2cap_stream_rx (Prasanna Karthik)  [Orabug: 34719829]  {CVE-2022-3564}\n\n[4.1.12-124.71.1]\n- Bluetooth: L2CAP: Fix attempting to access uninitialized memory (Luiz Augusto von Dentz)  [Orabug: 34951662]  {CVE-2022-42895} {CVE-2022-42895}\n- wifi: brcmfmac: Fix potential buffer overflow in brcmf_fweh_event_worker() (Dokyung Song)  [Orabug: 34951546]  {CVE-2022-3628}\n- tcp/udp: Fix memory leak in ipv6_renew_options(). (Kuniyuki Iwashima)  [Orabug: 34719347]  {CVE-2022-3524}\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2023 Oracle, Inc.",
+			"issued": {
+				"date": "2023-02-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-3628",
+					"href": "https://linux.oracle.com/cve/CVE-2022-3628.html"
+				},
+				{
+					"text": "CVE-2022-3524",
+					"href": "https://linux.oracle.com/cve/CVE-2022-3524.html"
+				},
+				{
+					"text": "CVE-2022-42896",
+					"href": "https://linux.oracle.com/cve/CVE-2022-42896.html"
+				},
+				{
+					"text": "CVE-2022-42895",
+					"href": "https://linux.oracle.com/cve/CVE-2022-42895.html"
+				},
+				{
+					"text": "CVE-2022-4662",
+					"href": "https://linux.oracle.com/cve/CVE-2022-4662.html"
+				},
+				{
+					"text": "CVE-2022-3564",
+					"href": "https://linux.oracle.com/cve/CVE-2022-3564.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109003",
+												"comment": "kernel-uek is earlier than 0:4.1.12-124.71.3.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109004",
+												"comment": "kernel-uek is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109005",
+												"comment": "kernel-uek-debug is earlier than 0:4.1.12-124.71.3.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109006",
+												"comment": "kernel-uek-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109007",
+												"comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-124.71.3.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109008",
+												"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109009",
+												"comment": "kernel-uek-devel is earlier than 0:4.1.12-124.71.3.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109010",
+												"comment": "kernel-uek-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109011",
+												"comment": "kernel-uek-doc is earlier than 0:4.1.12-124.71.3.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109012",
+												"comment": "kernel-uek-doc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109013",
+												"comment": "kernel-uek-firmware is earlier than 0:4.1.12-124.71.3.el6uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109014",
+												"comment": "kernel-uek-firmware is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312109002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:202312109001",
+						"comment": "Oracle Linux 6 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109017",
+												"comment": "kernel-uek is earlier than 0:4.1.12-124.71.3.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109018",
+												"comment": "kernel-uek is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109019",
+												"comment": "kernel-uek-debug is earlier than 0:4.1.12-124.71.3.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109020",
+												"comment": "kernel-uek-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109021",
+												"comment": "kernel-uek-debug-devel is earlier than 0:4.1.12-124.71.3.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109022",
+												"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109023",
+												"comment": "kernel-uek-devel is earlier than 0:4.1.12-124.71.3.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109024",
+												"comment": "kernel-uek-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109025",
+												"comment": "kernel-uek-doc is earlier than 0:4.1.12-124.71.3.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109026",
+												"comment": "kernel-uek-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109027",
+												"comment": "kernel-uek-firmware is earlier than 0:4.1.12-124.71.3.el7uek"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202312109028",
+												"comment": "kernel-uek-firmware is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202312109016",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:202312109015",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			}
+		]
+	}
+}

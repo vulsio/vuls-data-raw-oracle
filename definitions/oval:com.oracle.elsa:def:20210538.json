@@ -1,0 +1,366 @@
+{
+	"id": "oval:com.oracle.elsa:def:20210538",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-0538:  nss security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-0538",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-0538.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12403",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12403.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-6829",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-6829.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12400",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12400.html"
+			}
+		],
+		"description": "\n[3.53.1-17]\n- Fix various corner cases with ike v1 app b support.\n\n[3.53.1-16]\n- Fix the following CVE\n- CVE-2020-12403 chacha-poly issues\n- CVE-2020-12400 constant time ECC.\n- CVE-2020-6829  constant time ECC.\n\n[3.53.1-15]\n- Revert some policy changes the generate ABI runtime issues.\n\n[3.53.1-14]\n- Add support for enable/disable in policy. Now if your policy\n  file has disallow=x enable=y it will act just like our other\n  libraries.\n\n[3.53.1-13]\n- Add OAEP interface so applications can wrap keys with RSA-OAEP\n  rather than RSA-PKCS-1.\n\n[3.53.1-12]\n- fips need to reject small primes even if they are approved\n- code to autodetect whether or not to use the cache needs to do so\n  in a way that doesn't mess with filesystem negative file caching.\n- add kdf selftests\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-02-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-12403",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12403.html"
+				},
+				{
+					"text": "CVE-2020-6829",
+					"href": "https://linux.oracle.com/cve/CVE-2020-6829.html"
+				},
+				{
+					"text": "CVE-2020-12400",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12400.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538003",
+												"comment": "nss is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538004",
+												"comment": "nss is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538005",
+												"comment": "nss-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538006",
+												"comment": "nss-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538007",
+												"comment": "nss-softokn is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538008",
+												"comment": "nss-softokn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538009",
+												"comment": "nss-softokn-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538010",
+												"comment": "nss-softokn-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538011",
+												"comment": "nss-softokn-freebl is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538012",
+												"comment": "nss-softokn-freebl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538013",
+												"comment": "nss-softokn-freebl-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538014",
+												"comment": "nss-softokn-freebl-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538015",
+												"comment": "nss-sysinit is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538016",
+												"comment": "nss-sysinit is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538017",
+												"comment": "nss-tools is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538018",
+												"comment": "nss-tools is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538019",
+												"comment": "nss-util is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538020",
+												"comment": "nss-util is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538021",
+												"comment": "nss-util-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538022",
+												"comment": "nss-util-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20210538002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538003",
+												"comment": "nss is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538004",
+												"comment": "nss is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538005",
+												"comment": "nss-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538006",
+												"comment": "nss-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538007",
+												"comment": "nss-softokn is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538008",
+												"comment": "nss-softokn is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538009",
+												"comment": "nss-softokn-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538010",
+												"comment": "nss-softokn-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538011",
+												"comment": "nss-softokn-freebl is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538012",
+												"comment": "nss-softokn-freebl is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538013",
+												"comment": "nss-softokn-freebl-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538014",
+												"comment": "nss-softokn-freebl-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538015",
+												"comment": "nss-sysinit is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538016",
+												"comment": "nss-sysinit is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538017",
+												"comment": "nss-tools is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538018",
+												"comment": "nss-tools is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538019",
+												"comment": "nss-util is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538020",
+												"comment": "nss-util is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538021",
+												"comment": "nss-util-devel is earlier than 0:3.53.1-17.el8_3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20210538022",
+												"comment": "nss-util-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20210538023",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20210538001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

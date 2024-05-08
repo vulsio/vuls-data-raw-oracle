@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20214324",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-4324:  python-psutil security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-4324",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-4324.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-18874",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-18874.html"
+			}
+		],
+		"description": "\n[5.4.3-11]\n- Security fix for CVE-2019-18874: double free because of refcount mishandling\nResolves: rhbz#1772014\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-11-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-18874",
+					"href": "https://linux.oracle.com/cve/CVE-2019-18874.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214324003",
+										"comment": "python3-psutil is earlier than 0:5.4.3-11.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214324004",
+										"comment": "python3-psutil is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214324002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214324003",
+										"comment": "python3-psutil is earlier than 0:5.4.3-11.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214324004",
+										"comment": "python3-psutil is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214324005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20214324001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

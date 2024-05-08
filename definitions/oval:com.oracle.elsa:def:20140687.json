@@ -1,0 +1,124 @@
+{
+	"id": "oval:com.oracle.elsa:def:20140687",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2014-0687:  libtasn1 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2014-0687",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2014-0687.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2014-3467",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2014-3467.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2014-3468",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2014-3468.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2014-3469",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2014-3469.html"
+			}
+		],
+		"description": "\n[3.3-5]\n- Added missing check for null pointer (#1102338)\n\n[3.3-4]\n- Fix multiple decoding issues (#1102338)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2014 Oracle, Inc.",
+			"issued": {
+				"date": "2014-07-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2014-3467",
+					"href": "https://linux.oracle.com/cve/CVE-2014-3467.html"
+				},
+				{
+					"text": "CVE-2014-3468",
+					"href": "https://linux.oracle.com/cve/CVE-2014-3468.html"
+				},
+				{
+					"text": "CVE-2014-3469",
+					"href": "https://linux.oracle.com/cve/CVE-2014-3469.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20140687003",
+										"comment": "libtasn1 is earlier than 0:3.3-5.el7_0"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20140687004",
+										"comment": "libtasn1 is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20140687005",
+										"comment": "libtasn1-devel is earlier than 0:3.3-5.el7_0"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20140687006",
+										"comment": "libtasn1-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20140687007",
+										"comment": "libtasn1-tools is earlier than 0:3.3-5.el7_0"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20140687008",
+										"comment": "libtasn1-tools is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20140687002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20140687001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

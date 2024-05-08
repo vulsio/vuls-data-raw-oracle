@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20202897",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-2897:  jbig2dec security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-2897",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-2897.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-12268",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-12268.html"
+			}
+		],
+		"description": "\n[0.14-4]\n- Add explicit package version requirement on jbig2dec-libs to jbig2dec\n  related: #1851057\n\n[0.14-3]\n- Fix CVE-2020-12268\n  resolves: #1851057\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-07-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-12268",
+					"href": "https://linux.oracle.com/cve/CVE-2020-12268.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202897003",
+										"comment": "jbig2dec-libs is earlier than 0:0.14-4.el8_2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202897004",
+										"comment": "jbig2dec-libs is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20202897002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202897003",
+										"comment": "jbig2dec-libs is earlier than 0:0.14-4.el8_2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202897004",
+										"comment": "jbig2dec-libs is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20202897005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20202897001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

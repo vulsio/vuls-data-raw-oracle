@@ -1,0 +1,122 @@
+{
+	"id": "oval:com.oracle.elsa:def:20214319",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-4319:  compat-exiv2-026 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-4319",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-4319.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-31292",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-31292.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-37618",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-37618.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-37619",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-37619.html"
+			}
+		],
+		"description": "\n[0.26-6]\n- Fix out-of-bounds read in Exiv2::Jp2Image::printStructure\n  Resolves: bz#1993283\n\n- Fix out-of-bounds read in Exiv2::Jp2Image::encodeJp2Header\n  Resolves: bz#1993246\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-11-16"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-31292",
+					"href": "https://linux.oracle.com/cve/CVE-2021-31292.html"
+				},
+				{
+					"text": "CVE-2021-37618",
+					"href": "https://linux.oracle.com/cve/CVE-2021-37618.html"
+				},
+				{
+					"text": "CVE-2021-37619",
+					"href": "https://linux.oracle.com/cve/CVE-2021-37619.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214319003",
+										"comment": "compat-exiv2-026 is earlier than 0:0.26-6.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214319004",
+										"comment": "compat-exiv2-026 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214319002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214319003",
+										"comment": "compat-exiv2-026 is earlier than 0:0.26-6.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20214319004",
+										"comment": "compat-exiv2-026 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20214319005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20214319001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

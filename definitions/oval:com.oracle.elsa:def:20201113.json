@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20201113",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-1113:  bash security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-1113",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-1113.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-9924",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-9924.html"
+			}
+		],
+		"description": "\n[4.2.46-34]\n- BASH_CMD should not be writable in restricted shell\n  Resolves: #1693181\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-04-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-9924",
+					"href": "https://linux.oracle.com/cve/CVE-2019-9924.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113003",
+												"comment": "bash is earlier than 0:4.2.46-34.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113004",
+												"comment": "bash is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113005",
+												"comment": "bash-doc is earlier than 0:4.2.46-34.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113006",
+												"comment": "bash-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201113002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113003",
+												"comment": "bash is earlier than 0:4.2.46-34.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113004",
+												"comment": "bash is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113005",
+												"comment": "bash-doc is earlier than 0:4.2.46-34.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20201113006",
+												"comment": "bash-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20201113007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20201113001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

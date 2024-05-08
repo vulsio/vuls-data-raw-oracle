@@ -1,0 +1,148 @@
+{
+	"id": "oval:com.oracle.elsa:def:20204056",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-4056:  qemu-kvm security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-4056",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-4056.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-14364",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-14364.html"
+			}
+		],
+		"description": "\n[0.12.1.2-2.506.el6_10.8]\n- kvm-qemu-kvm-QEMU-usb-check-RNDIS-message-length.patch [bz#1869684]\n- kvm-qemu-kvm-QEMU-usb-fix-setup_len-init-CVE-2020-14364.patch [bz#1869684]\n- Resolves: bz#1869684\n  (CVE-2020-14364 qemu-kvm: QEMU: usb: out-of-bounds r/w access issue while processing usb packets [rhel-6.10.z])\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-09-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-14364",
+					"href": "https://linux.oracle.com/cve/CVE-2020-14364.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056003",
+												"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.506.el6_10.8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056005",
+												"comment": "qemu-img is earlier than 2:0.12.1.2-2.506.el6_10.8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056006",
+												"comment": "qemu-img is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056007",
+												"comment": "qemu-kvm is earlier than 2:0.12.1.2-2.506.el6_10.8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056009",
+												"comment": "qemu-kvm-tools is earlier than 2:0.12.1.2-2.506.el6_10.8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20204056010",
+												"comment": "qemu-kvm-tools is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204056002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204056003",
+										"comment": "qemu-guest-agent is earlier than 2:0.12.1.2-2.506.el6_10.8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204056004",
+										"comment": "qemu-guest-agent is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204056011",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20204056001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

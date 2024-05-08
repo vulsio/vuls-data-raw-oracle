@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20204913",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-4913:  thunderbird security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-4913",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-4913.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-15683",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-15683.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-15969",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-15969.html"
+			}
+		],
+		"description": "\n[78.4.0-1.0.1]\n- Replaced thunderbird-redhat-default-prefs.js with thunderbird-oracle-default-prefs.js\n\n[78.4.0-1]\n- Update to 78.4.0 build1\n- Disabled telemetry\n\n[78.3.1-1]\n- Update to 78.3.1 build1\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-11-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-15683",
+					"href": "https://linux.oracle.com/cve/CVE-2020-15683.html"
+				},
+				{
+					"text": "CVE-2020-15969",
+					"href": "https://linux.oracle.com/cve/CVE-2020-15969.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204913003",
+										"comment": "thunderbird is earlier than 0:78.4.0-1.0.1.el8_3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204913004",
+										"comment": "thunderbird is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204913002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204913003",
+										"comment": "thunderbird is earlier than 0:78.4.0-1.0.1.el8_3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20204913004",
+										"comment": "thunderbird is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20204913005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20204913001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

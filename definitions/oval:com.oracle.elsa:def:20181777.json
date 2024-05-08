@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:20181777",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2018-1777:  procps security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2018-1777",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-1777.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-1124",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-1124.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-1126",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-1126.html"
+			}
+		],
+		"description": "\n[3.2.8-45.0.1.el6_9.3 ]\n- vmstat: fix invalid CPU utilization stats after vCPU hot-plug/unplug (Konrad Rzeszutek Wilk) [bug 18011019]\n\n[3.2.8-45.el6_9.3]\n- drop leftover assignment in fix for CVE-2018-1124 causing a severe regression\n- Resolves: CVE-2018-1124\n\n[3.2.8-45.el6_9.2]\n- fix integer overflows leading to heap overflow in file2strvec()\n- Resolves: CVE-2018-1124 CVE-2018-1126\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2018 Oracle, Inc.",
+			"issued": {
+				"date": "2018-05-31"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-1124",
+					"href": "https://linux.oracle.com/cve/CVE-2018-1124.html"
+				},
+				{
+					"text": "CVE-2018-1126",
+					"href": "https://linux.oracle.com/cve/CVE-2018-1126.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777003",
+												"comment": "procps is earlier than 0:3.2.8-45.0.1.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777004",
+												"comment": "procps is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777005",
+												"comment": "procps-devel is earlier than 0:3.2.8-45.0.1.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777006",
+												"comment": "procps-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20181777002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777003",
+												"comment": "procps is earlier than 0:3.2.8-45.0.1.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777004",
+												"comment": "procps is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777005",
+												"comment": "procps-devel is earlier than 0:3.2.8-45.0.1.el6_9.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181777006",
+												"comment": "procps-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20181777007",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20181777001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,301 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241444",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1444:  nodejs:16 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1444",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1444.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-44487",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-44487.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-22019",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-22019.html"
+			}
+		],
+		"description": "\nnodejs\n[1:16.20.2-4.0.1]\n- reading unprocessed HTTP request with unbounded chunk extension allows DoS attacks\n  Resolves: CVE-2024-22019\n\nnodejs-nodemon\nnodejs-packaging\n[26-1]\n- nodejs.prov: find namespaced bundled dependencies\n- Apply https://src.fedoraproject.org/rpms/nodejs-packaging/c/e24e7df\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-03-21"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-44487",
+					"href": "https://linux.oracle.com/cve/CVE-2023-44487.html"
+				},
+				{
+					"text": "CVE-2024-22019",
+					"href": "https://linux.oracle.com/cve/CVE-2024-22019.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444004",
+														"comment": "nodejs is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444005",
+														"comment": "nodejs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444006",
+														"comment": "nodejs-devel is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444007",
+														"comment": "nodejs-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444008",
+														"comment": "nodejs-docs is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444009",
+														"comment": "nodejs-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444010",
+														"comment": "nodejs-full-i18n is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444011",
+														"comment": "nodejs-full-i18n is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444012",
+														"comment": "nodejs-nodemon is earlier than 0:3.0.1-1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444013",
+														"comment": "nodejs-nodemon is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444014",
+														"comment": "nodejs-packaging is earlier than 0:26-1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444015",
+														"comment": "nodejs-packaging is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444016",
+														"comment": "npm is earlier than 1:8.19.4-1.16.20.2.4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444017",
+														"comment": "npm is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241444003",
+										"comment": "Module nodejs:16 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241444002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444004",
+														"comment": "nodejs is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444005",
+														"comment": "nodejs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444006",
+														"comment": "nodejs-devel is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444007",
+														"comment": "nodejs-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444008",
+														"comment": "nodejs-docs is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444009",
+														"comment": "nodejs-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444010",
+														"comment": "nodejs-full-i18n is earlier than 1:16.20.2-4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444011",
+														"comment": "nodejs-full-i18n is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444012",
+														"comment": "nodejs-nodemon is earlier than 0:3.0.1-1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444013",
+														"comment": "nodejs-nodemon is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444014",
+														"comment": "nodejs-packaging is earlier than 0:26-1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444015",
+														"comment": "nodejs-packaging is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444016",
+														"comment": "npm is earlier than 1:8.19.4-1.16.20.2.4.0.1.module+el8.9.0+90185+b2d3b544"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:20241444017",
+														"comment": "npm is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241444003",
+										"comment": "Module nodejs:16 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241444018",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241444001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

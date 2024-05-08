@@ -1,0 +1,270 @@
+{
+	"id": "oval:com.oracle.elsa:def:20120796",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2012-0796:  rsyslog security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2012-0796",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2012-0796.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-4623",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-4623.html"
+			}
+		],
+		"description": "\n[5.8.10-2]\n- add patch to update information on debugging in the man page\n  Resolves: #820311\n- add patch to prevent debug output to stdout after forking\n  Resolves: #820996\n- add patch to support ssl certificates with domain names longer than 128 chars\n  Resolves: #822118\n\n[5.8.10-1]\n- rebase to rsyslog 5.8.10\n  Resolves: #803550\n  Resolves: #805424\n  Resolves: #813079\n  Resolves: #813084\n- consider lock file in 'status' action\n  Resolves: #807608\n- add impstats and imptcp modules\n- include new license text files\n- specify which versions of sysklogd are obsoleted\n\n[5.8.7-1]\n- rebase to rsyslog-5.8.7\n  - change license from 'GPLv3+' to '(GPLv3+ and ASL 2.0)'\n    http://blog.gerhards.net/2012/01/rsyslog-licensing-update.html\n  - remove patches obsoleted by rebase\n  - add patches for better sysklogd compatibility (taken from upstream)\n  - update included files for the new major version\n  Resolves: #672182\n  Resolves: #727380\n  Resolves: #756664\n  Resolves: #767527\n  Resolves: #769025\n- add several directories for storing auxiliary data\n  Resolves: #740420\n- fix source package URL\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2012 Oracle, Inc.",
+			"issued": {
+				"date": "2012-06-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-4623",
+					"href": "https://linux.oracle.com/cve/CVE-2011-4623.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796003",
+												"comment": "rsyslog is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796004",
+												"comment": "rsyslog is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796005",
+												"comment": "rsyslog-gnutls is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796006",
+												"comment": "rsyslog-gnutls is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796007",
+												"comment": "rsyslog-gssapi is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796008",
+												"comment": "rsyslog-gssapi is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796009",
+												"comment": "rsyslog-mysql is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796010",
+												"comment": "rsyslog-mysql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796011",
+												"comment": "rsyslog-pgsql is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796012",
+												"comment": "rsyslog-pgsql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796013",
+												"comment": "rsyslog-relp is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796014",
+												"comment": "rsyslog-relp is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796015",
+												"comment": "rsyslog-snmp is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796016",
+												"comment": "rsyslog-snmp is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20120796002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796003",
+												"comment": "rsyslog is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796004",
+												"comment": "rsyslog is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796005",
+												"comment": "rsyslog-gnutls is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796006",
+												"comment": "rsyslog-gnutls is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796007",
+												"comment": "rsyslog-gssapi is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796008",
+												"comment": "rsyslog-gssapi is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796009",
+												"comment": "rsyslog-mysql is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796010",
+												"comment": "rsyslog-mysql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796011",
+												"comment": "rsyslog-pgsql is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796012",
+												"comment": "rsyslog-pgsql is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796013",
+												"comment": "rsyslog-relp is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796014",
+												"comment": "rsyslog-relp is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796015",
+												"comment": "rsyslog-snmp is earlier than 0:5.8.10-2.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20120796016",
+												"comment": "rsyslog-snmp is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20120796017",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20120796001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20224899",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-4899:  compat-openssl11 security and bug fix update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-4899",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-4899.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-0778",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-0778.html"
+			}
+		],
+		"description": "\n[1:1.1.1k-4.0.1]\n- Backport upstream PRs 18446 and 18481 which update\n  certificates used for the self-tests [Orabug: 34326055]\n\n[1:1.1.1k-4]\n- Fixes CVE-2022-0778 openssl: Infinite loop in BN_mod_sqrt() reachable when parsing certificates\n  Resolves: rhbz#2063147\n- Disable FIPS mode; it does not work and will not be certified\n  Resolves: rhbz#2091968\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-06-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-0778",
+					"href": "https://linux.oracle.com/cve/CVE-2022-0778.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224899003",
+										"comment": "compat-openssl11 is earlier than 1:1.1.1k-4.0.1.el9_0"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224899004",
+										"comment": "compat-openssl11 is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20224899002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224899003",
+										"comment": "compat-openssl11 is earlier than 1:1.1.1k-4.0.1.el9_0"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20224899004",
+										"comment": "compat-openssl11 is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20224899005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20224899001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

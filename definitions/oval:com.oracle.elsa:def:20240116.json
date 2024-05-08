@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20240116",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-0116:  python-urllib3 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-0116",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-0116.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-43804",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-43804.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45803",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-45803.html"
+			}
+		],
+		"description": "\n[1.24.2-5.0.1.2]\n- set RECENT_DATE to 01/30/2019 to make checks happy [Orabug: 30228991]\n\n[1.24.2-5.2]\n- Security fix for CVE-2023-45803\n  Resolves: rhbz#2246840\n- Security fix for CVE-2023-43804\n  Resolves: rhbz#2242493\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-01-10"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-43804",
+					"href": "https://linux.oracle.com/cve/CVE-2023-43804.html"
+				},
+				{
+					"text": "CVE-2023-45803",
+					"href": "https://linux.oracle.com/cve/CVE-2023-45803.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240116003",
+										"comment": "python3-urllib3 is earlier than 0:1.24.2-5.0.1.el8_9.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240116004",
+										"comment": "python3-urllib3 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20240116002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240116003",
+										"comment": "python3-urllib3 is earlier than 0:1.24.2-5.0.1.el8_9.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20240116004",
+										"comment": "python3-urllib3 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20240116005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20240116001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

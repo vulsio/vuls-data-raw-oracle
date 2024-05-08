@@ -1,0 +1,192 @@
+{
+	"id": "oval:com.oracle.elsa:def:20110677",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2011-0677:  openssl security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2011-0677",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2011-0677.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-0014",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-0014.html"
+			}
+		],
+		"description": "\n[1.0.0-10]\n- fix OCSP stapling vulnerability - CVE-2011-0014 (#676063)\n- correct the README.FIPS document\n\n[1.0.0-8]\n- add -x931 parameter to openssl genrsa command to use the ANSI X9.31\n  key generation method\n- use FIPS-186-3 method for DSA parameter generation\n- add OPENSSL_FIPS_NON_APPROVED_MD5_ALLOW environment variable\n  to allow using MD5 when the system is in the maintenance state\n  even if the /proc fips flag is on\n- make openssl pkcs12 command work by default in the FIPS mode\n\n[1.0.0-7]\n- listen on ipv6 wildcard in s_server so we accept connections\n  from both ipv4 and ipv6 (#601612)\n- fix openssl speed command so it can be used in the FIPS mode\n  with FIPS allowed ciphers (#619762)\n\n[1.0.0-6]\n- disable code for SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG - CVE-2010-3864\n  (#649304)\n\n[1.0.0-5]\n- fix race in extension parsing code - CVE-2010-3864 (#649304)\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2011 Oracle, Inc.",
+			"issued": {
+				"date": "2011-05-28"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-0014",
+					"href": "https://linux.oracle.com/cve/CVE-2011-0014.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677003",
+												"comment": "openssl is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677004",
+												"comment": "openssl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677005",
+												"comment": "openssl-devel is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677006",
+												"comment": "openssl-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677007",
+												"comment": "openssl-perl is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677008",
+												"comment": "openssl-perl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677009",
+												"comment": "openssl-static is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677010",
+												"comment": "openssl-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20110677002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677003",
+												"comment": "openssl is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677004",
+												"comment": "openssl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677005",
+												"comment": "openssl-devel is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677006",
+												"comment": "openssl-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677007",
+												"comment": "openssl-perl is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677008",
+												"comment": "openssl-perl is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677009",
+												"comment": "openssl-static is earlier than 0:1.0.0-10.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20110677010",
+												"comment": "openssl-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20110677011",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20110677001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

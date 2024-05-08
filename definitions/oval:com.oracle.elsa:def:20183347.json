@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20183347",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2018-3347:  python-paramiko security update (CRITICAL)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2018-3347",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-3347.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-1000805",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-1000805.html"
+			}
+		],
+		"description": "\n[2.1.1-9]\n- Fix a security flaw (CVE-2018-1000805) in Paramiko's server\n  mode (does not effect client mode).\n  Backported from 2.1.6\n  Resolves rhbz#1637366\n",
+		"advisory": {
+			"severity": "CRITICAL",
+			"rights": "Copyright 2018 Oracle, Inc.",
+			"issued": {
+				"date": "2018-11-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-1000805",
+					"href": "https://linux.oracle.com/cve/CVE-2018-1000805.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347003",
+												"comment": "python-paramiko is earlier than 0:2.1.1-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347004",
+												"comment": "python-paramiko is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347005",
+												"comment": "python-paramiko-doc is earlier than 0:2.1.1-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347006",
+												"comment": "python-paramiko-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20183347002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347003",
+												"comment": "python-paramiko is earlier than 0:2.1.1-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347004",
+												"comment": "python-paramiko is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347005",
+												"comment": "python-paramiko-doc is earlier than 0:2.1.1-9.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20183347006",
+												"comment": "python-paramiko-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20183347007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20183347001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,357 @@
+{
+	"id": "oval:com.oracle.elsa:def:20162766",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2016-2766:  kernel security and bug fix update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2016-2766",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-2766.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2143",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2143.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-1583",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-1583.html"
+			}
+		],
+		"description": "\n[2.6.32-642.11.1]\n- [mm] close FOLL MAP_PRIVATE race (Larry Woodman) [1385116 1385117] {CVE-2016-5195}\n\n[2.6.32-642.10.1]\n- [scsi] fnic: Fix to cleanup aborted IO to avoid device being offlined by mid-layer (Maurizio Lombardi) [1382620 1341298]\n\n[2.6.32-642.9.1]\n- [net] vlan: Fix FCOE_MTU support (Maurizio Lombardi) [1381592 1367250]\n- [s390] mm: fix asce_bits handling with dynamic pagetable levels (Steve Best) [1377472 1341758]\n- [powerpc] eeh: Block PCI configuration space access during EEH (Gustavo Duarte) [1379596 1216944]\n- [fs] ecryptfs: prevent mounts backed by procfs (Mateusz Guzik) [1347101 1347102] {CVE-2016-1583}\n- [s390] mm: four page table levels vs. fork (Hendrik Brueckner) [1341546 1316461] {CVE-2016-2143}\n\n[2.6.32-642.8.1]\n- [fs] lockd: unregister notifier blocks if the service fails to come up completely (Scott Mayhew) [1375637 1346317]\n\n[2.6.32-642.7.1]\n- [net] netfilter: ip(6)t_REJECT: fix wrong transport header pointer in TCP reset (William Townsend) [1372266 1343816]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2016 Oracle, Inc.",
+			"issued": {
+				"date": "2016-11-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-2143",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2143.html"
+				},
+				{
+					"text": "CVE-2016-1583",
+					"href": "https://linux.oracle.com/cve/CVE-2016-1583.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766003",
+												"comment": "kernel is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766004",
+												"comment": "kernel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766005",
+												"comment": "kernel-abi-whitelists is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766006",
+												"comment": "kernel-abi-whitelists is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766007",
+												"comment": "kernel-debug is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766008",
+												"comment": "kernel-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766009",
+												"comment": "kernel-debug-devel is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766010",
+												"comment": "kernel-debug-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766011",
+												"comment": "kernel-devel is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766012",
+												"comment": "kernel-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766013",
+												"comment": "kernel-doc is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766014",
+												"comment": "kernel-doc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766015",
+												"comment": "kernel-firmware is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766016",
+												"comment": "kernel-firmware is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766017",
+												"comment": "kernel-headers is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766018",
+												"comment": "kernel-headers is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766019",
+												"comment": "perf is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766020",
+												"comment": "perf is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766021",
+												"comment": "python-perf is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766022",
+												"comment": "python-perf is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20162766002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766003",
+												"comment": "kernel is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766004",
+												"comment": "kernel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766005",
+												"comment": "kernel-abi-whitelists is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766006",
+												"comment": "kernel-abi-whitelists is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766007",
+												"comment": "kernel-debug is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766008",
+												"comment": "kernel-debug is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766009",
+												"comment": "kernel-debug-devel is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766010",
+												"comment": "kernel-debug-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766011",
+												"comment": "kernel-devel is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766012",
+												"comment": "kernel-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766013",
+												"comment": "kernel-doc is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766014",
+												"comment": "kernel-doc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766015",
+												"comment": "kernel-firmware is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766016",
+												"comment": "kernel-firmware is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766017",
+												"comment": "kernel-headers is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766018",
+												"comment": "kernel-headers is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766019",
+												"comment": "perf is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766020",
+												"comment": "perf is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766021",
+												"comment": "python-perf is earlier than 0:2.6.32-642.11.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20162766022",
+												"comment": "python-perf is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20162766023",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20162766001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

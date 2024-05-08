@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:20219400",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2021-9400:  bootstrap security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2021-9400",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2021-9400.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-11023",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-11023.html"
+			}
+		],
+		"description": "\n[3.0.0-7.0.1]\n- Backport jQuery CVE-2020-11023 fixes from jQuery v3.5.0 to bundled v1.10.2 [Orabug: 33181852]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-08-09"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-11023",
+					"href": "https://linux.oracle.com/cve/CVE-2020-11023.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20219400003",
+								"comment": "bootstrap is earlier than 0:3.0.0-7.0.1.el7"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20219400004",
+								"comment": "bootstrap is signed with the Oracle Linux 7 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20219400002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20219400001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

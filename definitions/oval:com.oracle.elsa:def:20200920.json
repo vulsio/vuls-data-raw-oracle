@@ -1,0 +1,93 @@
+{
+	"id": "oval:com.oracle.elsa:def:20200920",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-0920:  libvncserver security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-0920",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-0920.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2019-15690",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2019-15690.html"
+			}
+		],
+		"description": "\n[0.9.11-9.2]\n- Enable gating (bug #1681199)\n\n[0.9.11-9.1]\n- Fix CVE-2019-15690 (an integer overflow in HandleCursorShape() in a client)\n  (bug #1814342)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-03-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2019-15690",
+					"href": "https://linux.oracle.com/cve/CVE-2019-15690.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20200920003",
+										"comment": "libvncserver is earlier than 0:0.9.11-9.el8_1.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20200920004",
+										"comment": "libvncserver is signed with the Oracle Linux 8 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20200920005",
+										"comment": "libvncserver-devel is earlier than 0:0.9.11-9.el8_1.2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20200920006",
+										"comment": "libvncserver-devel is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20200920002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20200920001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

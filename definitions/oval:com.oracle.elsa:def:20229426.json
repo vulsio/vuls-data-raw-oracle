@@ -1,0 +1,161 @@
+{
+	"id": "oval:com.oracle.elsa:def:20229426",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-9426:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7",
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-9426",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-9426.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-1786",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-1786.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-21499",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-21499.html"
+			}
+		],
+		"description": "\n[5.4.17-2136.307.3.4]\n- io_uring: always use original task when preparing req identity (Jens Axboe)\n  [Orabug: 34186552]  {CVE-2022-1786}\n\n[5.4.17-2136.307.3.3]\n- debug: Lock down kgdb (Stephen Brennan)  [Orabug: 34152699]  {CVE-2022-21499}\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-05-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-1786",
+					"href": "https://linux.oracle.com/cve/CVE-2022-1786.html"
+				},
+				{
+					"text": "CVE-2022-21499",
+					"href": "https://linux.oracle.com/cve/CVE-2022-21499.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426003",
+												"comment": "kernel-uek-container is earlier than 0:5.4.17-2136.307.3.4.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426004",
+												"comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426005",
+												"comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2136.307.3.4.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426006",
+												"comment": "kernel-uek-container-debug is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229426002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20229426001",
+						"comment": "Oracle Linux 7 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426009",
+												"comment": "kernel-uek-container is earlier than 0:5.4.17-2136.307.3.4.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426010",
+												"comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426011",
+												"comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2136.307.3.4.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20229426012",
+												"comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229426008",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20229426007",
+						"comment": "Oracle Linux 8 is installed"
+					}
+				]
+			}
+		]
+	}
+}

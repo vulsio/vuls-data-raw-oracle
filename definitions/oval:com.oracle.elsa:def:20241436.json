@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20241436",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-1436:  postgresql-jdbc security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-1436",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-1436.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1597",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-1597.html"
+			}
+		],
+		"description": "\n[42.2.28-1]\n- rebase to 42.2.28\n- fix for CVE-2024-1597\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-03-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-1597",
+					"href": "https://linux.oracle.com/cve/CVE-2024-1597.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241436003",
+										"comment": "postgresql-jdbc is earlier than 0:42.2.28-1.el9_3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241436004",
+										"comment": "postgresql-jdbc is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241436002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241436003",
+										"comment": "postgresql-jdbc is earlier than 0:42.2.28-1.el9_3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20241436004",
+										"comment": "postgresql-jdbc is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20241436005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20241436001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20203558",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-3558:  firefox security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-3558",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-3558.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-15664",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-15664.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-15669",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-15669.html"
+			}
+		],
+		"description": "\n[68.12.0-1.0.1]\n- fix LD_LIBRARY_PATH\n- Add firefox-oracle-default-prefs.js and remove the corresponding Red Hat one\n\n* Thu Aug 20 2020 Jan Horak <jhorak@redhat.com>\n- Update to 68.12.0 build1\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-08-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-15664",
+					"href": "https://linux.oracle.com/cve/CVE-2020-15664.html"
+				},
+				{
+					"text": "CVE-2020-15669",
+					"href": "https://linux.oracle.com/cve/CVE-2020-15669.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203558003",
+										"comment": "firefox is earlier than 0:68.12.0-1.0.1.el6_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203558004",
+										"comment": "firefox is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20203558002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203558003",
+										"comment": "firefox is earlier than 0:68.12.0-1.0.1.el6_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20203558004",
+										"comment": "firefox is signed with the Oracle Linux 6 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20203558005",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20203558001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

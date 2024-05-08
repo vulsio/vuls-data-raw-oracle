@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20141091",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2014-1091:  mod_wsgi security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2014-1091",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2014-1091.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2014-0240",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2014-0240.html"
+			}
+		],
+		"description": "\n[3.4-12]\n- fix possible privilege escalation in setuid() (CVE-2014-0240)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2014 Oracle, Inc.",
+			"issued": {
+				"date": "2014-08-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2014-0240",
+					"href": "https://linux.oracle.com/cve/CVE-2014-0240.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20141091003",
+										"comment": "mod_wsgi is earlier than 0:3.4-12.el7_0"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20141091004",
+										"comment": "mod_wsgi is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20141091002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20141091003",
+										"comment": "mod_wsgi is earlier than 0:3.4-12.el7_0"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20141091004",
+										"comment": "mod_wsgi is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20141091005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20141091001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

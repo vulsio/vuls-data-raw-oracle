@@ -1,0 +1,279 @@
+{
+	"id": "oval:com.oracle.elsa:def:20181879",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2018-1879:  glibc security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2018-1879",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2018-1879.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-15670",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-15670.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-15804",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-15804.html"
+			}
+		],
+		"description": "\n[2.12-1.212.0.1]\n- backport rh patch 1047983 from OL7, Orabug 25407655\n\n[2.12-1.212]\n- CVE-2017-15670: glob: Fix one-byte overflow with GLOB_TILDE (#1504810)\n- CVE-2017-15804: glob: Fix buffer overflow in GLOB_TILDE unescaping (#1504810)\n\n[2.12-1.211]\n- Avoid large allocas in the dynamic linker (#1452717)\n\n[2.12-1.210]\n- Fix thread cancellation issues for setmntent() and others (#1437147).\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2018 Oracle, Inc.",
+			"issued": {
+				"date": "2018-06-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2017-15670",
+					"href": "https://linux.oracle.com/cve/CVE-2017-15670.html"
+				},
+				{
+					"text": "CVE-2017-15804",
+					"href": "https://linux.oracle.com/cve/CVE-2017-15804.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879003",
+												"comment": "glibc is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879004",
+												"comment": "glibc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879005",
+												"comment": "glibc-common is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879006",
+												"comment": "glibc-common is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879007",
+												"comment": "glibc-devel is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879008",
+												"comment": "glibc-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879009",
+												"comment": "glibc-headers is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879010",
+												"comment": "glibc-headers is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879011",
+												"comment": "glibc-static is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879012",
+												"comment": "glibc-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879013",
+												"comment": "glibc-utils is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879014",
+												"comment": "glibc-utils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879015",
+												"comment": "nscd is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879016",
+												"comment": "nscd is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20181879002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879003",
+												"comment": "glibc is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879004",
+												"comment": "glibc is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879005",
+												"comment": "glibc-common is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879006",
+												"comment": "glibc-common is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879007",
+												"comment": "glibc-devel is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879008",
+												"comment": "glibc-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879009",
+												"comment": "glibc-headers is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879010",
+												"comment": "glibc-headers is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879011",
+												"comment": "glibc-static is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879012",
+												"comment": "glibc-static is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879013",
+												"comment": "glibc-utils is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879014",
+												"comment": "glibc-utils is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879015",
+												"comment": "nscd is earlier than 0:2.12-1.212.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20181879016",
+												"comment": "nscd is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20181879017",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20181879001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

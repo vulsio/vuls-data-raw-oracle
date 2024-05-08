@@ -1,0 +1,166 @@
+{
+	"id": "oval:com.oracle.elsa:def:20192181",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-2181:  curl security and bug fix update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-2181",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-2181.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-16842",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-16842.html"
+			}
+		],
+		"description": "\n[7.29.0-54.0.1]\n- Security Fixes [OraBug: 28939992]\n- CVE-2016-8615 cookie injection for other servers (https://curl.haxx.se/docs/CVE-2016-8615.html)\n- CVE-2016-8616 case insensitive password comparison (https://curl.haxx.se/docs/CVE-2016-8616.html)\n- CVE-2016-8617 OOB write via unchecked multiplication (https://curl.haxx.se/docs/CVE-2016-8617.html)\n- CVE-2016-8618 double-free in curl_maprintf (https://curl.haxx.se/docs/CVE-2016-8618.html)\n- CVE-2016-8619 double-free in krb5 code (https://curl.haxx.se/docs/CVE-2016-8619.html)\n- CVE-2016-8621 curl_getdate read out of bounds (https://curl.haxx.se/docs/CVE-2016-8621.html)\n- CVE-2016-8622 URL unescape heap overflow via integer truncation (https://curl.haxx.se/docs/CVE-2016-8622.html)\n- CVE-2016-8623 Use-after-free via shared cookies (https://curl.haxx.se/docs/CVE-2016-8623.html)\n- CVE-2016-8624 invalid URL parsing with # (https://curl.haxx.se/docs/CVE-2016-8624.html)\n\n[7.29.0-54]\n- make 'curl --tlsv1' backward compatible (#1672639)\n\n[7.29.0-53]\n- backport the --tls-max option of curl and TLS 1.3 ciphers (#1672639)\n\n[7.29.0-52]\n- prevent curl --rate-limit from hanging on file URLs (#1281969)\n- fix NTLM password overflow via integer overflow (CVE-2018-14618)\n- fix bad arithmetic when outputting warnings to stderr (CVE-2018-16842)\n- backport options to force TLS 1.3 in curl and libcurl (#1672639)\n- prevent curl --rate-limit from crashing on https URLs (#1683292)\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-08-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-16842",
+					"href": "https://linux.oracle.com/cve/CVE-2018-16842.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181003",
+												"comment": "curl is earlier than 0:7.29.0-54.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181004",
+												"comment": "curl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181005",
+												"comment": "libcurl is earlier than 0:7.29.0-54.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181006",
+												"comment": "libcurl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181007",
+												"comment": "libcurl-devel is earlier than 0:7.29.0-54.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181008",
+												"comment": "libcurl-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192181002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181003",
+												"comment": "curl is earlier than 0:7.29.0-54.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181004",
+												"comment": "curl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181005",
+												"comment": "libcurl is earlier than 0:7.29.0-54.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181006",
+												"comment": "libcurl is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181007",
+												"comment": "libcurl-devel is earlier than 0:7.29.0-54.0.1.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192181008",
+												"comment": "libcurl-devel is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192181009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20192181001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

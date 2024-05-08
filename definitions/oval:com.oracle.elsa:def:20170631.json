@@ -1,0 +1,193 @@
+{
+	"id": "oval:com.oracle.elsa:def:20170631",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2017-0631:  wireshark security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2017-0631",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2017-0631.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3811",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3811.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3812",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3812.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2015-3813",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2015-3813.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2013-4075",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2013-4075.html"
+			}
+		],
+		"description": "\n[1.8.10-25.0.1]\n- Fix ocfs2 dissector (John Haxby) [orabug 21505640]\n- Add oracle-ocfs2-network.patch to allow disassembly of OCFS2 interconnect\n\n[1.8.10-25]\n- rebuilt\n\n[1.8.10-24]\n- Related: #1245887\n- segfault with CVE-2013-4075 capture\n- valgrind error with CVE-2015-3812 capture\n\n[1.8.10-23]\n- Resolves: #1238166 - tshark -F option fails to create capture files in .pcap\n  format\n\n[1.8.10-22]\n- Resolves: #1240675 - No dissection of the TLS Certificate Verify message\n\n[1.8.10-21]\n- Resolves: #1222902 - Encrypt-then-MAC TLS extension unrecognised\n- Patch also include master secret extension decoding in TLS\n\n[1.8.10-20]\n- Resolves: #1222895 - Problems decoding TLS Server Key Exchange messages\n\n[1.8.10-19]\n- Security patches\n- Resolves: CVE-2013-4075\n\n[1.8.10-18]\n- Security patches\n- Resolves: CVE-2015-3811\n            CVE-2015-3812\n            CVE-2015-3813\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2017 Oracle, Inc.",
+			"issued": {
+				"date": "2017-03-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2015-3811",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3811.html"
+				},
+				{
+					"text": "CVE-2015-3812",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3812.html"
+				},
+				{
+					"text": "CVE-2015-3813",
+					"href": "https://linux.oracle.com/cve/CVE-2015-3813.html"
+				},
+				{
+					"text": "CVE-2013-4075",
+					"href": "https://linux.oracle.com/cve/CVE-2013-4075.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631003",
+												"comment": "wireshark is earlier than 0:1.8.10-25.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631004",
+												"comment": "wireshark is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631005",
+												"comment": "wireshark-devel is earlier than 0:1.8.10-25.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631006",
+												"comment": "wireshark-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631007",
+												"comment": "wireshark-gnome is earlier than 0:1.8.10-25.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631008",
+												"comment": "wireshark-gnome is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20170631002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631003",
+												"comment": "wireshark is earlier than 0:1.8.10-25.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631004",
+												"comment": "wireshark is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631005",
+												"comment": "wireshark-devel is earlier than 0:1.8.10-25.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631006",
+												"comment": "wireshark-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631007",
+												"comment": "wireshark-gnome is earlier than 0:1.8.10-25.0.1.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20170631008",
+												"comment": "wireshark-gnome is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20170631009",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20170631001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

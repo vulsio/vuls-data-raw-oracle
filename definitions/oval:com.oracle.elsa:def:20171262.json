@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:20171262",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2017-1262:  rpcbind security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2017-1262",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2017-1262.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2017-8779",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2017-8779.html"
+			}
+		],
+		"description": "\n[0.2.0-38_3]\n- Fixed typo in memory leaks patch (bz 1449462)\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2017 Oracle, Inc.",
+			"issued": {
+				"date": "2017-05-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2017-8779",
+					"href": "https://linux.oracle.com/cve/CVE-2017-8779.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20171262003",
+								"comment": "rpcbind is earlier than 0:0.2.0-38.el7_3"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20171262004",
+								"comment": "rpcbind is signed with the Oracle Linux 7 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20171262002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20171262001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

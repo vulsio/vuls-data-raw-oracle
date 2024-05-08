@@ -1,0 +1,102 @@
+{
+	"id": "oval:com.oracle.elsa:def:20161205",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2016-1205:  spice security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2016-1205",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2016-1205.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-0749",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-0749.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2016-2150",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2016-2150.html"
+			}
+		],
+		"description": "\n[0.12.4-15.1]\n- Fix heap-based memory corruption within smartcard handling\n  Resolves: CVE-2016-0749\n- Fix host memory access from guest with invalid primary surface parameters\n  Resolves: CVE-2016-2150\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2016 Oracle, Inc.",
+			"issued": {
+				"date": "2016-06-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2016-0749",
+					"href": "https://linux.oracle.com/cve/CVE-2016-0749.html"
+				},
+				{
+					"text": "CVE-2016-2150",
+					"href": "https://linux.oracle.com/cve/CVE-2016-2150.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161205003",
+										"comment": "spice-server is earlier than 0:0.12.4-15.el7_2.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161205004",
+										"comment": "spice-server is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161205005",
+										"comment": "spice-server-devel is earlier than 0:0.12.4-15.el7_2.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20161205006",
+										"comment": "spice-server-devel is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20161205002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20161205001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

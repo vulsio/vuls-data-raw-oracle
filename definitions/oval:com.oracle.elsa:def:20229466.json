@@ -1,0 +1,106 @@
+{
+	"id": "oval:com.oracle.elsa:def:20229466",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-9466:  shim-signed security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-9466",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-9466.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-28737",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-28737.html"
+			}
+		],
+		"description": "\n[15.6-1.0.7]\n- Update shimx64.efi and shimia32.efi signed by Microsoft [JIRA: OLDIS-16370]\n\n[15.6-1.0.5]\n- Update to shim-unsigned v15.6.rc2 [JIRA: OLDIS-16370]\n\n[15.6-1.0.3]\n- Add all algorithms using OPENSSL_add_all_algorithms [JIRA: OLDIS-16370]\n\n[15.6-1.0.1]\n- Update to 15.6.rc1 [JIRA: OLDIS-16370]\n- update CVE-2022-28737 patches [JIRA: OLDIS-16370]\n- Fix CVE-2022-28737 [JIRA: OLDIS-16370]\n\n[15.5-1.0.1]\n- update mokutils [JIRA: OLDIS-16370]\n- Import shim-15.5-1.0.1 [JIRA: OLDIS-16370]\n- Update vendor certs [JIRA: OLDIS-16370]\n- Update oracle(grub2-sig-key) [JIRA: OLDIS-16370]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-06-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-28737",
+					"href": "https://linux.oracle.com/cve/CVE-2022-28737.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20229466003",
+										"comment": "mokutil is earlier than 0:15.6-1.0.7.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20229466004",
+										"comment": "mokutil is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20229466005",
+										"comment": "shim-ia32 is earlier than 0:15.6-1.0.7.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20229466006",
+										"comment": "shim-ia32 is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20229466007",
+										"comment": "shim-x64 is earlier than 0:15.6-1.0.7.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20229466008",
+										"comment": "shim-x64 is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20229466002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20229466001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

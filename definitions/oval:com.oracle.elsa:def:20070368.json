@@ -1,0 +1,201 @@
+{
+	"id": "oval:com.oracle.elsa:def:20070368",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2007-0368:  tcpdump security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2007-0368",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2007-0368.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2007-1218",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2007-1218.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2007-3798",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2007-3798.html"
+			}
+		],
+		"description": "\n[14:3.9.4-11.el5.0.1]\n- Modified libpcap-0.9.4/fad-getad.c to include linux/types.h if it includes linux/if_packet.h\n\n[14:3.9.4-11.el5]\n- fix buffer overflow in BGP dissector (#250294, CVE-2007-3798)\n\n[14:3.9.4-10.el5]\n- with -C option, drop root privileges before opening first savefile (#241677)\n\n[14:3.9.4-9.el5]\n- fix buffer overflow in 802.11 printer (#232347, CVE-2007-1218)\n- fix return codes in arpwatch init script (#237779)\n\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2007 Oracle, Inc.",
+			"issued": {
+				"date": "2007-11-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-1218",
+					"href": "https://linux.oracle.com/cve/CVE-2007-1218.html"
+				},
+				{
+					"text": "CVE-2007-3798",
+					"href": "https://linux.oracle.com/cve/CVE-2007-3798.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368003",
+												"comment": "arpwatch is earlier than 14:2.1a13-18.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368004",
+												"comment": "arpwatch is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368005",
+												"comment": "libpcap is earlier than 14:0.9.4-11.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368006",
+												"comment": "libpcap is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368007",
+												"comment": "libpcap-devel is earlier than 14:0.9.4-11.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368008",
+												"comment": "libpcap-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368009",
+												"comment": "tcpdump is earlier than 14:3.9.4-11.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368010",
+												"comment": "tcpdump is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20070368002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368003",
+												"comment": "arpwatch is earlier than 14:2.1a13-18.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368004",
+												"comment": "arpwatch is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368005",
+												"comment": "libpcap is earlier than 14:0.9.4-11.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368006",
+												"comment": "libpcap is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368007",
+												"comment": "libpcap-devel is earlier than 14:0.9.4-11.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368008",
+												"comment": "libpcap-devel is signed with the Oracle Linux 5 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368009",
+												"comment": "tcpdump is earlier than 14:3.9.4-11.el5.0.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20070368010",
+												"comment": "tcpdump is signed with the Oracle Linux 5 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20070368011",
+								"comment": "Oracle Linux arch is i386"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20070368001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
+}

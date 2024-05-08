@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20202070",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-2070:  libreswan security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-2070",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-2070.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-1763",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-1763.html"
+			}
+		],
+		"description": "\n[3.29-7.0.1]\n- Add libreswan-oracle.patch to detect Oracle Linux distro\n\n[3.29-7]\n- Resolves: rhbz#1814935 CVE-2020-1763 doS attack via malicious IKEv1 informational exchange message [rhel-8.2.0.z]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2020 Oracle, Inc.",
+			"issued": {
+				"date": "2020-05-12"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-1763",
+					"href": "https://linux.oracle.com/cve/CVE-2020-1763.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202070003",
+										"comment": "libreswan is earlier than 0:3.29-7.0.1.el8_2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202070004",
+										"comment": "libreswan is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20202070002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202070003",
+										"comment": "libreswan is earlier than 0:3.29-7.0.1.el8_2"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20202070004",
+										"comment": "libreswan is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20202070005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20202070001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

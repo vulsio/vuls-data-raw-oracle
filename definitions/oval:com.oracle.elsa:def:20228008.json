@@ -1,0 +1,194 @@
+{
+	"id": "oval:com.oracle.elsa:def:20228008",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-8008:  buildah security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-8008",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-8008.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-2990",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-2990.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-27191",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-27191.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33195",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-33195.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33198",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-33198.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33197",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-33197.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-2989",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-2989.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-20291",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-20291.html"
+			}
+		],
+		"description": "\n[1.27.0-2.0.1]\n- Drop nmap-ncat requirement and skip ignore-socket test case [Orabug: 34117178]\n\n[1:1.27.0-2]\n- fix CVE-2022-2990\n- Related: #2061316\n\n[1:1.27.0-1]\n- update to https://github.com/containers/buildah/releases/tag/v1.27.0\n- Related: #2061316\n\n[1:1.26.4-2]\n- add buildah-tutorial to test subpackage\n- Related: #2061316\n\n[1:1.26.4-1]\n- update to https://github.com/containers/buildah/releases/tag/v1.26.4\n- Related: #2061316\n\n[1:1.26.3-1]\n- update to https://github.com/containers/buildah/releases/tag/v1.26.3\n- Related: #2061316\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-11-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-2990",
+					"href": "https://linux.oracle.com/cve/CVE-2022-2990.html"
+				},
+				{
+					"text": "CVE-2022-27191",
+					"href": "https://linux.oracle.com/cve/CVE-2022-27191.html"
+				},
+				{
+					"text": "CVE-2021-33195",
+					"href": "https://linux.oracle.com/cve/CVE-2021-33195.html"
+				},
+				{
+					"text": "CVE-2021-33198",
+					"href": "https://linux.oracle.com/cve/CVE-2021-33198.html"
+				},
+				{
+					"text": "CVE-2021-33197",
+					"href": "https://linux.oracle.com/cve/CVE-2021-33197.html"
+				},
+				{
+					"text": "CVE-2022-2989",
+					"href": "https://linux.oracle.com/cve/CVE-2022-2989.html"
+				},
+				{
+					"text": "CVE-2021-20291",
+					"href": "https://linux.oracle.com/cve/CVE-2021-20291.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008003",
+												"comment": "buildah is earlier than 1:1.27.0-2.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008004",
+												"comment": "buildah is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008005",
+												"comment": "buildah-tests is earlier than 1:1.27.0-2.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008006",
+												"comment": "buildah-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228008002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008003",
+												"comment": "buildah is earlier than 1:1.27.0-2.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008004",
+												"comment": "buildah is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008005",
+												"comment": "buildah-tests is earlier than 1:1.27.0-2.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228008006",
+												"comment": "buildah-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228008007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20228008001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

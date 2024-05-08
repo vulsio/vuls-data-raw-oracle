@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20228291",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-8291:  rsync security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-8291",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-8291.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-37434",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-37434.html"
+			}
+		],
+		"description": "\n[3.2.3-18]\n- Resolves: #2111177 - remote arbitrary files write inside the directories of connecting peers\n\n[3.2.3-17]\n- Resolves: #2116669 - zlib: a heap-based buffer over-read or buffer overflow in inflate in inflate.c via a large gzip header extra field\n\n[3.2.3-16]\n- Related: #2081296 - Adding ci.fmf for separation of testing results\n\n[3.2.3-15]\n- Related: #2081296 - Disabling STI\n\n[3.2.3-14]\n- Resolves: #2071514 - A flaw found in zlib when compressing (not decompressing) certain inputs\n\n[3.2.3-13]\n- Resolves: #2079639 - rsync --atimes doesnt work\n\n[3.2.3-12]\n- Resolves: #2081296 - Enable fmf tests in centos stream\n\n[3.2.3-11]\n- Resolves: #2053198 - rsync segmentation fault\n\n[3.2.3-10]\n- Resolves: #2077431 - Read-only files that have changed xattrs fail to allow xattr changes\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-11-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-37434",
+					"href": "https://linux.oracle.com/cve/CVE-2022-37434.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291003",
+												"comment": "rsync is earlier than 0:3.2.3-18.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291004",
+												"comment": "rsync is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291005",
+												"comment": "rsync-daemon is earlier than 0:3.2.3-18.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291006",
+												"comment": "rsync-daemon is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228291002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291003",
+												"comment": "rsync is earlier than 0:3.2.3-18.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291004",
+												"comment": "rsync is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291005",
+												"comment": "rsync-daemon is earlier than 0:3.2.3-18.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20228291006",
+												"comment": "rsync-daemon is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20228291007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20228291001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

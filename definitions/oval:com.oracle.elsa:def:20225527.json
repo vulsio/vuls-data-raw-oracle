@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20225527",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-5527:  squid security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-5527",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-5527.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-46784",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-46784.html"
+			}
+		],
+		"description": "\n[7:5.2-1.1]\n- Resolves: #2100784 - CVE-2021-46784 squid: DoS when processing gopher server\n  responses\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-07-07"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-46784",
+					"href": "https://linux.oracle.com/cve/CVE-2021-46784.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20225527003",
+										"comment": "squid is earlier than 7:5.2-1.el9_0.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20225527004",
+										"comment": "squid is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20225527002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20225527003",
+										"comment": "squid is earlier than 7:5.2-1.el9_0.1"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20225527004",
+										"comment": "squid is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20225527005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20225527001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

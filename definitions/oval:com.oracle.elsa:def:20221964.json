@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20221964",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-1964:  fetchmail security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-1964",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-1964.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-36386",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-36386.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-39272",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-39272.html"
+			}
+		],
+		"description": "\n[6.4.24-1]\n- Update to fetchmail-6.4.24 (fixes CVE-2021-36386 and CVE-2021-39272)\n  Resolves: #1999275, #2002698\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-05-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-36386",
+					"href": "https://linux.oracle.com/cve/CVE-2021-36386.html"
+				},
+				{
+					"text": "CVE-2021-39272",
+					"href": "https://linux.oracle.com/cve/CVE-2021-39272.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20221964003",
+										"comment": "fetchmail is earlier than 0:6.4.24-1.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20221964004",
+										"comment": "fetchmail is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20221964002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20221964003",
+										"comment": "fetchmail is earlier than 0:6.4.24-1.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20221964004",
+										"comment": "fetchmail is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20221964005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20221964001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

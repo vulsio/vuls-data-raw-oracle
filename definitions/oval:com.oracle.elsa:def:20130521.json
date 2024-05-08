@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:20130521",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2013-0521:  pam security, bug fix, and enhancement update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2013-0521",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-0521.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-3148",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-3148.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-3149",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-3149.html"
+			}
+		],
+		"description": "\n[1.1.1-13]\n- fix environment file handling problems - CVE-2011-3148 (#746619) and\n  CVE-2011-3148 (#746620)\n\n[1.1.1-12]\n- add character sequence test to pam_cracklib\n- drop unused difignore option from pam_cracklib (#811243)\n- add enforce_for_root option to pam_cracklib (#588893)\n- mention limits.d in the limits.conf(5) manpage (#723297)\n- add ability to lock out inactive accounts to pam_lastlog\n- fix require_selinux option in pam_namespace (#750601)\n- add mntopts flag for tmpfs polyinstantiation method\n- preserve authtok_type in pam_get_authtok() (#811168)\n- fix username mismatch in pam_unix remember feature (#815516)\n- relax restriction of root in pam_pwhistory\n- relax soft nproc limit for root in 90-nproc.conf\n\n[1.1.1-11]\n- additional password checks in pam_cracklib\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2013 Oracle, Inc.",
+			"issued": {
+				"date": "2013-02-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-3148",
+					"href": "https://linux.oracle.com/cve/CVE-2011-3148.html"
+				},
+				{
+					"text": "CVE-2011-3149",
+					"href": "https://linux.oracle.com/cve/CVE-2011-3149.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521003",
+												"comment": "pam is earlier than 0:1.1.1-13.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521004",
+												"comment": "pam is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521005",
+												"comment": "pam-devel is earlier than 0:1.1.1-13.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521006",
+												"comment": "pam-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20130521002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521003",
+												"comment": "pam is earlier than 0:1.1.1-13.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521004",
+												"comment": "pam is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521005",
+												"comment": "pam-devel is earlier than 0:1.1.1-13.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130521006",
+												"comment": "pam-devel is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20130521007",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20130521001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

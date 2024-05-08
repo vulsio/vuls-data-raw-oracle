@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20070391",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2007-0391:  Moderate: file security update  (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 5"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2007-0391",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2007-0391.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2007-2799",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2007-2799.html"
+			}
+		],
+		"description": "\n [4.10-3.0.2]\n - resolves: #241026: CVE-2007-2799 file integer overflow\n - added dependency on zlib-devel \n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2007 Oracle, Inc.",
+			"issued": {
+				"date": "2007-05-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2007-2799",
+					"href": "https://linux.oracle.com/cve/CVE-2007-2799.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20070391003",
+										"comment": "file is earlier than 0:4.17-9.0.1.el5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20070391004",
+										"comment": "file is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20070391002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20070391003",
+										"comment": "file is earlier than 0:4.17-9.0.1.el5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20070391004",
+										"comment": "file is signed with the Oracle Linux 5 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20070391005",
+								"comment": "Oracle Linux arch is i386"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20070391001",
+				"comment": "Oracle Linux 5 is installed"
+			}
+		]
+	}
+}

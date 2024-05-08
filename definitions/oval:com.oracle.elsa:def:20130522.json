@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20130522",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2013-0522:  gdb security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 6"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2013-0522",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2013-0522.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2011-4355",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2011-4355.html"
+			}
+		],
+		"description": "\n[7.2-60.el6]\n- Fix CVE-2011-4355 gdb: arbitrary code execution via .debug_gdb_scripts'\n  (Jan Kratochvil, RH BZ 756116).\n\n[7.2-58.el6]\n- Fix Backport gdb fix to handle identical binaries via additional build-id\n  symlinks' (RH BZ 836966).\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2013 Oracle, Inc.",
+			"issued": {
+				"date": "2013-02-22"
+			},
+			"cve": [
+				{
+					"text": "CVE-2011-4355",
+					"href": "https://linux.oracle.com/cve/CVE-2011-4355.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522003",
+												"comment": "gdb is earlier than 0:7.2-60.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522004",
+												"comment": "gdb is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522005",
+												"comment": "gdb-gdbserver is earlier than 0:7.2-60.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522006",
+												"comment": "gdb-gdbserver is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20130522002",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522003",
+												"comment": "gdb is earlier than 0:7.2-60.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522004",
+												"comment": "gdb is signed with the Oracle Linux 6 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522005",
+												"comment": "gdb-gdbserver is earlier than 0:7.2-60.el6"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20130522006",
+												"comment": "gdb-gdbserver is signed with the Oracle Linux 6 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20130522007",
+								"comment": "Oracle Linux arch is i686"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20130522001",
+				"comment": "Oracle Linux 6 is installed"
+			}
+		]
+	}
+}

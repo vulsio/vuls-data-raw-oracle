@@ -1,0 +1,543 @@
+{
+	"id": "oval:com.oracle.elsa:def:20192110",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2019-2110:  rsyslog security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2019-2110",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2019-2110.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2018-16881",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2018-16881.html"
+			}
+		],
+		"description": "\n[8.24.0-38.0.2]\n- Newer gcc complains about implicit declaration of prctl. Added header file to quiesce the compiler\n\n[8.24.0-38]\nRHEL 7.7 ERRATUM\n- added patch increasing max path size preventing buffer overflow\n  with too long paths\n  resolves: rhbz#1656860\n\n[8.24.0-37]\nRHEL 7.7 ERRATUM\n- edited patch fixing mmkubernetes halt after pod deletition\n  (covscan found an issue in previous version)\n  resolves: rhbz#1622767\n- added patch stopping flooding logs with journald errors\n  resolves: rhbz#1632211\n- added patch stopping flooding logs with symlink false-positives\n  resolves: rhbz#1685901\n- added patch stopping memory leak when processing internal msgs\n  resolves: rhbz#1666365\n- added documentation patch with info about CRI-O to mmkubernetes\n  resolves: rhbz#1625935\n\n[8.24.0-36]\nRHEL 7.7 ERRATUM\n- added patch fixing mmkubernetes halt after pod deletition\n  resolves: rhbz#1622767\n\n[8.24.0-35]\nRHEL 7.7 ERRATUM\n- added patch fixing memory corruption in omfwd module\n  resolves: rhbz#1632659\n- added patch fixing imfile sopping monitor after rotation\n  resolves: rhbz#1649250\n- added patch addressing imptcp CVE-2018-16881\n  resolves: rhbz#1658288\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2019 Oracle, Inc.",
+			"issued": {
+				"date": "2019-08-13"
+			},
+			"cve": [
+				{
+					"text": "CVE-2018-16881",
+					"href": "https://linux.oracle.com/cve/CVE-2018-16881.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110003",
+												"comment": "rsyslog is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110004",
+												"comment": "rsyslog is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110005",
+												"comment": "rsyslog-crypto is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110006",
+												"comment": "rsyslog-crypto is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110007",
+												"comment": "rsyslog-elasticsearch is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110008",
+												"comment": "rsyslog-elasticsearch is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110009",
+												"comment": "rsyslog-gnutls is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110010",
+												"comment": "rsyslog-gnutls is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110011",
+												"comment": "rsyslog-gssapi is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110012",
+												"comment": "rsyslog-gssapi is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110013",
+												"comment": "rsyslog-kafka is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110014",
+												"comment": "rsyslog-kafka is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110015",
+												"comment": "rsyslog-libdbi is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110016",
+												"comment": "rsyslog-libdbi is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110017",
+												"comment": "rsyslog-mmaudit is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110018",
+												"comment": "rsyslog-mmaudit is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110019",
+												"comment": "rsyslog-mmjsonparse is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110020",
+												"comment": "rsyslog-mmjsonparse is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110021",
+												"comment": "rsyslog-mmkubernetes is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110022",
+												"comment": "rsyslog-mmkubernetes is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110023",
+												"comment": "rsyslog-mmnormalize is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110024",
+												"comment": "rsyslog-mmnormalize is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110025",
+												"comment": "rsyslog-mmsnmptrapd is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110026",
+												"comment": "rsyslog-mmsnmptrapd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110027",
+												"comment": "rsyslog-mysql is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110028",
+												"comment": "rsyslog-mysql is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110029",
+												"comment": "rsyslog-pgsql is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110030",
+												"comment": "rsyslog-pgsql is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110031",
+												"comment": "rsyslog-relp is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110032",
+												"comment": "rsyslog-relp is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110033",
+												"comment": "rsyslog-snmp is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110034",
+												"comment": "rsyslog-snmp is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110035",
+												"comment": "rsyslog-udpspoof is earlier than 0:8.24.0-38.0.2.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110036",
+												"comment": "rsyslog-udpspoof is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192110002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110038",
+												"comment": "rsyslog is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110039",
+												"comment": "rsyslog is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110040",
+												"comment": "rsyslog-crypto is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110041",
+												"comment": "rsyslog-crypto is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110042",
+												"comment": "rsyslog-doc is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110043",
+												"comment": "rsyslog-doc is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110044",
+												"comment": "rsyslog-elasticsearch is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110045",
+												"comment": "rsyslog-elasticsearch is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110046",
+												"comment": "rsyslog-gnutls is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110047",
+												"comment": "rsyslog-gnutls is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110048",
+												"comment": "rsyslog-gssapi is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110049",
+												"comment": "rsyslog-gssapi is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110050",
+												"comment": "rsyslog-kafka is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110051",
+												"comment": "rsyslog-kafka is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110052",
+												"comment": "rsyslog-libdbi is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110053",
+												"comment": "rsyslog-libdbi is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110054",
+												"comment": "rsyslog-mmaudit is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110055",
+												"comment": "rsyslog-mmaudit is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110056",
+												"comment": "rsyslog-mmjsonparse is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110057",
+												"comment": "rsyslog-mmjsonparse is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110058",
+												"comment": "rsyslog-mmkubernetes is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110059",
+												"comment": "rsyslog-mmkubernetes is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110060",
+												"comment": "rsyslog-mmnormalize is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110061",
+												"comment": "rsyslog-mmnormalize is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110062",
+												"comment": "rsyslog-mmsnmptrapd is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110063",
+												"comment": "rsyslog-mmsnmptrapd is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110064",
+												"comment": "rsyslog-mysql is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110065",
+												"comment": "rsyslog-mysql is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110066",
+												"comment": "rsyslog-pgsql is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110067",
+												"comment": "rsyslog-pgsql is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110068",
+												"comment": "rsyslog-relp is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110069",
+												"comment": "rsyslog-relp is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110070",
+												"comment": "rsyslog-snmp is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110071",
+												"comment": "rsyslog-snmp is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110072",
+												"comment": "rsyslog-udpspoof is earlier than 0:8.24.0-38.el7"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20192110073",
+												"comment": "rsyslog-udpspoof is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20192110037",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20192110001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

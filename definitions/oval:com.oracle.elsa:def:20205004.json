@@ -1,0 +1,135 @@
+{
+	"id": "oval:com.oracle.elsa:def:20205004",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2020-5004:  resource-agents security and bug fix update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2020-5004",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2020-5004.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-11078",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-11078.html"
+			}
+		],
+		"description": "\n[4.1.1-61.4]\n- Upgrade bundled python-httplib2 to fix CVE-2020-11078\n\n  Resolves: rhbz#1850992\n\n[4.1.1-61.2]\n- azure-lb: fix redirect issue\n\n  Resolves: rhbz#1850779\n\n[4.1.1-61.1]\n- gcp-vpc-move-vip: add support for multiple alias IPs\n- sybaseASE: run verify action during start action only\n- azure-events: handle exceptions in urlopen\n\n  Resolves: rhbz#1846732\n  Resolves: rhbz#1848673\n  Resolves: rhbz#1862121\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2021 Oracle, Inc.",
+			"issued": {
+				"date": "2021-11-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-11078",
+					"href": "https://linux.oracle.com/cve/CVE-2020-11078.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205004003",
+										"comment": "resource-agents is earlier than 0:4.1.1-61.el7_9.4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20205004004",
+										"comment": "resource-agents is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20205004002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205004003",
+												"comment": "resource-agents is earlier than 0:4.1.1-61.el7_9.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205004004",
+												"comment": "resource-agents is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205004006",
+												"comment": "resource-agents-aliyun is earlier than 0:4.1.1-61.el7_9.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205004007",
+												"comment": "resource-agents-aliyun is signed with the Oracle Linux 7 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205004008",
+												"comment": "resource-agents-gcp is earlier than 0:4.1.1-61.el7_9.4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20205004009",
+												"comment": "resource-agents-gcp is signed with the Oracle Linux 7 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20205004005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20205004001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

@@ -1,0 +1,75 @@
+{
+	"id": "oval:com.oracle.elsa:def:20229427",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2022-9427:  Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2022-9427",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2022-9427.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-21499",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-21499.html"
+			}
+		],
+		"description": "\n[4.14.35-2047.513.2.2.el7]\n- debug: Lock down kgdb (Stephen Brennan)  [Orabug: 34152700]  {CVE-2022-21499}\n\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2022 Oracle, Inc.",
+			"issued": {
+				"date": "2022-05-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-21499",
+					"href": "https://linux.oracle.com/cve/CVE-2022-21499.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229427003",
+								"comment": "kernel-uek-container is earlier than 0:4.14.35-2047.513.2.2.el7"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20229427004",
+								"comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20229427002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20229427001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}
