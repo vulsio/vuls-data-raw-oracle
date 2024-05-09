@@ -1,0 +1,267 @@
+{
+	"id": "oval:com.oracle.elsa:def:202412364",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-12364: gnutls security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-12364",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-12364.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28834",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-28834.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28835",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-28835.html"
+			}
+		],
+		"description": "\n[3.8.3-4_fips]\n- Add FIPS package change: add fips suffix to Release and\n  set Epoch to 10 [Orabug: 35925409]\n- Update FIPS module name for Oracle Linux [Orabug: 35925409]\n\n[3.8.3-4]\n- Bump release to ensure el9 package is greater than el9_* packages\n\n[3.8.3-3]\n- Bump release to ensure el9 package is greater than el9_* packages\n\n[3.8.3-2]\n- Fix timing side-channel in deterministic ECDSA (RHEL-28959)\n- Fix potential crash during chain building/verification (RHEL-28954)\n\n[3.8.3-1]\n- Update to gnutls 3.8.3 (RHEL-14891)\n\n[3.8.2-3]\n- Skip KTLS test exercising ChaCha20-Poly1305 in TLS 1.3 as well (RHEL-18498)\n\n[3.8.2-2]\n- Bump nettle dependency to 3.9.1\n- Skip KTLS test exercising ChaCha20-Poly1305 in TLS 1.2 (RHEL-18498)\n\n[3.8.2-1]\n- Update to gnutls 3.8.2 (RHEL-14891)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-08"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-28834",
+					"href": "https://linux.oracle.com/cve/CVE-2024-28834.html"
+				},
+				{
+					"text": "CVE-2024-28835",
+					"href": "https://linux.oracle.com/cve/CVE-2024-28835.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364003",
+												"comment": "gnutls is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364004",
+												"comment": "gnutls is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364005",
+												"comment": "gnutls is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364006",
+												"comment": "gnutls-c++ is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364007",
+												"comment": "gnutls-c++ is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364008",
+												"comment": "gnutls-c++ is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364009",
+												"comment": "gnutls-dane is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364010",
+												"comment": "gnutls-dane is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364011",
+												"comment": "gnutls-dane is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364012",
+												"comment": "gnutls-devel is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364013",
+												"comment": "gnutls-devel is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364014",
+												"comment": "gnutls-devel is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364015",
+												"comment": "gnutls-utils is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364016",
+												"comment": "gnutls-utils is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364017",
+												"comment": "gnutls-utils is fips patched"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412364002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364003",
+												"comment": "gnutls is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364004",
+												"comment": "gnutls is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364005",
+												"comment": "gnutls is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364006",
+												"comment": "gnutls-c++ is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364007",
+												"comment": "gnutls-c++ is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364008",
+												"comment": "gnutls-c++ is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364009",
+												"comment": "gnutls-dane is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364010",
+												"comment": "gnutls-dane is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364011",
+												"comment": "gnutls-dane is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364012",
+												"comment": "gnutls-devel is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364013",
+												"comment": "gnutls-devel is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364014",
+												"comment": "gnutls-devel is fips patched"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364015",
+												"comment": "gnutls-utils is earlier than 10:3.8.3-4.el9_4_fips"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364016",
+												"comment": "gnutls-utils is signed with the Oracle Linux 9 key"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412364017",
+												"comment": "gnutls-utils is fips patched"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412364018",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202412364001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
