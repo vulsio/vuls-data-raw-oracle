@@ -1,0 +1,166 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243127",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3127:  zziplib security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3127",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3127.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2020-18770",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2020-18770.html"
+			}
+		],
+		"description": "\n[0.13.68-13]\n- Fix CVE-2020-18770\n  Previous patch contained segfault bug\n  Resolves: RHEL-14966\n\n[0.13.68-12]\n- Add the gating tests from the 8.8.0 branch\n  Resolves: RHEL-24429\n\n[0.13.68-11]\n- Use /usr/libexec/platform-python macro during the config phase (used for doc generation)\n  Resolves: RHEL-22880\n\n[0.13.68-10]\n- Fix CVE-2020-18770\n  Resolves: RHEL-14966\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2020-18770",
+					"href": "https://linux.oracle.com/cve/CVE-2020-18770.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127003",
+												"comment": "zziplib-devel is earlier than 0:0.13.68-13.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127004",
+												"comment": "zziplib-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127005",
+												"comment": "zziplib is earlier than 0:0.13.68-13.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127006",
+												"comment": "zziplib is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127007",
+												"comment": "zziplib-utils is earlier than 0:0.13.68-13.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127008",
+												"comment": "zziplib-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243127002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127003",
+												"comment": "zziplib-devel is earlier than 0:0.13.68-13.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127004",
+												"comment": "zziplib-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127007",
+												"comment": "zziplib-utils is earlier than 0:0.13.68-13.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127008",
+												"comment": "zziplib-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127005",
+												"comment": "zziplib is earlier than 0:0.13.68-13.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243127006",
+												"comment": "zziplib is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243127009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243127001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

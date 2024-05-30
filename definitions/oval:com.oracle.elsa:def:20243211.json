@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243211",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3211:  traceroute security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3211",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3211.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46316",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-46316.html"
+			}
+		],
+		"description": "\n[3:2.1.0-8]\n- add gating.yaml\n\n[3:2.1.0-7]\n- fix improper command line parsing (CVE-2023-46316)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-46316",
+					"href": "https://linux.oracle.com/cve/CVE-2023-46316.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243211003",
+										"comment": "traceroute is earlier than 3:2.1.0-8.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243211004",
+										"comment": "traceroute is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243211002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243211003",
+										"comment": "traceroute is earlier than 3:2.1.0-8.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243211004",
+										"comment": "traceroute is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243211005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243211001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

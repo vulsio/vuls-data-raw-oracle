@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243139",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3139:  squashfs-tools security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3139",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3139.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-40153",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-40153.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-41072",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-41072.html"
+			}
+		],
+		"description": "\n[4.3-21]\n- CVE-2021-41072 squashfs-tools: additional write outside destination directory exploit fix\n  CVE-2021-40153 squashfs-tools: unvalidated filepaths allow writing outside of destination\n  Resolves: rhbz#2007303 rhbz#2000637\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-40153",
+					"href": "https://linux.oracle.com/cve/CVE-2021-40153.html"
+				},
+				{
+					"text": "CVE-2021-41072",
+					"href": "https://linux.oracle.com/cve/CVE-2021-41072.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243139003",
+										"comment": "squashfs-tools is earlier than 0:4.3-21.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243139004",
+										"comment": "squashfs-tools is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243139002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243139003",
+										"comment": "squashfs-tools is earlier than 0:4.3-21.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243139004",
+										"comment": "squashfs-tools is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243139005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243139001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

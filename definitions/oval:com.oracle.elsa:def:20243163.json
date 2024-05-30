@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243163",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3163:  pam security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3163",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3163.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-22365",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-22365.html"
+			}
+		],
+		"description": "\n[1.3.1-33]\n- pam_namespace: protect_dir(): use O_DIRECTORY to prevent local DoS\n  situations. CVE-2024-22365. Resolves: RHEL-21242\n\n[1.3.1-32]\n- pam_access: handle hostnames in access.conf. Resolves: RHEL-3374\n\n[1.3.1-31]\n- pam_faillock: create tallydir before creating tallyfile. Resolves: RHEL-19810\n\n[1.3.1-30]\n- pam_unix: enable bcrypt. Resolves: RHEL-5057\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-22365",
+					"href": "https://linux.oracle.com/cve/CVE-2024-22365.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163003",
+												"comment": "pam is earlier than 0:1.3.1-33.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163004",
+												"comment": "pam is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163005",
+												"comment": "pam-devel is earlier than 0:1.3.1-33.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163006",
+												"comment": "pam-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243163002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163003",
+												"comment": "pam is earlier than 0:1.3.1-33.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163004",
+												"comment": "pam is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163005",
+												"comment": "pam-devel is earlier than 0:1.3.1-33.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243163006",
+												"comment": "pam-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243163007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243163001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

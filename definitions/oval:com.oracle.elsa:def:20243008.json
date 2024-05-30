@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243008",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3008:  pmix security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3008",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3008.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-41915",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-41915.html"
+			}
+		],
+		"description": "\n[2.2.5-3]\n- Add gating test\n- Resolves: RHEL-3692\n\n[2.2.5-2]\n- Fix CVE-2023-41915\n- Resolves: RHEL-3692\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-41915",
+					"href": "https://linux.oracle.com/cve/CVE-2023-41915.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008003",
+												"comment": "pmix is earlier than 0:2.2.5-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008004",
+												"comment": "pmix is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008005",
+												"comment": "pmix-devel is earlier than 0:2.2.5-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008006",
+												"comment": "pmix-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243008002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008003",
+												"comment": "pmix is earlier than 0:2.2.5-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008004",
+												"comment": "pmix is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008005",
+												"comment": "pmix-devel is earlier than 0:2.2.5-3.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243008006",
+												"comment": "pmix-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243008007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243008001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

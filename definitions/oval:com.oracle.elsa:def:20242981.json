@@ -1,0 +1,176 @@
+{
+	"id": "oval:com.oracle.elsa:def:20242981",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-2981:  frr security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-2981",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-2981.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46752",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-46752.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-41909",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-41909.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-41358",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-41358.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-31490",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-31490.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-46753",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-46753.html"
+			}
+		],
+		"description": "\n[7.5.1-22.0.1]\n- Fix POSTIN scriptlet [Orabug: 34712485]\n- Resolves: RHEL-15916 - Flowspec overflow in bgpd/bgp_flowspec.c\n- Resolves: RHEL-15919 - Out of bounds read in bgpd/bgp_label.c\n- Resolves: RHEL-15869 - crash from specially crafted MP_UNREACH_NLRI-containing BGP UPDATE message\n- Resolves: RHEL-15868 - crash from malformed EOR-containing BGP UPDATE message\n\n[7.5.1-22]\n- Resolves: RHEL-22303 - Zebra not fetching host routes\n\n[7.5.1-21]\n- Resolves: RHEL-2216 - NULL pointer dereference\n\n[7.5.1-20]\n- Resolves: RHEL-4797 - missing length check in bgp_attr_psid_sub() can lead do DoS\n\n[7.5.1-19]\n- Resolves: RHEL-14824 - crafted BGP UPDATE message leading to a crash\n\n[7.5.1-18]\n- Resolves: RHEL-14821 - mishandled malformed data leading to a crash\n\n[7.5.1-17]\n- Resolves: RHEL-6583 - Routes are not refreshed after changing the inbound route rules from deny to permit\n\n[7.5.1-16]\n- Resolves: RHEL-15916 - Flowspec overflow in bgpd/bgp_flowspec.c\n- Resolves: RHEL-15919 - Out of bounds read in bgpd/bgp_label.c\n- Resolves: RHEL-15869 - crash from specially crafted MP_UNREACH_NLRI-containing BGP UPDATE message\n- Resolves: RHEL-15868 - crash from malformed EOR-containing BGP UPDATE message\n\n[7.5.1-15]\n- Resolves: RHEL-12039 - crash in plist update\n\n[7.5.1-14]\n- Resolves: RHEL-6617 - Incorrect handling of a error in parsing of an invalid section of a BGP update can de-peer a router\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-46752",
+					"href": "https://linux.oracle.com/cve/CVE-2023-46752.html"
+				},
+				{
+					"text": "CVE-2023-41909",
+					"href": "https://linux.oracle.com/cve/CVE-2023-41909.html"
+				},
+				{
+					"text": "CVE-2023-41358",
+					"href": "https://linux.oracle.com/cve/CVE-2023-41358.html"
+				},
+				{
+					"text": "CVE-2023-31490",
+					"href": "https://linux.oracle.com/cve/CVE-2023-31490.html"
+				},
+				{
+					"text": "CVE-2023-46753",
+					"href": "https://linux.oracle.com/cve/CVE-2023-46753.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981003",
+												"comment": "frr is earlier than 0:7.5.1-22.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981004",
+												"comment": "frr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981005",
+												"comment": "frr-selinux is earlier than 0:7.5.1-22.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981006",
+												"comment": "frr-selinux is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242981002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981003",
+												"comment": "frr is earlier than 0:7.5.1-22.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981004",
+												"comment": "frr is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981005",
+												"comment": "frr-selinux is earlier than 0:7.5.1-22.0.1.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242981006",
+												"comment": "frr-selinux is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242981007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20242981001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

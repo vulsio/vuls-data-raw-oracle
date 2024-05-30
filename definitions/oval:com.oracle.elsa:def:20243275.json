@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243275",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3275:  python-dns security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3275",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3275.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-29483",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-29483.html"
+			}
+		],
+		"description": "\n[1.15.0-12]\n- Security fix for CVE-2023-29483\nResolves: RHEL-32630\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-29"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-29483",
+					"href": "https://linux.oracle.com/cve/CVE-2023-29483.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243275003",
+										"comment": "python3-dns is earlier than 0:1.15.0-12.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243275004",
+										"comment": "python3-dns is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243275002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243275003",
+										"comment": "python3-dns is earlier than 0:1.15.0-12.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20243275004",
+										"comment": "python3-dns is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243275005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243275001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}

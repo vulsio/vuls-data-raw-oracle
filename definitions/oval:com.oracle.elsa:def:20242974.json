@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:20242974",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-2974:  libXpm security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-2974",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-2974.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-43788",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-43788.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-43789",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-43789.html"
+			}
+		],
+		"description": "\n[3.5.12-11]\n- Drop hardening patches from previous version to keep ABI compatibility\n\n[3.5.12-10]\n- CVE-2023-43786 libX11: stack exhaustion from infinite recursion\n  in PutSubImage()\n- CVE-2023-43787 libX11: integer overflow in XCreateImage() leading to\n  a heap overflow\n- CVE-2023-43788 libXpm: out of bounds read in XpmCreateXpmImageFromBuffer()\n- CVE-2023-43789 libXpm: out of bounds read on XPM with corrupted colormap\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-43788",
+					"href": "https://linux.oracle.com/cve/CVE-2023-43788.html"
+				},
+				{
+					"text": "CVE-2023-43789",
+					"href": "https://linux.oracle.com/cve/CVE-2023-43789.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974003",
+												"comment": "libXpm is earlier than 0:3.5.12-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974004",
+												"comment": "libXpm is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974005",
+												"comment": "libXpm-devel is earlier than 0:3.5.12-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974006",
+												"comment": "libXpm-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242974002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974003",
+												"comment": "libXpm is earlier than 0:3.5.12-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974004",
+												"comment": "libXpm is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974005",
+												"comment": "libXpm-devel is earlier than 0:3.5.12-11.el8"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20242974006",
+												"comment": "libXpm-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20242974007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20242974001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
