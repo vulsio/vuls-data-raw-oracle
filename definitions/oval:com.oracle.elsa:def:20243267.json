@@ -1,0 +1,1331 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243267",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3267:  idm:DL1 and idm:client security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3267",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3267.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28102",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-28102.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-6681",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-6681.html"
+			}
+		],
+		"description": "\nbind-dyndb-ldap\ncustodia\nipa\n[4.9.13-9.0.1]\n- Set IPAPLATFORM=rhel when build on Oracle Linux [Orabug: 29516674]\n\n[9.4.13-9]\n- dcerpc: invalidate forest trust intfo cache when filtering out realm domains\n  Resolves: RHEL-28559\n- Backport latests test fixes in python3-tests\n  ipatests: add xfail for autoprivate group test with override\n  ipatests: remove xfail thanks to sssd 2.9.4\n  ipatests: adapt for new automembership fixup behavior\n  ipatests: Fixes for test_ipahealthcheck_ipansschainvalidation testcases\n  test_xmlrpc: adopt to automember plugin message changes in 389-ds\n  Resolves: RHEL-29908\n\nipa-healthcheck\nopendnssec\npython-jwcrypto\n[0.5.0-2]\n- Address potential DoS with high compression ratio\n  Resolves: RHEL-28697\n- Limit number of iterations for PBES\n  Resolves: RHEL-23036 RHEL-23037\n\npython-kdcproxy\npython-qrcode\npython-yubico\npyusb\nslapi-nis\nsofthsm\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-05-29"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-28102",
+					"href": "https://linux.oracle.com/cve/CVE-2024-28102.html"
+				},
+				{
+					"text": "CVE-2023-6681",
+					"href": "https://linux.oracle.com/cve/CVE-2023-6681.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterias": [
+											{
+												"operator": "OR",
+												"criterias": [
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267004",
+																"comment": "bind-dyndb-ldap is earlier than 0:11.6-5.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267005",
+																"comment": "bind-dyndb-ldap is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267006",
+																"comment": "custodia is earlier than 0:0.6.0-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267007",
+																"comment": "custodia is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267008",
+																"comment": "ipa-client is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267009",
+																"comment": "ipa-client is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267010",
+																"comment": "ipa-client-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267011",
+																"comment": "ipa-client-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267012",
+																"comment": "ipa-client-epn is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267013",
+																"comment": "ipa-client-epn is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267014",
+																"comment": "ipa-client-samba is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267015",
+																"comment": "ipa-client-samba is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267016",
+																"comment": "ipa-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267017",
+																"comment": "ipa-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267018",
+																"comment": "ipa-healthcheck is earlier than 0:0.12-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267019",
+																"comment": "ipa-healthcheck is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267020",
+																"comment": "ipa-healthcheck-core is earlier than 0:0.12-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267021",
+																"comment": "ipa-healthcheck-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267022",
+																"comment": "ipa-python-compat is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267023",
+																"comment": "ipa-python-compat is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267024",
+																"comment": "ipa-selinux is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267025",
+																"comment": "ipa-selinux is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267026",
+																"comment": "ipa-server is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267027",
+																"comment": "ipa-server is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267028",
+																"comment": "ipa-server-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267029",
+																"comment": "ipa-server-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267030",
+																"comment": "ipa-server-dns is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267031",
+																"comment": "ipa-server-dns is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267032",
+																"comment": "ipa-server-trust-ad is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267033",
+																"comment": "ipa-server-trust-ad is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267034",
+																"comment": "opendnssec is earlier than 0:2.1.7-1.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267035",
+																"comment": "opendnssec is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267036",
+																"comment": "python3-custodia is earlier than 0:0.6.0-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267037",
+																"comment": "python3-custodia is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267038",
+																"comment": "python3-ipaclient is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267039",
+																"comment": "python3-ipaclient is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267040",
+																"comment": "python3-ipalib is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267041",
+																"comment": "python3-ipalib is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267042",
+																"comment": "python3-ipaserver is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267043",
+																"comment": "python3-ipaserver is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267044",
+																"comment": "python3-ipatests is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267045",
+																"comment": "python3-ipatests is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267046",
+																"comment": "python3-jwcrypto is earlier than 0:0.5.0-2.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267047",
+																"comment": "python3-jwcrypto is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267048",
+																"comment": "python3-kdcproxy is earlier than 0:0.4-5.module+el8.9.0+90122+3305dc1d"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267049",
+																"comment": "python3-kdcproxy is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267050",
+																"comment": "python3-pyusb is earlier than 0:1.0.0-9.1.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267051",
+																"comment": "python3-pyusb is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267052",
+																"comment": "python3-qrcode is earlier than 0:5.1-12.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267053",
+																"comment": "python3-qrcode is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267054",
+																"comment": "python3-qrcode-core is earlier than 0:5.1-12.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267055",
+																"comment": "python3-qrcode-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267056",
+																"comment": "python3-yubico is earlier than 0:1.3.2-9.1.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267057",
+																"comment": "python3-yubico is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267058",
+																"comment": "softhsm is earlier than 0:2.6.0-5.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267059",
+																"comment": "softhsm is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267060",
+																"comment": "softhsm-devel is earlier than 0:2.6.0-5.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267061",
+																"comment": "softhsm-devel is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267062",
+																"comment": "slapi-nis is earlier than 0:0.60.0-4.module+el8.10.0+90297+bfe93ccc"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267063",
+																"comment": "slapi-nis is signed with the Oracle Linux 8 key"
+															}
+														]
+													}
+												]
+											}
+										],
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243267003",
+												"comment": "Module idm:DL1 is enabled"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterias": [
+											{
+												"operator": "OR",
+												"criterias": [
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267065",
+																"comment": "ipa-client is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267066",
+																"comment": "ipa-client is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267067",
+																"comment": "ipa-client-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267068",
+																"comment": "ipa-client-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267069",
+																"comment": "ipa-client-epn is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267070",
+																"comment": "ipa-client-epn is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267071",
+																"comment": "ipa-client-samba is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267072",
+																"comment": "ipa-client-samba is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267073",
+																"comment": "ipa-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267074",
+																"comment": "ipa-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267075",
+																"comment": "ipa-healthcheck-core is earlier than 0:0.12-3.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267076",
+																"comment": "ipa-healthcheck-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267077",
+																"comment": "ipa-python-compat is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267078",
+																"comment": "ipa-python-compat is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267079",
+																"comment": "ipa-selinux is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267080",
+																"comment": "ipa-selinux is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267081",
+																"comment": "python3-ipaclient is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267082",
+																"comment": "python3-ipaclient is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267083",
+																"comment": "python3-ipalib is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267084",
+																"comment": "python3-ipalib is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267085",
+																"comment": "python3-jwcrypto is earlier than 0:0.5.0-2.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267086",
+																"comment": "python3-jwcrypto is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267087",
+																"comment": "python3-pyusb is earlier than 0:1.0.0-9.1.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267088",
+																"comment": "python3-pyusb is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267089",
+																"comment": "python3-qrcode is earlier than 0:5.1-12.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267090",
+																"comment": "python3-qrcode is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267091",
+																"comment": "python3-qrcode-core is earlier than 0:5.1-12.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267092",
+																"comment": "python3-qrcode-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267093",
+																"comment": "python3-yubico is earlier than 0:1.3.2-9.1.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267094",
+																"comment": "python3-yubico is signed with the Oracle Linux 8 key"
+															}
+														]
+													}
+												]
+											}
+										],
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243267064",
+												"comment": "Module idm:client is enabled"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243267002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterias": [
+											{
+												"operator": "OR",
+												"criterias": [
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267004",
+																"comment": "bind-dyndb-ldap is earlier than 0:11.6-5.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267005",
+																"comment": "bind-dyndb-ldap is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267006",
+																"comment": "custodia is earlier than 0:0.6.0-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267007",
+																"comment": "custodia is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267008",
+																"comment": "ipa-client is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267009",
+																"comment": "ipa-client is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267010",
+																"comment": "ipa-client-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267011",
+																"comment": "ipa-client-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267012",
+																"comment": "ipa-client-epn is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267013",
+																"comment": "ipa-client-epn is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267014",
+																"comment": "ipa-client-samba is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267015",
+																"comment": "ipa-client-samba is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267016",
+																"comment": "ipa-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267017",
+																"comment": "ipa-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267018",
+																"comment": "ipa-healthcheck is earlier than 0:0.12-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267019",
+																"comment": "ipa-healthcheck is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267020",
+																"comment": "ipa-healthcheck-core is earlier than 0:0.12-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267021",
+																"comment": "ipa-healthcheck-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267022",
+																"comment": "ipa-python-compat is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267023",
+																"comment": "ipa-python-compat is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267024",
+																"comment": "ipa-selinux is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267025",
+																"comment": "ipa-selinux is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267026",
+																"comment": "ipa-server is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267027",
+																"comment": "ipa-server is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267028",
+																"comment": "ipa-server-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267029",
+																"comment": "ipa-server-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267030",
+																"comment": "ipa-server-dns is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267031",
+																"comment": "ipa-server-dns is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267032",
+																"comment": "ipa-server-trust-ad is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267033",
+																"comment": "ipa-server-trust-ad is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267034",
+																"comment": "opendnssec is earlier than 0:2.1.7-1.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267035",
+																"comment": "opendnssec is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267036",
+																"comment": "python3-custodia is earlier than 0:0.6.0-3.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267037",
+																"comment": "python3-custodia is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267038",
+																"comment": "python3-ipaclient is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267039",
+																"comment": "python3-ipaclient is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267040",
+																"comment": "python3-ipalib is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267041",
+																"comment": "python3-ipalib is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267042",
+																"comment": "python3-ipaserver is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267043",
+																"comment": "python3-ipaserver is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267044",
+																"comment": "python3-ipatests is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267045",
+																"comment": "python3-ipatests is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267046",
+																"comment": "python3-jwcrypto is earlier than 0:0.5.0-2.module+el8.10.0+90339+985471f7"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267047",
+																"comment": "python3-jwcrypto is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267048",
+																"comment": "python3-kdcproxy is earlier than 0:0.4-5.module+el8.9.0+90122+3305dc1d"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267049",
+																"comment": "python3-kdcproxy is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267050",
+																"comment": "python3-pyusb is earlier than 0:1.0.0-9.1.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267051",
+																"comment": "python3-pyusb is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267052",
+																"comment": "python3-qrcode is earlier than 0:5.1-12.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267053",
+																"comment": "python3-qrcode is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267054",
+																"comment": "python3-qrcode-core is earlier than 0:5.1-12.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267055",
+																"comment": "python3-qrcode-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267056",
+																"comment": "python3-yubico is earlier than 0:1.3.2-9.1.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267057",
+																"comment": "python3-yubico is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267058",
+																"comment": "softhsm is earlier than 0:2.6.0-5.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267059",
+																"comment": "softhsm is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267060",
+																"comment": "softhsm-devel is earlier than 0:2.6.0-5.module+el8.9.0+90094+20819f5a"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267061",
+																"comment": "softhsm-devel is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267062",
+																"comment": "slapi-nis is earlier than 0:0.60.0-4.module+el8.10.0+90297+bfe93ccc"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267063",
+																"comment": "slapi-nis is signed with the Oracle Linux 8 key"
+															}
+														]
+													}
+												]
+											}
+										],
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243267003",
+												"comment": "Module idm:DL1 is enabled"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterias": [
+											{
+												"operator": "OR",
+												"criterias": [
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267065",
+																"comment": "ipa-client is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267066",
+																"comment": "ipa-client is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267067",
+																"comment": "ipa-client-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267068",
+																"comment": "ipa-client-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267069",
+																"comment": "ipa-client-epn is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267070",
+																"comment": "ipa-client-epn is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267071",
+																"comment": "ipa-client-samba is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267072",
+																"comment": "ipa-client-samba is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267073",
+																"comment": "ipa-common is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267074",
+																"comment": "ipa-common is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267075",
+																"comment": "ipa-healthcheck-core is earlier than 0:0.12-3.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267076",
+																"comment": "ipa-healthcheck-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267077",
+																"comment": "ipa-python-compat is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267078",
+																"comment": "ipa-python-compat is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267079",
+																"comment": "ipa-selinux is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267080",
+																"comment": "ipa-selinux is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267081",
+																"comment": "python3-ipaclient is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267082",
+																"comment": "python3-ipaclient is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267083",
+																"comment": "python3-ipalib is earlier than 0:4.9.13-9.0.1.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267084",
+																"comment": "python3-ipalib is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267085",
+																"comment": "python3-jwcrypto is earlier than 0:0.5.0-2.module+el8.10.0+90340+9faa45ba"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267086",
+																"comment": "python3-jwcrypto is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267087",
+																"comment": "python3-pyusb is earlier than 0:1.0.0-9.1.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267088",
+																"comment": "python3-pyusb is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267089",
+																"comment": "python3-qrcode is earlier than 0:5.1-12.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267090",
+																"comment": "python3-qrcode is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267091",
+																"comment": "python3-qrcode-core is earlier than 0:5.1-12.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267092",
+																"comment": "python3-qrcode-core is signed with the Oracle Linux 8 key"
+															}
+														]
+													},
+													{
+														"operator": "AND",
+														"criterions": [
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267093",
+																"comment": "python3-yubico is earlier than 0:1.3.2-9.1.module+el8.9.0+90095+d672673c"
+															},
+															{
+																"test_ref": "oval:com.oracle.elsa:tst:20243267094",
+																"comment": "python3-yubico is signed with the Oracle Linux 8 key"
+															}
+														]
+													}
+												]
+											}
+										],
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243267064",
+												"comment": "Module idm:client is enabled"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243267095",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243267001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
