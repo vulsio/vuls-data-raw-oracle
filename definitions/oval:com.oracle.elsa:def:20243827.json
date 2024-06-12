@@ -1,0 +1,158 @@
+{
+	"id": "oval:com.oracle.elsa:def:20243827",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-3827:  buildah security and bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-3827",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-3827.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45290",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-45290.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28180",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-28180.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-28176",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-28176.html"
+			}
+		],
+		"description": "\n[1.33.7-2.0.1]\n- Drop nmap-ncat requirement and skip ignore-socket test case [Orabug: 34117178]\n\n[2:1.33.7-2]\n- update to the latest content of https://github.com/containers/buildah/tree/release-1.33\n  (https://github.com/containers/buildah/commit/997beea)\n- Resolves: RHEL-28731\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-06-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-45290",
+					"href": "https://linux.oracle.com/cve/CVE-2023-45290.html"
+				},
+				{
+					"text": "CVE-2024-28180",
+					"href": "https://linux.oracle.com/cve/CVE-2024-28180.html"
+				},
+				{
+					"text": "CVE-2024-28176",
+					"href": "https://linux.oracle.com/cve/CVE-2024-28176.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827003",
+												"comment": "buildah is earlier than 2:1.33.7-2.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827004",
+												"comment": "buildah is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827005",
+												"comment": "buildah-tests is earlier than 2:1.33.7-2.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827006",
+												"comment": "buildah-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243827002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827003",
+												"comment": "buildah is earlier than 2:1.33.7-2.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827004",
+												"comment": "buildah is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827005",
+												"comment": "buildah-tests is earlier than 2:1.33.7-2.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20243827006",
+												"comment": "buildah-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20243827007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20243827001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
