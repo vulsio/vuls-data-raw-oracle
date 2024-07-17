@@ -1,0 +1,3109 @@
+{
+	"id": "oval:com.oracle.elsa:def:202412536",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-12536: virt:kvm_utils3 bug fix update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-12536",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-12536.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1441",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-1441.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-3447",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-3447.html"
+			}
+		],
+		"description": "\nhivex\nlibguestfs\nlibguestfs-winsupport\nlibiscsi\nlibnbd\nlibtpms\nlibvirt\n[9.0.0-5.el8]\n- Fix off-by-one error in udevListInterfacesByStatus (Martin Kletzander) [Orabug: 36364464] {CVE-2024-1441} \n\nlibvirt-dbus\nlibvirt-python\nnbdkit\nnetcf\nperl-Sys-Virt\nqemu-kvm\n[7.2.0-13]\n- vfio/migration: Enhance VFIO migration state tracing (Avihai Horon)\n- vfio/migration: Don't emit STOP_COPY VFIO migration QAPI event twice (Avihai Horon)\n- vfio/migration: Emit VFIO migration QAPI event (Avihai Horon)\n- qapi/vfio: Add VFIO migration QAPI event (Avihai Horon)\n- migration/multifd: solve zero page causing multiple page faults (Yuan Liu) [Orabug: 36727051]\n- multifd: Add the ramblock to MultiFDRecvParams (Lukas Straub) [Orabug: 36727051]\n- migration: Fix qmp_query_migrate mbps value (Fabiano Rosas) [Orabug: 36727104]\n- migration: Allow user to specify available switchover bandwidth (Peter Xu) [Orabug: 35636284]\n- migration/dirtyrate: Fix precision losses and g_usleep overshoot (Andrei Gudkov) [Orabug: 36727091]\n- Use new created qemu_target_pages_to_MiB() (Juan Quintela) [Orabug: 36727091]\n- softmmu: Create qemu_target_pages_to_MiB() (Juan Quintela) [Orabug: 36727091]\n- migration/calc-dirty-rate: replaced CRC32 with xxHash (Andrei Gudkov) [Orabug: 36727063]\n- migration/multifd: Enable multifd zero page checking by default. (Hao Xiang) [Orabug: 34131170]\n- migration/multifd: Implement ram_save_target_page_multifd to handle multifd version of MigrationOps::ram_save_target_page. (Hao Xiang) [Orabug: 34131170]\n- migration/multifd: Implement zero page transmission on the multifd thread. (Hao Xiang) [Orabug: 34131170]\n- migration/multifd: Add new migration option zero-page-detection. (Hao Xiang) [Orabug: 34131170]\n- migration: Make ram_save_target_page() a pointer (Juan Quintela) [Orabug: 34131170]\n- migration: Yield bitmap_mutex properly when sending/sleeping (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Add a synchronization point for channel creation (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Unify multifd and TLS connection paths (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Move multifd_send_setup into migration thread (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Move multifd_send_setup error handling in to the function (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Remove p->running (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Optimize sender side to be lockless (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Join the TLS thread (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Fix MultiFDSendParams.packet_num race (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Stick with send/recv on function names (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Cleanup multifd_load_cleanup() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Cleanup multifd_save_cleanup() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Rewrite multifd_queue_page() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Change retval of multifd_send_pages() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Change retval of multifd_queue_page() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Split multifd_send_terminate_threads() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Forbid spurious wakeups (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Move header prepare/fill into send_prepare() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: multifd_send_prepare_header() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Move trace_multifd_send|recv() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Move total_normal_pages accounting (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Rename p->num_packets and clean it up (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Drop pages->num check in sender thread (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Simplify locking in sender thread (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Separate SYNC request with normal jobs (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Drop MultiFDSendParams.normal[] array (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Postpone reset of MultiFDPages_t (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Remove MultiFDPages_t::packet_num (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Drop MultiFDSendParams.quit, cleanup error paths (Peter Xu) [Orabug: 34131170]\n- migration/multifd: multifd_send_kick_main() (Peter Xu) [Orabug: 34131170]\n- migration/multifd: Fix leaking of Error in TLS error flow (Avihai Horon) [Orabug: 34131170]\n- migration/ram: Merge save_zero_page functions (Fabiano Rosas) [Orabug: 34131170]\n- migration/ram: Move xbzrle zero page handling into save_zero_page (Fabiano Rosas) [Orabug: 34131170]\n- migration/multifd: Stop setting p->ioc before connecting (Fabiano Rosas) [Orabug: 34131170]\n- migration: Centralize BH creation and dispatch (Fabiano Rosas) [Orabug: 34131170]\n- migration: Add a wrapper to qemu_bh_schedule (Fabiano Rosas) [Orabug: 34131170]\n- migration: Remove transferred atomic counter (Juan Quintela) [Orabug: 35636284]\n- migration: Use migration_transferred_bytes() (Juan Quintela) [Orabug: 35636284]\n- migration: migration_rate_limit_reset() don't need the QEMUFile (Juan Quintela) [Orabug: 35636284]\n- migration: migration_transferred_bytes() don't need the QEMUFile (Juan Quintela) [Orabug: 35636284]\n- multifd: reset next_packet_len after sending pages (Elena Ufimtseva) [Orabug: 35636284]\n- multifd: fix counters in multifd_send_thread (Elena Ufimtseva) [Orabug: 35636284]\n- migration/multifd: Compute transferred bytes correctly (Juan Quintela) [Orabug: 35636284]\n- migration: check for rate_limit_max for RATE_LIMIT_DISABLED (Elena Ufimtseva) [Orabug: 35636284]\n- migration: Use the number of transferred bytes directly (Juan Quintela) [Orabug: 35636284]\n- qemu_file: Use a stat64 for qemu_file_transferred (Juan Quintela) [Orabug: 35636284]\n- migration: set file error on subsection loading (Marc-Andre Lureau) [Orabug: 35636284]\n- migration: Receiving a zero page non zero is an error (Juan Quintela) [Orabug: 35636284]\n- migration/multifd: Stop checking p->quit in multifd_send_thread (Fabiano Rosas) [Orabug: 35636284]\n- migration/multifd: Clarify Error usage in multifd_channel_connect (Fabiano Rosas) [Orabug: 35636284]\n- multifd: cleanup the function multifd_channel_connect (Li Zhang) [Orabug: 35636284]\n- migration/multifd: Unify multifd_send_thread error paths (Fabiano Rosas) [Orabug: 35636284]\n- migration: Non multifd migration don't care about multifd flushes (Juan Quintela) [Orabug: 35636284]\n- migration: fix RAMBlock add NULL check (Dmitry Frolov) [Orabug: 35829153]\n- migration: We don't need the field rate_limit_used anymore (Juan Quintela) [Orabug: 35636284]\n- migration: Use migration_transferred_bytes() to calculate rate_limit (Juan Quintela) [Orabug: 35636284]\n- migration: Add a trace for migration_transferred_bytes (Juan Quintela) [Orabug: 35636284]\n- migration: Move migration_total_bytes() to migration-stats.c (Juan Quintela) [Orabug: 35636284]\n- qemu-file: Remove total from qemu_file_total_transferred_*() (Juan Quintela) [Orabug: 35636284]\n- migration: Move rate_limit_max and rate_limit_used to migration_stats (Juan Quintela) [Orabug: 35636284]\n- qemu-file: Account for rate_limit usage on qemu_fflush() (Juan Quintela) [Orabug: 35636284]\n- migration: Don't use INT64_MAX for unlimited rate (Juan Quintela) [Orabug: 35636284]\n- qemu-file: Make rate_limit_used an uint64_t (Juan Quintela) [Orabug: 35636284]\n- qemu-file: make qemu_file_[sg]et_rate_limit() use an uint64_t (Juan Quintela) [Orabug: 35636284]\n- migration: We set the rate_limit by a second (Juan Quintela) [Orabug: 35829153]\n- migration: A rate limit value of 0 is valid (Juan Quintela) [Orabug: 35636284]\n- qemu-file: Make ram_control_save_page() use accessors for rate_limit (Juan Quintela) [Orabug: 35636284]\n- qemu-file: Make total_transferred an uint64_t (Juan Quintela) [Orabug: 35636284]\n- qemu-file: No need to check for shutdown in qemu_file_rate_limit (Juan Quintela) [Orabug: 35636284]\n- migration: Document all migration_stats (Juan Quintela) [Orabug: 35636284]\n- multifd: We already account for this packet on the multifd thread (Juan Quintela) [Orabug: 35636284]\n- migration: Make dirty_bytes_last_sync atomic (Juan Quintela) [Orabug: 35636284]\n- migration: Make dirty_pages_rate atomic (Juan Quintela) [Orabug: 35636284]\n- stat64: Add stat64_set() operation (Paolo Bonzini) [Orabug: 35636284]\n- multifd: Only flush once each full round of memory (Juan Quintela) [Orabug: 35636284]\n- migration: Make find_dirty_block() return a single parameter (Juan Quintela) [Orabug: 35636284]\n- migration: Simplify ram_find_and_save_block() (Juan Quintela) [Orabug: 35636284]\n- multifd: Protect multifd_send_sync_main() calls (Juan Quintela) [Orabug: 35636284]\n- multifd: Create property multifd-flush-after-each-section (Juan Quintela) [Orabug: 35636284]\n- multifd: Fix the number of channels ready (Juan Quintela) [Orabug: 35636284]\n- migration: Rename normal to normal_pages (Juan Quintela) [Orabug: 35636284]\n- migration: Rename duplicate to zero_pages (Juan Quintela) [Orabug: 35636284]\n- migration: Make dirty_sync_count atomic (Juan Quintela) [Orabug: 35636284]\n- migration: Make downtime_bytes atomic (Juan Quintela) [Orabug: 35636284]\n- migration: Make precopy_bytes atomic (Juan Quintela) [Orabug: 35636284]\n- migration: Make dirty_sync_missed_zero_copy atomic (Juan Quintela) [Orabug: 35636284]\n- migration: Make multifd_bytes atomic (Juan Quintela) [Orabug: 35636284]\n- migration: Update atomic stats out of the mutex (Juan Quintela) [Orabug: 35636284]\n- migration: Merge ram_counters and ram_atomic_counters (Juan Quintela) [Orabug: 35636284]\n- migration/multifd: correct multifd_send_thread to trace the flags (Wei Wang) [Orabug: 35636284]\n- ram: Document migration ram flags (Juan Quintela) [Orabug: 35636284]\n- migration: Calculate ram size once (Juan Quintela) [Orabug: 35636284]\n- multifd: Fix a race on reading MultiFDPages_t.block (Zhenzhong Duan) [Orabug: 35636284]\n- migration: Use atomic ops properly for page accountings (Peter Xu) [Orabug: 35636284]\n- migration: Export ram_release_page() (Juan Quintela) [Orabug: 35636284]\n- migration: Export ram_transferred_ram() (Juan Quintela) [Orabug: 35636284]\n- multifd: Create page_count fields into both MultiFD{Recv,Send}Params (Juan Quintela) [Orabug: 35636284]\n- multifd: Create page_size fields into both MultiFD{Recv,Send}Params (Juan Quintela) [Orabug: 35636284]\n- migration: Fix migration_channel_read_peek() error path () (Avihai Horon) [Orabug: 36726827]\n- migration/multifd: Remove error_setg() in migration_ioc_process_incoming() (Avihai Horon) [Orabug: 36726827]\n- migration: Refactor migration_incoming_setup() (Avihai Horon) [Orabug: 36726827]\n- migration: check magic value for deciding the mapping of channels (manish.mishra) [Orabug: 36726827]\n- io: Add support for MSG_PEEK for socket channel (manish.mishra) [Orabug: 36726827]\n- hw/sd/sdhci: Do not update TRNMOD when Command Inhibit (DAT) is set (hilippe Mathieu-Daude) [Orabug: 36575206] {CVE-2024-3447}\n- block: lock AioContext in bdrv_replace_child_noperm() when in non-coroutine context (Mark Kanda) [Orabug: 36514180]\n- hw/scsi/scsi-generic: Fix io_timeout property not applying (Lorenz Brun) [Orabug: 36637684]\n- target/i386/monitor: synchronize cpu state for lapic info (Dongli Zhang) [Orabug: 36607747]\n- qemu_init: increase NOFILE soft limit on POSIX (Fiona Ebner) [Orabug: 36416389]\n\nseabios\nsgabios\nsupermin\nswtpm\nvirt-v2v\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-07-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-1441",
+					"href": "https://linux.oracle.com/cve/CVE-2024-1441.html"
+				},
+				{
+					"text": "CVE-2024-3447",
+					"href": "https://linux.oracle.com/cve/CVE-2024-3447.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536004",
+														"comment": "hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536005",
+														"comment": "hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536006",
+														"comment": "hivex-devel is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536007",
+														"comment": "hivex-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536008",
+														"comment": "libguestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536009",
+														"comment": "libguestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536010",
+														"comment": "libguestfs-appliance is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536011",
+														"comment": "libguestfs-appliance is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536012",
+														"comment": "libguestfs-bash-completion is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536013",
+														"comment": "libguestfs-bash-completion is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536014",
+														"comment": "libguestfs-devel is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536015",
+														"comment": "libguestfs-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536016",
+														"comment": "libguestfs-gfs2 is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536017",
+														"comment": "libguestfs-gfs2 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536018",
+														"comment": "libguestfs-gobject is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536019",
+														"comment": "libguestfs-gobject is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536020",
+														"comment": "libguestfs-gobject-devel is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536021",
+														"comment": "libguestfs-gobject-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536022",
+														"comment": "libguestfs-inspect-icons is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536023",
+														"comment": "libguestfs-inspect-icons is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536024",
+														"comment": "libguestfs-java is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536025",
+														"comment": "libguestfs-java is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536026",
+														"comment": "libguestfs-java-devel is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536027",
+														"comment": "libguestfs-java-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536028",
+														"comment": "libguestfs-javadoc is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536029",
+														"comment": "libguestfs-javadoc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536030",
+														"comment": "libguestfs-man-pages-ja is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536031",
+														"comment": "libguestfs-man-pages-ja is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536032",
+														"comment": "libguestfs-man-pages-uk is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536033",
+														"comment": "libguestfs-man-pages-uk is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536034",
+														"comment": "libguestfs-rescue is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536035",
+														"comment": "libguestfs-rescue is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536036",
+														"comment": "libguestfs-rsync is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536037",
+														"comment": "libguestfs-rsync is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536038",
+														"comment": "libguestfs-tools is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536039",
+														"comment": "libguestfs-tools is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536040",
+														"comment": "libguestfs-tools-c is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536041",
+														"comment": "libguestfs-tools-c is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536042",
+														"comment": "libguestfs-winsupport is earlier than 0:8.10-1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536043",
+														"comment": "libguestfs-winsupport is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536044",
+														"comment": "libguestfs-xfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536045",
+														"comment": "libguestfs-xfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536046",
+														"comment": "libiscsi is earlier than 0:1.18.0-8.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536047",
+														"comment": "libiscsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536048",
+														"comment": "libiscsi-devel is earlier than 0:1.18.0-8.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536049",
+														"comment": "libiscsi-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536050",
+														"comment": "libiscsi-utils is earlier than 0:1.18.0-8.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536051",
+														"comment": "libiscsi-utils is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536052",
+														"comment": "libnbd is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536053",
+														"comment": "libnbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536054",
+														"comment": "libnbd-bash-completion is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536055",
+														"comment": "libnbd-bash-completion is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536056",
+														"comment": "libnbd-devel is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536057",
+														"comment": "libnbd-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536058",
+														"comment": "libtpms is earlier than 0:0.9.1-2.20211126git1ff6fe1f43.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536059",
+														"comment": "libtpms is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536060",
+														"comment": "libtpms-devel is earlier than 0:0.9.1-2.20211126git1ff6fe1f43.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536061",
+														"comment": "libtpms-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536062",
+														"comment": "libvirt is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536063",
+														"comment": "libvirt is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536064",
+														"comment": "libvirt-client is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536065",
+														"comment": "libvirt-client is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536066",
+														"comment": "libvirt-client-qemu is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536067",
+														"comment": "libvirt-client-qemu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536068",
+														"comment": "libvirt-daemon is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536069",
+														"comment": "libvirt-daemon is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536070",
+														"comment": "libvirt-daemon-config-network is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536071",
+														"comment": "libvirt-daemon-config-network is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536072",
+														"comment": "libvirt-daemon-config-nwfilter is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536073",
+														"comment": "libvirt-daemon-config-nwfilter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536074",
+														"comment": "libvirt-daemon-driver-interface is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536075",
+														"comment": "libvirt-daemon-driver-interface is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536076",
+														"comment": "libvirt-daemon-driver-network is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536077",
+														"comment": "libvirt-daemon-driver-network is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536078",
+														"comment": "libvirt-daemon-driver-nodedev is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536079",
+														"comment": "libvirt-daemon-driver-nodedev is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536080",
+														"comment": "libvirt-daemon-driver-nwfilter is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536081",
+														"comment": "libvirt-daemon-driver-nwfilter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536082",
+														"comment": "libvirt-daemon-driver-qemu is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536083",
+														"comment": "libvirt-daemon-driver-qemu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536084",
+														"comment": "libvirt-daemon-driver-secret is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536085",
+														"comment": "libvirt-daemon-driver-secret is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536086",
+														"comment": "libvirt-daemon-driver-storage is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536087",
+														"comment": "libvirt-daemon-driver-storage is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536088",
+														"comment": "libvirt-daemon-driver-storage-core is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536089",
+														"comment": "libvirt-daemon-driver-storage-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536090",
+														"comment": "libvirt-daemon-driver-storage-disk is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536091",
+														"comment": "libvirt-daemon-driver-storage-disk is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536092",
+														"comment": "libvirt-daemon-driver-storage-gluster is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536093",
+														"comment": "libvirt-daemon-driver-storage-gluster is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536094",
+														"comment": "libvirt-daemon-driver-storage-iscsi is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536095",
+														"comment": "libvirt-daemon-driver-storage-iscsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536096",
+														"comment": "libvirt-daemon-driver-storage-iscsi-direct is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536097",
+														"comment": "libvirt-daemon-driver-storage-iscsi-direct is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536098",
+														"comment": "libvirt-daemon-driver-storage-logical is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536099",
+														"comment": "libvirt-daemon-driver-storage-logical is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536100",
+														"comment": "libvirt-daemon-driver-storage-mpath is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536101",
+														"comment": "libvirt-daemon-driver-storage-mpath is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536102",
+														"comment": "libvirt-daemon-driver-storage-rbd is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536103",
+														"comment": "libvirt-daemon-driver-storage-rbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536104",
+														"comment": "libvirt-daemon-driver-storage-scsi is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536105",
+														"comment": "libvirt-daemon-driver-storage-scsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536106",
+														"comment": "libvirt-daemon-kvm is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536107",
+														"comment": "libvirt-daemon-kvm is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536108",
+														"comment": "libvirt-dbus is earlier than 0:1.3.0-2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536109",
+														"comment": "libvirt-dbus is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536110",
+														"comment": "libvirt-devel is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536111",
+														"comment": "libvirt-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536112",
+														"comment": "libvirt-docs is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536113",
+														"comment": "libvirt-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536114",
+														"comment": "libvirt-libs is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536115",
+														"comment": "libvirt-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536116",
+														"comment": "libvirt-lock-sanlock is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536117",
+														"comment": "libvirt-lock-sanlock is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536118",
+														"comment": "libvirt-nss is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536119",
+														"comment": "libvirt-nss is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536120",
+														"comment": "libvirt-wireshark is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536121",
+														"comment": "libvirt-wireshark is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536122",
+														"comment": "lua-guestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536123",
+														"comment": "lua-guestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536124",
+														"comment": "nbdfuse is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536125",
+														"comment": "nbdfuse is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536126",
+														"comment": "nbdkit is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536127",
+														"comment": "nbdkit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536128",
+														"comment": "nbdkit-bash-completion is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536129",
+														"comment": "nbdkit-bash-completion is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536130",
+														"comment": "nbdkit-basic-filters is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536131",
+														"comment": "nbdkit-basic-filters is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536132",
+														"comment": "nbdkit-basic-plugins is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536133",
+														"comment": "nbdkit-basic-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536134",
+														"comment": "nbdkit-curl-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536135",
+														"comment": "nbdkit-curl-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536136",
+														"comment": "nbdkit-devel is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536137",
+														"comment": "nbdkit-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536138",
+														"comment": "nbdkit-example-plugins is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536139",
+														"comment": "nbdkit-example-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536140",
+														"comment": "nbdkit-gzip-filter is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536141",
+														"comment": "nbdkit-gzip-filter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536142",
+														"comment": "nbdkit-gzip-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536143",
+														"comment": "nbdkit-gzip-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536144",
+														"comment": "nbdkit-linuxdisk-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536145",
+														"comment": "nbdkit-linuxdisk-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536146",
+														"comment": "nbdkit-nbd-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536147",
+														"comment": "nbdkit-nbd-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536148",
+														"comment": "nbdkit-python-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536149",
+														"comment": "nbdkit-python-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536150",
+														"comment": "nbdkit-server is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536151",
+														"comment": "nbdkit-server is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536152",
+														"comment": "nbdkit-ssh-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536153",
+														"comment": "nbdkit-ssh-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536154",
+														"comment": "nbdkit-tar-filter is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536155",
+														"comment": "nbdkit-tar-filter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536156",
+														"comment": "nbdkit-tar-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536157",
+														"comment": "nbdkit-tar-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536158",
+														"comment": "nbdkit-tmpdisk-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536159",
+														"comment": "nbdkit-tmpdisk-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536160",
+														"comment": "nbdkit-xz-filter is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536161",
+														"comment": "nbdkit-xz-filter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536162",
+														"comment": "netcf is earlier than 0:0.2.8-12.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536163",
+														"comment": "netcf is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536164",
+														"comment": "netcf-devel is earlier than 0:0.2.8-12.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536165",
+														"comment": "netcf-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536166",
+														"comment": "netcf-libs is earlier than 0:0.2.8-12.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536167",
+														"comment": "netcf-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536168",
+														"comment": "perl-Sys-Guestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536169",
+														"comment": "perl-Sys-Guestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536170",
+														"comment": "perl-Sys-Virt is earlier than 0:8.0.0-1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536171",
+														"comment": "perl-Sys-Virt is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536172",
+														"comment": "perl-hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536173",
+														"comment": "perl-hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536174",
+														"comment": "python3-hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536175",
+														"comment": "python3-hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536176",
+														"comment": "python3-libguestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536177",
+														"comment": "python3-libguestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536178",
+														"comment": "python3-libnbd is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536179",
+														"comment": "python3-libnbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536180",
+														"comment": "python3-libvirt is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536181",
+														"comment": "python3-libvirt is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536182",
+														"comment": "qemu-guest-agent is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536183",
+														"comment": "qemu-guest-agent is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536184",
+														"comment": "qemu-img is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536185",
+														"comment": "qemu-img is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536186",
+														"comment": "qemu-kvm is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536187",
+														"comment": "qemu-kvm is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536188",
+														"comment": "qemu-kvm-block-curl is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536189",
+														"comment": "qemu-kvm-block-curl is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536190",
+														"comment": "qemu-kvm-block-gluster is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536191",
+														"comment": "qemu-kvm-block-gluster is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536192",
+														"comment": "qemu-kvm-block-iscsi is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536193",
+														"comment": "qemu-kvm-block-iscsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536194",
+														"comment": "qemu-kvm-block-rbd is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536195",
+														"comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536196",
+														"comment": "qemu-kvm-block-ssh is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536197",
+														"comment": "qemu-kvm-block-ssh is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536198",
+														"comment": "qemu-kvm-common is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536199",
+														"comment": "qemu-kvm-common is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536200",
+														"comment": "qemu-kvm-core is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536201",
+														"comment": "qemu-kvm-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536202",
+														"comment": "qemu-virtiofsd is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536203",
+														"comment": "qemu-virtiofsd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536204",
+														"comment": "ruby-hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536205",
+														"comment": "ruby-hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536206",
+														"comment": "ruby-libguestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536207",
+														"comment": "ruby-libguestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536208",
+														"comment": "supermin is earlier than 0:5.2.1-2.0.1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536209",
+														"comment": "supermin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536210",
+														"comment": "supermin-devel is earlier than 0:5.2.1-2.0.1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536211",
+														"comment": "supermin-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536212",
+														"comment": "swtpm is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536213",
+														"comment": "swtpm is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536214",
+														"comment": "swtpm-devel is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536215",
+														"comment": "swtpm-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536216",
+														"comment": "swtpm-libs is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536217",
+														"comment": "swtpm-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536218",
+														"comment": "swtpm-tools is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536219",
+														"comment": "swtpm-tools is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536220",
+														"comment": "swtpm-tools-pkcs11 is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536221",
+														"comment": "swtpm-tools-pkcs11 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536222",
+														"comment": "virt-dib is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536223",
+														"comment": "virt-dib is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412536003",
+										"comment": "Module virt:kvm_utils3 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412536002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536004",
+														"comment": "hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536005",
+														"comment": "hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536006",
+														"comment": "hivex-devel is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536007",
+														"comment": "hivex-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536008",
+														"comment": "libguestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536009",
+														"comment": "libguestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536010",
+														"comment": "libguestfs-appliance is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536011",
+														"comment": "libguestfs-appliance is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536012",
+														"comment": "libguestfs-bash-completion is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536013",
+														"comment": "libguestfs-bash-completion is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536014",
+														"comment": "libguestfs-devel is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536015",
+														"comment": "libguestfs-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536016",
+														"comment": "libguestfs-gfs2 is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536017",
+														"comment": "libguestfs-gfs2 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536018",
+														"comment": "libguestfs-gobject is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536019",
+														"comment": "libguestfs-gobject is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536020",
+														"comment": "libguestfs-gobject-devel is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536021",
+														"comment": "libguestfs-gobject-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536022",
+														"comment": "libguestfs-inspect-icons is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536023",
+														"comment": "libguestfs-inspect-icons is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536024",
+														"comment": "libguestfs-java is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536025",
+														"comment": "libguestfs-java is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536026",
+														"comment": "libguestfs-java-devel is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536027",
+														"comment": "libguestfs-java-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536028",
+														"comment": "libguestfs-javadoc is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536029",
+														"comment": "libguestfs-javadoc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536030",
+														"comment": "libguestfs-man-pages-ja is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536031",
+														"comment": "libguestfs-man-pages-ja is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536032",
+														"comment": "libguestfs-man-pages-uk is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536033",
+														"comment": "libguestfs-man-pages-uk is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536034",
+														"comment": "libguestfs-rescue is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536035",
+														"comment": "libguestfs-rescue is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536036",
+														"comment": "libguestfs-rsync is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536037",
+														"comment": "libguestfs-rsync is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536038",
+														"comment": "libguestfs-tools is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536039",
+														"comment": "libguestfs-tools is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536040",
+														"comment": "libguestfs-tools-c is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536041",
+														"comment": "libguestfs-tools-c is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536042",
+														"comment": "libguestfs-winsupport is earlier than 0:8.10-1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536043",
+														"comment": "libguestfs-winsupport is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536044",
+														"comment": "libguestfs-xfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536045",
+														"comment": "libguestfs-xfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536046",
+														"comment": "libiscsi is earlier than 0:1.18.0-8.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536047",
+														"comment": "libiscsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536048",
+														"comment": "libiscsi-devel is earlier than 0:1.18.0-8.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536049",
+														"comment": "libiscsi-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536050",
+														"comment": "libiscsi-utils is earlier than 0:1.18.0-8.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536051",
+														"comment": "libiscsi-utils is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536052",
+														"comment": "libnbd is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536053",
+														"comment": "libnbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536054",
+														"comment": "libnbd-bash-completion is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536055",
+														"comment": "libnbd-bash-completion is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536056",
+														"comment": "libnbd-devel is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536057",
+														"comment": "libnbd-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536058",
+														"comment": "libtpms is earlier than 0:0.9.1-2.20211126git1ff6fe1f43.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536059",
+														"comment": "libtpms is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536060",
+														"comment": "libtpms-devel is earlier than 0:0.9.1-2.20211126git1ff6fe1f43.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536061",
+														"comment": "libtpms-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536062",
+														"comment": "libvirt is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536063",
+														"comment": "libvirt is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536064",
+														"comment": "libvirt-client is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536065",
+														"comment": "libvirt-client is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536066",
+														"comment": "libvirt-client-qemu is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536067",
+														"comment": "libvirt-client-qemu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536068",
+														"comment": "libvirt-daemon is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536069",
+														"comment": "libvirt-daemon is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536070",
+														"comment": "libvirt-daemon-config-network is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536071",
+														"comment": "libvirt-daemon-config-network is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536072",
+														"comment": "libvirt-daemon-config-nwfilter is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536073",
+														"comment": "libvirt-daemon-config-nwfilter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536074",
+														"comment": "libvirt-daemon-driver-interface is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536075",
+														"comment": "libvirt-daemon-driver-interface is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536076",
+														"comment": "libvirt-daemon-driver-network is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536077",
+														"comment": "libvirt-daemon-driver-network is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536078",
+														"comment": "libvirt-daemon-driver-nodedev is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536079",
+														"comment": "libvirt-daemon-driver-nodedev is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536080",
+														"comment": "libvirt-daemon-driver-nwfilter is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536081",
+														"comment": "libvirt-daemon-driver-nwfilter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536082",
+														"comment": "libvirt-daemon-driver-qemu is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536083",
+														"comment": "libvirt-daemon-driver-qemu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536084",
+														"comment": "libvirt-daemon-driver-secret is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536085",
+														"comment": "libvirt-daemon-driver-secret is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536086",
+														"comment": "libvirt-daemon-driver-storage is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536087",
+														"comment": "libvirt-daemon-driver-storage is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536088",
+														"comment": "libvirt-daemon-driver-storage-core is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536089",
+														"comment": "libvirt-daemon-driver-storage-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536090",
+														"comment": "libvirt-daemon-driver-storage-disk is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536091",
+														"comment": "libvirt-daemon-driver-storage-disk is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536092",
+														"comment": "libvirt-daemon-driver-storage-gluster is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536093",
+														"comment": "libvirt-daemon-driver-storage-gluster is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536094",
+														"comment": "libvirt-daemon-driver-storage-iscsi is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536095",
+														"comment": "libvirt-daemon-driver-storage-iscsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536096",
+														"comment": "libvirt-daemon-driver-storage-iscsi-direct is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536097",
+														"comment": "libvirt-daemon-driver-storage-iscsi-direct is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536098",
+														"comment": "libvirt-daemon-driver-storage-logical is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536099",
+														"comment": "libvirt-daemon-driver-storage-logical is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536100",
+														"comment": "libvirt-daemon-driver-storage-mpath is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536101",
+														"comment": "libvirt-daemon-driver-storage-mpath is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536102",
+														"comment": "libvirt-daemon-driver-storage-rbd is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536103",
+														"comment": "libvirt-daemon-driver-storage-rbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536104",
+														"comment": "libvirt-daemon-driver-storage-scsi is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536105",
+														"comment": "libvirt-daemon-driver-storage-scsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536106",
+														"comment": "libvirt-daemon-kvm is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536107",
+														"comment": "libvirt-daemon-kvm is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536108",
+														"comment": "libvirt-dbus is earlier than 0:1.3.0-2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536109",
+														"comment": "libvirt-dbus is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536110",
+														"comment": "libvirt-devel is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536111",
+														"comment": "libvirt-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536112",
+														"comment": "libvirt-docs is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536113",
+														"comment": "libvirt-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536114",
+														"comment": "libvirt-libs is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536115",
+														"comment": "libvirt-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536116",
+														"comment": "libvirt-lock-sanlock is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536117",
+														"comment": "libvirt-lock-sanlock is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536118",
+														"comment": "libvirt-nss is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536119",
+														"comment": "libvirt-nss is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536120",
+														"comment": "libvirt-wireshark is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536121",
+														"comment": "libvirt-wireshark is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536122",
+														"comment": "lua-guestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536123",
+														"comment": "lua-guestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536124",
+														"comment": "nbdfuse is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536125",
+														"comment": "nbdfuse is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536126",
+														"comment": "nbdkit is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536127",
+														"comment": "nbdkit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536128",
+														"comment": "nbdkit-bash-completion is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536129",
+														"comment": "nbdkit-bash-completion is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536130",
+														"comment": "nbdkit-basic-filters is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536131",
+														"comment": "nbdkit-basic-filters is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536132",
+														"comment": "nbdkit-basic-plugins is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536133",
+														"comment": "nbdkit-basic-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536134",
+														"comment": "nbdkit-curl-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536135",
+														"comment": "nbdkit-curl-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536136",
+														"comment": "nbdkit-devel is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536137",
+														"comment": "nbdkit-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536138",
+														"comment": "nbdkit-example-plugins is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536139",
+														"comment": "nbdkit-example-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536140",
+														"comment": "nbdkit-gzip-filter is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536141",
+														"comment": "nbdkit-gzip-filter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536142",
+														"comment": "nbdkit-gzip-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536143",
+														"comment": "nbdkit-gzip-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536144",
+														"comment": "nbdkit-linuxdisk-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536145",
+														"comment": "nbdkit-linuxdisk-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536146",
+														"comment": "nbdkit-nbd-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536147",
+														"comment": "nbdkit-nbd-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536148",
+														"comment": "nbdkit-python-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536149",
+														"comment": "nbdkit-python-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536150",
+														"comment": "nbdkit-server is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536151",
+														"comment": "nbdkit-server is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536152",
+														"comment": "nbdkit-ssh-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536153",
+														"comment": "nbdkit-ssh-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536154",
+														"comment": "nbdkit-tar-filter is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536155",
+														"comment": "nbdkit-tar-filter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536156",
+														"comment": "nbdkit-tar-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536157",
+														"comment": "nbdkit-tar-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536158",
+														"comment": "nbdkit-tmpdisk-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536159",
+														"comment": "nbdkit-tmpdisk-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536225",
+														"comment": "nbdkit-vddk-plugin is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536226",
+														"comment": "nbdkit-vddk-plugin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536160",
+														"comment": "nbdkit-xz-filter is earlier than 0:1.24.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536161",
+														"comment": "nbdkit-xz-filter is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536162",
+														"comment": "netcf is earlier than 0:0.2.8-12.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536163",
+														"comment": "netcf is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536164",
+														"comment": "netcf-devel is earlier than 0:0.2.8-12.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536165",
+														"comment": "netcf-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536166",
+														"comment": "netcf-libs is earlier than 0:0.2.8-12.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536167",
+														"comment": "netcf-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536168",
+														"comment": "perl-Sys-Guestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536169",
+														"comment": "perl-Sys-Guestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536170",
+														"comment": "perl-Sys-Virt is earlier than 0:8.0.0-1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536171",
+														"comment": "perl-Sys-Virt is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536172",
+														"comment": "perl-hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536173",
+														"comment": "perl-hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536174",
+														"comment": "python3-hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536175",
+														"comment": "python3-hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536176",
+														"comment": "python3-libguestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536177",
+														"comment": "python3-libguestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536178",
+														"comment": "python3-libnbd is earlier than 0:1.6.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536179",
+														"comment": "python3-libnbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536180",
+														"comment": "python3-libvirt is earlier than 0:9.0.0-5.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536181",
+														"comment": "python3-libvirt is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536182",
+														"comment": "qemu-guest-agent is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536183",
+														"comment": "qemu-guest-agent is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536184",
+														"comment": "qemu-img is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536185",
+														"comment": "qemu-img is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536186",
+														"comment": "qemu-kvm is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536187",
+														"comment": "qemu-kvm is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536188",
+														"comment": "qemu-kvm-block-curl is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536189",
+														"comment": "qemu-kvm-block-curl is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536190",
+														"comment": "qemu-kvm-block-gluster is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536191",
+														"comment": "qemu-kvm-block-gluster is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536192",
+														"comment": "qemu-kvm-block-iscsi is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536193",
+														"comment": "qemu-kvm-block-iscsi is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536194",
+														"comment": "qemu-kvm-block-rbd is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536195",
+														"comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536196",
+														"comment": "qemu-kvm-block-ssh is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536197",
+														"comment": "qemu-kvm-block-ssh is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536198",
+														"comment": "qemu-kvm-common is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536199",
+														"comment": "qemu-kvm-common is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536200",
+														"comment": "qemu-kvm-core is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536201",
+														"comment": "qemu-kvm-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536202",
+														"comment": "qemu-virtiofsd is earlier than 15:7.2.0-13.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536203",
+														"comment": "qemu-virtiofsd is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536204",
+														"comment": "ruby-hivex is earlier than 0:1.3.18-23.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536205",
+														"comment": "ruby-hivex is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536206",
+														"comment": "ruby-libguestfs is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536207",
+														"comment": "ruby-libguestfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536227",
+														"comment": "seabios is earlier than 0:1.16.0-4.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536228",
+														"comment": "seabios is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536229",
+														"comment": "seabios-bin is earlier than 0:1.16.0-4.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536230",
+														"comment": "seabios-bin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536231",
+														"comment": "seavgabios-bin is earlier than 0:1.16.0-4.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536232",
+														"comment": "seavgabios-bin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536233",
+														"comment": "sgabios is earlier than 1:0.20170427git-3.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536234",
+														"comment": "sgabios is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536235",
+														"comment": "sgabios-bin is earlier than 1:0.20170427git-3.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536236",
+														"comment": "sgabios-bin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536208",
+														"comment": "supermin is earlier than 0:5.2.1-2.0.1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536209",
+														"comment": "supermin is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536210",
+														"comment": "supermin-devel is earlier than 0:5.2.1-2.0.1.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536211",
+														"comment": "supermin-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536212",
+														"comment": "swtpm is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536213",
+														"comment": "swtpm is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536214",
+														"comment": "swtpm-devel is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536215",
+														"comment": "swtpm-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536216",
+														"comment": "swtpm-libs is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536217",
+														"comment": "swtpm-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536218",
+														"comment": "swtpm-tools is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536219",
+														"comment": "swtpm-tools is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536220",
+														"comment": "swtpm-tools-pkcs11 is earlier than 0:0.7.0-4.20211109gitb79fd91.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536221",
+														"comment": "swtpm-tools-pkcs11 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536222",
+														"comment": "virt-dib is earlier than 1:1.44.0-9.0.2.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536223",
+														"comment": "virt-dib is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536237",
+														"comment": "virt-v2v is earlier than 1:1.42.0-22.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536238",
+														"comment": "virt-v2v is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536239",
+														"comment": "virt-v2v-bash-completion is earlier than 1:1.42.0-22.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536240",
+														"comment": "virt-v2v-bash-completion is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536241",
+														"comment": "virt-v2v-man-pages-ja is earlier than 1:1.42.0-22.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536242",
+														"comment": "virt-v2v-man-pages-ja is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536243",
+														"comment": "virt-v2v-man-pages-uk is earlier than 1:1.42.0-22.module+el8.10.0+90353+09180a4e"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202412536244",
+														"comment": "virt-v2v-man-pages-uk is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412536003",
+										"comment": "Module virt:kvm_utils3 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412536224",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202412536001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
