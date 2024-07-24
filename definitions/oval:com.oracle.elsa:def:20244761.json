@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20244761",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-4761:  containernetworking-plugins security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-4761",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-4761.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1394",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-1394.html"
+			}
+		],
+		"description": "\n[1:1.4.0-4]\n- rebuild for CVE-2024-1394\n- Resolves: RHEL-40809\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-07-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-1394",
+					"href": "https://linux.oracle.com/cve/CVE-2024-1394.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20244761003",
+										"comment": "containernetworking-plugins is earlier than 1:1.4.0-4.el9_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20244761004",
+										"comment": "containernetworking-plugins is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20244761002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20244761003",
+										"comment": "containernetworking-plugins is earlier than 1:1.4.0-4.el9_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20244761004",
+										"comment": "containernetworking-plugins is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20244761005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20244761001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
