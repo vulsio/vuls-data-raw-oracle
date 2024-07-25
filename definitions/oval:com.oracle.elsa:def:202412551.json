@@ -1,0 +1,102 @@
+{
+	"id": "oval:com.oracle.elsa:def:202412551",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-12551: Unbreakable Enterprise kernel-container security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-12551",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-12551.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41090",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-41090.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41091",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-41091.html"
+			}
+		],
+		"description": "\n[5.4.17-2136.333.5.1.el7]\n- net/mlx5e: drop shorter ethernet frames (Manjunath Patil)  [Orabug: 36660755]\n- pci: add hotplug patch support for SOLIDIGM Aura10 AIC 0x025e:0x0b60 (Alan Adamson)  [Orabug: 36836653]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-07-23"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-41090",
+					"href": "https://linux.oracle.com/cve/CVE-2024-41090.html"
+				},
+				{
+					"text": "CVE-2024-41091",
+					"href": "https://linux.oracle.com/cve/CVE-2024-41091.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412551003",
+										"comment": "kernel-uek-container is earlier than 0:5.4.17-2136.333.5.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412551004",
+										"comment": "kernel-uek-container is signed with the Oracle Linux 7 key"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412551005",
+										"comment": "kernel-uek-container-debug is earlier than 0:5.4.17-2136.333.5.1.el7"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412551006",
+										"comment": "kernel-uek-container-debug is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:202412551002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202412551001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}

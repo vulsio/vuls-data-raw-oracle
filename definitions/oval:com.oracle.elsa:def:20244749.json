@@ -1,0 +1,210 @@
+{
+	"id": "oval:com.oracle.elsa:def:20244749",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-4749:  edk2 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-4749",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-4749.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-36765",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-36765.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45236",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-45236.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45237",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-45237.html"
+			}
+		],
+		"description": "\n[20231122-6.0.1.el9_4.2]\n- Replace upstream references [Orabug:36569119]\n\n[20231122-6.el9_4.2]\n- edk2-NetworkPkg-SECURITY-PATCH-CVE-2023-45237.patch [RHEL-40270 RHEL-40272]\n- edk2-NetworkPkg-TcpDxe-SECURITY-PATCH-CVE-2023-45236.patch [RHEL-40270 RHEL-40272]\n- edk2-NetworkPkg-TcpDxe-Fixed-system-stuck-on-PXE-boot-flo.patch [RHEL-40270 RHEL-40272]\n- edk2-MdePkg-BaseRngLib-Add-a-smoketest-for-RDRAND-and-che.patch [RHEL-40270 RHEL-40272]\n- edk2-SecurityPkg-RngDxe-add-rng-test.patch [RHEL-40270 RHEL-40272]\n- edk2-OvmfPkg-wire-up-RngDxe.patch [RHEL-40270 RHEL-40272]\n- edk2-CryptoPkg-Test-call-ProcessLibraryConstructorList.patch [RHEL-40270 RHEL-40272]\n- edk2-MdePkg-X86UnitTestHost-set-rdrand-cpuid-bit.patch [RHEL-40270 RHEL-40272]\n- Resolves: RHEL-40270\n  (CVE-2023-45237 edk2: Use of a Weak PseudoRandom Number Generator [rhel-9.4.z])\n- Resolves: RHEL-40272\n  (CVE-2023-45236 edk2: Predictable TCP Initial Sequence Numbers [rhel-9.4.z])\n\n[20231122-6.el9_4.1]\n- edk2-EmbeddedPkg-Hob-Integer-Overflow-in-CreateHob.patch [RHEL-30156]\n- edk2-StandaloneMmPkg-Hob-Integer-Overflow-in-CreateHob.patch [RHEL-30156]\n- Resolves: RHEL-30156\n  (CVE-2022-36765 edk2: integer overflow in CreateHob() could lead to HOB OOB R/W [rhel-9.4.z])\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-07-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2022-36765",
+					"href": "https://linux.oracle.com/cve/CVE-2022-36765.html"
+				},
+				{
+					"text": "CVE-2023-45236",
+					"href": "https://linux.oracle.com/cve/CVE-2023-45236.html"
+				},
+				{
+					"text": "CVE-2023-45237",
+					"href": "https://linux.oracle.com/cve/CVE-2023-45237.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749003",
+												"comment": "edk2-aarch64 is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749004",
+												"comment": "edk2-aarch64 is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749005",
+												"comment": "edk2-ovmf is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749006",
+												"comment": "edk2-ovmf is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749007",
+												"comment": "edk2-tools is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749008",
+												"comment": "edk2-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749009",
+												"comment": "edk2-tools-doc is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749010",
+												"comment": "edk2-tools-doc is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20244749002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749003",
+												"comment": "edk2-aarch64 is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749004",
+												"comment": "edk2-aarch64 is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749005",
+												"comment": "edk2-ovmf is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749006",
+												"comment": "edk2-ovmf is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749007",
+												"comment": "edk2-tools is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749008",
+												"comment": "edk2-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749009",
+												"comment": "edk2-tools-doc is earlier than 0:20231122-6.0.1.el9_4.2"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20244749010",
+												"comment": "edk2-tools-doc is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20244749011",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20244749001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
