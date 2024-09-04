@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20246192",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-6192:  wget security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-6192",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-6192.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38428",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-38428.html"
+			}
+		],
+		"description": "\n[1.21.1-8]\n- Resolves: RHEL-43226 - Misinterpretation of input may lead to improper behavior\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-09-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-38428",
+					"href": "https://linux.oracle.com/cve/CVE-2024-38428.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246192003",
+										"comment": "wget is earlier than 0:1.21.1-8.el9_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246192004",
+										"comment": "wget is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20246192002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246192003",
+										"comment": "wget is earlier than 0:1.21.1-8.el9_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246192004",
+										"comment": "wget is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20246192005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20246192001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

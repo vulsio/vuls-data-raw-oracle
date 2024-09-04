@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20246188",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-6188:  runc security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-6188",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-6188.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-24783",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-24783.html"
+			}
+		],
+		"description": "\n[4:1.1.12-4]\n- rebuild for CVE-2024-24783\n- Resolves: RHEL-28439\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-09-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-24783",
+					"href": "https://linux.oracle.com/cve/CVE-2024-24783.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246188003",
+										"comment": "runc is earlier than 4:1.1.12-4.el9_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246188004",
+										"comment": "runc is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20246188002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246188003",
+										"comment": "runc is earlier than 4:1.1.12-4.el9_4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246188004",
+										"comment": "runc is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20246188005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20246188001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
