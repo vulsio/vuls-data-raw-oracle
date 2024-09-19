@@ -1,0 +1,375 @@
+{
+	"id": "oval:com.oracle.elsa:def:202412674",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-12674: qemu-kvm security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-12674",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-12674.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26328",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-26328.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26327",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-26327.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-3446",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-3446.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-4467",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-4467.html"
+			}
+		],
+		"description": "\n[7.2.0-15.el9]\n- migration: abort on destination if switchover limit exceeded (Elena Ufimtseva)\n- migration: introduce strict switchover SLA (Elena Ufimtseva)\n- migration: add error to MigrationIncomingState (Elena Ufimtseva)\n- migration: Set migration status early in incoming side (Fabiano Rosas)\n- tests/qtest: migration: Use migrate_incoming_qmp where appropriate (Fabiano Rosas)\n- tests/qtest: migration: Add migrate_incoming_qmp helper (Fabiano Rosas)\n- tests/qtest: migration: Expose migrate_set_capability (Fabiano Rosas)\n- vfio/migration: Multifd device state transfer support - send side (Maciej S. Szmigiero)\n- vfio/migration: Add x-orcl-migration-multifd-transfer VFIO property (Maciej S. Szmigiero)\n- vfio/migration: Multifd device state transfer support - receive side (Maciej S. Szmigiero)\n- migration/multifd: Add migration_has_device_state_support() (Maciej S. Szmigiero)\n- migration/multifd: Device state transfer support - send side (Maciej S. Szmigiero)\n- migration/multifd: Convert multifd_send_pages::next_channel to atomic (Maciej S. Szmigiero)\n- migration/multifd: Device state transfer support - receive side (Maciej S. Szmigiero)\n- migration: Add load_finish handler and associated functions (Maciej S. Szmigiero)\n- migration: Add qemu_loadvm_load_state_buffer() and its handler (Maciej S. Szmigiero)\n- migration: Add save_live_complete_precopy_{begin,end} handlers (Maciej S. Szmigiero)\n- migration/multifd: Zero p->flags before starting filling a packet (Maciej S. Szmigiero)\n- migration/ram: Add load start trace event (Maciej S. Szmigiero)\n- vfio/migration: Add save_{iterate,complete_precopy}_started trace events (Maciej S. Szmigiero)\n- hw/virtio/virtio-crypto: Protect from DMA re-entrancy bugs (Philippe Mathieu-Daude) [Orabug: 36869694] {CVE-2024-3446}\n- hw/char/virtio-serial-bus: Protect from DMA re-entrancy bugs (Philippe Mathieu-Daude) [Orabug: 36869694] {CVE-2024-3446}\n- hw/display/virtio-gpu: Protect from DMA re-entrancy bugs (Philippe Mathieu-Daude) [Orabug: 36869694] {CVE-2024-3446}\n- hw/virtio: Introduce virtio_bh_new_guarded() helper (Philippe Mathieu-Daude) [Orabug: 36869694] {CVE-2024-3446}\n- pcie_sriov: Validate NumVFs (Akihiko Odaki) [Orabug: 36314082] {CVE-2024-26327}\n- hw/nvme: Use pcie_sriov_num_vfs() (Akihiko Odaki) [Orabug: 36314111] {CVE-2024-26328}\n- pcie: Introduce pcie_sriov_num_vfs (Akihiko Odaki) [Orabug: 36314111] {CVE-2024-26328}\n- qcow2: Don't open data_file with BDRV_O_NO_IO (Kevin Wolf) [Orabug: 36801853] {CVE-2024-4467}\n- target/i386: drop AMD machine check bits from Intel CPUID (Paolo Bonzini) [Orabug: 36785079]\n- target/i386: pass X86CPU to x86_cpu_get_supported_feature_word (Paolo Bonzini) [Orabug: 36785079]\n- migration: prevent migration when VM has poisoned memory (William Roche) [Orabug: 35533097]\n- i386: Add support for overflow recovery (John Allen) [Orabug: 34691766]\n- i386: Add support for SUCCOR feature (John Allen) [Orabug: 34691766]\n- i386: Fix MCE support for AMD hosts (John Allen) [Orabug: 34691766]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-09-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-26328",
+					"href": "https://linux.oracle.com/cve/CVE-2024-26328.html"
+				},
+				{
+					"text": "CVE-2024-26327",
+					"href": "https://linux.oracle.com/cve/CVE-2024-26327.html"
+				},
+				{
+					"text": "CVE-2024-3446",
+					"href": "https://linux.oracle.com/cve/CVE-2024-3446.html"
+				},
+				{
+					"text": "CVE-2024-4467",
+					"href": "https://linux.oracle.com/cve/CVE-2024-4467.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674003",
+												"comment": "qemu-guest-agent is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674005",
+												"comment": "qemu-img is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674006",
+												"comment": "qemu-img is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674007",
+												"comment": "qemu-kvm is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674009",
+												"comment": "qemu-kvm-block-curl is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674010",
+												"comment": "qemu-kvm-block-curl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674011",
+												"comment": "qemu-kvm-block-iscsi is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674012",
+												"comment": "qemu-kvm-block-iscsi is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674013",
+												"comment": "qemu-kvm-block-rbd is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674014",
+												"comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674015",
+												"comment": "qemu-kvm-block-ssh is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674016",
+												"comment": "qemu-kvm-block-ssh is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674017",
+												"comment": "qemu-kvm-common is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674018",
+												"comment": "qemu-kvm-common is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674019",
+												"comment": "qemu-kvm-core is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674020",
+												"comment": "qemu-kvm-core is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674021",
+												"comment": "qemu-virtiofsd is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674022",
+												"comment": "qemu-virtiofsd is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412674002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674003",
+												"comment": "qemu-guest-agent is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674004",
+												"comment": "qemu-guest-agent is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674005",
+												"comment": "qemu-img is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674006",
+												"comment": "qemu-img is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674007",
+												"comment": "qemu-kvm is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674008",
+												"comment": "qemu-kvm is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674009",
+												"comment": "qemu-kvm-block-curl is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674010",
+												"comment": "qemu-kvm-block-curl is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674011",
+												"comment": "qemu-kvm-block-iscsi is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674012",
+												"comment": "qemu-kvm-block-iscsi is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674013",
+												"comment": "qemu-kvm-block-rbd is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674014",
+												"comment": "qemu-kvm-block-rbd is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674015",
+												"comment": "qemu-kvm-block-ssh is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674016",
+												"comment": "qemu-kvm-block-ssh is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674017",
+												"comment": "qemu-kvm-common is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674018",
+												"comment": "qemu-kvm-common is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674019",
+												"comment": "qemu-kvm-core is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674020",
+												"comment": "qemu-kvm-core is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674021",
+												"comment": "qemu-virtiofsd is earlier than 30:7.2.0-15.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202412674022",
+												"comment": "qemu-virtiofsd is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412674023",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202412674001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
