@@ -18,13 +18,8 @@
 			},
 			{
 				"source": "CVE",
-				"ref_id": "CVE-2022-21549",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2022-21549.html"
-			},
-			{
-				"source": "CVE",
-				"ref_id": "CVE-2022-21540",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2022-21540.html"
+				"ref_id": "CVE-2022-34169",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-34169.html"
 			},
 			{
 				"source": "CVE",
@@ -33,8 +28,13 @@
 			},
 			{
 				"source": "CVE",
-				"ref_id": "CVE-2022-34169",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2022-34169.html"
+				"ref_id": "CVE-2022-21549",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-21549.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2022-21540",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2022-21540.html"
 			}
 		],
 		"description": "\n[1:17.0.4.0.8-0.2.ea]\n- Revert the following changes until copy-java-configs has adapted to relative symlinks:\n- * Move cacerts replacement to install section and retain original of this and tzdb.dat\n- * Run tests on the installed image, rather than the build image\n- * Introduce variables to refer to the static library installation directories\n- * Use relative symlinks so they work within the image\n- * Run debug symbols check during build stage, before the install strips them\n- The move of turning on system security properties is retained so we don't ship with them off\n- Related: rhbz#2084779\n\n[1:17.0.4.0.8-1]\n- Update to jdk-17.0.4.0+8\n- Update release notes to 17.0.4.0+8\n- Need to include the '.S' suffix in debuginfo checks after JDK-8284661\n- Print release file during build, which should now include a correct SOURCE value from .src-rev\n- Update tarball script with IcedTea GitHub URL and .src-rev generation\n- Include script to generate bug list for release notes\n- Update tzdata requirement to 2022a to match JDK-8283350\n- Move EA designator check to prep so failures can be caught earlier\n- Make EA designator check non-fatal while upstream is not maintaining it\n- Explicitly require crypto-policies during build and runtime for system security properties\n- Make use of the vendor version string to store our version & release rather than an upstream release date\n- Include a test in the RPM to check the build has the correct vendor information.\n- Rebase FIPS patches from fips-17u branch and simplify by using a single patch from that repository\n- * RH2094027: SunEC runtime permission for FIPS\n- * RH2036462: sun.security.pkcs11.wrapper.PKCS11.getInstance breakage\n- * RH2090378: Revert to disabling system security properties and FIPS mode support together\n- Rebase RH1648249 nss.cfg patch so it applies after the FIPS patch\n- Enable system security properties in the RPM (now disabled by default in the FIPS repo)\n- Improve security properties test to check both enabled and disabled behaviour\n- Run security properties test with property debugging on\n- Turn on system security properties as part of the build's install section\n- Move cacerts replacement to install section and retain original of this and tzdb.dat\n- Run tests on the installed image, rather than the build image\n- Introduce variables to refer to the static library installation directories\n- Use relative symlinks so they work within the image\n- Run debug symbols check during build stage, before the install strips them\n- Resolves: rhbz#2084779\n- Resolves: rhbz#2099919\n- Resolves: rhbz#2107943\n- Resolves: rhbz#2107941\n- Resolves: rhbz#2106523\n\n[1:17.0.4.0.1-0.2.ea]\n- Fix issue where CheckVendor.java test erroneously passes when it should fail.\n- Add proper quoting so '&' is not treated as a special character by the shell.\n- Related: rhbz#2084779\n\n[1:17.0.3.0.7-2]\n- RH2007331: SecretKey generate/import operations don't add the CKA_SIGN attribute in FIPS mode\n- Resolves: rhbz#2105395\n",
@@ -46,20 +46,20 @@
 			},
 			"cve": [
 				{
-					"text": "CVE-2022-21549",
-					"href": "https://linux.oracle.com/cve/CVE-2022-21549.html"
-				},
-				{
-					"text": "CVE-2022-21540",
-					"href": "https://linux.oracle.com/cve/CVE-2022-21540.html"
+					"text": "CVE-2022-34169",
+					"href": "https://linux.oracle.com/cve/CVE-2022-34169.html"
 				},
 				{
 					"text": "CVE-2022-21541",
 					"href": "https://linux.oracle.com/cve/CVE-2022-21541.html"
 				},
 				{
-					"text": "CVE-2022-34169",
-					"href": "https://linux.oracle.com/cve/CVE-2022-34169.html"
+					"text": "CVE-2022-21549",
+					"href": "https://linux.oracle.com/cve/CVE-2022-21549.html"
+				},
+				{
+					"text": "CVE-2022-21540",
+					"href": "https://linux.oracle.com/cve/CVE-2022-21540.html"
 				}
 			]
 		}
@@ -81,192 +81,10 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736003",
-												"comment": "java-17-openjdk-demo-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736004",
-												"comment": "java-17-openjdk-demo-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736005",
-												"comment": "java-17-openjdk-demo-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736006",
-												"comment": "java-17-openjdk-demo-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736007",
-												"comment": "java-17-openjdk-devel-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736008",
-												"comment": "java-17-openjdk-devel-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736009",
-												"comment": "java-17-openjdk-devel-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736010",
-												"comment": "java-17-openjdk-devel-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736011",
-												"comment": "java-17-openjdk-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736012",
-												"comment": "java-17-openjdk-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736013",
-												"comment": "java-17-openjdk-headless-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736014",
-												"comment": "java-17-openjdk-headless-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736015",
-												"comment": "java-17-openjdk-headless-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736016",
-												"comment": "java-17-openjdk-headless-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736017",
-												"comment": "java-17-openjdk-jmods-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736018",
-												"comment": "java-17-openjdk-jmods-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736019",
-												"comment": "java-17-openjdk-jmods-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736020",
-												"comment": "java-17-openjdk-jmods-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736021",
-												"comment": "java-17-openjdk-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736022",
-												"comment": "java-17-openjdk-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736023",
-												"comment": "java-17-openjdk-src-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736024",
-												"comment": "java-17-openjdk-src-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736025",
-												"comment": "java-17-openjdk-src-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736026",
-												"comment": "java-17-openjdk-src-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736027",
-												"comment": "java-17-openjdk-static-libs-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736028",
-												"comment": "java-17-openjdk-static-libs-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736029",
-												"comment": "java-17-openjdk-static-libs-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736030",
-												"comment": "java-17-openjdk-static-libs-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736031",
 												"comment": "java-17-openjdk is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736032",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736004",
 												"comment": "java-17-openjdk is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -275,11 +93,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736033",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736005",
 												"comment": "java-17-openjdk-demo is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736034",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736006",
 												"comment": "java-17-openjdk-demo is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -288,11 +106,37 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736035",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736007",
+												"comment": "java-17-openjdk-demo-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736008",
+												"comment": "java-17-openjdk-demo-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736009",
+												"comment": "java-17-openjdk-demo-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736010",
+												"comment": "java-17-openjdk-demo-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736011",
 												"comment": "java-17-openjdk-devel is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736036",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736012",
 												"comment": "java-17-openjdk-devel is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -301,11 +145,50 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736037",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736013",
+												"comment": "java-17-openjdk-devel-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736014",
+												"comment": "java-17-openjdk-devel-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736015",
+												"comment": "java-17-openjdk-devel-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736016",
+												"comment": "java-17-openjdk-devel-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736017",
+												"comment": "java-17-openjdk-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736018",
+												"comment": "java-17-openjdk-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736019",
 												"comment": "java-17-openjdk-headless is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736038",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736020",
 												"comment": "java-17-openjdk-headless is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -314,11 +197,37 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736039",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736021",
+												"comment": "java-17-openjdk-headless-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736022",
+												"comment": "java-17-openjdk-headless-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736023",
+												"comment": "java-17-openjdk-headless-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736024",
+												"comment": "java-17-openjdk-headless-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736025",
 												"comment": "java-17-openjdk-javadoc is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736040",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736026",
 												"comment": "java-17-openjdk-javadoc is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -327,11 +236,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736041",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736027",
 												"comment": "java-17-openjdk-javadoc-zip is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736042",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736028",
 												"comment": "java-17-openjdk-javadoc-zip is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -340,11 +249,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736043",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736029",
 												"comment": "java-17-openjdk-jmods is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736044",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736030",
 												"comment": "java-17-openjdk-jmods is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -353,11 +262,50 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736045",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736031",
+												"comment": "java-17-openjdk-jmods-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736032",
+												"comment": "java-17-openjdk-jmods-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736033",
+												"comment": "java-17-openjdk-jmods-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736034",
+												"comment": "java-17-openjdk-jmods-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736035",
+												"comment": "java-17-openjdk-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736036",
+												"comment": "java-17-openjdk-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736037",
 												"comment": "java-17-openjdk-src is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736046",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736038",
 												"comment": "java-17-openjdk-src is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -366,12 +314,64 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736047",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736039",
+												"comment": "java-17-openjdk-src-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736040",
+												"comment": "java-17-openjdk-src-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736041",
+												"comment": "java-17-openjdk-src-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736042",
+												"comment": "java-17-openjdk-src-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736043",
 												"comment": "java-17-openjdk-static-libs is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736048",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736044",
 												"comment": "java-17-openjdk-static-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736045",
+												"comment": "java-17-openjdk-static-libs-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736046",
+												"comment": "java-17-openjdk-static-libs-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736047",
+												"comment": "java-17-openjdk-static-libs-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736048",
+												"comment": "java-17-openjdk-static-libs-slowdebug is signed with the Oracle Linux 9 key"
 											}
 										]
 									}
@@ -395,11 +395,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736031",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736003",
 												"comment": "java-17-openjdk is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736032",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736004",
 												"comment": "java-17-openjdk is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -408,11 +408,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736033",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736005",
 												"comment": "java-17-openjdk-demo is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736034",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736006",
 												"comment": "java-17-openjdk-demo is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -421,102 +421,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736035",
-												"comment": "java-17-openjdk-devel is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736036",
-												"comment": "java-17-openjdk-devel is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736037",
-												"comment": "java-17-openjdk-headless is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736038",
-												"comment": "java-17-openjdk-headless is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736039",
-												"comment": "java-17-openjdk-javadoc is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736040",
-												"comment": "java-17-openjdk-javadoc is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736041",
-												"comment": "java-17-openjdk-javadoc-zip is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736042",
-												"comment": "java-17-openjdk-javadoc-zip is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736043",
-												"comment": "java-17-openjdk-jmods is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736044",
-												"comment": "java-17-openjdk-jmods is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736045",
-												"comment": "java-17-openjdk-src is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736046",
-												"comment": "java-17-openjdk-src is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736047",
-												"comment": "java-17-openjdk-static-libs is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736048",
-												"comment": "java-17-openjdk-static-libs is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736003",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736007",
 												"comment": "java-17-openjdk-demo-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736004",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736008",
 												"comment": "java-17-openjdk-demo-fastdebug is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -525,11 +434,11 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736005",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736009",
 												"comment": "java-17-openjdk-demo-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736006",
+												"test_ref": "oval:com.oracle.elsa:tst:20225736010",
 												"comment": "java-17-openjdk-demo-slowdebug is signed with the Oracle Linux 9 key"
 											}
 										]
@@ -538,38 +447,12 @@
 										"operator": "AND",
 										"criterions": [
 											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736007",
-												"comment": "java-17-openjdk-devel-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736008",
-												"comment": "java-17-openjdk-devel-fastdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736009",
-												"comment": "java-17-openjdk-devel-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
-											},
-											{
-												"test_ref": "oval:com.oracle.elsa:tst:20225736010",
-												"comment": "java-17-openjdk-devel-slowdebug is signed with the Oracle Linux 9 key"
-											}
-										]
-									},
-									{
-										"operator": "AND",
-										"criterions": [
-											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736011",
-												"comment": "java-17-openjdk-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-devel is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736012",
-												"comment": "java-17-openjdk-fastdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-devel is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -578,11 +461,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736013",
-												"comment": "java-17-openjdk-headless-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-devel-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736014",
-												"comment": "java-17-openjdk-headless-fastdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-devel-fastdebug is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -591,11 +474,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736015",
-												"comment": "java-17-openjdk-headless-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-devel-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736016",
-												"comment": "java-17-openjdk-headless-slowdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-devel-slowdebug is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -604,11 +487,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736017",
-												"comment": "java-17-openjdk-jmods-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736018",
-												"comment": "java-17-openjdk-jmods-fastdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-fastdebug is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -617,11 +500,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736019",
-												"comment": "java-17-openjdk-jmods-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-headless is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736020",
-												"comment": "java-17-openjdk-jmods-slowdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-headless is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -630,11 +513,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736021",
-												"comment": "java-17-openjdk-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-headless-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736022",
-												"comment": "java-17-openjdk-slowdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-headless-fastdebug is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -643,11 +526,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736023",
-												"comment": "java-17-openjdk-src-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-headless-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736024",
-												"comment": "java-17-openjdk-src-fastdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-headless-slowdebug is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -656,11 +539,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736025",
-												"comment": "java-17-openjdk-src-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-javadoc is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736026",
-												"comment": "java-17-openjdk-src-slowdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-javadoc is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -669,11 +552,11 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736027",
-												"comment": "java-17-openjdk-static-libs-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-javadoc-zip is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736028",
-												"comment": "java-17-openjdk-static-libs-fastdebug is signed with the Oracle Linux 9 key"
+												"comment": "java-17-openjdk-javadoc-zip is signed with the Oracle Linux 9 key"
 											}
 										]
 									},
@@ -682,10 +565,127 @@
 										"criterions": [
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736029",
-												"comment": "java-17-openjdk-static-libs-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+												"comment": "java-17-openjdk-jmods is earlier than 1:17.0.4.0.8-2.el9_0"
 											},
 											{
 												"test_ref": "oval:com.oracle.elsa:tst:20225736030",
+												"comment": "java-17-openjdk-jmods is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736031",
+												"comment": "java-17-openjdk-jmods-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736032",
+												"comment": "java-17-openjdk-jmods-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736033",
+												"comment": "java-17-openjdk-jmods-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736034",
+												"comment": "java-17-openjdk-jmods-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736035",
+												"comment": "java-17-openjdk-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736036",
+												"comment": "java-17-openjdk-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736037",
+												"comment": "java-17-openjdk-src is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736038",
+												"comment": "java-17-openjdk-src is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736039",
+												"comment": "java-17-openjdk-src-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736040",
+												"comment": "java-17-openjdk-src-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736041",
+												"comment": "java-17-openjdk-src-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736042",
+												"comment": "java-17-openjdk-src-slowdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736043",
+												"comment": "java-17-openjdk-static-libs is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736044",
+												"comment": "java-17-openjdk-static-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736045",
+												"comment": "java-17-openjdk-static-libs-fastdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736046",
+												"comment": "java-17-openjdk-static-libs-fastdebug is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736047",
+												"comment": "java-17-openjdk-static-libs-slowdebug is earlier than 1:17.0.4.0.8-2.el9_0"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20225736048",
 												"comment": "java-17-openjdk-static-libs-slowdebug is signed with the Oracle Linux 9 key"
 											}
 										]
