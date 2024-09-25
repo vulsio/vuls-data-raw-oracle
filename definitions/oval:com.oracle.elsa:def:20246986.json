@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20246986",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-6986:  nano security update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-6986",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-6986.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-5742",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-5742.html"
+			}
+		],
+		"description": "\n[2.9.8-3]\n- fix incomplete backport of the fix for the emergency file replacement\n  vulnerability (RHEL-35236)\n\n[2.9.8-2]\n- fix emergency file replacement vulnerability (RHEL-35236)\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-09-24"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-5742",
+					"href": "https://linux.oracle.com/cve/CVE-2024-5742.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246986003",
+										"comment": "nano is earlier than 0:2.9.8-3.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246986004",
+										"comment": "nano is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20246986002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246986003",
+										"comment": "nano is earlier than 0:2.9.8-3.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20246986004",
+										"comment": "nano is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20246986005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20246986001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
