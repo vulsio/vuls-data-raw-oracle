@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20247135",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-7135:  git-lfs security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-7135",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-7135.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-34156",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-34156.html"
+			}
+		],
+		"description": "\n[3.4.1-3]\n- Rebuild with new Golang\n- Resolves: RHEL-57900\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-09-25"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-34156",
+					"href": "https://linux.oracle.com/cve/CVE-2024-34156.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20247135003",
+										"comment": "git-lfs is earlier than 0:3.4.1-3.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20247135004",
+										"comment": "git-lfs is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20247135002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20247135003",
+										"comment": "git-lfs is earlier than 0:3.4.1-3.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20247135004",
+										"comment": "git-lfs is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20247135005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20247135001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
