@@ -38,11 +38,6 @@
 			},
 			{
 				"source": "CVE",
-				"ref_id": "CVE-2024-7522",
-				"ref_url": "https://linux.oracle.com/cve/CVE-2024-7522.html"
-			},
-			{
-				"source": "CVE",
 				"ref_id": "CVE-2024-7520",
 				"ref_url": "https://linux.oracle.com/cve/CVE-2024-7520.html"
 			},
@@ -70,6 +65,11 @@
 				"source": "CVE",
 				"ref_id": "CVE-2024-7518",
 				"ref_url": "https://linux.oracle.com/cve/CVE-2024-7518.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-7522",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-7522.html"
 			}
 		],
 		"description": "\n[115.12.0-1.0.3]\n- Security fixes [Orabug: 36904311][Orabug: 36948200][CVE-2024-6601]\n  [CVE-2024-6603][CVE-2024-6604][CVE-2024-7519][CVE-2024-7520][CVE-2024-7521]\n  [CVE-2024-7522][CVE-2024-7524][CVE-2024-7525][CVE-2024-7526][CVE-2024-7527]\n  [CVE-2024-7529]\n",
@@ -97,10 +97,6 @@
 					"href": "https://linux.oracle.com/cve/CVE-2024-7526.html"
 				},
 				{
-					"text": "CVE-2024-7522",
-					"href": "https://linux.oracle.com/cve/CVE-2024-7522.html"
-				},
-				{
 					"text": "CVE-2024-7520",
 					"href": "https://linux.oracle.com/cve/CVE-2024-7520.html"
 				},
@@ -123,6 +119,10 @@
 				{
 					"text": "CVE-2024-7518",
 					"href": "https://linux.oracle.com/cve/CVE-2024-7518.html"
+				},
+				{
+					"text": "CVE-2024-7522",
+					"href": "https://linux.oracle.com/cve/CVE-2024-7522.html"
 				}
 			]
 		}
@@ -131,26 +131,55 @@
 		"operator": "AND",
 		"criterias": [
 			{
-				"operator": "AND",
+				"operator": "OR",
 				"criterias": [
 					{
 						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20245324003",
+										"comment": "firefox is earlier than 0:115.12.0-1.0.3.el7_9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20245324004",
+										"comment": "firefox is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
 						"criterions": [
 							{
-								"test_ref": "oval:com.oracle.elsa:tst:20245324003",
-								"comment": "firefox is earlier than 0:115.12.0-1.0.3.el7_9"
-							},
-							{
-								"test_ref": "oval:com.oracle.elsa:tst:20245324004",
-								"comment": "firefox is signed with the Oracle Linux 7 key"
+								"test_ref": "oval:com.oracle.elsa:tst:20245324002",
+								"comment": "Oracle Linux arch is aarch64"
 							}
 						]
-					}
-				],
-				"criterions": [
+					},
 					{
-						"test_ref": "oval:com.oracle.elsa:tst:20245324002",
-						"comment": "Oracle Linux arch is x86_64"
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20245324003",
+										"comment": "firefox is earlier than 0:115.12.0-1.0.3.el7_9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20245324004",
+										"comment": "firefox is signed with the Oracle Linux 7 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20245324005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
 					}
 				]
 			}
