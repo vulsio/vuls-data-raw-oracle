@@ -1,0 +1,184 @@
+{
+	"id": "oval:com.oracle.elsa:def:20247346",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-7346:  cups-filters security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-7346",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-7346.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47076",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-47076.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47175",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-47175.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-47176",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-47176.html"
+			}
+		],
+		"description": "\n[1.28.7-17.0.1]\n- header/footer not being printed in banner page. [Orabug: 28265099] (isaac.chen@oracle.com)\n- Fixes [Orabug: 29163824] source indentation not following convention (isaac.chen@oracle.com)\n\n[1.28.7-17]\n- fix rpmverify error\n\n[1.28.7-16]\n- CVE-2024-47175 cups-filters: remote command injection via attacker controlled data in PPD file\n- CVE-2024-47076 cups-filters: cfGetPrinterAttributes API does not perform sanitization on returned IPP attributes\n- CVE-2024-47176 cups-filters: cups-browsed binds on UDP INADDR_ANY:631 trusting any packet from any source\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-09-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-47076",
+					"href": "https://linux.oracle.com/cve/CVE-2024-47076.html"
+				},
+				{
+					"text": "CVE-2024-47175",
+					"href": "https://linux.oracle.com/cve/CVE-2024-47175.html"
+				},
+				{
+					"text": "CVE-2024-47176",
+					"href": "https://linux.oracle.com/cve/CVE-2024-47176.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346003",
+												"comment": "cups-filters-devel is earlier than 0:1.28.7-17.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346004",
+												"comment": "cups-filters-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346005",
+												"comment": "cups-filters is earlier than 0:1.28.7-17.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346006",
+												"comment": "cups-filters is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346007",
+												"comment": "cups-filters-libs is earlier than 0:1.28.7-17.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346008",
+												"comment": "cups-filters-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20247346002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346005",
+												"comment": "cups-filters is earlier than 0:1.28.7-17.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346006",
+												"comment": "cups-filters is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346007",
+												"comment": "cups-filters-libs is earlier than 0:1.28.7-17.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346008",
+												"comment": "cups-filters-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346003",
+												"comment": "cups-filters-devel is earlier than 0:1.28.7-17.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20247346004",
+												"comment": "cups-filters-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20247346009",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20247346001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
