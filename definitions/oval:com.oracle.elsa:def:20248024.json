@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20248024",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-8024:  thunderbird security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-8024",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-8024.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-9680",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-9680.html"
+			}
+		],
+		"description": "\n[128.3.1-1.0.1]\n- Fix prefs for new nss [Orabug: 37079820]\n- Add Oracle prefs file\n\n[128.3.1]\n- Add OpenELA debranding\n\n[128.3.1-1]\n- Update to 128.3.1\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-10-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-9680",
+					"href": "https://linux.oracle.com/cve/CVE-2024-9680.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248024003",
+										"comment": "thunderbird is earlier than 0:128.3.1-1.0.1.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248024004",
+										"comment": "thunderbird is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20248024002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248024003",
+										"comment": "thunderbird is earlier than 0:128.3.1-1.0.1.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248024004",
+										"comment": "thunderbird is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20248024005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20248024001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
