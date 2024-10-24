@@ -1,0 +1,131 @@
+{
+	"id": "oval:com.oracle.elsa:def:202412795",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-12795: edk2 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-12795",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-12795.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45236",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-45236.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-1298",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-1298.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-25742",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-25742.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45237",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-45237.html"
+			}
+		],
+		"description": "\n[20240909]\n- Create new 20240909 release for OL8 which includes the following fixed CVEs:\n- EDK2: EDK2 contains a vulnerability when S3 sleep is activated where an Attacker may cause a Division-By-Zero due to a UNIT32 overflow via local access [Orabug: 36990130] {CVE-2024-1298}\n- EDK2: In the Linux kernel before 6.9, an untrusted hypervisor can inject virtual interrupt 29 (#VC) at any point in time and can trigger its handler. [Orabug: 36990244] {CVE-2024-25742}\n- EDK2: EDK2's Network Package is susceptible to a predictable TCP Initial Sequence Number. [Orabug: 36990198] {CVE-2023-45236}\n- EDK2: EDK2's Network Package is susceptible to a predictable TCP Initial Sequence Number. [Orabug: 36990210] {CVE-2023-45237}\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-10-18"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-45236",
+					"href": "https://linux.oracle.com/cve/CVE-2023-45236.html"
+				},
+				{
+					"text": "CVE-2024-1298",
+					"href": "https://linux.oracle.com/cve/CVE-2024-1298.html"
+				},
+				{
+					"text": "CVE-2024-25742",
+					"href": "https://linux.oracle.com/cve/CVE-2024-25742.html"
+				},
+				{
+					"text": "CVE-2023-45237",
+					"href": "https://linux.oracle.com/cve/CVE-2023-45237.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412795003",
+										"comment": "edk2-aarch64 is earlier than 1:20240909-2.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412795004",
+										"comment": "edk2-aarch64 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412795002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412795006",
+										"comment": "edk2-ovmf is earlier than 1:20240909-2.el8"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202412795007",
+										"comment": "edk2-ovmf is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202412795005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202412795001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
