@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20248834",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-8834:  python-gevent security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-8834",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-8834.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-41419",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-41419.html"
+			}
+		],
+		"description": "\n[1.2.2-5]\n- Avoid printing TypeError traceback\n- gevent.pywsgi: Much improved handling of chunk trailers\n  Backport fix for CVE-2023-41419\n  Resolves: RHEL-17078\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-41419",
+					"href": "https://linux.oracle.com/cve/CVE-2023-41419.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248834003",
+										"comment": "python3-gevent is earlier than 0:1.2.2-5.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248834004",
+										"comment": "python3-gevent is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20248834002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248834003",
+										"comment": "python3-gevent is earlier than 0:1.2.2-5.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20248834004",
+										"comment": "python3-gevent is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20248834005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20248834001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
