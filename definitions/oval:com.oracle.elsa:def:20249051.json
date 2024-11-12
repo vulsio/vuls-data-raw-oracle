@@ -1,0 +1,236 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249051",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9051:  podman security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9051",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9051.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-9676",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-9676.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-9407",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-9407.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-9675",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-9675.html"
+			}
+		],
+		"description": "\n[4.9.4-16.0.1]\n- Fixes issue of podman execvp error while using podmansh [Orabug: 36073625]\n- Improved saving remote build context to tarfile in Podman daemon [Orabug: 36495655]\n- Add devices on container startup, not on creation\n- Backport fast gzip for compression [Orabug: 36420418]\n- overlay: Put should ignore ENINVAL for Unmount [Orabug: 36234694]\n- Drop nmap-ncat requirement and skip ignore-socket test case [Orabug: 34117404]\n\n[4:4.9.4-16]\n- update to the latest content of https://github.com/containers/podman/tree/v4.9-rhel\n  (https://github.com/containers/podman/commit/70e4d02)\n- Resolves: RHEL-65451\n\n[4:4.9.4-15]\n- update to the latest content of https://github.com/containers/podman/tree/v4.9-rhel\n  (https://github.com/containers/podman/commit/1866072)\n- Resolves: RHEL-61868\n\n[4:4.9.4-14]\n- update to the latest content of https://github.com/containers/podman/tree/v4.9-rhel\n  (https://github.com/containers/podman/commit/235a22c)\n- Resolves: RHEL-61154\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-11"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-9676",
+					"href": "https://linux.oracle.com/cve/CVE-2024-9676.html"
+				},
+				{
+					"text": "CVE-2024-9407",
+					"href": "https://linux.oracle.com/cve/CVE-2024-9407.html"
+				},
+				{
+					"text": "CVE-2024-9675",
+					"href": "https://linux.oracle.com/cve/CVE-2024-9675.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051003",
+												"comment": "podman is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051004",
+												"comment": "podman is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051005",
+												"comment": "podman-docker is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051006",
+												"comment": "podman-docker is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051007",
+												"comment": "podman-plugins is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051008",
+												"comment": "podman-plugins is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051009",
+												"comment": "podman-remote is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051010",
+												"comment": "podman-remote is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051011",
+												"comment": "podman-tests is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051012",
+												"comment": "podman-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249051002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051003",
+												"comment": "podman is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051004",
+												"comment": "podman is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051005",
+												"comment": "podman-docker is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051006",
+												"comment": "podman-docker is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051007",
+												"comment": "podman-plugins is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051008",
+												"comment": "podman-plugins is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051009",
+												"comment": "podman-remote is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051010",
+												"comment": "podman-remote is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051011",
+												"comment": "podman-tests is earlier than 4:4.9.4-16.0.1.el9_4"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249051012",
+												"comment": "podman-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249051013",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249051001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
