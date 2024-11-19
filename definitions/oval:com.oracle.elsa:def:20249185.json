@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249185",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9185:  iperf3 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9185",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9185.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-7250",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-7250.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-26306",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-26306.html"
+			}
+		],
+		"description": "\n[3.9-13]\n- Resolves: RHEL-29579 - vulnerable to marvin attack if the authentication option is used\n\n[3.9-12]\n- Resolves: RHEL-39975 - possible denial of service\n\n[3.9-11]\n- Related: #2223676 - bumping version for correct update path\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-7250",
+					"href": "https://linux.oracle.com/cve/CVE-2023-7250.html"
+				},
+				{
+					"text": "CVE-2024-26306",
+					"href": "https://linux.oracle.com/cve/CVE-2024-26306.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249185003",
+										"comment": "iperf3 is earlier than 0:3.9-13.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249185004",
+										"comment": "iperf3 is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249185002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249185003",
+										"comment": "iperf3 is earlier than 0:3.9-13.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249185004",
+										"comment": "iperf3 is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249185005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249185001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

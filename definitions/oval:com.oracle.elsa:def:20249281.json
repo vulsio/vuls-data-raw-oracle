@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249281",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9281:  python-jwcrypto security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9281",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9281.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-6681",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-6681.html"
+			}
+		],
+		"description": "\n[1.5.6-2]\n- Disable auto-generation of dependencies\n  Related: RHEL-34809\n\n[1.5.6-1]\n- Rebase to version 1.5.6\n  Resolve: RHEL-34809\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-6681",
+					"href": "https://linux.oracle.com/cve/CVE-2023-6681.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249281003",
+										"comment": "python3-jwcrypto is earlier than 0:1.5.6-2.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249281004",
+										"comment": "python3-jwcrypto is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249281002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249281003",
+										"comment": "python3-jwcrypto is earlier than 0:1.5.6-2.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249281004",
+										"comment": "python3-jwcrypto is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249281005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249281001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

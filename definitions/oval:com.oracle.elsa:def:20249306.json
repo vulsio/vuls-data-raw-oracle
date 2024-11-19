@@ -1,0 +1,383 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249306",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9306:  httpd security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9306",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9306.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-24795",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-24795.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-38709",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-38709.html"
+			}
+		],
+		"description": "\n[2.4.62-1.0.1]\n- Replace index.html with Oracle's index page oracle_index.html.\n\n[2.4.62-1]\n- new version 2.4.62\n- Resolves: RHEL-52724 - Regression introduced by CVE-2024-38474 fix\n\n[2.4.59-7]\n- Resolves: RHEL-49856: htcacheclean.service missing [Install] section\n\n[2.4.59-6]\n- mod_ssl: restore SSL_OP_NO_RENEGOTIATE support\n  Related: RHEL-14668\n\n[2.4.59-5]\n- mod_ssl: defer ENGINE_finish() calls to a cleanup\n  Resolves: RHEL-36755\n\n[2.4.59-4]\n- Resolves: RHEL-6575 - [RFE] httpd use systemd-sysusers\n\n[2.4.59-3]\n- Related: RHEL-14668 - RFE: httpd rebase to 2.4.59\n\n[2.4.59-2]\n- Resolves: RHEL-35870 - httpd mod_cgi/cgid unification\n\n[2.4.59-1]\n- new version 2.4.59\n- Resolves: RHEL-14668 - RFE: httpd rebase to 2.4.59\n- Resolves: RHEL-31856 - httpd: HTTP response splitting\n  (CVE-2023-38709)\n- Resolves: RHEL-31859 - httpd: HTTP Response Splitting in multiple\n  modules (CVE-2024-24795)\n\n[2.4.57-8]\n- mod_xml2enc: fix media type handling\n  Resolves: RHEL-17686\n- mod_dav: add DavBasePath\n  Resolves: RHEL-6600\n\n[2.4.57-7]\n- Resolves: RHEL-14447 - httpd: mod_macro: out-of-bounds read\n  vulnerability (CVE-2023-31122)\n\n[2.4.57-6]\n- Resolves: RHEL-5071 - mod_dav_fs: add DavLockDBType\n- mod_dav_fs: add global mutex around lockdb interaction\n\n[2.4.57-5]\n- Fix issue found by covscan\n- Related: #2222001\n\n[2.4.57-4]\n- Resolves: #2217726 - Make PROPFIND tolerant of deletion race\n\n[2.4.57-3]\n- Resolves: #2222001 - mod_status lists BusyWorkers IdleWorkers keys twice\n\n[2.4.57-2]\n- Resolves: #2186645 - Fix issue found by covscan in httpd package\n- Resolves: #2173295 - Include Apache httpd module mod_authnz_fcgi\n\n[2.4.57-1]\n- Resolves: #2184403 - rebase httpd to 2.4.57\n- Resolves: #2177753 - CVE-2023-25690 httpd: HTTP request splitting with\n  mod_rewrite and mod_proxy\n\n[2.4.53-11]\n- Resolves: #2162500 - CVE-2006-20001 httpd: mod_dav: out-of-bounds read/write\n  of zero byte\n- Resolves: #2162486 - CVE-2022-37436 httpd: mod_proxy: HTTP response splitting\n- Resolves: #2162510 - CVE-2022-36760 httpd: mod_proxy_ajp: Possible request\n  smuggling\n\n[2.4.53-10]\n- Resolves: #2160667 - prevent sscg creating /dhparams.pem\n\n[2.4.53-9]\n- Resolves: #2143176 - Dependency from mod_http2 on httpd broken\n\n[2.4.53-8]\n- Resolves: #2151313 - reduce AH03408 log level from WARNING to INFO\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-24795",
+					"href": "https://linux.oracle.com/cve/CVE-2024-24795.html"
+				},
+				{
+					"text": "CVE-2023-38709",
+					"href": "https://linux.oracle.com/cve/CVE-2023-38709.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306003",
+												"comment": "httpd is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306004",
+												"comment": "httpd is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306005",
+												"comment": "httpd-core is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306006",
+												"comment": "httpd-core is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306007",
+												"comment": "httpd-devel is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306008",
+												"comment": "httpd-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306009",
+												"comment": "httpd-filesystem is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306010",
+												"comment": "httpd-filesystem is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306011",
+												"comment": "httpd-manual is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306012",
+												"comment": "httpd-manual is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306013",
+												"comment": "httpd-tools is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306014",
+												"comment": "httpd-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306015",
+												"comment": "mod_ldap is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306016",
+												"comment": "mod_ldap is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306017",
+												"comment": "mod_lua is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306018",
+												"comment": "mod_lua is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306019",
+												"comment": "mod_proxy_html is earlier than 1:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306020",
+												"comment": "mod_proxy_html is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306021",
+												"comment": "mod_session is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306022",
+												"comment": "mod_session is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306023",
+												"comment": "mod_ssl is earlier than 1:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306024",
+												"comment": "mod_ssl is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249306002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306003",
+												"comment": "httpd is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306004",
+												"comment": "httpd is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306005",
+												"comment": "httpd-core is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306006",
+												"comment": "httpd-core is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306007",
+												"comment": "httpd-devel is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306008",
+												"comment": "httpd-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306009",
+												"comment": "httpd-filesystem is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306010",
+												"comment": "httpd-filesystem is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306011",
+												"comment": "httpd-manual is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306012",
+												"comment": "httpd-manual is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306013",
+												"comment": "httpd-tools is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306014",
+												"comment": "httpd-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306015",
+												"comment": "mod_ldap is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306016",
+												"comment": "mod_ldap is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306017",
+												"comment": "mod_lua is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306018",
+												"comment": "mod_lua is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306019",
+												"comment": "mod_proxy_html is earlier than 1:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306020",
+												"comment": "mod_proxy_html is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306021",
+												"comment": "mod_session is earlier than 0:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306022",
+												"comment": "mod_session is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306023",
+												"comment": "mod_ssl is earlier than 1:2.4.62-1.0.1.el9"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249306024",
+												"comment": "mod_ssl is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249306025",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249306001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

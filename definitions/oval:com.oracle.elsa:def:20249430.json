@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249430",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9430:  nano security update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9430",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9430.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-5742",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-5742.html"
+			}
+		],
+		"description": "\n[5.6.1-6]\n- fix emergency file replacement vulnerability (RHEL-35237)\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-5742",
+					"href": "https://linux.oracle.com/cve/CVE-2024-5742.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249430003",
+										"comment": "nano is earlier than 0:5.6.1-6.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249430004",
+										"comment": "nano is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249430002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249430003",
+										"comment": "nano is earlier than 0:5.6.1-6.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249430004",
+										"comment": "nano is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249430005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249430001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

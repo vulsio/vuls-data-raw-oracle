@@ -1,0 +1,113 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249424",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9424:  tpm2-tools security update (LOW)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9424",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9424.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-29038",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-29038.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-29039",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-29039.html"
+			}
+		],
+		"description": "\n[5.2-4]\n- Backport upstream fixes.\n- tpm2_checkquote: Fix check of magic number. (CVE-2024-29038)\n- tpm2_checkquote: Add comparison of pcr selection. (CVE-2024-29039)\n- Fix check of magic number.\n  Resolves: RHEL-23198\n  Resolves: RHEL-41031\n  Resolves: RHEL-41035\n",
+		"advisory": {
+			"severity": "LOW",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-29038",
+					"href": "https://linux.oracle.com/cve/CVE-2024-29038.html"
+				},
+				{
+					"text": "CVE-2024-29039",
+					"href": "https://linux.oracle.com/cve/CVE-2024-29039.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249424003",
+										"comment": "tpm2-tools is earlier than 0:5.2-4.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249424004",
+										"comment": "tpm2-tools is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249424002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249424003",
+										"comment": "tpm2-tools is earlier than 0:5.2-4.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249424004",
+										"comment": "tpm2-tools is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249424005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249424001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

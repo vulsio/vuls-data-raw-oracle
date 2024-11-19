@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249180",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9180:  mod_auth_openidc security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9180",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9180.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-24814",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-24814.html"
+			}
+		],
+		"description": "\n[2.4.10-1]\nRebase to 2.4.10 version improves state cookies piling up problem\n  Resolves: RHEL-32450 Race condition in mod_auth_openidc filecache\n  Resolves: RHEL-25422 mod_auth_openidc: DoS when using\n            OIDCSessionType client-cookie and manipulating cookies\n            (CVE-2024-24814)\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-24814",
+					"href": "https://linux.oracle.com/cve/CVE-2024-24814.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249180003",
+										"comment": "mod_auth_openidc is earlier than 0:2.4.10-1.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249180004",
+										"comment": "mod_auth_openidc is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249180002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249180003",
+										"comment": "mod_auth_openidc is earlier than 0:2.4.10-1.el9"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249180004",
+										"comment": "mod_auth_openidc is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249180005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249180001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
