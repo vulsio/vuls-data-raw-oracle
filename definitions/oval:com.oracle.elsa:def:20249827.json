@@ -1,0 +1,140 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249827",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9827:  libvpx security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9827",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9827.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-5197",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-5197.html"
+			}
+		],
+		"description": "\n[1.9.0-8]\n- Add patch to fix integer overflows.\n- Disable LTO to fix build\n- Resolves: RHEL-58144\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-18"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-5197",
+					"href": "https://linux.oracle.com/cve/CVE-2024-5197.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827003",
+												"comment": "libvpx is earlier than 0:1.9.0-8.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827004",
+												"comment": "libvpx is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827005",
+												"comment": "libvpx-devel is earlier than 0:1.9.0-8.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827006",
+												"comment": "libvpx-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249827002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827003",
+												"comment": "libvpx is earlier than 0:1.9.0-8.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827004",
+												"comment": "libvpx is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827005",
+												"comment": "libvpx-devel is earlier than 0:1.9.0-8.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20249827006",
+												"comment": "libvpx-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249827007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249827001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

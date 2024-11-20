@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249625",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9625:  squid security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9625",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9625.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-45802",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-45802.html"
+			}
+		],
+		"description": "\n[7:5.5-14.3]\n- Disable ESI support\n- Resolves: RHEL-65076 - CVE-2024-45802 squid: Denial of Service processing ESI\n  response content\n\n[7:5.5-14.2]\n- Resolves: RHEL-64425 TCP_MISS_ABORTED/100 erros when uploading\n\n[7:5.5-14.1]\n- Resolves: RHEL-62332 - (Regression) Transfer-encoding:chunked data is not sent\n  to the client in its complementary\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-18"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-45802",
+					"href": "https://linux.oracle.com/cve/CVE-2024-45802.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249625003",
+										"comment": "squid is earlier than 7:5.5-14.el9_5.3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249625004",
+										"comment": "squid is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249625002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249625003",
+										"comment": "squid is earlier than 7:5.5-14.el9_5.3"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249625004",
+										"comment": "squid is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249625005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249625001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
