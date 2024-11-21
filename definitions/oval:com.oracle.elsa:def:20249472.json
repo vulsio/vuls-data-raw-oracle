@@ -1,0 +1,104 @@
+{
+	"id": "oval:com.oracle.elsa:def:20249472",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-9472:  grafana-pcp security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-9472",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-9472.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-34156",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-34156.html"
+			}
+		],
+		"description": "\n[5.1.1-9]\n- Resolves: RHEL-57932\n\n[5.1.1-8]\n- Add a premade uwsgi dashboard for the vector datasource\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-20"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-34156",
+					"href": "https://linux.oracle.com/cve/CVE-2024-34156.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249472003",
+										"comment": "grafana-pcp is earlier than 0:5.1.1-9.el9_5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249472004",
+										"comment": "grafana-pcp is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249472002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249472003",
+										"comment": "grafana-pcp is earlier than 0:5.1.1-9.el9_5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20249472004",
+										"comment": "grafana-pcp is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20249472005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20249472001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
