@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:202410379",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-10379:  pam security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-10379",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-10379.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-10963",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-10963.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-10041",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-10041.html"
+			}
+		],
+		"description": "\n[1.3.1-36.0.1]\n- pam_limits: fix use after free in pam_sm_open_session [Orabug: 36272695]\n\n[1.3.1-36]\n- pam_access: rework resolving of tokens as hostname.\n  Resolves: CVE-2024-10963 and RHEL-66242\n\n[1.3.1-35]\n- pam_unix: always run the helper to obtain shadow password file entries.\n  CVE-2024-10041. Resolves: RHEL-62877\n- pam_access: always match local address and clarify LOCAL keyword behaviour.\n  Resolves: RHEL-23018\n- libpam: support long lines in service files. Resolves: RHEL-5051\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-26"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-10963",
+					"href": "https://linux.oracle.com/cve/CVE-2024-10963.html"
+				},
+				{
+					"text": "CVE-2024-10041",
+					"href": "https://linux.oracle.com/cve/CVE-2024-10041.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379003",
+												"comment": "pam is earlier than 0:1.3.1-36.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379004",
+												"comment": "pam is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379005",
+												"comment": "pam-devel is earlier than 0:1.3.1-36.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379006",
+												"comment": "pam-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410379002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379003",
+												"comment": "pam is earlier than 0:1.3.1-36.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379004",
+												"comment": "pam is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379005",
+												"comment": "pam-devel is earlier than 0:1.3.1-36.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202410379006",
+												"comment": "pam-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410379007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202410379001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
