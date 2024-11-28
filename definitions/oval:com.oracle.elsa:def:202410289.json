@@ -1,0 +1,960 @@
+{
+	"id": "oval:com.oracle.elsa:def:202410289",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-10289:  container-tools:ol8 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-10289",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-10289.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-33198",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-33198.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-9676",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-9676.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2021-4024",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2021-4024.html"
+			}
+		],
+		"description": "\naardvark-dns\nbuildah\n[2:1.33.11-1]\n- update to the latest content of https://github.com/containers/buildah/tree/release-1.33\n  (https://github.com/containers/buildah/commit/fe85f0d)\n- Resolves: RHEL-61853\n\n[2:1.33.10-1]\n- update to the latest content of https://github.com/containers/buildah/tree/release-1.33\n  (https://github.com/containers/buildah/commit/bd85c17)\n- Resolves: RHEL-61835\n\ncockpit-podman\nconmon\ncontainernetworking-plugins\ncontainers-common\ncontainer-selinux\ncriu\ncrun\nfuse-overlayfs\nlibslirp\nnetavark\noci-seccomp-bpf-hook\npodman\n[4.9.4-18.0.1]\n- Fixes issue of container created in cgroupv2 not start in cgroupv1 [Orabug: 36136813]\n- Fixes container memory limit not set after host is rebooted with cgroupv2 [Orabug: 36136802]\n- Fixes issue of podman execvp error while using podmansh [Orabug: 36756665]\n\n[4:4.9.4-18]\n- update to the latest content of https://github.com/containers/podman/tree/v4.9-rhel\n  (https://github.com/containers/podman/commit/70e4d02)\n- Resolves: RHEL-62522\n\n[4:4.9.4-17]\n- update to the latest content of https://github.com/containers/podman/tree/v4.9-rhel\n  (https://github.com/containers/podman/commit/1866072)\n- Resolves: RHEL-62549\n\n[4:4.9.4-16]\n- update to the latest content of https://github.com/containers/podman/tree/v4.9-rhel\n  (https://github.com/containers/podman/commit/5c84289)\n- Resolves: RHEL-62549 RHEL-61855\n\npython-podman\n[4.9.0-3]\n- sync with release-4.9 branch\n- Resolves: RHEL-31069\n\nrunc\nskopeo\nslirp4netns\nudica\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-11-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2021-33198",
+					"href": "https://linux.oracle.com/cve/CVE-2021-33198.html"
+				},
+				{
+					"text": "CVE-2024-9676",
+					"href": "https://linux.oracle.com/cve/CVE-2024-9676.html"
+				},
+				{
+					"text": "CVE-2021-4024",
+					"href": "https://linux.oracle.com/cve/CVE-2021-4024.html"
+				}
+			]
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289004",
+														"comment": "aardvark-dns is earlier than 2:1.10.1-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289005",
+														"comment": "aardvark-dns is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289006",
+														"comment": "buildah is earlier than 2:1.33.11-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289007",
+														"comment": "buildah is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289008",
+														"comment": "buildah-tests is earlier than 2:1.33.11-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289009",
+														"comment": "buildah-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289010",
+														"comment": "cockpit-podman is earlier than 0:84.1-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289011",
+														"comment": "cockpit-podman is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289012",
+														"comment": "conmon is earlier than 3:2.1.10-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289013",
+														"comment": "conmon is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289014",
+														"comment": "container-selinux is earlier than 2:2.229.0-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289015",
+														"comment": "container-selinux is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289016",
+														"comment": "containernetworking-plugins is earlier than 1:1.4.0-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289017",
+														"comment": "containernetworking-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289018",
+														"comment": "containers-common is earlier than 2:1-82.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289019",
+														"comment": "containers-common is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289020",
+														"comment": "crit is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289021",
+														"comment": "crit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289022",
+														"comment": "criu is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289023",
+														"comment": "criu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289024",
+														"comment": "criu-devel is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289025",
+														"comment": "criu-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289026",
+														"comment": "criu-libs is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289027",
+														"comment": "criu-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289028",
+														"comment": "crun is earlier than 0:1.14.3-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289029",
+														"comment": "crun is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289030",
+														"comment": "fuse-overlayfs is earlier than 0:1.13-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289031",
+														"comment": "fuse-overlayfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289032",
+														"comment": "libslirp is earlier than 0:4.4.0-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289033",
+														"comment": "libslirp is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289034",
+														"comment": "libslirp-devel is earlier than 0:4.4.0-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289035",
+														"comment": "libslirp-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289036",
+														"comment": "netavark is earlier than 2:1.10.3-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289037",
+														"comment": "netavark is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289038",
+														"comment": "oci-seccomp-bpf-hook is earlier than 0:1.2.10-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289039",
+														"comment": "oci-seccomp-bpf-hook is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289040",
+														"comment": "podman is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289041",
+														"comment": "podman is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289042",
+														"comment": "podman-catatonit is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289043",
+														"comment": "podman-catatonit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289044",
+														"comment": "podman-docker is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289045",
+														"comment": "podman-docker is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289046",
+														"comment": "podman-gvproxy is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289047",
+														"comment": "podman-gvproxy is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289048",
+														"comment": "podman-plugins is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289049",
+														"comment": "podman-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289050",
+														"comment": "podman-remote is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289051",
+														"comment": "podman-remote is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289052",
+														"comment": "podman-tests is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289053",
+														"comment": "podman-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289054",
+														"comment": "python3-criu is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289055",
+														"comment": "python3-criu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289056",
+														"comment": "python3-podman is earlier than 0:4.9.0-3.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289057",
+														"comment": "python3-podman is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289058",
+														"comment": "runc is earlier than 1:1.1.12-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289059",
+														"comment": "runc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289060",
+														"comment": "skopeo is earlier than 2:1.14.5-3.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289061",
+														"comment": "skopeo is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289062",
+														"comment": "skopeo-tests is earlier than 2:1.14.5-3.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289063",
+														"comment": "skopeo-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289064",
+														"comment": "slirp4netns is earlier than 0:1.2.3-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289065",
+														"comment": "slirp4netns is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289066",
+														"comment": "udica is earlier than 0:0.2.6-21.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289067",
+														"comment": "udica is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202410289003",
+										"comment": "Module container-tools:ol8 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410289002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289004",
+														"comment": "aardvark-dns is earlier than 2:1.10.1-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289005",
+														"comment": "aardvark-dns is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289006",
+														"comment": "buildah is earlier than 2:1.33.11-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289007",
+														"comment": "buildah is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289008",
+														"comment": "buildah-tests is earlier than 2:1.33.11-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289009",
+														"comment": "buildah-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289010",
+														"comment": "cockpit-podman is earlier than 0:84.1-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289011",
+														"comment": "cockpit-podman is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289012",
+														"comment": "conmon is earlier than 3:2.1.10-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289013",
+														"comment": "conmon is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289014",
+														"comment": "container-selinux is earlier than 2:2.229.0-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289015",
+														"comment": "container-selinux is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289016",
+														"comment": "containernetworking-plugins is earlier than 1:1.4.0-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289017",
+														"comment": "containernetworking-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289018",
+														"comment": "containers-common is earlier than 2:1-82.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289019",
+														"comment": "containers-common is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289020",
+														"comment": "crit is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289021",
+														"comment": "crit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289022",
+														"comment": "criu is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289023",
+														"comment": "criu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289024",
+														"comment": "criu-devel is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289025",
+														"comment": "criu-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289026",
+														"comment": "criu-libs is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289027",
+														"comment": "criu-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289028",
+														"comment": "crun is earlier than 0:1.14.3-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289029",
+														"comment": "crun is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289030",
+														"comment": "fuse-overlayfs is earlier than 0:1.13-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289031",
+														"comment": "fuse-overlayfs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289032",
+														"comment": "libslirp is earlier than 0:4.4.0-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289033",
+														"comment": "libslirp is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289034",
+														"comment": "libslirp-devel is earlier than 0:4.4.0-2.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289035",
+														"comment": "libslirp-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289036",
+														"comment": "netavark is earlier than 2:1.10.3-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289037",
+														"comment": "netavark is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289038",
+														"comment": "oci-seccomp-bpf-hook is earlier than 0:1.2.10-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289039",
+														"comment": "oci-seccomp-bpf-hook is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289040",
+														"comment": "podman is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289041",
+														"comment": "podman is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289042",
+														"comment": "podman-catatonit is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289043",
+														"comment": "podman-catatonit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289044",
+														"comment": "podman-docker is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289045",
+														"comment": "podman-docker is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289046",
+														"comment": "podman-gvproxy is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289047",
+														"comment": "podman-gvproxy is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289048",
+														"comment": "podman-plugins is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289049",
+														"comment": "podman-plugins is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289050",
+														"comment": "podman-remote is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289051",
+														"comment": "podman-remote is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289052",
+														"comment": "podman-tests is earlier than 4:4.9.4-18.0.1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289053",
+														"comment": "podman-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289054",
+														"comment": "python3-criu is earlier than 0:3.18-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289055",
+														"comment": "python3-criu is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289056",
+														"comment": "python3-podman is earlier than 0:4.9.0-3.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289057",
+														"comment": "python3-podman is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289058",
+														"comment": "runc is earlier than 1:1.1.12-5.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289059",
+														"comment": "runc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289060",
+														"comment": "skopeo is earlier than 2:1.14.5-3.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289061",
+														"comment": "skopeo is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289062",
+														"comment": "skopeo-tests is earlier than 2:1.14.5-3.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289063",
+														"comment": "skopeo-tests is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289064",
+														"comment": "slirp4netns is earlier than 0:1.2.3-1.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289065",
+														"comment": "slirp4netns is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289066",
+														"comment": "udica is earlier than 0:0.2.6-21.module+el8.10.0+90449+0b7c8529"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410289067",
+														"comment": "udica is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202410289003",
+										"comment": "Module container-tools:ol8 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410289068",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202410289001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
