@@ -1,0 +1,608 @@
+{
+	"id": "oval:com.oracle.elsa:def:202410831",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-10831:  postgresql:16 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-10831",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-10831.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-10976",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-10976.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-10979",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-10979.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-10978",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-10978.html"
+			}
+		],
+		"description": "\npgaudit\n[16.0-1]\n- Update to 16.0\n- Support postgresql 16\n- Initial import for PG 16 module\n- Resolves: RHEL-3636\n\npg_repack\n[1.5.1-1]\n- Update to 1.5.1\n\npostgres-decoderbufs\n[2.4.0-1.Final]\n- Initial import for postgresql 16 stream\n- Related: RHEL-3636\n\npostgresql\n[16.6-1]\n- Update to 16.6\n- Fixes: CVE-2024-10976 CVE-2024-10978 CVE-2024-10979\n\n[16.4-1]\n- Update to 16.4\n- Fix CVE-2024-7348\n\n[16.1-1]\n- Update to 16.1\n- Update upgrade server to 15.5\n- Resolves: RHEL-3635\n\n[16.0-1]\n- New postgresql stream - 16\n- Remove pdf documentation\n- Update postgresql-setup to 8.9\n- postmaster binary no more shipped\n- Resolves: RHEL-3636\n\n[15.3-1]\n- Update to upstream version 15.3\n- Fixes: CVE-2023-2454 CVE-2023-2455\n- Resolves: #2207934\n\n[15.2-1]\n- Update to upstream version 15.2\n- Update postgresql-setup to 8.8\n- PostgreSQL systemd unit waits for the network to be up\n- Resolves: #2128241\n\n[15.0-1]\n- Initial import for postgresql 15\n- Specfile is based on version locate in centos stream\n  It reflects changes with libpq. This version of databse server\n  will use private libpq library.\n- Resolves: #2128241\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-12-05"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-10976",
+					"href": "https://linux.oracle.com/cve/CVE-2024-10976.html",
+					"cvss3": "4.2/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N",
+					"public": "20241114"
+				},
+				{
+					"text": "CVE-2024-10979",
+					"href": "https://linux.oracle.com/cve/CVE-2024-10979.html",
+					"cvss3": "8.8/CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+					"public": "20241114"
+				},
+				{
+					"text": "CVE-2024-10978",
+					"href": "https://linux.oracle.com/cve/CVE-2024-10978.html",
+					"cvss3": "4.2/CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N",
+					"public": "20241114"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:8:10:appstream_base",
+					"cpe:/a:oracle:linux:8::appstream"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831004",
+														"comment": "pg_repack is earlier than 0:1.5.1-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831005",
+														"comment": "pg_repack is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831006",
+														"comment": "pgaudit is earlier than 0:16.0-1.module+el8.10.0+90275+c15b12cb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831007",
+														"comment": "pgaudit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831008",
+														"comment": "postgres-decoderbufs is earlier than 0:2.4.0-1.Final.module+el8.10.0+90275+c15b12cb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831009",
+														"comment": "postgres-decoderbufs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831010",
+														"comment": "postgresql is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831011",
+														"comment": "postgresql is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831012",
+														"comment": "postgresql-contrib is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831013",
+														"comment": "postgresql-contrib is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831014",
+														"comment": "postgresql-docs is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831015",
+														"comment": "postgresql-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831016",
+														"comment": "postgresql-plperl is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831017",
+														"comment": "postgresql-plperl is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831018",
+														"comment": "postgresql-plpython3 is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831019",
+														"comment": "postgresql-plpython3 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831020",
+														"comment": "postgresql-pltcl is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831021",
+														"comment": "postgresql-pltcl is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831022",
+														"comment": "postgresql-private-devel is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831023",
+														"comment": "postgresql-private-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831024",
+														"comment": "postgresql-private-libs is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831025",
+														"comment": "postgresql-private-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831026",
+														"comment": "postgresql-server is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831027",
+														"comment": "postgresql-server is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831028",
+														"comment": "postgresql-server-devel is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831029",
+														"comment": "postgresql-server-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831030",
+														"comment": "postgresql-static is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831031",
+														"comment": "postgresql-static is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831032",
+														"comment": "postgresql-test is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831033",
+														"comment": "postgresql-test is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831034",
+														"comment": "postgresql-test-rpm-macros is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831035",
+														"comment": "postgresql-test-rpm-macros is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831036",
+														"comment": "postgresql-upgrade is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831037",
+														"comment": "postgresql-upgrade is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831038",
+														"comment": "postgresql-upgrade-devel is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831039",
+														"comment": "postgresql-upgrade-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202410831003",
+										"comment": "Module postgresql:16 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410831002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831004",
+														"comment": "pg_repack is earlier than 0:1.5.1-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831005",
+														"comment": "pg_repack is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831010",
+														"comment": "postgresql is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831011",
+														"comment": "postgresql is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831012",
+														"comment": "postgresql-contrib is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831013",
+														"comment": "postgresql-contrib is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831014",
+														"comment": "postgresql-docs is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831015",
+														"comment": "postgresql-docs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831016",
+														"comment": "postgresql-plperl is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831017",
+														"comment": "postgresql-plperl is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831018",
+														"comment": "postgresql-plpython3 is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831019",
+														"comment": "postgresql-plpython3 is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831020",
+														"comment": "postgresql-pltcl is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831021",
+														"comment": "postgresql-pltcl is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831022",
+														"comment": "postgresql-private-devel is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831023",
+														"comment": "postgresql-private-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831024",
+														"comment": "postgresql-private-libs is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831025",
+														"comment": "postgresql-private-libs is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831026",
+														"comment": "postgresql-server is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831027",
+														"comment": "postgresql-server is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831028",
+														"comment": "postgresql-server-devel is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831029",
+														"comment": "postgresql-server-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831030",
+														"comment": "postgresql-static is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831031",
+														"comment": "postgresql-static is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831032",
+														"comment": "postgresql-test is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831033",
+														"comment": "postgresql-test is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831034",
+														"comment": "postgresql-test-rpm-macros is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831035",
+														"comment": "postgresql-test-rpm-macros is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831036",
+														"comment": "postgresql-upgrade is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831037",
+														"comment": "postgresql-upgrade is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831038",
+														"comment": "postgresql-upgrade-devel is earlier than 0:16.6-1.module+el8.10.0+90451+109c7b24"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831039",
+														"comment": "postgresql-upgrade-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831006",
+														"comment": "pgaudit is earlier than 0:16.0-1.module+el8.10.0+90275+c15b12cb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831007",
+														"comment": "pgaudit is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831008",
+														"comment": "postgres-decoderbufs is earlier than 0:2.4.0-1.Final.module+el8.10.0+90275+c15b12cb"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410831009",
+														"comment": "postgres-decoderbufs is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202410831003",
+										"comment": "Module postgresql:16 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410831040",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202410831001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
