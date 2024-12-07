@@ -1,0 +1,239 @@
+{
+	"id": "oval:com.oracle.elsa:def:202410869",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-10869:  redis:7 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-10869",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-10869.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-41053",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-41053.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2023-45145",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2023-45145.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-31227",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-31227.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-31449",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-31449.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-31228",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-31228.html"
+			}
+		],
+		"description": "\n[7.2.6-1]\n- rebase to 7.2.6  RHEL-26628\n\n[7.0.12-1]\n- rebase to 7.0.12 #2221899\n\n[7.0.11-1]\n- rebase to 7.0.11 for new redis:7 stream #2129826\n\n[7.0.11-1]\n- Upstream 7.0.11 release.\n\n[7.0.10-2]\n- fix modules directory ownership and permissions #2176173\n- drop redis-shutdown helper and rely on systemd #2181181\n\n[7.0.10-1]\n- Upstream 7.0.10 release.\n\n[7.0.9-1]\n- Upstream 7.0.9 release.\n\n[7.0.8-2]\n- Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild\n\n[7.0.8-1]\n- Upstream 7.0.8 release.\n\n[7.0.7-2]\n- Upstream 7.0.7 release.\n- refresh documentation\n\n[7.0.6-1]\n- Upstream 7.0.6 release.\n\n[7.0.5-2]\n- Port makefile to C99 mode\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-12-06"
+			},
+			"cve": [
+				{
+					"text": "CVE-2023-41053",
+					"href": "https://linux.oracle.com/cve/CVE-2023-41053.html",
+					"cvss3": "3.3/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N",
+					"public": "20230906"
+				},
+				{
+					"text": "CVE-2023-45145",
+					"href": "https://linux.oracle.com/cve/CVE-2023-45145.html",
+					"cvss3": "3.6/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:N",
+					"public": "20231018"
+				},
+				{
+					"text": "CVE-2024-31227",
+					"href": "https://linux.oracle.com/cve/CVE-2024-31227.html",
+					"cvss3": "4.4/CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:N/I:N/A:H",
+					"public": "20241007"
+				},
+				{
+					"text": "CVE-2024-31449",
+					"href": "https://linux.oracle.com/cve/CVE-2024-31449.html",
+					"cvss3": "7.0/CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+					"public": "20241007"
+				},
+				{
+					"text": "CVE-2024-31228",
+					"href": "https://linux.oracle.com/cve/CVE-2024-31228.html",
+					"cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+					"public": "20241007"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:9::appstream"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869004",
+														"comment": "redis is earlier than 0:7.2.6-1.module+el9.5.0+90455+91264f59"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869005",
+														"comment": "redis is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869006",
+														"comment": "redis-devel is earlier than 0:7.2.6-1.module+el9.5.0+90455+91264f59"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869007",
+														"comment": "redis-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869008",
+														"comment": "redis-doc is earlier than 0:7.2.6-1.module+el9.5.0+90455+91264f59"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869009",
+														"comment": "redis-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202410869003",
+										"comment": "Module redis:7 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410869002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869004",
+														"comment": "redis is earlier than 0:7.2.6-1.module+el9.5.0+90455+91264f59"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869005",
+														"comment": "redis is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869006",
+														"comment": "redis-devel is earlier than 0:7.2.6-1.module+el9.5.0+90455+91264f59"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869007",
+														"comment": "redis-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869008",
+														"comment": "redis-doc is earlier than 0:7.2.6-1.module+el9.5.0+90455+91264f59"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202410869009",
+														"comment": "redis-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202410869003",
+										"comment": "Module redis:7 is enabled"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202410869010",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202410869001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
