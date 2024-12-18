@@ -1,0 +1,111 @@
+{
+	"id": "oval:com.oracle.elsa:def:202411185",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-11185:  edk2:20220126gitbb1bba3d77 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-11185",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-11185.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38796",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-38796.html"
+			}
+		],
+		"description": "\n[20220126gitbb1bba3d77-13.el8.4]\n- edk2-MdePkg-Fix-overflow-issue-in-BasePeCoffLib.patch [RHEL-60830]\n- Resolves: RHEL-60830\n  (CVE-2024-38796 edk2: Integer overflows in PeCoffLoaderRelocateImage [rhel-8.10.z])\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-12-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-38796",
+					"href": "https://linux.oracle.com/cve/CVE-2024-38796.html",
+					"cvss3": "5.9/CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L",
+					"public": "20240927"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:8::appstream"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202411185003",
+										"comment": "edk2-aarch64 is earlier than 0:20220126gitbb1bba3d77-13.el8_10.4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202411185004",
+										"comment": "edk2-aarch64 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411185002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202411185006",
+										"comment": "edk2-ovmf is earlier than 0:20220126gitbb1bba3d77-13.el8_10.4"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202411185007",
+										"comment": "edk2-ovmf is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411185005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202411185001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
