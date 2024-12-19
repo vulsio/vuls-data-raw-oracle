@@ -1,0 +1,200 @@
+{
+	"id": "oval:com.oracle.elsa:def:202411232",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-11232:  unbound:1.16.2 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-11232",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-11232.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-8508",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-8508.html"
+			}
+		],
+		"description": "\n[1.16.2-8.1]\n- Fix unbounded name compression could lead to Denial of Service (CVE-2024-8508)\n\n[1.16.2-8]\n- Ensure group access correction reaches also updated configs (CVE-2024-1488)\n\n[1.16.2-7]\n- Ensure only unbound group can change configuration (CVE-2024-1488)\n\n[1.16.2-6]\n- Fix KeyTrap - Extreme CPU consumption in DNSSEC validator CVE-2023-50387\n- Fix Preparing an NSEC3 closest encloser proof can exhaust CPU resources CVE-2023-50868\n- Resolves: RHEL-25671\n- Resolves: RHEL-25643\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-12-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-8508",
+					"href": "https://linux.oracle.com/cve/CVE-2024-8508.html",
+					"cvss3": "5.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+					"public": "20241003"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:9::appstream",
+					"cpe:/a:oracle:linux:9::codeready_builder"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232003",
+												"comment": "python3-unbound is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232004",
+												"comment": "python3-unbound is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232005",
+												"comment": "unbound is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232006",
+												"comment": "unbound is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232007",
+												"comment": "unbound-devel is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232008",
+												"comment": "unbound-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232009",
+												"comment": "unbound-libs is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232010",
+												"comment": "unbound-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411232002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232003",
+												"comment": "python3-unbound is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232004",
+												"comment": "python3-unbound is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232005",
+												"comment": "unbound is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232006",
+												"comment": "unbound is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232007",
+												"comment": "unbound-devel is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232008",
+												"comment": "unbound-devel is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232009",
+												"comment": "unbound-libs is earlier than 0:1.16.2-8.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411232010",
+												"comment": "unbound-libs is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411232011",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202411232001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}

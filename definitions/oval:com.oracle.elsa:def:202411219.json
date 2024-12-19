@@ -1,0 +1,200 @@
+{
+	"id": "oval:com.oracle.elsa:def:202411219",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-11219:  edk2:20240524 security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-11219",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-11219.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-38796",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-38796.html"
+			}
+		],
+		"description": "\n[20240524-6.0.1.el9_5.3]\n- edk2-OvmfPkg-Rerun-dispatcher-after-initializing-virtio-r.patch [RHEL-58631]\n- Resolves: RHEL-58631\n  ([Regression] HTTP Boot fails to work with edk2-ovmf-20231122-6.el9_4.2 and greater)\n- edk2-OvmfPkg-ArmVirtPkg-Add-a-Fallback-RNG-RH-only.patch [RHEL-66230]\n- Resolves: RHEL-66230\n  ([Regression] [aarch64] HTTP Boot not working on old vCPU without virtio-rng device present [rhel-9.6])\n- edk2-OvmfPkg-Add-a-Fallback-RNG-RH-only.patch [RHEL-65725]\n- Resolves: RHEL-65725\n  ([Regression] HTTP Boot not working on old vCPU without virtio-rng device present [rhel-9.6])\n- edk2-OvmfPkg-VirtioGpuDxe-ignore-display-resolutions-smal.patch [RHEL-56248]\n- edk2-OvmfPkg-QemuVideoDxe-ignore-display-resolutions-smal.patch [RHEL-56248]\n- edk2-MdePkg-Fix-overflow-issue-in-BasePeCoffLib.patch [RHEL-60833]\n- Resolves: RHEL-56248\n  (507x510 display resolution should not crash the firmware [edk2,rhel-9.6])\n- Resolves: RHEL-60833\n  (CVE-2024-38796 edk2: Integer overflows in PeCoffLoaderRelocateImage [rhel-9.6])\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-12-19"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-38796",
+					"href": "https://linux.oracle.com/cve/CVE-2024-38796.html",
+					"cvss3": "5.9/CVSS:3.1/AV:A/AC:H/PR:L/UI:N/S:U/C:L/I:H/A:L",
+					"public": "20240927"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:9::appstream",
+					"cpe:/a:oracle:linux:9::codeready_builder"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219003",
+												"comment": "edk2-aarch64 is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219004",
+												"comment": "edk2-aarch64 is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219005",
+												"comment": "edk2-ovmf is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219006",
+												"comment": "edk2-ovmf is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219007",
+												"comment": "edk2-tools is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219008",
+												"comment": "edk2-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219009",
+												"comment": "edk2-tools-doc is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219010",
+												"comment": "edk2-tools-doc is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411219002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219003",
+												"comment": "edk2-aarch64 is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219004",
+												"comment": "edk2-aarch64 is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219005",
+												"comment": "edk2-ovmf is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219006",
+												"comment": "edk2-ovmf is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219007",
+												"comment": "edk2-tools is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219008",
+												"comment": "edk2-tools is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219009",
+												"comment": "edk2-tools-doc is earlier than 0:20240524-6.0.1.el9_5.3"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411219010",
+												"comment": "edk2-tools-doc is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411219011",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202411219001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
