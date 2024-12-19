@@ -1,0 +1,410 @@
+{
+	"id": "oval:com.oracle.elsa:def:202411161",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2024-11161:  tuned security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2024-11161",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2024-11161.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-52337",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-52337.html"
+			}
+		],
+		"description": "\n[2.22.1-5.0.1]\n- Fix RPS/XPS and busy polling optimization not getting applied [Orabug: 32153315]\n- Fix error in uninstalling tuned [Orabug: 351528377]\n- Updated patch with the more recent version [Orabug: 30730976]\n- Set AMD CPU freq governor to ondemand when unapplying cpu tunings [Orabug: 30033199]\n- Restored the system rules in recommend.conf [Orabug: 29962987]\n- Added oci-nic profile and updated profiles-oci-recommend [Orabug: 29869969]\n  for increasing combined channels to 16 on NICs with bnxt_en driver on BM\n- Do not access xps_cpus on single queue devices [Orabug: 29894296]\n- OL8 does not support System Purpose [Orabug: 29443881]\n  Remove syspurpose_role option in recommend.conf.\n- Added profiles-oci-recommend package [Orabug: 29632202]\n- Modified the patch for ol8 [Orabug: 29560068] (james.cheng@oracle.com)\n- Added iscsi plugin, and\n  - added oci-rps-xps profile [Orabug: 28397039]\n  - added oci-busy-polling profile [Orabug: 28748149]\n  - added oci-cpu-power profile\n\n[2.22.1-5]\n- Added sanity checks for API methods parameters, (CVE-2024-52337)\n  Resolves: RHEL-66614\n\n[2.22.1-4.1]\n- sap-netweaver: increase vm.max_map_count\n  resolves: RHEL-32124\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2024 Oracle, Inc.",
+			"issued": {
+				"date": "2024-12-17"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-52337",
+					"href": "https://linux.oracle.com/cve/CVE-2024-52337.html",
+					"cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+					"public": "20241126"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:oracle:linux:8::baseos_latest",
+					"cpe:/o:oracle:linux:8:10:baseos_patch",
+					"cpe:/a:oracle:linux:8::appstream",
+					"cpe:/a:oracle:linux:8::oci_included"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161003",
+												"comment": "tuned-gtk is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161004",
+												"comment": "tuned-gtk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161005",
+												"comment": "tuned-profiles-postgresql is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161006",
+												"comment": "tuned-profiles-postgresql is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161007",
+												"comment": "tuned-utils is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161008",
+												"comment": "tuned-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161009",
+												"comment": "tuned-utils-systemtap is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161010",
+												"comment": "tuned-utils-systemtap is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161011",
+												"comment": "tuned-profiles-atomic is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161012",
+												"comment": "tuned-profiles-atomic is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161013",
+												"comment": "tuned-profiles-compat is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161014",
+												"comment": "tuned-profiles-compat is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161015",
+												"comment": "tuned is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161016",
+												"comment": "tuned is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161017",
+												"comment": "tuned-profiles-cpu-partitioning is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161018",
+												"comment": "tuned-profiles-cpu-partitioning is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161019",
+												"comment": "tuned-profiles-mssql is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161020",
+												"comment": "tuned-profiles-mssql is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161021",
+												"comment": "tuned-profiles-oracle is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161022",
+												"comment": "tuned-profiles-oracle is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161023",
+												"comment": "tuned-profiles-oci is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161024",
+												"comment": "tuned-profiles-oci is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161025",
+												"comment": "tuned-profiles-oci-recommend is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161026",
+												"comment": "tuned-profiles-oci-recommend is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411161002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161011",
+												"comment": "tuned-profiles-atomic is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161012",
+												"comment": "tuned-profiles-atomic is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161017",
+												"comment": "tuned-profiles-cpu-partitioning is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161018",
+												"comment": "tuned-profiles-cpu-partitioning is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161021",
+												"comment": "tuned-profiles-oracle is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161022",
+												"comment": "tuned-profiles-oracle is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161003",
+												"comment": "tuned-gtk is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161004",
+												"comment": "tuned-gtk is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161005",
+												"comment": "tuned-profiles-postgresql is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161006",
+												"comment": "tuned-profiles-postgresql is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161007",
+												"comment": "tuned-utils is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161008",
+												"comment": "tuned-utils is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161009",
+												"comment": "tuned-utils-systemtap is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161010",
+												"comment": "tuned-utils-systemtap is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161023",
+												"comment": "tuned-profiles-oci is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161024",
+												"comment": "tuned-profiles-oci is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161025",
+												"comment": "tuned-profiles-oci-recommend is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161026",
+												"comment": "tuned-profiles-oci-recommend is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161015",
+												"comment": "tuned is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161016",
+												"comment": "tuned is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161013",
+												"comment": "tuned-profiles-compat is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161014",
+												"comment": "tuned-profiles-compat is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161019",
+												"comment": "tuned-profiles-mssql is earlier than 0:2.22.1-5.0.1.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:202411161020",
+												"comment": "tuned-profiles-mssql is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:202411161027",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:202411161001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
