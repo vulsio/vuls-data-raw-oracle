@@ -1,0 +1,111 @@
+{
+	"id": "oval:com.oracle.elsa:def:20250168",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2025-0168:  iperf3 security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2025-0168",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2025-0168.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-53580",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-53580.html"
+			}
+		],
+		"description": "\n[3.5-11]\n- Resolves: RHEL-72924 - Denial of Service in iperf Due to Improper JSON Handling\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2025 Oracle, Inc.",
+			"issued": {
+				"date": "2025-01-09"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-53580",
+					"href": "https://linux.oracle.com/cve/CVE-2024-53580.html",
+					"cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+					"public": "20241218"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:8::appstream"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250168003",
+										"comment": "iperf3 is earlier than 0:3.5-11.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250168004",
+										"comment": "iperf3 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250168002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250168003",
+										"comment": "iperf3 is earlier than 0:3.5-11.el8_10"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250168004",
+										"comment": "iperf3 is signed with the Oracle Linux 8 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250168005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20250168001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
