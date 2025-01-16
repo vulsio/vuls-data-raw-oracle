@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:20250324",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2025-0324:  rsync security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2025-0324",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2025-0324.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-12085",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-12085.html"
+			}
+		],
+		"description": "\n[3.2.3-20.1]\n- Resolves: RHEL-72495 - Info Leak via Uninitialized Stack Contents\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2025 Oracle, Inc.",
+			"issued": {
+				"date": "2025-01-15"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-12085",
+					"href": "https://linux.oracle.com/cve/CVE-2024-12085.html",
+					"cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+					"public": "20250114"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:9::appstream",
+					"cpe:/o:oracle:linux:9::baseos_latest",
+					"cpe:/o:oracle:linux:9:5:baseos_patch"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324003",
+												"comment": "rsync is earlier than 0:3.2.3-20.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324004",
+												"comment": "rsync is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324005",
+												"comment": "rsync-daemon is earlier than 0:3.2.3-20.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324006",
+												"comment": "rsync-daemon is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250324002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324003",
+												"comment": "rsync is earlier than 0:3.2.3-20.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324004",
+												"comment": "rsync is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324005",
+												"comment": "rsync-daemon is earlier than 0:3.2.3-20.el9_5.1"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250324006",
+												"comment": "rsync-daemon is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250324007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20250324001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
