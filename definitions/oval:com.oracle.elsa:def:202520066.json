@@ -1,0 +1,902 @@
+{
+	"id": "oval:com.oracle.elsa:def:202520066",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2025-20066: Unbreakable Enterprise kernel security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8",
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2025-20066",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2025-20066.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50301",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-50301.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-49974",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-49974.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-50261",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-50261.html"
+			}
+		],
+		"description": "\n[5.15.0-304.171.4.3]\n- NFSD: Limit the number of concurrent async COPY operations (Chuck Lever)  [Orabug: 37516381]  {CVE-2024-49974}\n- NFSD: Async COPY result needs to return a write verifier (Chuck Lever)  [Orabug: 37516381]  {CVE-2024-49974}\n- security/keys: fix slab-out-of-bounds in key_task_permission (Chen Ridong)  [Orabug: 37516370]  {CVE-2024-50301}\n- macsec: Fix use-after-free while sending the offloading packet (Jianbo Liu)  [Orabug: 37516375]  {CVE-2024-50261}\n\n[5.15.0-304.171.4.2]\n- PCI: Fix pci_enable_acs() support for the ACS quirks (Jason Gunthorpe)  [Orabug: 37492139]\n- PCI: Clear Secondary Status errors after enumeration (Vidya Sagar)  [Orabug: 37492139]\n- PCI/AER: Configure ECRC only if AER is native (Vidya Sagar)  [Orabug: 37492139]\n- PCI: Extend ACS configurability (Vidya Sagar)  [Orabug: 37492139]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2025 Oracle, Inc.",
+			"issued": {
+				"date": "2025-01-27"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-50301",
+					"href": "https://linux.oracle.com/cve/CVE-2024-50301.html",
+					"cvss3": "7.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:H",
+					"public": "20241119"
+				},
+				{
+					"text": "CVE-2024-49974",
+					"href": "https://linux.oracle.com/cve/CVE-2024-49974.html",
+					"cvss3": "5.5/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+					"public": "20241021"
+				},
+				{
+					"text": "CVE-2024-50261",
+					"href": "https://linux.oracle.com/cve/CVE-2024-50261.html",
+					"cvss3": "6.1/CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+					"public": "20241109"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:oracle:linux:9::baseos_latest",
+					"cpe:/a:oracle:linux:8::UEKR7",
+					"cpe:/a:oracle:linux:9::UEKR7",
+					"cpe:/o:oracle:linux:9:5:baseos_patch"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "OR",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066003",
+														"comment": "bpftool is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066004",
+														"comment": "bpftool is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066005",
+														"comment": "kernel-uek is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066006",
+														"comment": "kernel-uek is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066007",
+														"comment": "kernel-uek-container is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066008",
+														"comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066009",
+														"comment": "kernel-uek-container-debug is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066010",
+														"comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066011",
+														"comment": "kernel-uek-core is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066012",
+														"comment": "kernel-uek-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066013",
+														"comment": "kernel-uek-debug is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066014",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066015",
+														"comment": "kernel-uek-debug-core is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066016",
+														"comment": "kernel-uek-debug-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066017",
+														"comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066018",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066019",
+														"comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066020",
+														"comment": "kernel-uek-debug-modules is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066021",
+														"comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066022",
+														"comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066023",
+														"comment": "kernel-uek-devel is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066024",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066025",
+														"comment": "kernel-uek-doc is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066026",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066027",
+														"comment": "kernel-uek-modules is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066028",
+														"comment": "kernel-uek-modules is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066029",
+														"comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066030",
+														"comment": "kernel-uek-modules-extra is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202520066002",
+										"comment": "Oracle Linux arch is aarch64"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066003",
+														"comment": "bpftool is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066004",
+														"comment": "bpftool is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066005",
+														"comment": "kernel-uek is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066006",
+														"comment": "kernel-uek is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066007",
+														"comment": "kernel-uek-container is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066008",
+														"comment": "kernel-uek-container is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066009",
+														"comment": "kernel-uek-container-debug is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066010",
+														"comment": "kernel-uek-container-debug is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066011",
+														"comment": "kernel-uek-core is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066012",
+														"comment": "kernel-uek-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066013",
+														"comment": "kernel-uek-debug is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066014",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066015",
+														"comment": "kernel-uek-debug-core is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066016",
+														"comment": "kernel-uek-debug-core is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066017",
+														"comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066018",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066019",
+														"comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066020",
+														"comment": "kernel-uek-debug-modules is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066021",
+														"comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066022",
+														"comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066023",
+														"comment": "kernel-uek-devel is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066024",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066025",
+														"comment": "kernel-uek-doc is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066026",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066027",
+														"comment": "kernel-uek-modules is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066028",
+														"comment": "kernel-uek-modules is signed with the Oracle Linux 8 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066029",
+														"comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-304.171.4.3.el8uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066030",
+														"comment": "kernel-uek-modules-extra is signed with the Oracle Linux 8 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202520066031",
+										"comment": "Oracle Linux arch is x86_64"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:202520066001",
+						"comment": "Oracle Linux 8 is installed"
+					}
+				]
+			},
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "OR",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066034",
+														"comment": "bpftool is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066035",
+														"comment": "bpftool is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066036",
+														"comment": "kernel-uek is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066037",
+														"comment": "kernel-uek is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066038",
+														"comment": "kernel-uek-container is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066039",
+														"comment": "kernel-uek-container is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066040",
+														"comment": "kernel-uek-container-debug is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066041",
+														"comment": "kernel-uek-container-debug is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066042",
+														"comment": "kernel-uek-core is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066043",
+														"comment": "kernel-uek-core is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066044",
+														"comment": "kernel-uek-debug is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066045",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066046",
+														"comment": "kernel-uek-debug-core is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066047",
+														"comment": "kernel-uek-debug-core is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066048",
+														"comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066049",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066050",
+														"comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066051",
+														"comment": "kernel-uek-debug-modules is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066052",
+														"comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066053",
+														"comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066054",
+														"comment": "kernel-uek-devel is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066055",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066056",
+														"comment": "kernel-uek-doc is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066057",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066058",
+														"comment": "kernel-uek-modules is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066059",
+														"comment": "kernel-uek-modules is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066060",
+														"comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066061",
+														"comment": "kernel-uek-modules-extra is signed with the Oracle Linux 9 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202520066033",
+										"comment": "Oracle Linux arch is aarch64"
+									}
+								]
+							},
+							{
+								"operator": "AND",
+								"criterias": [
+									{
+										"operator": "OR",
+										"criterias": [
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066034",
+														"comment": "bpftool is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066035",
+														"comment": "bpftool is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066036",
+														"comment": "kernel-uek is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066037",
+														"comment": "kernel-uek is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066038",
+														"comment": "kernel-uek-container is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066039",
+														"comment": "kernel-uek-container is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066040",
+														"comment": "kernel-uek-container-debug is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066041",
+														"comment": "kernel-uek-container-debug is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066042",
+														"comment": "kernel-uek-core is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066043",
+														"comment": "kernel-uek-core is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066044",
+														"comment": "kernel-uek-debug is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066045",
+														"comment": "kernel-uek-debug is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066046",
+														"comment": "kernel-uek-debug-core is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066047",
+														"comment": "kernel-uek-debug-core is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066048",
+														"comment": "kernel-uek-debug-devel is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066049",
+														"comment": "kernel-uek-debug-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066050",
+														"comment": "kernel-uek-debug-modules is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066051",
+														"comment": "kernel-uek-debug-modules is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066052",
+														"comment": "kernel-uek-debug-modules-extra is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066053",
+														"comment": "kernel-uek-debug-modules-extra is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066054",
+														"comment": "kernel-uek-devel is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066055",
+														"comment": "kernel-uek-devel is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066056",
+														"comment": "kernel-uek-doc is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066057",
+														"comment": "kernel-uek-doc is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066058",
+														"comment": "kernel-uek-modules is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066059",
+														"comment": "kernel-uek-modules is signed with the Oracle Linux 9 key"
+													}
+												]
+											},
+											{
+												"operator": "AND",
+												"criterions": [
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066060",
+														"comment": "kernel-uek-modules-extra is earlier than 0:5.15.0-304.171.4.3.el9uek"
+													},
+													{
+														"test_ref": "oval:com.oracle.elsa:tst:202520066061",
+														"comment": "kernel-uek-modules-extra is signed with the Oracle Linux 9 key"
+													}
+												]
+											}
+										]
+									}
+								],
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:202520066062",
+										"comment": "Oracle Linux arch is x86_64"
+									}
+								]
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:202520066032",
+						"comment": "Oracle Linux 9 is installed"
+					}
+				]
+			}
+		]
+	}
+}
