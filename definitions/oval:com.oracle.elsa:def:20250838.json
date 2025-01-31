@@ -1,0 +1,149 @@
+{
+	"id": "oval:com.oracle.elsa:def:20250838",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2025-0838:  libsoup security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 8"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2025-0838",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2025-0838.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-52531",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-52531.html"
+			}
+		],
+		"description": "\n[2.62.3-7]\n- Backport upstream patch for CVE-2024-52531 - buffer overflow via UTF-8 conversion in soup_header_parse_param_list_strict\n  Resolves: RHEL-76376\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2025 Oracle, Inc.",
+			"issued": {
+				"date": "2025-01-30"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-52531",
+					"href": "https://linux.oracle.com/cve/CVE-2024-52531.html",
+					"cvss3": "9.0/CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+					"public": "20241111"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/o:oracle:linux:8::baseos_latest",
+					"cpe:/o:oracle:linux:8:10:baseos_patch",
+					"cpe:/a:oracle:linux:8::appstream"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838003",
+												"comment": "libsoup is earlier than 0:2.62.3-7.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838004",
+												"comment": "libsoup is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838005",
+												"comment": "libsoup-devel is earlier than 0:2.62.3-7.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838006",
+												"comment": "libsoup-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250838002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838003",
+												"comment": "libsoup is earlier than 0:2.62.3-7.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838004",
+												"comment": "libsoup is signed with the Oracle Linux 8 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838005",
+												"comment": "libsoup-devel is earlier than 0:2.62.3-7.el8_10"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250838006",
+												"comment": "libsoup-devel is signed with the Oracle Linux 8 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250838007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20250838001",
+				"comment": "Oracle Linux 8 is installed"
+			}
+		]
+	}
+}
