@@ -1,0 +1,111 @@
+{
+	"id": "oval:com.oracle.elsa:def:20250917",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2025-0917:  keepalived security update (MODERATE)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2025-0917",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2025-0917.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-41184",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-41184.html"
+			}
+		],
+		"description": "\n[2.2.8-3]\n- Validate vrrp ipset names for CVE-2024-41184\n  Resolves: RHEL-49557\n",
+		"advisory": {
+			"severity": "MODERATE",
+			"rights": "Copyright 2025 Oracle, Inc.",
+			"issued": {
+				"date": "2025-02-03"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-41184",
+					"href": "https://linux.oracle.com/cve/CVE-2024-41184.html",
+					"cvss3": "6.3/CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L",
+					"public": "20240718"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:9::appstream"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250917003",
+										"comment": "keepalived is earlier than 0:2.2.8-4.el9_5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250917004",
+										"comment": "keepalived is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250917002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "AND",
+								"criterions": [
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250917003",
+										"comment": "keepalived is earlier than 0:2.2.8-4.el9_5"
+									},
+									{
+										"test_ref": "oval:com.oracle.elsa:tst:20250917004",
+										"comment": "keepalived is signed with the Oracle Linux 9 key"
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250917005",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20250917001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
