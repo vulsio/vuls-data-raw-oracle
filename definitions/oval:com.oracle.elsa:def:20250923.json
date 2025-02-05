@@ -1,0 +1,147 @@
+{
+	"id": "oval:com.oracle.elsa:def:20250923",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2025-0923:  buildah security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 9"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2025-0923",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2025-0923.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-11218",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-11218.html"
+			}
+		],
+		"description": "\n[1.37.6-1.0.1]\n- Drop nmap-ncat requirement and skip ignore-socket test case [Orabug: 34117178]\n\n[2:1.37.6-1]\n- update to the latest content of https://github.com/containers/buildah/tree/release-1.37\n  (https://github.com/containers/buildah/commit/fd39521)\n- Resolves: RHEL-67617\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2025 Oracle, Inc.",
+			"issued": {
+				"date": "2025-02-04"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-11218",
+					"href": "https://linux.oracle.com/cve/CVE-2024-11218.html",
+					"cvss3": "8.6/CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+					"public": "20250120"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:9::appstream"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "OR",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923003",
+												"comment": "buildah is earlier than 2:1.37.6-1.0.1.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923004",
+												"comment": "buildah is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923005",
+												"comment": "buildah-tests is earlier than 2:1.37.6-1.0.1.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923006",
+												"comment": "buildah-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250923002",
+								"comment": "Oracle Linux arch is aarch64"
+							}
+						]
+					},
+					{
+						"operator": "AND",
+						"criterias": [
+							{
+								"operator": "OR",
+								"criterias": [
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923003",
+												"comment": "buildah is earlier than 2:1.37.6-1.0.1.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923004",
+												"comment": "buildah is signed with the Oracle Linux 9 key"
+											}
+										]
+									},
+									{
+										"operator": "AND",
+										"criterions": [
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923005",
+												"comment": "buildah-tests is earlier than 2:1.37.6-1.0.1.el9_5"
+											},
+											{
+												"test_ref": "oval:com.oracle.elsa:tst:20250923006",
+												"comment": "buildah-tests is signed with the Oracle Linux 9 key"
+											}
+										]
+									}
+								]
+							}
+						],
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250923007",
+								"comment": "Oracle Linux arch is x86_64"
+							}
+						]
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20250923001",
+				"comment": "Oracle Linux 9 is installed"
+			}
+		]
+	}
+}
