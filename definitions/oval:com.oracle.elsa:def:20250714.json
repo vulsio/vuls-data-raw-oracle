@@ -1,0 +1,82 @@
+{
+	"id": "oval:com.oracle.elsa:def:20250714",
+	"version": "501",
+	"class": "patch",
+	"metadata": {
+		"title": "\nELSA-2025-0714:  rsync security update (IMPORTANT)\n",
+		"affected": {
+			"family": "unix",
+			"platform": [
+				"Oracle Linux 7"
+			]
+		},
+		"reference": [
+			{
+				"source": "elsa",
+				"ref_id": "ELSA-2025-0714",
+				"ref_url": "https://linux.oracle.com/errata/ELSA-2025-0714.html"
+			},
+			{
+				"source": "CVE",
+				"ref_id": "CVE-2024-12085",
+				"ref_url": "https://linux.oracle.com/cve/CVE-2024-12085.html"
+			}
+		],
+		"description": "\n[3.1.2-12.0.1]\n* Back port fix for CVE-2024-12085 [Orabug: 37524229]\n",
+		"advisory": {
+			"severity": "IMPORTANT",
+			"rights": "Copyright 2025 Oracle, Inc.",
+			"issued": {
+				"date": "2025-02-14"
+			},
+			"cve": [
+				{
+					"text": "CVE-2024-12085",
+					"href": "https://linux.oracle.com/cve/CVE-2024-12085.html",
+					"cvss3": "7.5/CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+					"public": "20250114"
+				}
+			],
+			"affected_cpe_list": {
+				"cpe": [
+					"cpe:/a:oracle:linux:7:9:latest_ELS"
+				]
+			}
+		}
+	},
+	"criteria": {
+		"operator": "AND",
+		"criterias": [
+			{
+				"operator": "AND",
+				"criterias": [
+					{
+						"operator": "AND",
+						"criterions": [
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250714003",
+								"comment": "rsync is earlier than 0:3.1.2-12.0.1.el7_9"
+							},
+							{
+								"test_ref": "oval:com.oracle.elsa:tst:20250714004",
+								"comment": "rsync is signed with the Oracle Linux 7 key"
+							}
+						]
+					}
+				],
+				"criterions": [
+					{
+						"test_ref": "oval:com.oracle.elsa:tst:20250714002",
+						"comment": "Oracle Linux arch is x86_64"
+					}
+				]
+			}
+		],
+		"criterions": [
+			{
+				"test_ref": "oval:com.oracle.elsa:tst:20250714001",
+				"comment": "Oracle Linux 7 is installed"
+			}
+		]
+	}
+}
